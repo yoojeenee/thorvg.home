@@ -8,8 +8,8 @@
   --color-accent-strong: #5a3ce0;
   --color-border: #e3e5ea;
 
-  --font-heading: "Montserrat", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: "Inter", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Poppins", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Google Sans Flex", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
 
   --container-width: 1100px;
   --space-1: 0.5rem;
@@ -65,7 +65,10 @@ img {
 
 /* ---------- Header ---------- */
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   user-select: none;
   -webkit-user-select: none;
@@ -93,6 +96,11 @@ img {
   width: auto;
   aspect-ratio: 620 / 185;
   display: block;
+  transition: opacity 0.15s ease;
+}
+
+.logo:hover .logo-img {
+  opacity: 0.33;
 }
 
 .main-nav {
@@ -132,6 +140,11 @@ img {
   height: 0.7em;
   margin-left: 0.35em;
   transform: translateY(-50%);
+  transition: opacity 0.15s ease;
+}
+
+.nav-external:hover .external-icon {
+  opacity: 0.33;
 }
 
 .menu-toggle {
@@ -149,6 +162,11 @@ img {
 .menu-icon {
   width: 20px;
   height: 20px;
+  transition: opacity 0.15s ease;
+}
+
+.menu-toggle:hover .menu-icon {
+  opacity: 0.33;
 }
 
 @media (max-width: 860px) {
@@ -222,7 +240,7 @@ img {
 .hero h1 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.15;
   text-align: center;
 }
@@ -305,6 +323,106 @@ img {
   font-size: 0.95rem;
   line-height: 1.85;
   color: var(--color-text-muted);
+}
+
+/* ---------- Docs layout (About / Showcase / Tutorial) ---------- */
+.docs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: var(--space-5);
+  align-items: start;
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+
+.docs-toc {
+  position: sticky;
+  top: calc(76px + var(--space-4));
+}
+
+.docs-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docs-toc-list a {
+  display: block;
+  padding: 0.3rem 0;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
+}
+
+.docs-toc-list a:hover {
+  color: #aaaaaa;
+}
+
+.docs-toc-list a.docs-toc-sub {
+  padding-left: var(--space-2);
+}
+
+.docs-toc-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-2);
+}
+
+.docs-toc-list li {
+  margin-bottom: 0.2rem;
+}
+
+.docs-content {
+  min-width: 0;
+  padding-left: var(--space-3);
+}
+
+.docs-content h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.docs-content h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.docs-content h2:first-of-type {
+  margin-top: var(--space-4);
+  padding-top: 0;
+  border-top: none;
+}
+
+.docs-content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 960px) {
+  .docs-layout {
+    display: block;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  .docs-content {
+    padding-left: 0;
+  }
+
+  .docs-toc {
+    display: none;
+  }
 }
 
 /* ---------- Footer ---------- */
