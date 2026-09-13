@@ -610,6 +610,24 @@ img {
   color: #5d5d5d;
 }
 
+.docs-content figcaption a {
+  color: #3b82f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.docs-content figcaption a:hover {
+  color: #aaaaaa;
+}
+
+.docs-content figcaption.caption-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
 .feature-grid {
   max-width: 640px;
   display: grid;
