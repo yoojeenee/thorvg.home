@@ -316,3 +316,26 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     document.querySelector('.example-pagination').hidden = true;
   }
 }
+
+const exampleCodePanelForSticky = document.getElementById('example-code-panel');
+const siteHeaderForAutoHide = document.querySelector('.site-header');
+
+if (exampleCodePanelForSticky && siteHeaderForAutoHide) {
+  let lastScrollY = window.scrollY;
+  const hideThreshold = 40;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const scrollingDown = currentScrollY > lastScrollY;
+
+    if (currentScrollY > hideThreshold && scrollingDown) {
+      siteHeaderForAutoHide.classList.add('is-hidden');
+      exampleCodePanelForSticky.classList.add('is-pinned-top');
+    } else if (!scrollingDown || currentScrollY <= hideThreshold) {
+      siteHeaderForAutoHide.classList.remove('is-hidden');
+      exampleCodePanelForSticky.classList.remove('is-pinned-top');
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+}
