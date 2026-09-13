@@ -34,8 +34,569 @@
   <main>
     <section class="page-content">
       <div class="container">
-        <h1>Playground</h1>
-        <p class="placeholder-text">Content coming soon.</p>
+        <div class="playground-intro">
+          <h1>Playground</h1>
+          <p class="page-lede">
+            ThorVG Playground is an interactive space where you can explore various graphic features
+            and see the results in real time. From basic shapes to styles and animations, each
+            example showcases the powerful vector graphics capabilities of ThorVG.
+          </p>
+          <p class="page-lede">
+            This Playground is powered by the <a href="https://github.com/thorvg/thorvg.web" target="_blank" rel="noopener">ThorVG WebCanvas (JavaScript API)</a>, allowing you to run ThorVG directly in your browser. Code and previews are provided together to make learning and testing easier.
+          </p>
+          <a href="view.html" class="btn-pill">
+            Try your code in the Viewer
+            <svg class="btn-pill-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg>
+          </a>
+        </div>
+        <div class="filter-chips" id="playground-filters">
+          <button type="button" class="filter-chip is-active" data-filter="All">All</button>
+          <button type="button" class="filter-chip" data-filter="Basic">Basic</button>
+          <button type="button" class="filter-chip" data-filter="Advanced">Advanced</button>
+          <button type="button" class="filter-chip" data-filter="Text">Text</button>
+          <button type="button" class="filter-chip" data-filter="Media">Media</button>
+        </div>
+        <div class="playground-grid" id="playground-grid">
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/custom-transform" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Custom Transform</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Apply custom transformation matrices to shapes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/direct-update" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Direct Update</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Direct shape updates with retained properties</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/fill-rule" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Fill Rule</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate shape fill rules</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/fill-spread" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Fill Spread</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate gradient spread modes: pad, reflect, and repeat</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/gradient-stroke" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Gradient Stroke</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Apply linear and radial gradients to strokes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/gradient-transform" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Gradient with Transforms</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Animate gradients with shape transformations</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/gradients" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Linear Gradient</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Apply linear and radial gradients to shapes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/image-rotation" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Image Rotation</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Rotate images around center origin</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/image-scaling" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Image Scaling</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Scale images around center origin</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/opacity" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Opacity</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate opacity control on shapes and scenes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/path" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Path Drawing</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Draw shapes using path commands</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/radial-gradient" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Radial Gradient</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate radial gradients</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/scene-blending" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Scene Blending</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate scene blending modes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/scene-transform" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Scene Transform</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Animate scene transformations with rotate, scale, and translate</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/basic-shapes" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Shapes</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Draw simple shapes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/stroke-line" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Stroke Line</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate stroke join and cap styles</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/stroke-miterlimit" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Stroke Miter Limit</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate stroke miter limit behavior</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/stroke" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Stroke</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate stroke width, join, and cap styles</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/transform-animation" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Shape Transform</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Animate shapes with rotation and scaling</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/trim-path" target="_blank" rel="noopener" data-category="Basic">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Path Trimming</span>
+                <span class="playground-card-tag">Basic</span>
+              </div>
+              <p class="playground-card-desc">Trim paths to show only portions of shapes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/accessor" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Accessor</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Traverse a picture scene tree and modify paint properties by ID</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/blending" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Blending</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate all blend modes with various paint types</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/bounding-box" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Bounding Box</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Display bounding boxes around objects</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/clipping" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Clipping</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate clipping for shapes and scenes</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/duplicate" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Duplication</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Duplicate shapes, scenes, pictures, and objects</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/effect-drop-shadow" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Effect Drop Shadow</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Drop shadow effect applied to scene content</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/error-handling" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Error Handling</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Global error handler catches</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/gradient-masking" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Gradient Masking</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate Alpha and InvAlpha masking with linear gradients</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/intersects" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Intersects</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Interactive example demonstrating paint.intersects() API with mouse hover detection</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/masking" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Masking</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate Alpha, InvAlpha, Luma, and InvLuma masking with various paint types</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/masking-methods" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Masking Methods</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate all 6 mask composition methods (Add, Subtract, Intersect, Difference, Lighten, Darken)</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/scene-effects" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Scene Effects</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Comprehensive demonstration of all scene effects: Gaussian Blur, Fill, Tint, and Tritone</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/viewport" target="_blank" rel="noopener" data-category="Advanced">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Viewport</span>
+                <span class="playground-card-tag">Advanced</span>
+              </div>
+              <p class="playground-card-desc">Control canvas viewport for panning effects</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/font-provider" target="_blank" rel="noopener" data-category="Text">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Font Provider</span>
+                <span class="playground-card-tag">Text</span>
+              </div>
+              <p class="playground-card-desc">Use a custom font provider to load fonts from any source</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/text-animation" target="_blank" rel="noopener" data-category="Text">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Text Effects</span>
+                <span class="playground-card-tag">Text</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate text animation with multiple effects</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/text-layout" target="_blank" rel="noopener" data-category="Text">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Text Layout</span>
+                <span class="playground-card-tag">Text</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate text layout with alignment within a bounding box</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/text-line-wrap" target="_blank" rel="noopener" data-category="Text">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Text Line Wrap</span>
+                <span class="playground-card-tag">Text</span>
+              </div>
+              <p class="playground-card-desc">Demonstrate text wrapping modes with different alignments</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/text-otf" target="_blank" rel="noopener" data-category="Text">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Text OTF</span>
+                <span class="playground-card-tag">Text</span>
+              </div>
+              <p class="playground-card-desc">Render text with OpenType fonts</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/text-ttf" target="_blank" rel="noopener" data-category="Text">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Text TTF</span>
+                <span class="playground-card-tag">Text</span>
+              </div>
+              <p class="playground-card-desc">Render text with TrueType fonts</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/picture-jpg" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">JPG</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Load and display JPG images</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/lottie-animation" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Lottie</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Load and play a Lottie animation with playback controls</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/lottie-expressions" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Lottie Expressions</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Lottie animations with expressions support</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/lottie-slots" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Lottie Slots</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Override Lottie properties at runtime with slots (color, gradient, transform, text)</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/lottie-interaction" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Lottie Interaction</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Drag on the canvas to spin the Lottie in real time — driven by expression slots</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/lottie-asset-resolver" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Lottie Asset Resolver</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Supply external Lottie assets (images, fonts) at runtime via a resolver callback</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/picture-png" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">PNG</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Load and display PNG images</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/picture-raw" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">Raw</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Load and display raw ARGB8888 image data</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/picture-svg" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">SVG</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Load and display the Ghostscript Tiger SVG</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+          <a class="playground-card" href="https://thorvg-playground.vercel.app/showcase/picture-webp" target="_blank" rel="noopener" data-category="Media">
+            <div class="playground-card-media"></div>
+            <div class="playground-card-body">
+              <div class="playground-card-head">
+                <span class="playground-card-title">WebP</span>
+                <span class="playground-card-tag">Media</span>
+              </div>
+              <p class="playground-card-desc">Load and display WebP images</p>
+              <span class="playground-card-link">View code &amp; Preview <svg class="playground-card-link-icon" viewBox="0 0 640 640" aria-hidden="true"><path fill="currentColor" d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg></span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   </main>
