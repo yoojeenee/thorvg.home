@@ -25,7 +25,7 @@
 
   if (window.location.protocol === 'file:') {
     if (placeholder) {
-      placeholder.innerHTML = 'This page was opened directly (file://).<br>Run the local server and open it from http://localhost instead — the ThorVG WebAssembly engine can\'t load over file://.';
+      placeholder.innerHTML = 'Live rendering isn&rsquo;t available when this page is opened directly (file://).<br>Run the local server and open it from http://localhost instead.';
     }
     // The WASM engine can't fetch over file://, so none of the loading/rendering
     // logic below can work — skip wiring it up entirely rather than failing later.
@@ -181,7 +181,7 @@
       } catch (err) {
         console.error('ThorVG View: failed to load file', err);
         if (window.location.protocol === 'file:') {
-          alert('Unable to render this file. This page was opened directly (file://) — the ThorVG WebAssembly engine can only load over http(s). Run the local server (see README) and open the page from http://localhost instead.');
+          alert('Live rendering isn\'t available when this page is opened directly (file://).\nRun the local server and open it from http://localhost instead.');
         } else {
           alert('Unable to render this file.' + (err && err.message ? '\n\n' + err.message : ''));
         }

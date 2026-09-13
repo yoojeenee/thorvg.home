@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example — Playground — ThorVG</title>
+  <meta name="description" content="ThorVG is a platform-independent library for drawing vector-based scenes and animations, including SVG and Lottie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="assets/images/thorvg-logo.svg" alt="ThorVG" class="logo-img"></a>
+      <nav class="main-nav" id="main-nav">
+        <a href="about.html">About</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="tutorial.html">Tutorial</a>
+        <a href="api.html">API</a>
+        <a href="https://deepwiki.com/thorvg/thorvg" target="_blank" rel="noopener" class="nav-external">DeepWiki<span class="external-icon">&#8599;</span></a>
+        <a href="blogs.html">Blogs</a>
+        <a href="https://github.com/thorvg/thorvg/releases" target="_blank" rel="noopener" class="nav-external">Releases<span class="external-icon">&#8599;</span></a>
+        <a href="playground.html" class="active">Playground</a>
+        <a href="view.html">View</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <img src="assets/icons/menu.svg" alt="" class="menu-icon">
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-content">
+      <div class="container">
+        <a href="playground.html" class="example-back-link">
+          &larr; Back to Playground
+        </a>
+
+        <div class="example-header" id="example-header">
+          <div class="example-header-top">
+            <h2 id="example-title">Loading&hellip;</h2>
+            <span class="playground-card-tag" id="example-category"></span>
+          </div>
+          <p class="page-lede example-description" id="example-description"></p>
+        </div>
+
+        <div class="example-code-panel" id="example-code-panel">
+          <div class="example-code-panel-col example-code-panel-preview">
+            <div class="example-code-panel-header">
+              <span class="example-code-panel-header-label">Canvas Preview</span>
+            </div>
+            <div class="example-canvas-preview">
+              <p class="example-canvas-preview-note">Live canvas preview isn&rsquo;t available in this static build. Use the &ldquo;Copy Code&rdquo; button and paste it into the <a href="https://thorvg-playground.vercel.app" target="_blank" rel="noopener">ThorVG Playground</a> to run it.</p>
+            </div>
+          </div>
+          <div class="example-code-panel-col example-code-panel-code">
+            <div class="example-code-panel-header">
+              <span class="example-code-panel-header-label">Code Editor</span>
+              <button type="button" class="example-copy-code-btn" id="example-copy-code-btn">
+                <span class="example-copy-code-icon example-copy-code-icon--copy" aria-hidden="true"><svg viewBox="0 0 640 640"><path fill="currentColor" d="M352 528L128 528C119.2 528 112 520.8 112 512L112 288C112 279.2 119.2 272 128 272L176 272L176 224L128 224C92.7 224 64 252.7 64 288L64 512C64 547.3 92.7 576 128 576L352 576C387.3 576 416 547.3 416 512L416 464L368 464L368 512C368 520.8 360.8 528 352 528zM288 368C279.2 368 272 360.8 272 352L272 128C272 119.2 279.2 112 288 112L512 112C520.8 112 528 119.2 528 128L528 352C528 360.8 520.8 368 512 368L288 368zM224 352C224 387.3 252.7 416 288 416L512 416C547.3 416 576 387.3 576 352L576 128C576 92.7 547.3 64 512 64L288 64C252.7 64 224 92.7 224 128L224 352z"/></svg></span>
+                <span class="example-copy-code-icon example-copy-code-icon--check" aria-hidden="true"><svg viewBox="0 0 640 640"><path fill="currentColor" d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"/></svg></span>
+                <span class="example-copy-code-label" id="example-copy-code-label">Copy Code</span>
+              </button>
+            </div>
+            <pre class="code-block"><code class="example-line-numbers" id="example-line-numbers" aria-hidden="true">1</code><code id="example-code-content" contenteditable="plaintext-only" spellcheck="false">Loading example source&hellip;</code></pre>
+          </div>
+        </div>
+
+        <nav class="example-pagination">
+          <a class="example-pagination-link" id="example-prev-link" href="playground.html" hidden>
+            <span class="example-pagination-label">&larr; Previous</span>
+            <span class="example-pagination-title" id="example-prev-title"></span>
+          </a>
+          <span class="example-pagination-count" id="example-count"></span>
+          <a class="example-pagination-link is-next" id="example-next-link" href="playground.html" hidden>
+            <span class="example-pagination-label">Next &rarr;</span>
+            <span class="example-pagination-title" id="example-next-title"></span>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ThorVG. Open source under the MIT License.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/playground-data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

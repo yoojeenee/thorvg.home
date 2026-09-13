@@ -94,6 +94,9 @@ function createCopyButton(getText) {
 }
 
 document.querySelectorAll('.code-block').forEach((block) => {
+  // Playground example code blocks handle their own copy button in the panel header.
+  if (block.querySelector('#example-code-content')) return;
+
   const code = block.querySelector('code');
   if (!code) return;
 
@@ -214,4 +217,102 @@ if (viewRendererSelect && viewQualitySelect && viewCanvasStatusRenderer && viewC
   viewQualitySelect.addEventListener('change', renderCanvasStatus);
 
   renderCanvasStatus();
+}
+
+const exampleTitle = document.getElementById('example-title');
+
+if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
+  const exampleCategory = document.getElementById('example-category');
+  const exampleDescription = document.getElementById('example-description');
+  const exampleCopyCodeBtn = document.getElementById('example-copy-code-btn');
+  const exampleCopyCodeLabel = document.getElementById('example-copy-code-label');
+  const exampleCodePanel = document.getElementById('example-code-panel');
+  const exampleCodeContent = document.getElementById('example-code-content');
+  const examplePrevLink = document.getElementById('example-prev-link');
+  const examplePrevTitle = document.getElementById('example-prev-title');
+  const exampleNextLink = document.getElementById('example-next-link');
+  const exampleNextTitle = document.getElementById('example-next-title');
+  const exampleCount = document.getElementById('example-count');
+  const exampleLineNumbers = document.getElementById('example-line-numbers');
+
+  function updateExampleLineNumbers() {
+    if (!exampleLineNumbers) return;
+    const lineCount = exampleCodeContent.textContent.split('\n').length;
+    exampleLineNumbers.textContent = Array.from({ length: lineCount }, (_, i) => i + 1).join('\n');
+  }
+
+  exampleCodeContent.addEventListener('input', updateExampleLineNumbers);
+
+  let copyResetTimer = null;
+
+  exampleCopyCodeBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(exampleCodeContent.textContent).then(() => {
+      clearTimeout(copyResetTimer);
+      exampleCopyCodeBtn.classList.add('is-copied');
+      exampleCopyCodeLabel.textContent = 'Copied';
+      copyResetTimer = setTimeout(() => {
+        exampleCopyCodeBtn.classList.remove('is-copied');
+        exampleCopyCodeLabel.textContent = 'Copy Code';
+      }, 1800);
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const exampleId = params.get('id');
+  const exampleIndex = PLAYGROUND_EXAMPLES.findIndex((item) => item.id === exampleId);
+  const example = exampleIndex !== -1 ? PLAYGROUND_EXAMPLES[exampleIndex] : null;
+
+  if (example) {
+    document.title = example.title + ' — Playground — ThorVG';
+    exampleTitle.textContent = example.title;
+    exampleCategory.textContent = example.category;
+    exampleDescription.textContent = example.description;
+
+    function setExampleCode(text) {
+      exampleCodeContent.textContent = text;
+      updateExampleLineNumbers();
+      exampleCodeContent.closest('.code-block').classList.toggle('is-single-line', !text.trim().includes('\n'));
+    }
+
+    if (viewEngineUnavailable) {
+      setExampleCode('Opening this page directly from disk (file://) blocks loading example source files.\nRun this site through a local server (e.g. `python3 -m http.server`) to view the code.');
+    } else {
+      fetch(example.file)
+        .then((res) => {
+          if (!res.ok) throw new Error('Failed to load example source');
+          return res.text();
+        })
+        .then((code) => setExampleCode(code))
+        .catch(() => setExampleCode('Unable to load example source.'));
+    }
+
+    const prev = exampleIndex > 0 ? PLAYGROUND_EXAMPLES[exampleIndex - 1] : null;
+    const next = exampleIndex < PLAYGROUND_EXAMPLES.length - 1 ? PLAYGROUND_EXAMPLES[exampleIndex + 1] : null;
+
+    if (prev) {
+      examplePrevLink.href = 'playground-example.html?id=' + prev.id;
+      examplePrevTitle.textContent = prev.title;
+      examplePrevLink.hidden = false;
+    }
+
+    if (next) {
+      exampleNextLink.href = 'playground-example.html?id=' + next.id;
+      exampleNextTitle.textContent = next.title;
+      exampleNextLink.hidden = false;
+    }
+
+    exampleCount.textContent = (exampleIndex + 1) + ' / ' + PLAYGROUND_EXAMPLES.length;
+  } else if (exampleId) {
+    exampleTitle.textContent = 'Example not found';
+    exampleDescription.textContent = 'The requested example could not be found. Go back to the Playground to pick one.';
+    exampleCategory.hidden = true;
+    exampleCodePanel.hidden = true;
+  } else {
+    exampleTitle.textContent = 'Try your code';
+    exampleDescription.textContent = 'Paste your own ThorVG WebCanvas or native code below, or pick an example from the Playground.';
+    exampleCategory.hidden = true;
+    exampleCodeContent.textContent = '';
+    updateExampleLineNumbers();
+    document.querySelector('.example-pagination').hidden = true;
+  }
 }
