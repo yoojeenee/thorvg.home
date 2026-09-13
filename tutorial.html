@@ -33,31 +33,765 @@
 
   <main>
     <div class="docs-layout container">
-      <article class="docs-content">
+      <article class="docs-content" data-lang="cpp">
         <h1>Tutorial</h1>
+        <p>It explains how to set up the environment for building ThorVG and how to draw various graphic elements through ThorVG with simple examples.</p>
+
         <h2 id="build-and-install">Build and install</h2>
-        <h3 id="build-with-visual-studio">Build with Visual Studio</h3>
-        <h3 id="build-with-xcode">Build with Xcode</h3>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-toggle" role="group" aria-label="Choose a language">
+            <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+            <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+          </div>
+
+          <div class="lang-cpp">
+            <p>You can download the ThorVG tarball via the <a href="https://github.com/thorvg/thorvg/tags" target="_blank" rel="noopener">Releases</a> link. The latest version is recommended. ThorVG supports the <a href="https://mesonbuild.com/" target="_blank" rel="noopener">meson</a> build system. Install meson and <a href="https://ninja-build.org/" target="_blank" rel="noopener">ninja</a> if you don't have them already.</p>
+            <p>Run meson to configure ThorVG in the thorvg root folder.</p>
+            <pre class="code-block"><code>meson setup builddir</code></pre>
+            <p>Run ninja to build and install ThorVG.</p>
+            <pre class="code-block"><code>ninja -C builddir install</code></pre>
+            <p>Regardless of the installation, all build results (symbols, executable) are generated in the builddir folder in thorvg. Some results such as examples won't be installed — see the <a href="#more-examples">More examples</a> section to see how to change it.</p>
+            <p>Note that some systems might include the ThorVG package as a default component. In that case, you can skip this manual installation.</p>
+
+            <h4>Build with Visual Studio</h4>
+            <p>If you want to create Visual Studio project files, use the command <code>--backend=vs</code>. The resulting solution file (thorvg.sln) will be located in the build folder.</p>
+            <pre class="code-block"><code>meson setup builddir --backend=vs</code></pre>
+
+            <h4>Build with Xcode</h4>
+            <p>If you want to create Xcode project files, use the command <code>--backend=xcode</code>. The resulting project file (thorvg.xcodeproj) will be located in the build folder.</p>
+            <pre class="code-block"><code>meson setup builddir --backend=xcode</code></pre>
+          </div>
+
+          <div class="lang-js">
+            <p>ThorVG WebCanvas is available via NPM-based package managers (npm, yarn, pnpm) and can also be accessed through the unpkg CDN. The latest version is recommended.</p>
+
+            <h4>Install via NPM</h4>
+            <p>Install ThorVG WebCanvas via npm:</p>
+            <pre class="code-block"><code>npm install @thorvg/webcanvas</code></pre>
+            <p>Then import it in your TypeScript or JavaScript code:</p>
+            <pre class="code-block"><code>import ThorVG from '@thorvg/webcanvas';</code></pre>
+
+            <h4>Install via CDN</h4>
+            <p>For quick prototyping or simple projects, you can use ThorVG WebCanvas directly from a CDN without any build tools.</p>
+            <pre class="code-block"><code>&lt;script src="https://unpkg.com/@thorvg/webcanvas@latest/dist/webcanvas.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
         <h2 id="basic-programming">Basic Programming</h2>
+        <p>ThorVG supports C++ Programming Interfaces. The following is a quick-start to show you how to use the essential APIs. As the prerequisite, include the ThorVG header file in your source code.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>#include &lt;thorvg.h&gt;</code></pre>
+            </div>
+            <div class="lang-js">
+              <p>ThorVG WebCanvas supports TypeScript and JavaScript Programming Interfaces. The following is a quick-start to show you how to use the essential APIs.</p>
+            </div>
+          </div>
+        </div>
+
         <h3 id="initialization">Initialization</h3>
+        <p>In the first step, initialize the ThorVG engine. This prepares and runs the engine's internal steps.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Initialize the ThorVG engine
+tvg::Initializer::init(0);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>import ThorVG from '@thorvg/webcanvas';
+
+// Initialize the ThorVG engine
+const TVG = await ThorVG.init({ renderer: 'gl' });</code></pre>
+            </div>
+          </div>
+
+          <div class="lang-cpp">
+            <p>The second parameter of <code>Initializer::init()</code> requires the ThorVG designated threads number. To use the full capacity of the system, you can pass the number of threads to run ThorVG tasks. If you don't know the exact number, you can use <code>std::thread::hardware_concurrency()</code> instead.</p>
+          </div>
+          <div class="lang-js">
+            <p>The <code>renderer</code> option determines which rendering backend to use: <code>gl</code> for the WebGL backend with wide browser support, or <code>wg</code> for the WebGPU backend (requires Chrome/Edge 113+, Firefox 145+, or Safari 26+). If you need to locate the WASM files in a specific directory, pass a <code>locateFile</code> option.</p>
+          </div>
+        </div>
+
+        <p>ThorVG renders vector scenes to the given canvas buffer. The following shows an example of how to prepare an empty canvas for drawing.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// A canvas target buffer
+static uint32_t buffer[WIDTH * HEIGHT];
+// Generate a canvas
+auto canvas = tvg::SwCanvas::gen();
+// Setup the canvas target
+canvas->target(buffer, WIDTH, WIDTH, HEIGHT, tvg::ColorSpace::ARGB8888);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Create a canvas targeting an HTML canvas element
+const canvas = new TVG.Canvas('#canvas', {
+  width: 800,
+  height: 600
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="lang-cpp">
+            <p>If you have your own canvas buffer memory, you can pass its pointer to the canvas. <code>SwCanvas::target()</code> requires five parameters: buffer memory, buffer stride size, canvas width, height and Colorspace. The last parameter determines the format of the pixel color channels used during drawing on the canvas buffer.</p>
+          </div>
+          <div class="lang-js">
+            <p>The <code>Canvas</code> constructor requires a CSS selector for the target HTML canvas element and optional configuration. WebCanvas automatically manages the canvas buffer and handles the device pixel ratio for high-DPI displays.</p>
+          </div>
+        </div>
+
         <h3 id="shape">Shape</h3>
+        <p>Once a canvas is ready, you can create shapes by adding them to the canvas.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a shape
+auto rect = tvg::Shape::gen();
+// Append a rounded rectangle to the shape (x, y, w, h, rx, ry)
+rect->appendRect(50, 50, 200, 200, 20, 20);
+// Set the shape's color to (r, g, b)
+rect->fill(170, 253, 193);
+// Add the shape to the canvas
+canvas->add(rect);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a shape
+const rect = new TVG.Shape();
+// Append a rounded rectangle to the shape (x, y, w, h, rx, ry)
+rect.appendRect(50, 50, 200, 200, { rx: 20, ry: 20 });
+// Set the shape's color to (r, g, b)
+rect.fill(170, 253, 193);
+// Add the shape to the canvas
+canvas.add(rect);</code></pre>
+            </div>
+          </div>
+        </div>
+        <p>In the example above, a shape is generated and then a rounded rectangle is appended to it. ThorVG provides predefined shape types such as rectangle, circle and arc for the user's convenience. You can append any custom shape by using Paths. ThorVG allows you to append multiple forms into a shape, to compose a more complex one. A complex shape shares its properties, such as color, stroke, fill, etc., among the appended forms.</p>
+        <p>After a rounded rectangle is appended, its color is set and then the shape is added to the canvas. This shape from the example looks as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_shape.svg" alt="A rounded rectangle shape rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="path">Path</h3>
+        <p>Besides predefined shape types, you can compose arbitrary shape types using a path concept. A path is a list of commands that are commonly used in traditional 2D vector drawing. Below you can see an example of how to define your own forms.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a shape
+auto path = tvg::Shape::gen();
+// Set the sequential path coordinates
+path->moveTo(199, 34);
+path->lineTo(253, 143);
+path->lineTo(374, 160);
+path->lineTo(287, 244);
+path->lineTo(307, 365);
+path->lineTo(199, 309);
+path->lineTo(97, 365);
+path->lineTo(112, 245);
+path->lineTo(26, 161);
+path->lineTo(146, 143);
+// Complete the path
+path->close();
+// Set the shape's color to (r, g, b)
+path->fill(150, 150, 255);
+// Add the shape to the canvas
+canvas->add(path);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a shape
+const path = new TVG.Shape();
+// Set the sequential path coordinates
+path.moveTo(199, 34)
+  .lineTo(253, 143)
+  .lineTo(374, 160)
+  .lineTo(287, 244)
+  .lineTo(307, 365)
+  .lineTo(199, 309)
+  .lineTo(97, 365)
+  .lineTo(112, 245)
+  .lineTo(26, 161)
+  .lineTo(146, 143)
+  // Complete the path
+  .close()
+  // Set the shape's color to (r, g, b)
+  .fill(150, 150, 255);
+// Add the shape to the canvas
+canvas.add(path);</code></pre>
+            </div>
+          </div>
+
+          <div class="lang-cpp">
+            <p>By using the Path, lines and Bezier curves can be drawn. Additionally, you can set a preset list using <code>Shape::appendPath()</code> for optimal data delivery.</p>
+          </div>
+          <div class="lang-js">
+            <p>By using the Path, lines and Bezier curves can be drawn. Additionally, you can set a preset list using <code>shape.appendPath()</code> for optimal data delivery.</p>
+          </div>
+        </div>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_path.svg" alt="A custom path shape rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="fill">Fill</h3>
+        <p>ThorVG supports both solid color fills and gradient fills. You can use linear gradients and radial gradients to create rich visual effects.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a shape
+auto circle = tvg::Shape::gen();
+// Append a circle to the shape (cx, cy, rx, ry)
+circle->appendCircle(200, 200, 100, 100);
+
+// Generate a radial gradient
+auto fill = tvg::RadialGradient::gen();
+// Set the radial gradient geometry info (cx, cy, radius)
+fill->radial(200, 200, 150);
+
+// Gradient colors
+tvg::Fill::ColorStop colorStops[2];
+// 1st color values (offset, r, g, b, a)
+colorStops[0] = {0.0, 255, 255, 255, 255};
+// 2nd color values (offset, r, g, b, a)
+colorStops[1] = {1.0, 0, 0, 0, 255};
+// Set the gradient colors info
+fill->colorStops(colorStops, 2);
+
+// Set the shape fill
+circle->fill(fill);
+
+// Add the shape to the canvas
+canvas->add(circle);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a shape
+const circle = new TVG.Shape();
+// Append a circle to the shape (cx, cy, rx, ry)
+circle.appendCircle(200, 200, 100, 100);
+
+// Generate a radial gradient (cx, cy, radius)
+const fill = new TVG.RadialGradient(200, 200, 150);
+// Set the gradient colors (offset, [r, g, b, a])
+fill.addStop(0, [255, 255, 255, 255]);
+fill.addStop(1, [0, 0, 0, 255]);
+
+// Set the shape fill
+circle.fill(fill);
+
+// Add the shape to the canvas
+canvas.add(circle);</code></pre>
+            </div>
+          </div>
+        </div>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_fill.svg" alt="A circle with a radial gradient fill rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="stroke">Stroke</h3>
+        <p>Stroking enables you to draw the outline of shapes as well as lines. You can simply add stroke properties to a shape if needed. Stroke supports both a solid color and a gradient fill, and also 4 major properties — width, cap, join and dash pattern.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a shape
+auto rect = tvg::Shape::gen();
+// Append a round rectangle to the shape (x, y, w, h, rx, ry)
+rect->appendRect(50, 50, 200, 200, 20, 20);
+// Set the shape's color to (r, g, b)
+rect->fill(100, 100, 100);
+
+// Set the stroke's width
+rect->strokeWidth(4);
+// Set the stroke's color to (r, g, b)
+rect->strokeFill(50, 50, 50);
+// Set the stroke's join style
+rect->strokeJoin(tvg::StrokeJoin::Round);
+// Set the stroke's cap style
+rect->strokeCap(tvg::StrokeCap::Round);
+
+// Set the stroke's dash pattern (line, gap)
+float pattern[2] = {7, 10};
+rect->strokeDash(pattern, 2);
+
+// Add the shape to the canvas
+canvas->add(rect);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a shape
+const rect = new TVG.Shape();
+// Append a round rectangle to the shape (x, y, w, h, rx, ry)
+rect.appendRect(50, 50, 200, 200, { rx: 20, ry: 20 });
+// Set the shape's color to (r, g, b)
+rect.fill(100, 100, 100);
+
+// Set the stroke properties
+rect.stroke({
+  width: 4,
+  color: [50, 50, 50, 255],
+  join: 'round',
+  cap: 'round'
+});
+
+// Add the shape to the canvas
+canvas.add(rect);</code></pre>
+            </div>
+          </div>
+        </div>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_stroke.svg" alt="A rectangle with a dashed stroke rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="scene-and-transformation">Scene and Transformation</h3>
+        <p>ThorVG provides an interface to build Paint groups by composing multiple Paints. This is useful when you consider a scene-graph structure and manipulate a scene as a control unit. The code below shows how to use the ThorVG Scene and transform it.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a Scene
+auto scene = tvg::Scene::gen();
+
+// Generate a round rectangle
+auto rect = tvg::Shape::gen();
+rect->appendRect(-235, -250, 400, 400, 50, 50);
+rect->fill(0, 255, 0);
+// Add the rectangle to the scene
+scene->add(rect);
+
+// Generate a circle
+auto circle = tvg::Shape::gen();
+circle->appendCircle(-165, -150, 200, 200);
+// Set the shape's color to (r, g, b, a)
+circle->fill(255, 255, 0, 127);
+// Add the circle to the scene
+scene->add(circle);
+
+// Generate an ellipse
+auto ellipse = tvg::Shape::gen();
+ellipse->appendCircle(265, 250, 150, 100);
+ellipse->fill(0, 255, 255);
+// Add the ellipse to the scene
+scene->add(ellipse);
+
+// Transform the scene
+scene->translate(350, 350);
+scene->scale(0.5);
+scene->rotate(45);
+
+// Add the scene to the canvas
+canvas->add(scene);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a Scene
+const scene = new TVG.Scene();
+
+// Generate a round rectangle
+const rect = new TVG.Shape();
+rect.appendRect(-235, -250, 400, 400, { rx: 50, ry: 50 });
+rect.fill(0, 255, 0);
+// Add the rectangle to the scene
+scene.add(rect);
+
+// Generate a circle
+const circle = new TVG.Shape();
+circle.appendCircle(-165, -150, 200, 200);
+// Set the shape's color to (r, g, b, a)
+circle.fill(255, 255, 0, 127);
+// Add the circle to the scene
+scene.add(circle);
+
+// Generate an ellipse
+const ellipse = new TVG.Shape();
+ellipse.appendCircle(265, 250, 150, 100);
+ellipse.fill(0, 255, 255);
+// Add the ellipse to the scene
+scene.add(ellipse);
+
+// Transform the scene
+scene.translate(350, 350)
+  .scale(0.5)
+  .rotate(45);
+
+// Add the scene to the canvas
+canvas.add(scene);</code></pre>
+            </div>
+          </div>
+        </div>
+        <p>All kinds of Paint type nodes (Shape, Scene and Picture) can be added to the Scene as its children. You can scale this logic and build a complex scene by compositing multiple Scenes. In the example, we create a scene-graph tree and demonstrate how to transform it using <code>translate()</code>, <code>scale()</code> and <code>rotate()</code> methods.</p>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_scene.svg" alt="A scene with transformed shapes rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="picture">Picture</h3>
+        <p>The Picture is a special component that is designed to draw a scene on the Canvas from image data. ThorVG supports several image formats including vector-based and bitmap-based formats.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a picture (svg)
+auto svg = tvg::Picture::gen();
+// Load an svg file
+svg->load("logo.svg");
+// Add the picture to the canvas
+canvas->add(svg);
+
+// Generate a picture (png)
+auto png = tvg::Picture::gen();
+// Load a png file
+png->load("parrots.png");
+// Set the desired size
+png->size(300, 300);
+// Set the position
+png->translate(150, 150);
+// Add the picture to the canvas
+canvas->add(png);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a picture (svg)
+const svg = new TVG.Picture();
+// Load an svg file
+const svgText = await (await fetch('logo.svg')).text();
+svg.load(svgText, { type: 'svg' });
+// Add the picture to the canvas
+canvas.add(svg);
+
+// Generate a picture (png)
+const png = new TVG.Picture();
+// Load a png file
+const pngData = await (await fetch('parrots.png')).arrayBuffer();
+png.load(new Uint8Array(pngData), { type: 'png' });
+// Set the desired size
+png.size(300, 300);
+// Set the position
+png.translate(150, 150);
+// Add the picture to the canvas
+canvas.add(png);</code></pre>
+            </div>
+          </div>
+        </div>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_picture.webp" alt="Vector and bitmap pictures rendered with ThorVG">
+          </div>
+        </figure>
+
+        <h3 id="text">Text</h3>
+        <p>ThorVG offers robust text rendering capabilities, including support for Scalable TrueType Fonts (TTF). It efficiently handles Unicode text, accepting UTF-8 (or ASCII) characters as input. ThorVG processes these characters by converting them into Unicode codepoints, subsequently generating vector data for the corresponding glyphs. Additionally, ThorVG utilizes the metrics of TTF glyphs to create horizontal layouts, further enhancing its text rendering functionality.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Load a global font data
+tvg::Text::load(EXAMPLE_DIR"/arial.ttf");
+
+// Generate a solid color text for displaying
+auto text = tvg::Text::gen();
+// Set the font name and font size
+text->font("Arial", 50);
+// Set the text to display
+text->text("ThorVG Solid Text");
+// Set the text color (r, g, b)
+text->fill(0, 0, 0);
+// Set the position
+text->translate(150, 150);
+// Add the text to the canvas
+canvas->add(text);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Load a custom font
+const fontData = await fetch('arial.ttf').then((r) => r.arrayBuffer());
+TVG.Font.load('Arial', new Uint8Array(fontData));
+
+// Generate a solid color text for displaying
+const text = new TVG.Text();
+// Set the font name and font size
+text.font('Arial').fontSize(50);
+// Set the text to display
+text.text('ThorVG Solid Text');
+// Set the text color (r, g, b)
+text.fill(0, 0, 0);
+// Set the position
+text.translate(150, 150);
+// Add the text to the canvas
+canvas.add(text);</code></pre>
+            </div>
+          </div>
+
+          <div class="lang-cpp">
+            <p>Note that the global font data loaded into ThorVG is typically shared among various text objects. This font data is automatically released when the ThorVG engine is terminated, which is done using <code>Initializer::term()</code>. If you need to immediately free up the font resources, you can manually unload the font data using the <code>Text::unload()</code> API.</p>
+          </div>
+          <div class="lang-js">
+            <p>Note that the global font data loaded into ThorVG is typically shared among various text objects. This font data is automatically released when the ThorVG engine is terminated, which is done using <code>canvas.destroy()</code>. If you need to immediately free up the font resources, you can manually unload the font data using the <code>TVG.Font.unload()</code> API.</p>
+          </div>
+        </div>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_text.svg" alt="Solid text rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="composition">Composition</h3>
+        <p>ThorVG applies composition for visual effects such as blending, masking, filtering, etc. You should be aware, though, that a composition may perform additional render-processing on an off-screen buffer. The excessive usage of a composition won't be helpful if lightweight processing is a priority for you. A hint — sometimes you can avoid a composition by changing the application or the design approach while maintaining the same visual effects.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate a picture
+auto picture = tvg::Picture::gen();
+picture->load(EXAMPLE_DIR"/logo.svg");
+
+// Generate a circle for masking
+auto mask = tvg::Shape::gen();
+mask->appendCircle(250, 325, 225, 225);
+mask->fill(255, 255, 255, 255);
+
+// Set the circle's alpha mask to the picture
+picture->mask(mask, tvg::MaskMethod::Alpha);
+// Add the picture to the canvas
+canvas->add(picture);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate a picture
+const picture = new TVG.Picture();
+const svgText = await (await fetch('logo.svg')).text();
+picture.load(svgText, { type: 'svg' });
+
+// Generate a circle for masking
+const mask = new TVG.Shape();
+mask.appendCircle(250, 325, 225, 225);
+mask.fill(255, 255, 255, 255);
+
+// Set the circle's alpha mask to the picture
+picture.mask(mask, TVG.MaskMethod.Alpha);
+// Add the picture to the canvas
+canvas.add(picture);</code></pre>
+            </div>
+          </div>
+        </div>
+        <p>The output of the example is as follows.</p>
+        <figure class="example-window">
+          <div class="example-window-header">
+            <span class="example-window-dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="example-window-body">
+            <img src="assets/images/tutorial/example_masking.svg" alt="An image with an alpha mask applied, rendered with ThorVG">
+          </div>
+        </figure>
+
         <h3 id="animation">Animation</h3>
+        <p>The Animation component facilitates the manipulation of animatable elements, such as Lottie. It enables the display and fundamental control of animated frames. Essentially, one animation instance corresponds to a single picture instance. You can assign any animatable resources to the associated picture and play the animation using the animation instance.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>// Generate an animation
+auto animation = tvg::Animation::gen();
+// Acquire a picture associated with the animation
+auto picture = animation->picture();
+
+// Load an animation file
+picture->load("lottie.json");
+// Figure out the animation duration time in seconds
+auto duration = animation->duration();
+
+// Add the picture to the canvas
+canvas->add(picture);</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>// Generate an animation
+const animation = new TVG.Animation();
+// Load an animation file
+const lottieData = await (await fetch('lottie.json')).text();
+animation.load(lottieData);
+
+// Acquire the picture associated with the animation
+const picture = animation.picture;
+// Add the picture to the canvas
+canvas.add(picture);
+
+// Play the animation
+animation.setLoop(true);
+animation.play((frame) => {
+  canvas.update().render();
+});</code></pre>
+            </div>
+          </div>
+
+          <div class="lang-cpp">
+            <p>First, an animation and a picture are generated. The Lottie file (lottie.json) is loaded into the picture, and then the picture is added to the canvas. The animation frames are controlled using the animation object to play the Lottie animation. Also, you might want to know the animation duration time to run your animation loop.</p>
+            <pre class="code-block"><code>// Set the current animation frame to display
+animation->frame(animation->totalFrame() * progress);
+// Update the picture to be redrawn
+canvas->update(animation->picture());</code></pre>
+          </div>
+          <div class="lang-js">
+            <p>First, an animation is generated and the Lottie file (lottie.json) is loaded into it. The picture associated with the animation is then added to the canvas. Calling <code>play()</code> drives the animation frame by frame, invoking the callback so the canvas can be updated and re-rendered on each tick.</p>
+          </div>
+        </div>
+        <p>Let's suppose the progress variable determines the position of the animation, ranging from 0 to 1 based on the total duration time of the animation. Adjusting the progress value allows you to control the animation at the desired position. Afterwards, the canvas is updated to redraw the picture with the updated animation frame.</p>
+        <figure>
+          <video src="assets/images/tutorial/example_lottie.mp4" class="hero-media" autoplay muted loop playsinline controls></video>
+        </figure>
+
         <h3 id="drawing-the-final-step">Drawing, the final step</h3>
+        <p>Once all paint nodes have been added to the canvas, you can request the drawing task as the final step.</p>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-tabs">
+            <div class="lang-tabs-header" role="group" aria-label="Choose a language">
+              <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+              <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+            </div>
+
+            <div class="lang-cpp">
+              <pre class="code-block"><code>canvas->draw();
+canvas->sync();</code></pre>
+            </div>
+            <div class="lang-js">
+              <pre class="code-block"><code>canvas.update();
+canvas.render();</code></pre>
+            </div>
+          </div>
+
+          <div class="lang-cpp">
+            <p>Calling <code>Canvas::draw()</code> triggers the preprocessing stage of the rendering pipeline, but it does not perform rasterization. The actual rasterization occurs when <code>Canvas::sync()</code> is invoked. Since all rendering tasks are executed asynchronously under the hood, you must call <code>Canvas::sync()</code> at an appropriate point to ensure proper synchronization. Once synchronization completes, the rendered image becomes available in the target buffer.</p>
+            <p>After getting the frame image, you can flush out all the added paint nodes from the canvas with the <code>Canvas::remove()</code> call.</p>
+          </div>
+          <div class="lang-js">
+            <p>Calling <code>canvas.update()</code> triggers the preprocessing stage of the rendering pipeline, but it does not perform rasterization. The actual rasterization occurs when <code>canvas.render()</code> is invoked.</p>
+            <p>After getting the frame image, you can flush out all the added paint nodes from the canvas with the <code>canvas.remove()</code> call.</p>
+          </div>
+        </div>
+
         <h2 id="more-examples">More examples</h2>
+
+        <div class="lang-group" data-lang="cpp">
+          <div class="lang-toggle" role="group" aria-label="Choose a language">
+            <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+            <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+          </div>
+
+          <div class="lang-cpp">
+            <p>There are plenty of sample code in <a href="https://github.com/thorvg/thorvg/tree/main/examples" target="_blank" rel="noopener">thorvg/examples</a> to help you in understanding the ThorVG APIs.</p>
+            <p>To execute these examples, you can build them with the following meson build option.</p>
+            <pre class="code-block"><code>meson setup builddir -Dexamples=true</code></pre>
+            <p>Note that these examples require the SDL dev package for launching. If you're using a Linux-based OS, you can easily install this package from your OS distribution server. For Ubuntu, you can install it with this command.</p>
+            <pre class="code-block"><code>apt-get install libsdl2-dev</code></pre>
+            <p>Alternatively, you can read the official guidance <a href="https://wiki.libsdl.org/SDL2/Installation" target="_blank" rel="noopener">here</a> for other platforms. For more information, please visit the official <a href="https://www.libsdl.org/" target="_blank" rel="noopener">SDL</a> site.</p>
+          </div>
+          <div class="lang-js">
+            <p>You can try out ThorVG WebCanvas APIs interactively in the <a href="playground.html">ThorVG Playground</a>. The playground provides live code examples and allows you to experiment with various features in real-time.</p>
+          </div>
+        </div>
       </article>
 
       <aside class="docs-toc">
         <p class="docs-toc-label">On this page</p>
         <ul class="docs-toc-list">
           <li><a href="#build-and-install">Build and install</a></li>
-          <li><a href="#build-with-visual-studio" class="docs-toc-sub">Build with Visual Studio</a></li>
-          <li><a href="#build-with-xcode" class="docs-toc-sub">Build with Xcode</a></li>
           <li><a href="#basic-programming">Basic Programming</a></li>
           <li><a href="#initialization" class="docs-toc-sub">Initialization</a></li>
           <li><a href="#shape" class="docs-toc-sub">Shape</a></li>
@@ -66,6 +800,7 @@
           <li><a href="#stroke" class="docs-toc-sub">Stroke</a></li>
           <li><a href="#scene-and-transformation" class="docs-toc-sub">Scene and Transformation</a></li>
           <li><a href="#picture" class="docs-toc-sub">Picture</a></li>
+          <li><a href="#text" class="docs-toc-sub">Text</a></li>
           <li><a href="#composition" class="docs-toc-sub">Composition</a></li>
           <li><a href="#animation" class="docs-toc-sub">Animation</a></li>
           <li><a href="#drawing-the-final-step" class="docs-toc-sub">Drawing, the final step</a></li>

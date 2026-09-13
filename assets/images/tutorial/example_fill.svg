@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="fillGradient" cx="200" cy="200" r="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgb(255,255,255)"/>
+      <stop offset="1" stop-color="rgb(0,0,0)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="100" fill="url(#fillGradient)"/>
+</svg>

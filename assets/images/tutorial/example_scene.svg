@@ -1,0 +1,7 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(350,350) rotate(45) scale(0.5)">
+    <rect x="-235" y="-250" width="400" height="400" rx="50" ry="50" fill="rgb(0,255,0)"/>
+    <circle cx="-165" cy="-150" r="200" fill="rgba(255,255,0,0.5)"/>
+    <ellipse cx="265" cy="250" rx="150" ry="100" fill="rgb(0,255,255)"/>
+  </g>
+</svg>
