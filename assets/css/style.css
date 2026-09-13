@@ -67,6 +67,10 @@ img {
   padding: 0 clamp(1.25rem, 4vw, 3rem);
 }
 
+.container-wide {
+  max-width: 1320px;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
@@ -1007,6 +1011,7 @@ img {
 
 .lang-tabs-header .lang-tab {
   padding: 0.7rem 0;
+  font-weight: 300;
   border-radius: 0;
   border-bottom: 2px solid transparent;
 }
@@ -1184,6 +1189,525 @@ img {
   display: block;
   border: none;
   border-radius: 0;
+}
+
+/* ---------- View page ---------- */
+.view-intro-text {
+  margin-top: 0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.view-card {
+  margin-top: var(--space-3);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.65rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.view-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.view-canvas-col {
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .view-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.view-canvas {
+  position: relative;
+  margin: 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  background: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.view-history-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 0.6rem 0.85rem;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.view-history-entry {
+  margin: 0;
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.7rem;
+  color: #d0d0d0;
+}
+
+.view-canvas-body {
+  flex: 1;
+  min-height: 600px;
+  display: flex;
+}
+
+.view-preview-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-preview-tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1.1rem;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.view-preview-tab {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.7rem 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #5d5d5d;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.view-preview-tab.is-active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-text);
+}
+
+.view-canvas-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.view-canvas-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.view-canvas-action:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.view-canvas-action.is-active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.view-canvas-action img {
+  width: 0.85rem;
+  height: 0.85rem;
+  display: block;
+}
+
+.view-canvas.is-dark {
+  background: #1b2124;
+}
+
+.view-canvas.is-dark .view-preview-tabs-header {
+  background: #1b2124;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.view-canvas.is-dark .view-preview-tab {
+  color: #9a9a9a;
+}
+
+.view-canvas.is-dark .view-preview-tab.is-active {
+  color: #f6f6f6;
+  border-bottom-color: #f6f6f6;
+}
+
+.view-canvas.is-dark .view-canvas-action:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.view-canvas.is-dark .view-canvas-action.is-active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.view-canvas.is-dark .view-canvas-action img {
+  filter: invert(1);
+}
+
+.view-canvas.is-dark .view-canvas-placeholder {
+  color: #5b6f7b;
+}
+
+.view-preview-panel {
+  position: relative;
+  flex: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.view-preview-panel lottie-player {
+  display: block;
+  max-width: 100%;
+}
+
+.view-preview-panel lottie-player.is-hidden {
+  display: none;
+}
+
+.view-file-detail {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.view-file-detail-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.78rem;
+}
+
+.view-file-detail-label {
+  color: var(--color-text);
+}
+
+.view-file-detail-value {
+  color: #5d5d5d;
+  font-weight: 300;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.view-file-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: #5d5d5d;
+}
+
+.view-file-entry-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.view-file-entry-name:hover {
+  color: var(--color-text);
+}
+
+.view-file-entry-size {
+  flex-shrink: 0;
+  color: #8a8a8a;
+}
+
+.view-file-entry-remove {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #8a8a8a;
+  cursor: pointer;
+}
+
+.view-file-entry-remove:hover {
+  color: var(--color-text);
+}
+
+.view-file-entry-remove svg {
+  width: 0.65rem;
+  height: 0.65rem;
+  fill: currentColor;
+}
+
+.view-canvas-stats {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  gap: 0.5rem;
+  padding: 0.3rem 0.55rem;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 6px;
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.65rem;
+  color: #7fff6b;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.view-canvas-stats:not([hidden]) {
+  display: flex;
+}
+
+.view-preview-panel.is-active {
+  display: flex;
+}
+
+.view-canvas-placeholder {
+  margin: 0;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 200;
+  line-height: 1.7;
+  color: #707070;
+  pointer-events: none;
+}
+
+.view-canvas-placeholder.is-hidden {
+  display: none;
+}
+
+.view-canvas-status {
+  margin: 0;
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.69rem;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.view-canvas-status span {
+  display: block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.09);
+  color: #3b82f6;
+  font-weight: 400;
+}
+
+.view-controls {
+  min-height: 400px;
+}
+
+.view-control-stack {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.view-range-control {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.view-range-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--color-text);
+}
+
+.view-range-header label,
+.view-select-control label,
+.view-control-label {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.view-range-header output,
+.view-files-empty {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: #5d5d5d;
+}
+
+.view-range-header output {
+  font-variant-numeric: tabular-nums;
+}
+
+.view-range-control input[type="range"] {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+}
+
+.view-range-control input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: #e5e5e5;
+}
+
+.view-range-control input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 0.5px solid #ececec;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.view-range-control input[type="range"]::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: #e5e5e5;
+}
+
+.view-range-control input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 0.5px solid #ececec;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.view-progress-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-progress-buttons button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--color-text);
+  font-weight: 300;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.view-progress-buttons button:hover {
+  background: #f5f5f5;
+}
+
+.view-progress-buttons svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  fill: currentColor;
+}
+
+.view-select-control {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.view-select-control select {
+  appearance: none;
+  width: 100%;
+  height: 2.25rem;
+  padding: 0 2rem 0 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23000000' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  background-size: 0.9rem;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.view-control-label {
+  margin: 0;
+}
+
+.view-upload-control,
+.view-export-control,
+.view-files-control {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.view-upload-control,
+.view-export-control,
+.view-files-control {
+  margin-top: 0.5rem;
+}
+
+.view-select-control {
+  margin-top: 0.5rem;
+}
+
+.view-upload-buttons,
+.view-export-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-upload-buttons button,
+.view-export-buttons button {
+  flex: 1;
+  height: 2.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--color-text);
+  font-size: 0.7rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.view-upload-buttons button:hover,
+.view-export-buttons button:hover {
+  background: #f5f5f5;
+}
+
+.view-files-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
 }
 
 /* ---------- Footer ---------- */

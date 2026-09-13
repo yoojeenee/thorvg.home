@@ -24,16 +24,20 @@ page), built up incrementally:
 | Blogs     | `blogs.html`        | TODO                                            |
 | Releases  | external link       | https://github.com/thorvg/thorvg/releases       |
 | Playground| `playground.html`   | TODO                                            |
-| View      | `view.html`         | TODO                                            |
+| View      | `view.html`         | Reimplementation of [thorvg.github.io/thorvg.view](https://thorvg.github.io/thorvg.view/) (source: [github.com/thorvg/thorvg.view](https://github.com/thorvg/thorvg.view)) — native UI built from scratch, wired to the actual ThorVG WebAssembly engine for real file rendering |
 
 ```
 thorvg.home/
 ├── index.html
 ├── assets/
-│   ├── css/style.css   # design tokens + shared styles
-│   ├── js/main.js      # mobile nav toggle
-│   ├── icons/          # UI icons (menu, close, external-link — Font Awesome Free)
-│   └── images/         # logo, etc.
+│   ├── css/style.css        # design tokens + shared styles
+│   ├── js/main.js           # mobile nav toggle + shared page behaviors
+│   ├── js/view-player.js    # view.html file loading/rendering, wired to thorvg-view's engine
+│   ├── icons/                # UI icons (menu, close, external-link — Font Awesome Free)
+│   └── images/                # logo, etc.
+├── thorvg-view/              # vendored engine assets from github.com/thorvg/thorvg.view
+│   ├── lottie-player.js       # ThorVG WebAssembly player custom element
+│   └── thorvg.wasm            # ThorVG engine binary
 └── .claude/launch.json # local preview server config
 ```
 

@@ -33,9 +33,120 @@
 
   <main>
     <section class="page-content">
-      <div class="container">
-        <h1>View</h1>
-        <p class="placeholder-text">Content coming soon.</p>
+      <div class="container container-wide">
+        <p class="view-intro-text">Add an SVG or Lottie file to render it instantly in the browser, powered by the ThorVG WebAssembly engine.</p>
+        <div class="view-card">
+          <div class="view-layout">
+            <div class="view-canvas-col">
+              <figure class="view-canvas" id="view-canvas" role="button" tabindex="0" aria-label="Add a file">
+                <input type="file" id="view-file-input" accept=".svg,.json,.lot" hidden>
+                <div class="view-canvas-body">
+                  <div class="view-preview-tabs">
+                    <div class="view-preview-tabs-header" role="group" aria-label="Choose a view">
+                      <button type="button" class="view-preview-tab is-active" data-view="preview">Preview</button>
+                      <button type="button" class="view-preview-tab" data-view="details">Details</button>
+                      <div class="view-canvas-actions">
+                        <button type="button" class="view-canvas-action" id="view-action-stats" title="Stats Mode" aria-label="Stats Mode">
+                          <img src="assets/icons/stats.svg" alt="">
+                        </button>
+                        <button type="button" class="view-canvas-action" id="view-action-dark" title="Dark Mode" aria-label="Dark Mode">
+                          <img src="assets/icons/dark.svg" alt="">
+                        </button>
+                        <button type="button" class="view-canvas-action" id="view-action-history" title="History" aria-label="History">
+                          <img src="assets/icons/history.svg" alt="">
+                        </button>
+                      </div>
+                    </div>
+                    <div class="view-preview-panel is-active" data-panel="preview">
+                      <div class="view-canvas-stats" id="view-canvas-stats" hidden>
+                        <span>FPS 0</span>
+                        <span>MS 0.0</span>
+                        <span>MB 0</span>
+                      </div>
+                      <p class="view-canvas-placeholder" id="view-canvas-placeholder">Drag and drop a file here, or click to browse<br>SVG, Lottie (.json / .lot)</p>
+                    </div>
+                    <div class="view-preview-panel" data-panel="details">
+                      <div class="view-file-detail" id="view-file-detail">
+                        <p class="view-canvas-placeholder">No file information</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="view-history-panel" id="view-history-panel" hidden>
+                  <p class="view-history-entry">No history yet.</p>
+                </div>
+              </figure>
+              <p class="view-canvas-status" id="view-canvas-status">
+                <span>ThorVG Version 1.1.1</span><span id="view-canvas-status-renderer">WebGL</span><span id="view-canvas-status-quality">Low</span>
+              </p>
+            </div>
+            <div class="view-controls">
+              <div class="view-control-stack">
+                <div class="view-upload-control">
+                  <p class="view-control-label">Upload</p>
+                  <div class="view-upload-buttons">
+                    <button type="button" id="view-upload-file">File</button>
+                    <button type="button" id="view-upload-url">Url</button>
+                  </div>
+                </div>
+                <div class="view-range-control">
+                  <div class="view-range-header">
+                    <label for="view-zoom-slider">Canvas</label>
+                    <output for="view-zoom-slider" id="view-zoom-value">800 x 800</output>
+                  </div>
+                  <input type="range" id="view-zoom-slider" min="0" max="300" value="160" disabled>
+                </div>
+                <div class="view-range-control">
+                  <div class="view-range-header">
+                    <label for="view-progress-slider">Progress</label>
+                    <output for="view-progress-slider" id="view-progress-value">0 / 0</output>
+                  </div>
+                  <input type="range" id="view-progress-slider" min="0" max="100" value="0" disabled>
+                  <div class="view-progress-buttons">
+                    <button type="button" id="view-progress-play" aria-label="Play">
+                      <svg viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                    </button>
+                    <button type="button" id="view-progress-pause" aria-label="Pause">
+                      <svg viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"/></svg>
+                    </button>
+                    <button type="button" id="view-progress-stop" aria-label="Stop">
+                      <svg viewBox="0 0 384 512"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="view-select-control">
+                  <label for="view-renderer-select">Render Backend</label>
+                  <select id="view-renderer-select">
+                    <option value="sw">Software</option>
+                    <option value="gl" selected>WebGL</option>
+                    <option value="wg">WebGPU</option>
+                  </select>
+                </div>
+                <div class="view-select-control">
+                  <label for="view-quality-select">Effects Quality</label>
+                  <select id="view-quality-select">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                <div class="view-export-control">
+                  <p class="view-control-label">Export</p>
+                  <div class="view-export-buttons">
+                    <button type="button" id="view-export-png">Png</button>
+                    <button type="button" id="view-export-gif">Gif</button>
+                  </div>
+                </div>
+                <div class="view-files-control">
+                  <p class="view-control-label">List of Files</p>
+                  <ul class="view-files-list" id="view-files-list">
+                    <li class="view-files-empty">No files added yet</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -47,5 +158,7 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="thorvg-view/lottie-player.js"></script>
+  <script src="assets/js/view-player.js"></script>
 </body>
 </html>
