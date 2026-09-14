@@ -1,0 +1,345 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f7;
+  --color-text: #000000;
+  --color-text-muted: #000000;
+  --color-accent: #6c4cf0;
+  --color-accent-strong: #5a3ce0;
+  --color-border: #e3e5ea;
+
+  --font-heading: "Poppins", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Google Sans Flex", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container-width: 1100px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+  --space-7: 9.5rem;
+  --radius: 8px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  transition: transform 0.25s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  aspect-ratio: 620 / 185;
+  display: block;
+  transition: opacity 0.15s ease;
+}
+
+.logo:hover .logo-img {
+  opacity: 0.33;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-1) var(--space-2);
+}
+
+.main-nav a {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 300;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.main-nav a:hover {
+  color: #aaaaaa;
+}
+
+.main-nav a.active {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.nav-external {
+  position: relative;
+  margin-right: 1.1em;
+}
+
+.external-icon {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: 0.3em;
+  font-size: 0.75em;
+  line-height: 1;
+  transform: translateY(-65%);
+  transition: opacity 0.15s ease;
+}
+
+.nav-external:hover .external-icon {
+  opacity: 0.33;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.15s ease;
+}
+
+.menu-toggle:hover .menu-icon {
+  opacity: 0.33;
+}
+
+@media (max-width: 860px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    text-align: right;
+    gap: var(--space-2);
+    padding: var(--space-2) calc(var(--space-3) + 3.75rem) var(--space-3) var(--space-3);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+    animation: nav-slide-down 0.25s ease;
+  }
+
+  @keyframes nav-slide-down {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .nav-external {
+    margin-right: 0;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 2;
+    margin-left: var(--space-1);
+  }
+
+  .logo-img {
+    height: 30px;
+  }
+
+  .menu-toggle {
+    background: var(--color-bg);
+  }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-strong);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ---------- Generic page content ---------- */
+.page-content {
+  padding: var(--space-5) 0;
+}
+
+.page-content h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.page-content .placeholder-text {
+  margin-top: var(--space-2);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+}
+
+.page-content .page-lede {
+  max-width: 720px;
+  margin-top: var(--space-2);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+}
+
+.page-content .page-lede + .page-lede {
+  margin-top: 1rem;
+}
+
+.page-content .page-lede a {
+  color: #3b82f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.page-content .page-lede a:hover {
+  color: #aaaaaa;
+}
+
+.playground-card-tag {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: #5d5d5d;
+  background: var(--color-surface);
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* ---------- Code block ---------- */
+.code-block {
+  position: relative;
+  margin: var(--space-2) 0 0;
+  padding: 0.85rem 3.25rem 0.85rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.code-block code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  white-space: pre;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 300;
+}

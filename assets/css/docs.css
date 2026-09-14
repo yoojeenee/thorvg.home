@@ -1,0 +1,250 @@
+/* ---------- Docs layout (About / Showcase / Tutorial) ---------- */
+.docs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: var(--space-5);
+  align-items: start;
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+
+.docs-toc {
+  position: sticky;
+  top: calc(76px + var(--space-4));
+}
+
+.docs-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid #ededed;
+}
+
+.docs-toc-list a {
+  display: block;
+  padding: 0.3rem 0 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
+}
+
+.docs-toc-list a:hover {
+  color: #aaaaaa;
+}
+
+.docs-toc-list a.docs-toc-sub {
+  padding-left: calc(var(--space-2) + 0.75rem);
+}
+
+.docs-toc-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-2);
+}
+
+.docs-toc-list li {
+  margin-bottom: 0.2rem;
+}
+
+.docs-content {
+  min-width: 0;
+  padding-left: var(--space-3);
+}
+
+.docs-content h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.docs-content h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 4rem;
+  scroll-margin-top: calc(76px + var(--space-3));
+}
+
+.docs-content h2:first-of-type {
+  margin-top: 2rem;
+}
+
+.docs-content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 2.5rem;
+  scroll-margin-top: calc(76px + var(--space-3));
+}
+
+.docs-content h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2rem;
+}
+
+.docs-content h2 + h3 {
+  margin-top: 1.5rem;
+}
+
+.docs-content p {
+  max-width: 640px;
+  margin-top: var(--space-3);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.docs-content h2 + p,
+.docs-content h3 + p {
+  margin-top: var(--space-2);
+}
+
+.docs-content ul {
+  max-width: 640px;
+  margin: 1.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.docs-content li {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.docs-content li::marker {
+  color: #aaaaaa;
+}
+
+.docs-content li + li {
+  margin-top: 0.4rem;
+}
+
+.docs-content li strong {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.docs-content p strong {
+  font-weight: 500;
+}
+
+.docs-content p code,
+.docs-content li code,
+.docs-content blockquote code {
+  background: rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  font-weight: 400;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+}
+
+.docs-content figure {
+  max-width: 640px;
+  margin: var(--space-2) 0 0;
+}
+
+.docs-content ul + figure {
+  margin-top: 1.25rem;
+}
+
+.docs-content blockquote {
+  max-width: 640px;
+  margin: var(--space-3) 0 0;
+  padding: 0 0 0 1rem;
+  border-left: 4px solid #cdcdcd;
+}
+
+.docs-content blockquote p {
+  margin-top: 0;
+  color: #5d5d5d;
+}
+
+.docs-content p a,
+.docs-content li a,
+.docs-content blockquote a {
+  color: #3b82f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.docs-content p a:hover,
+.docs-content li a:hover,
+.docs-content blockquote a:hover {
+  color: #aaaaaa;
+}
+
+.docs-content figure img,
+.docs-content figure video {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.hero-media {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.media-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: 10px;
+}
+
+.docs-content figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: #5d5d5d;
+}
+
+.docs-content figcaption a {
+  color: #3b82f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.docs-content figcaption a:hover {
+  color: #aaaaaa;
+}
+
+.docs-content figcaption.caption-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 960px) {
+  .docs-layout {
+    display: block;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  .docs-content {
+    padding-left: 0;
+  }
+
+  .docs-toc {
+    display: none;
+  }
+}
