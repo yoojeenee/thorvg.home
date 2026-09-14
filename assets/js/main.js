@@ -234,6 +234,8 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   const exampleNextTitle = document.getElementById('example-next-title');
   const exampleCount = document.getElementById('example-count');
   const exampleLineNumbers = document.getElementById('example-line-numbers');
+  const exampleCanvas = document.getElementById('example-canvas');
+  const exampleCanvasStatus = document.getElementById('example-canvas-status');
 
   function updateExampleLineNumbers() {
     if (!exampleLineNumbers) return;
@@ -241,7 +243,56 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     exampleLineNumbers.textContent = Array.from({ length: lineCount }, (_, i) => i + 1).join('\n');
   }
 
-  exampleCodeContent.addEventListener('input', updateExampleLineNumbers);
+  let canvasRuntimePromise = null;
+  let engineRenderer = null;
+
+  function setCanvasStatus(message, type) {
+    if (!exampleCanvasStatus) return;
+    exampleCanvasStatus.textContent = message;
+    exampleCanvasStatus.classList.remove('is-info', 'is-success', 'is-error');
+    exampleCanvasStatus.classList.add('is-' + (type || 'info'));
+  }
+
+  function runOnCanvas(code) {
+    if (viewEngineUnavailable || !exampleCanvas) return;
+
+    if (!canvasRuntimePromise) {
+      canvasRuntimePromise = import('../../playground/canvas-runtime.js');
+    }
+
+    canvasRuntimePromise.then(async (runtime) => {
+      const renderer = runtime.extractInitConfig(code).renderer || 'gl';
+
+      if (!engineRenderer) {
+        engineRenderer = renderer;
+        await runtime.initEngine(renderer, '#example-canvas', {
+          onStatus: setCanvasStatus,
+          onError: (error) => setCanvasStatus(error.message, 'error'),
+        });
+        exampleCanvas.hidden = false;
+      } else if (renderer !== engineRenderer) {
+        setCanvasStatus(
+          `This example uses the ${renderer.toUpperCase()} renderer — reload the page to switch from ${engineRenderer.toUpperCase()}.`,
+          'error'
+        );
+        return;
+      }
+
+      runtime.run(code, { onStatus: setCanvasStatus });
+    });
+  }
+
+  let runDebounceTimer = null;
+
+  function scheduleRunOnCanvas(code) {
+    clearTimeout(runDebounceTimer);
+    runDebounceTimer = setTimeout(() => runOnCanvas(code), 400);
+  }
+
+  exampleCodeContent.addEventListener('input', () => {
+    updateExampleLineNumbers();
+    scheduleRunOnCanvas(exampleCodeContent.textContent);
+  });
 
   let copyResetTimer = null;
 
@@ -268,6 +319,10 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     exampleCategory.textContent = example.category;
     exampleDescription.textContent = example.description;
 
+    if (exampleCanvas && example.useDarkCanvas) {
+      exampleCanvas.classList.add('is-dark');
+    }
+
     function setExampleCode(text) {
       exampleCodeContent.textContent = text;
       updateExampleLineNumbers();
@@ -276,13 +331,17 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
 
     if (viewEngineUnavailable) {
       setExampleCode('Opening this page directly from disk (file://) blocks loading example source files.\nRun this site through a local server (e.g. `python3 -m http.server`) to view the code.');
+      setCanvasStatus('Live preview isn’t available when opened directly from disk (file://). Run this site through a local server to see it.', 'error');
     } else {
       fetch(example.file)
         .then((res) => {
           if (!res.ok) throw new Error('Failed to load example source');
           return res.text();
         })
-        .then((code) => setExampleCode(code))
+        .then((code) => {
+          setExampleCode(code);
+          runOnCanvas(code);
+        })
         .catch(() => setExampleCode('Unable to load example source.'));
     }
 
@@ -314,6 +373,12 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     exampleCodeContent.textContent = '';
     updateExampleLineNumbers();
     document.querySelector('.example-pagination').hidden = true;
+
+    if (!viewEngineUnavailable) {
+      runOnCanvas('');
+    } else if (exampleCanvasStatus) {
+      setCanvasStatus('Live preview isn’t available when opened directly from disk (file://). Run this site through a local server to try it.', 'error');
+    }
   }
 }
 
