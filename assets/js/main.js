@@ -225,7 +225,13 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   const exampleCategory = document.getElementById('example-category');
   const exampleDescription = document.getElementById('example-description');
   const exampleCopyCodeBtn = document.getElementById('example-copy-code-btn');
-  const exampleCopyCodeLabel = document.getElementById('example-copy-code-label');
+  const exampleCopyToast = document.getElementById('example-copy-toast');
+  const exampleRunCodeBtn = document.getElementById('example-run-code-btn');
+  const exampleResetCodeBtn = document.getElementById('example-reset-code-btn');
+  const exampleAutoRunCheckbox = document.getElementById('example-auto-run-checkbox');
+  const examplePreviewClearBtn = document.getElementById('example-preview-clear-btn');
+  const examplePreviewRunBtn = document.getElementById('example-preview-run-btn');
+  const examplePreviewToast = document.getElementById('example-preview-toast');
   const exampleCodePanel = document.getElementById('example-code-panel');
   const exampleCodeContent = document.getElementById('example-code-content');
   const examplePrevLink = document.getElementById('example-prev-link');
@@ -235,7 +241,6 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   const exampleCount = document.getElementById('example-count');
   const exampleLineNumbers = document.getElementById('example-line-numbers');
   const exampleCanvas = document.getElementById('example-canvas');
-  const exampleCanvasStatus = document.getElementById('example-canvas-status');
 
   function updateExampleLineNumbers() {
     if (!exampleLineNumbers) return;
@@ -247,14 +252,34 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   let engineRenderer = null;
 
   function setCanvasStatus(message, type) {
-    if (!exampleCanvasStatus) return;
-    exampleCanvasStatus.textContent = message;
-    exampleCanvasStatus.classList.remove('is-info', 'is-success', 'is-error');
-    exampleCanvasStatus.classList.add('is-' + (type || 'info'));
+    if (message === 'Code executed successfully') return;
+    showPreviewToast(message);
   }
+
+  let lastAppliedCode = '';
+
+  function setPreviewCleared(cleared) {
+    if (examplePreviewClearBtn) examplePreviewClearBtn.disabled = cleared;
+    if (examplePreviewRunBtn) examplePreviewRunBtn.disabled = !cleared;
+  }
+
+  function showPreviewToast(message) {
+    if (!examplePreviewToast) return;
+    examplePreviewToast.textContent = message;
+    examplePreviewToast.classList.add('is-visible');
+    clearTimeout(previewToastHideTimer);
+    previewToastHideTimer = setTimeout(() => {
+      examplePreviewToast.classList.remove('is-visible');
+    }, 1200);
+  }
+
+  let previewToastHideTimer = null;
 
   function runOnCanvas(code) {
     if (viewEngineUnavailable || !exampleCanvas) return;
+
+    lastAppliedCode = code;
+    setPreviewCleared(false);
 
     if (!canvasRuntimePromise) {
       canvasRuntimePromise = import('../../playground/canvas-runtime.js');
@@ -289,24 +314,92 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     runDebounceTimer = setTimeout(() => runOnCanvas(code), 400);
   }
 
+  function syncRunBtnState() {
+    if (!exampleAutoRunCheckbox || !exampleRunCodeBtn) return;
+    const checked = exampleAutoRunCheckbox.checked;
+    exampleRunCodeBtn.disabled = checked || exampleCodeContent.textContent === lastAppliedCode;
+  }
+
   exampleCodeContent.addEventListener('input', () => {
     updateExampleLineNumbers();
-    scheduleRunOnCanvas(exampleCodeContent.textContent);
+    if (!exampleAutoRunCheckbox || exampleAutoRunCheckbox.checked) {
+      scheduleRunOnCanvas(exampleCodeContent.textContent);
+    } else {
+      syncRunBtnState();
+    }
   });
 
+  if (exampleAutoRunCheckbox && exampleRunCodeBtn) {
+    exampleAutoRunCheckbox.addEventListener('change', () => {
+      syncRunBtnState();
+      showCodeToast(
+        exampleAutoRunCheckbox.checked
+          ? 'Code changes are applied automatically'
+          : 'Click Run to apply your changes'
+      );
+    });
+    syncRunBtnState();
+  }
+
+  if (examplePreviewClearBtn) {
+    examplePreviewClearBtn.addEventListener('click', () => {
+      if (!canvasRuntimePromise) return;
+      canvasRuntimePromise.then((runtime) => runtime.clearCanvas());
+      setPreviewCleared(true);
+      showPreviewToast('Canvas cleared');
+    });
+  }
+
+  if (examplePreviewRunBtn) {
+    examplePreviewRunBtn.addEventListener('click', () => {
+      runOnCanvas(exampleCodeContent.textContent);
+      showPreviewToast('Code executed successfully');
+    });
+  }
+
   let copyResetTimer = null;
+  let codeToastHideTimer = null;
+  let originalExampleCode = '';
+
+  function showCodeToast(message) {
+    if (!exampleCopyToast) return;
+    exampleCopyToast.textContent = message;
+    exampleCopyToast.classList.add('is-visible');
+    clearTimeout(codeToastHideTimer);
+    codeToastHideTimer = setTimeout(() => {
+      exampleCopyToast.classList.remove('is-visible');
+    }, 1200);
+  }
 
   exampleCopyCodeBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(exampleCodeContent.textContent).then(() => {
       clearTimeout(copyResetTimer);
-      exampleCopyCodeBtn.classList.add('is-copied');
-      exampleCopyCodeLabel.textContent = 'Copied';
+      exampleCopyCodeBtn.disabled = true;
       copyResetTimer = setTimeout(() => {
-        exampleCopyCodeBtn.classList.remove('is-copied');
-        exampleCopyCodeLabel.textContent = 'Copy Code';
-      }, 1800);
+        exampleCopyCodeBtn.disabled = false;
+      }, 1200);
+
+      showCodeToast('Code copied to clipboard');
     });
   });
+
+  if (exampleRunCodeBtn) {
+    exampleRunCodeBtn.addEventListener('click', () => {
+      runOnCanvas(exampleCodeContent.textContent);
+      syncRunBtnState();
+    });
+  }
+
+  if (exampleResetCodeBtn) {
+    exampleResetCodeBtn.addEventListener('click', () => {
+      exampleCodeContent.textContent = originalExampleCode;
+      updateExampleLineNumbers();
+      exampleCodeContent.closest('.code-block').classList.toggle('is-single-line', !originalExampleCode.trim().includes('\n'));
+      runOnCanvas(originalExampleCode);
+      syncRunBtnState();
+      showCodeToast('Code reset to original');
+    });
+  }
 
   const params = new URLSearchParams(window.location.search);
   const exampleId = params.get('id');
@@ -339,8 +432,10 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
           return res.text();
         })
         .then((code) => {
+          originalExampleCode = code;
           setExampleCode(code);
           runOnCanvas(code);
+          syncRunBtnState();
         })
         .catch(() => setExampleCode('Unable to load example source.'));
     }
@@ -376,7 +471,8 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
 
     if (!viewEngineUnavailable) {
       runOnCanvas('');
-    } else if (exampleCanvasStatus) {
+      syncRunBtnState();
+    } else {
       setCanvasStatus('Live preview isn’t available when opened directly from disk (file://). Run this site through a local server to try it.', 'error');
     }
   }
@@ -386,21 +482,22 @@ const exampleCodePanelForSticky = document.getElementById('example-code-panel');
 const siteHeaderForAutoHide = document.querySelector('.site-header');
 
 if (exampleCodePanelForSticky && siteHeaderForAutoHide) {
-  let lastScrollY = window.scrollY;
-  const hideThreshold = 40;
+  const revealHotzone = 10;
 
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const scrollingDown = currentScrollY > lastScrollY;
+  const showHeader = () => {
+    siteHeaderForAutoHide.classList.remove('is-hidden');
+    exampleCodePanelForSticky.classList.remove('is-pinned-top');
+  };
+  const hideHeader = () => {
+    siteHeaderForAutoHide.classList.add('is-hidden');
+    exampleCodePanelForSticky.classList.add('is-pinned-top');
+  };
 
-    if (currentScrollY > hideThreshold && scrollingDown) {
-      siteHeaderForAutoHide.classList.add('is-hidden');
-      exampleCodePanelForSticky.classList.add('is-pinned-top');
-    } else if (!scrollingDown || currentScrollY <= hideThreshold) {
-      siteHeaderForAutoHide.classList.remove('is-hidden');
-      exampleCodePanelForSticky.classList.remove('is-pinned-top');
+  window.addEventListener('mousemove', (event) => {
+    if (event.clientY <= revealHotzone) {
+      showHeader();
     }
-
-    lastScrollY = currentScrollY;
   }, { passive: true });
+
+  siteHeaderForAutoHide.addEventListener('mouseleave', hideHeader);
 }
