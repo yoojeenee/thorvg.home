@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Load png file from path
+// Load png file from path
 (async () => {
   const response = await fetch('playground/assets/images/test.png');
   const arrayBuffer = await response.arrayBuffer();
@@ -28,7 +28,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(picture);
   }
 
-  //Open file manually
+  // Open file manually
   {
     const picture = new TVG.Picture();
     picture.load(data, { type: 'png' });

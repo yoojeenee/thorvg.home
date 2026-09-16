@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//StrokeJoin & StrokeCap
+// StrokeJoin & StrokeCap
 const shape1 = new TVG.Shape();
 shape1.moveTo(12.5, 31.25);
 shape1.lineTo(156.25, 31.25);
@@ -52,7 +52,7 @@ shape3.stroke({
   cap: TVG.StrokeCap.Butt
 });
 
-//Stroke Dash
+// Stroke Dash
 const shape4 = new TVG.Shape();
 shape4.moveTo(12.5, 143.75);
 shape4.lineTo(156.25, 143.75);
@@ -95,7 +95,7 @@ shape6.stroke({
   dash: [6.25, 6.25, 0.625, 5, 0.625, 6.25]
 });
 
-//Closed Shape Stroke
+// Closed Shape Stroke
 const shape7 = new TVG.Shape();
 shape7.moveTo(43.75, 275);
 shape7.lineTo(143.75, 275);
@@ -132,7 +132,7 @@ shape9.stroke({
   cap: TVG.StrokeCap.Butt
 });
 
-//Stroke Dash for Circle and Rect
+// Stroke Dash for Circle and Rect
 const shape10 = new TVG.Shape();
 shape10.appendCircle(43.75, 437.5, 12.5, 37.5);
 shape10.appendRect(81.25, 406.25, 62.5, 50);
@@ -166,7 +166,7 @@ shape12.stroke({
   dash: [6.25, 6.25, 0.625, 5, 0.625, 6.25]
 });
 
-//Zero length Dashes
+// Zero length Dashes
 const shape13 = new TVG.Shape();
 shape13.appendCircle(43.75, 531.25, 12.5, 37.5);
 shape13.appendRect(81.25, 500, 62.5, 50);

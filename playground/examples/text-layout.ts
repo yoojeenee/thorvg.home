@@ -13,12 +13,12 @@ const canvas = new TVG.Canvas('#canvas', {
 });
 
 (async () => {
-  //Load fonts
+  // Load fonts
   const response = await fetch('playground/fonts/Arial.ttf');
   const buffer = await response.arrayBuffer();
   TVG.Font.load('Arial', new Uint8Array(buffer), { type: 'ttf' });
 
-  //guide line
+  // Guide line
   const yOffset = 82;
   const border = 81.75;
   const dashPattern = [5.45, 5.45];
@@ -41,7 +41,7 @@ const canvas = new TVG.Canvas('#canvas', {
   const w = 272.5;
   const h = 272.5;
 
-  //top left
+  // Top left
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -54,7 +54,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //top center
+  // Top center
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -67,7 +67,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //top right
+  // Top right
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -80,7 +80,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //middle left
+  // Middle left
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -93,7 +93,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //middle center
+  // Middle center
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -106,7 +106,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //middle right
+  // Middle right
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -119,7 +119,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //bottom left
+  // Bottom left
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -132,7 +132,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //bottom center
+  // Bottom center
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -145,7 +145,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //bottom right
+  // Bottom right
   {
     const text = new TVG.Text();
     text.font('Arial');
@@ -158,7 +158,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(text);
   }
 
-  //origin
+  // Origin
   const alignments = [{x: 0, y: 0.5}, {x: 0.25, y: 0.5}, {x: 0.5, y: 0.5}, {x: 0.75, y: 0.5}, {x: 1, y: 0.5}];
   const yPositions = [109, 163.5, 218, 272.5, 327];
   for (let i = 0; i < 5; i++) {

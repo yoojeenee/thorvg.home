@@ -12,11 +12,11 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600
 });
 
-//Prepare Round Rectangle
+// Prepare Round Rectangle
 const shape1 = new TVG.Shape();
 shape1.appendRect(0, 0, 300, 300);
 
-//LinearGradient
+// LinearGradient
 const fill1 = new TVG.LinearGradient(0, 0, 300, 300);
 fill1.setStops(
   [0, [0, 0, 0, 255]],
@@ -25,11 +25,11 @@ fill1.setStops(
 
 shape1.fill(fill1);
 
-//Prepare Circle
+// Prepare Circle
 const shape2 = new TVG.Shape();
 shape2.appendCircle(300, 300, 150, 150);
 
-//LinearGradient
+// LinearGradient
 const fill2 = new TVG.LinearGradient(300, 150, 300, 450);
 fill2.setStops(
   [0, [255, 0, 0, 255]],
@@ -39,11 +39,11 @@ fill2.setStops(
 
 shape2.fill(fill2);
 
-//Prepare Ellipse
+// Prepare Ellipse
 const shape3 = new TVG.Shape();
 shape3.appendCircle(450, 450, 112.5, 75);
 
-//LinearGradient
+// LinearGradient
 const fill3 = new TVG.LinearGradient(337.5, 450, 562.5, 450);
 fill3.setStops(
   [0, [0, 127, 0, 127]],

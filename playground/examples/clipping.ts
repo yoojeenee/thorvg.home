@@ -17,7 +17,7 @@ const canvas = new TVG.Canvas('#canvas', {
   const svgString = await svgResponse.text();
   const svgData = new TextEncoder().encode(svgString);
 
-  //Background
+  // Background
   const background = new TVG.Shape();
   background.appendRect(0, 0, 600, 600);
   background.fill(255, 255, 255);
@@ -73,7 +73,7 @@ const canvas = new TVG.Canvas('#canvas', {
     scene.add(star1);
     scene.add(star2);
 
-    //Clipping scene to shape
+    // Clipping scene to shape
     scene.clip(clip);
 
     canvas.add(scene);
@@ -93,7 +93,7 @@ const canvas = new TVG.Canvas('#canvas', {
     star3.lineTo(109.5, 107.25);
     star3.close();
 
-    //Fill Gradient
+    // Fill Gradient
     const fill = new TVG.LinearGradient(75, 75, 225, 225);
     fill.setStops(
       [0, [0, 0, 0, 255]],
@@ -109,7 +109,7 @@ const canvas = new TVG.Canvas('#canvas', {
     clipRect.appendRect(375, 90, 150, 150);
     clipRect.translate(15, 15);
 
-    //Clipping star3 to rect(shape)
+    // Clipping star3 to rect(shape)
     star3.clip(clipRect);
 
     canvas.add(star3);
@@ -127,7 +127,7 @@ const canvas = new TVG.Canvas('#canvas', {
     clipPath.appendCircle(150, 487.5, 37.5, 37.5);
     clipPath.translate(15, 15);
 
-    //Clipping picture to path
+    // Clipping picture to path
     picture.clip(clipPath);
 
     canvas.add(picture);
@@ -143,7 +143,7 @@ const canvas = new TVG.Canvas('#canvas', {
     clipShape.appendCircle(450, 412.5, 112.5, 112.5);
     clipShape.stroke({ width: 15 });
 
-    //Clipping shape1 to clipShape
+    // Clipping shape1 to clipShape
     shape1.clip(clipShape);
 
     canvas.add(shape1);

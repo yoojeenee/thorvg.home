@@ -30,7 +30,7 @@ const canvas = new TVG.Canvas('#canvas', {
     text.translate(6.67 + x, 8.33 + y + 67);
     canvas.add(text);
 
-    //solid
+    // Solid
     {
       const bottom = new TVG.Shape();
       bottom.appendRect(6.67 + x, 8.33 + y + 75, 33.33, 33.33, { rx: 3.33, ry: 3.33 });
@@ -44,7 +44,7 @@ const canvas = new TVG.Canvas('#canvas', {
       canvas.add(top);
     }
 
-    //solid (half transparent)
+    // Solid (half transparent)
     {
       const bottom = new TVG.Shape();
       bottom.appendRect(56.67 + x, 8.33 + y + 75, 33.33, 33.33, { rx: 3.33, ry: 3.33 });
@@ -58,7 +58,7 @@ const canvas = new TVG.Canvas('#canvas', {
       canvas.add(top);
     }
 
-    //gradient blending
+    // Gradient blending
     {
       const fill = new TVG.LinearGradient(108.33 + x, 8.33 + y + 75, 141.67 + x, 41.67 + y + 75);
       fill.setStops(
@@ -84,7 +84,7 @@ const canvas = new TVG.Canvas('#canvas', {
       canvas.add(top);
     }
 
-    //image
+    // Image
     {
       const bottom = new TVG.Picture();
       bottom.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
@@ -99,7 +99,7 @@ const canvas = new TVG.Canvas('#canvas', {
       canvas.add(top);
     }
 
-    //scene
+    // Scene
     {
       const bottom = new TVG.Picture();
       bottom.load(svgData, { type: 'svg' });
@@ -113,7 +113,7 @@ const canvas = new TVG.Canvas('#canvas', {
       canvas.add(top);
     }
 
-    //scene (half transparent)
+    // Scene (half transparent)
     {
       const bottom = new TVG.Picture();
       bottom.load(svgData, { type: 'svg' });

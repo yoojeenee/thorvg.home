@@ -15,19 +15,19 @@ const canvas = new TVG.Canvas('#canvas', {
 const startTime = performance.now();
 
 (async () => {
-  //Load image
+  // Load image
   const response = await fetch('playground/assets/images/scale.jpg');
   const arrayBuffer = await response.arrayBuffer();
   const data = new Uint8Array(arrayBuffer);
 
-  //Original
+  // Original
   const picture = new TVG.Picture();
   picture.load(data, { type: 'jpg' });
 
   picture.origin(0.5, 0.5);
   picture.translate(300, 300);
 
-  //Add picture to canvas once
+  // Add picture to canvas once
   canvas.add(picture);
 
   const baseScale = 1.125;

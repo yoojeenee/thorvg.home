@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//background
+// Background
 const bg = new TVG.Shape();
 bg.appendRect(0, 0, 600, 600);
 bg.fill(255, 255, 255);
@@ -20,7 +20,7 @@ canvas.add(bg);
 
 let scene1, scene2, scene3;
 
-//Prepare a scene for post effects
+// Prepare a scene for post effects
 (async () => {
   {
     scene1 = new TVG.Scene();
@@ -39,7 +39,7 @@ let scene1, scene2, scene3;
     canvas.add(scene1);
   }
 
-  //Prepare a scene for post effects
+  // Prepare a scene for post effects
   {
     scene2 = new TVG.Scene();
 
@@ -60,7 +60,7 @@ let scene1, scene2, scene3;
     canvas.add(scene2);
   }
 
-  //Prepare a scene for post effects
+  // Prepare a scene for post effects
   {
     scene3 = new TVG.Scene();
 
@@ -90,9 +90,9 @@ let scene1, scene2, scene3;
     const duration = 2500; // 2.5 seconds
     const progress = ((elapsed % duration) / duration);
 
-    //Clear the previously applied effects
+    // Clear the previously applied effects
     scene1.resetEffects();
-    //Apply DropShadow post effect (r, g, b, a, angle, distance, sigma of blurness, quality)
+    // Apply DropShadow post effect (r, g, b, a, angle, distance, sigma of blurness, quality)
     scene1.dropShadow(0, 0, 0, 125, 120, 20 * progress * 0.75, 3, 100);
 
     scene2.resetEffects();

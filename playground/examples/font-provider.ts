@@ -40,7 +40,7 @@ const canvas = new TVG.Canvas('#canvas', {
     .translate(32, 82);
   canvas.add(subheader);
 
-  // divider
+  // Divider
   const divider = new TVG.Shape();
   divider.appendRect(32, 108, 536, 1);
   divider.fill(60, 60, 80);
@@ -101,7 +101,7 @@ const canvas = new TVG.Canvas('#canvas', {
       .translate(32, row.y + 20);
     canvas.add(sampleText);
 
-    // row separator
+    // Row separator
     if (row !== rows[rows.length - 1]) {
       const sep = new TVG.Shape();
       sep.appendRect(32, row.y + 56, 536, 1);

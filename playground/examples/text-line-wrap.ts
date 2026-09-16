@@ -13,12 +13,12 @@ const canvas = new TVG.Canvas('#canvas', {
 });
 
 (async () => {
-  //Load font
+  // Load font
   const response = await fetch('playground/fonts/NotoSansKR.ttf');
   const buffer = await response.arrayBuffer();
   TVG.Font.load('NotoSansKR', new Uint8Array(buffer), { type: 'ttf' });
 
-  //BG
+  // Background
   const bg = new TVG.Shape();
   bg.appendRect(0, 0, 600, 600);
   bg.fill(0, 0, 0, 255);

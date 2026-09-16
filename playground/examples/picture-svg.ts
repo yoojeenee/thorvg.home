@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Load SVG from file
+// Load SVG from file
 (async () => {
   const response = await fetch('playground/assets/images/tiger.svg');
   const tigerSvg = await response.text();

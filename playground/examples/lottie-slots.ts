@@ -16,16 +16,16 @@ const canvas = new TVG.Canvas('#canvas', {
 
 const size = 600 / NUM_PER_ROW;
 
-//Slot data per Lottie file. null keeps the authored default.
+// Slot data per Lottie file. null keeps the authored default.
 const samples = [
-  //slot (default)
+  // Slot (default)
   { file: 'slot0.json', slot: null },
-  //slot (gradient)
+  // Slot (gradient)
   {
     file: 'slot1.json',
     slot: { gradient_fill: { p: { p: 2, k: { k: [0, 0.1, 0.1, 0.2, 1, 1, 0.1, 0.2, 0, 0, 1, 1] } } } },
   },
-  //slot (solid fill)
+  // Slot (solid fill)
   {
     file: 'slot2.json',
     slot: { ball_color: { p: { a: 1, k: [
@@ -35,7 +35,7 @@ const samples = [
       { t: 51, s: [0, 0.867, 0.255] },
     ] } } },
   },
-  //slot (overriden default slot)
+  // Slot (override default slot)
   {
     file: 'slot4.json',
     slot: {
@@ -43,7 +43,7 @@ const samples = [
       check_color: { p: { a: 0, k: [0.0078, 0.0078, 0.0078] } },
     },
   },
-  //slot (transform: position)
+  // Slot (transform: position)
   {
     file: 'slot6.json',
     slot: { position_id: { p: { a: 1, k: [
@@ -51,7 +51,7 @@ const samples = [
       { s: [200, 300], t: 100 },
     ] } } },
   },
-  //slot (transform: scale)
+  // Slot (transform: scale)
   {
     file: 'slot7.json',
     slot: { scale_id: { p: { a: 1, k: [
@@ -59,7 +59,7 @@ const samples = [
       { s: [100, 100], t: 100 },
     ] } } },
   },
-  //slot (transform: rotation)
+  // Slot (transform: rotation)
   {
     file: 'slot8.json',
     slot: { rotation_id: { p: { a: 1, k: [
@@ -67,7 +67,7 @@ const samples = [
       { s: [180], t: 100 },
     ] } } },
   },
-  //slot (transform: opacity)
+  // Slot (transform: opacity)
   {
     file: 'slot9.json',
     slot: { opacity_id: { p: { a: 1, k: [
@@ -75,7 +75,7 @@ const samples = [
       { s: [100], t: 100 },
     ] } } },
   },
-  //slot (text)
+  // Slot (text)
   {
     file: 'slot11.json',
     slot: { text_doc: { p: { k: [
@@ -91,7 +91,7 @@ const samples = [
     const { file, slot } = samples[i];
     const data = await fetch('playground/assets/lottie/extensions/' + file).then(res => res.text());
 
-    //LottieAnimation Controller
+    // LottieAnimation Controller
     const animation = new TVG.LottieAnimation();
     animation.load(data);
 
@@ -100,7 +100,7 @@ const samples = [
       animation.apply(slotId);
     }
 
-    //image scaling preserving its aspect ratio
+    // Image scaling preserving its aspect ratio
     const picture = animation.picture;
     picture.origin(0.5, 0.5);
     const { width, height } = picture.size();
@@ -116,7 +116,7 @@ const samples = [
 
   canvas.render();
 
-  //Run animation loop
+  // Run animation loop
   const states = animations.map(animation => ({
     animation,
     frame: 0,

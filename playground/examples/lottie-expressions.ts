@@ -31,7 +31,7 @@ const lottieFiles = [
 ];
 
 (async () => {
-  //Load animations
+  // Load animations
   const lottieDataArray = await Promise.all(
     lottieFiles.map(file =>
       fetch(\`playground/assets/lottie/expressions/\${file}\`).then(res => res.text())
@@ -41,11 +41,11 @@ const lottieFiles = [
   for (let i = 0; i < lottieDataArray.length; i++) {
     const lottieData = lottieDataArray[i];
 
-    //Animation Controller
+    // Animation Controller
     const animation = new TVG.Animation();
     animation.load(lottieData);
 
-    //image scaling preserving its aspect ratio
+    // Image scaling preserving its aspect ratio
     const picture = animation.picture;
     picture.origin(0.5, 0.5);
 
@@ -55,7 +55,7 @@ const lottieFiles = [
     const scale = (w > h) ? size / w : size / h;
     picture.scale(scale);
 
-    //Position at center of each grid cell
+    // Position at center of each grid cell
     const col = i % NUM_PER_ROW;
     const row = Math.floor(i / NUM_PER_ROW);
     picture.translate(
@@ -69,7 +69,7 @@ const lottieFiles = [
 
   canvas.render();
 
-  //Run animation loop
+  // Run animation loop
   let lastTime = 0;
   const animationStates = animations.map(animation => ({
     animation,

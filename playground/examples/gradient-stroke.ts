@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-// linear gradient stroke + linear gradient fill
+// Linear gradient stroke + linear gradient fill
 const shape1 = new TVG.Shape();
 shape1.moveTo(112.5, 75);
 shape1.lineTo(150, 75);
@@ -49,7 +49,7 @@ shape1.stroke({
   cap: TVG.StrokeCap.Butt
 });
 
-// radial gradient stroke + duplicate
+// Radial gradient stroke + duplicate
 const shape2 = new TVG.Shape();
 shape2.appendCircle(450, 131.25, 75, 45);
 
@@ -92,7 +92,7 @@ shape4.stroke({
   gradient: strokeGradient4
 });
 
-// dashed gradient stroke
+// Dashed gradient stroke
 const shape5 = new TVG.Shape();
 shape5.appendRect(75, 375, 225, 225, { rx: 37.5, ry: 60 });
 

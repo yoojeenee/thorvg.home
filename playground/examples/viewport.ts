@@ -15,7 +15,7 @@ const canvas = new TVG.Canvas('#canvas', {
 const viewportSize = 300;
 const startTime = Date.now();
 
-//set viewport before canvas become dirty.
+// Set viewport before canvas become dirty.
 canvas.viewport(0, 0, viewportSize, viewportSize);
 
 const scene = new TVG.Scene();

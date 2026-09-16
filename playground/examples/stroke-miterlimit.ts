@@ -12,12 +12,12 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//background
+// Background
 const bg = new TVG.Shape();
 bg.appendRect(0, 0, 600, 600);
 bg.fill(200, 200, 255, 255);
 
-//wild
+// Wild
 const path = new TVG.Shape();
 const top = 75.0;
 const bot = 525.0;

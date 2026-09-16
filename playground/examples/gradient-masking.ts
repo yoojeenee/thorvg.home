@@ -12,12 +12,12 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Solid Rectangle
+// Solid Rectangle
 {
   const shape = new TVG.Shape();
   shape.appendRect(0, 0, 300, 300);
 
-  //Mask
+  // Mask
   const mask = new TVG.Shape();
   mask.appendCircle(150, 150, 93.75, 93.75);
   mask.fill(255, 0, 0);
@@ -33,7 +33,7 @@ const canvas = new TVG.Canvas('#canvas', {
   canvas.add(shape);
 }
 
-//Star
+// Star
 {
   const shape1 = new TVG.Shape();
   shape1.moveTo(449.25, 25.5);
@@ -48,7 +48,7 @@ const canvas = new TVG.Canvas('#canvas', {
   shape1.lineTo(409.5, 107.25);
   shape1.close();
 
-  //Mask
+  // Mask
   const mask1 = new TVG.Shape();
   mask1.appendCircle(450, 150, 93.75, 93.75);
   mask1.fill(255, 0, 0);
@@ -64,7 +64,7 @@ const canvas = new TVG.Canvas('#canvas', {
   canvas.add(shape1);
 }
 
-//Solid Rectangle
+// Solid Rectangle
 {
   const shape2 = new TVG.Shape();
   shape2.appendRect(0, 300, 300, 300);
@@ -100,7 +100,7 @@ const canvas = new TVG.Canvas('#canvas', {
   shape3.lineTo(409.5, 407.25);
   shape3.close();
 
-  //Mask
+  // Mask
   const mask3 = new TVG.Shape();
   mask3.appendCircle(450, 450, 93.75, 93.75);
   mask3.fill(255, 0, 0);

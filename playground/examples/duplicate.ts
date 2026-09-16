@@ -13,16 +13,16 @@ const canvas = new TVG.Canvas('#canvas', {
 });
 
 (async () => {
-  //Duplicate Shapes
+  // Duplicate Shapes
   {
-    //Original Shape
+    // Original Shape
     const shape1 = new TVG.Shape();
     shape1.appendRect(7.5, 7.5, 150, 150);
     shape1.appendRect(165, 7.5, 75, 75);
     shape1.stroke({ width: 2.25, color: [0, 255, 0, 255] });
     shape1.fill(255, 0, 0, 255);
   
-    //Duplicate Shape, Switch fill method
+    // Duplicate Shape, Switch fill method
     const shape2 = shape1.duplicate();
     shape2.translate(0, 165);
   
@@ -33,7 +33,7 @@ const canvas = new TVG.Canvas('#canvas', {
     );
     shape2.fill(gradient);
   
-    //Duplicate Shape 2
+    // Duplicate Shape 2
     const shape3 = shape2.duplicate();
     shape3.translate(0, 330);
   
@@ -42,9 +42,9 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(shape3);
   }
 
-  //Duplicate Scene
+  // Duplicate Scene
   {
-    //Create a Scene1
+    // Create a Scene1
     const scene1 = new TVG.Scene();
   
     const sceneShape1 = new TVG.Shape();
@@ -65,7 +65,7 @@ const canvas = new TVG.Canvas('#canvas', {
     scene1.scale(0.25);
     scene1.translate(300, 0);
   
-    //Duplicate Scene1
+    // Duplicate Scene1
     const scene2 = scene1.duplicate();
     scene2.translate(450, 0);
   
@@ -73,7 +73,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(scene2);
   }
 
-  //Duplicate Picture - svg
+  // Duplicate Picture - SVG
   {
     const svgResponse = await fetch('playground/assets/images/2684.svg');
     const svgData = await svgResponse.text();
@@ -90,7 +90,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(picture2);
   }
 
-  //Duplicate Picture - raw
+  // Duplicate Picture - Raw
   {
     const imageResponse = await fetch('playground/assets/images/rawimage_200x300.raw');
     const arrayBuffer = await imageResponse.arrayBuffer();
@@ -110,7 +110,7 @@ const canvas = new TVG.Canvas('#canvas', {
     canvas.add(picture2);
   }
 
-  //Duplicate Text
+  // Duplicate Text
   {
     const text = new TVG.Text();
     text.font('default')

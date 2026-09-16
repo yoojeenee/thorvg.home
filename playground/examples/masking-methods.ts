@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//BG
+// Background
 const bg = new TVG.Shape();
 bg.appendRect(0, 0, 600, 600);
 bg.fill(0, 0, 0, 255);
@@ -23,14 +23,14 @@ canvas.add(bg);
   const arrayBuffer = await response.arrayBuffer();
   const imageData = new Uint8Array(arrayBuffer);
 
-  //background
+  // Background
   const bg = new TVG.Shape();
   bg.appendRect(0, 0, 250, 600);
   bg.fill(50, 50, 50);
   canvas.add(bg);
 
   {
-    //Shape + Shape Mask Add
+    // Shape + Shape Mask Add
     const shape = new TVG.Shape();
     shape.appendCircle(50, 40, 60, 60);
     shape.fill(255, 255, 255);
@@ -46,7 +46,7 @@ canvas.add(bg);
     shape.mask(mask, TVG.MaskMethod.Alpha);
     canvas.add(shape);
 
-    //Shape + Shape Mask Subtract
+    // Shape + Shape Mask Subtract
     const shape2 = new TVG.Shape();
     shape2.appendCircle(150, 40, 60, 60);
     shape2.fill(255, 255, 255, 255);
@@ -62,7 +62,7 @@ canvas.add(bg);
     shape2.mask(mask2, TVG.MaskMethod.Alpha);
     canvas.add(shape2);
 
-    //Shape + Shape Mask Intersect
+    // Shape + Shape Mask Intersect
     const shape3 = new TVG.Shape();
     shape3.appendCircle(250, 40, 20, 20);
     shape3.fill(255, 255, 255, 127);
@@ -78,7 +78,7 @@ canvas.add(bg);
     shape3.mask(mask3, TVG.MaskMethod.Alpha);
     canvas.add(shape3);
 
-    //Shape + Shape Mask Difference
+    // Shape + Shape Mask Difference
     const shape4 = new TVG.Shape();
     shape4.appendCircle(350, 40, 60, 60);
     shape4.fill(255, 255, 255);
@@ -94,7 +94,7 @@ canvas.add(bg);
     shape4.mask(mask4, TVG.MaskMethod.Alpha);
     canvas.add(shape4);
 
-    //Shape + Shape Mask Lighten
+    // Shape + Shape Mask Lighten
     const shape5 = new TVG.Shape();
     shape5.appendCircle(450, 40, 60, 60);
     shape5.fill(255, 255, 255);
@@ -110,7 +110,7 @@ canvas.add(bg);
     shape5.mask(mask5, TVG.MaskMethod.Alpha);
     canvas.add(shape5);
 
-    //Shape + Shape Mask Darken
+    // Shape + Shape Mask Darken
     const shape6 = new TVG.Shape();
     shape6.appendCircle(550, 40, 60, 60);
     shape6.fill(255, 255, 255);
@@ -127,7 +127,7 @@ canvas.add(bg);
     canvas.add(shape6);
   }
   {
-    //Shape + Shape Mask Add
+    // Shape + Shape Mask Add
     const shape = new TVG.Shape();
     shape.appendCircle(50, 120, 40, 40);
     shape.fill(255, 255, 255);
@@ -143,7 +143,7 @@ canvas.add(bg);
     shape.mask(mask, TVG.MaskMethod.InvAlpha);
     canvas.add(shape);
 
-    //Shape + Shape Mask Subtract
+    // Shape + Shape Mask Subtract
     const shape2 = new TVG.Shape();
     shape2.appendCircle(150, 120, 40, 40);
     shape2.fill(255, 255, 255, 255);
@@ -159,7 +159,7 @@ canvas.add(bg);
     shape2.mask(mask2, TVG.MaskMethod.InvAlpha);
     canvas.add(shape2);
 
-    //Shape + Shape Mask Intersect
+    // Shape + Shape Mask Intersect
     const shape3 = new TVG.Shape();
     shape3.appendCircle(250, 120, 40, 40);
     shape3.fill(255, 255, 255, 127);
@@ -175,7 +175,7 @@ canvas.add(bg);
     shape3.mask(mask3, TVG.MaskMethod.InvAlpha);
     canvas.add(shape3);
 
-    //Shape + Shape Mask Difference
+    // Shape + Shape Mask Difference
     const shape4 = new TVG.Shape();
     shape4.appendCircle(350, 120, 40, 40);
     shape4.fill(255, 255, 255);
@@ -191,7 +191,7 @@ canvas.add(bg);
     shape4.mask(mask4, TVG.MaskMethod.InvAlpha);
     canvas.add(shape4);
 
-    //Shape + Shape Mask Lighten
+    // Shape + Shape Mask Lighten
     const shape5 = new TVG.Shape();
     shape5.appendCircle(450, 120, 40, 40);
     shape5.fill(255, 255, 255);
@@ -207,7 +207,7 @@ canvas.add(bg);
     shape5.mask(mask5, TVG.MaskMethod.InvAlpha);
     canvas.add(shape5);
 
-    //Shape + Shape Mask Darken
+    // Shape + Shape Mask Darken
     const shape6 = new TVG.Shape();
     shape6.appendCircle(550, 120, 40, 40);
     shape6.fill(255, 255, 255);
@@ -224,7 +224,7 @@ canvas.add(bg);
     canvas.add(shape6);
   }
   {
-    //Rect + Rect Mask Add
+    // Rect + Rect Mask Add
     const shape = new TVG.Shape();
     shape.appendRect(30, 180, 60, 60);
     shape.fill(255, 255, 255);
@@ -240,7 +240,7 @@ canvas.add(bg);
     shape.mask(mask, TVG.MaskMethod.Alpha);
     canvas.add(shape);
 
-    //Rect + Rect Mask Subtract
+    // Rect + Rect Mask Subtract
     const shape2 = new TVG.Shape();
     shape2.appendRect(130, 180, 60, 60);
     shape2.fill(255, 255, 255);
@@ -256,7 +256,7 @@ canvas.add(bg);
     shape2.mask(mask2, TVG.MaskMethod.Alpha);
     canvas.add(shape2);
 
-    //Rect + Rect Mask Intersect
+    // Rect + Rect Mask Intersect
     const shape3 = new TVG.Shape();
     shape3.appendRect(230, 180, 60, 60);
     shape3.fill(255, 255, 255);
@@ -272,7 +272,7 @@ canvas.add(bg);
     shape3.mask(mask3, TVG.MaskMethod.Alpha);
     canvas.add(shape3);
 
-    //Rect + Rect Mask Difference
+    // Rect + Rect Mask Difference
     const shape4 = new TVG.Shape();
     shape4.appendRect(330, 180, 60, 60);
     shape4.fill(255, 255, 255);
@@ -288,7 +288,7 @@ canvas.add(bg);
     shape4.mask(mask4, TVG.MaskMethod.Alpha);
     canvas.add(shape4);
 
-    //Rect + Rect Mask Lighten
+    // Rect + Rect Mask Lighten
     const shape5 = new TVG.Shape();
     shape5.appendRect(450, 180, 60, 60);
     shape5.fill(255, 255, 255);
@@ -304,7 +304,7 @@ canvas.add(bg);
     shape5.mask(mask5, TVG.MaskMethod.Alpha);
     canvas.add(shape5);
 
-    //Rect + Rect Mask Darken
+    // Rect + Rect Mask Darken
     const shape6 = new TVG.Shape();
     shape6.appendRect(550, 180, 60, 60);
     shape6.fill(255, 255, 255);
@@ -321,7 +321,7 @@ canvas.add(bg);
     canvas.add(shape6);
   }
   {
-    //Transformed Image + Shape Mask Add
+    // Transformed Image + Shape Mask Add
     const image = new TVG.Picture();
     image.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(80, 175.78);
     image.translate(60, 260);
@@ -338,7 +338,7 @@ canvas.add(bg);
     image.mask(mask, TVG.MaskMethod.Alpha);
     canvas.add(image);
 
-    //Transformed Image + Shape Mask Subtract
+    // Transformed Image + Shape Mask Subtract
     const image2 = new TVG.Picture();
     image2.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(80, 175.78);
     image2.translate(160, 260);
@@ -355,7 +355,7 @@ canvas.add(bg);
     image2.mask(mask2, TVG.MaskMethod.Alpha);
     canvas.add(image2);
 
-    //Transformed Image + Shape Mask Intersect
+    // Transformed Image + Shape Mask Intersect
     const image3 = new TVG.Picture();
     image3.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(80, 175.78);
     image3.translate(260, 260);
@@ -372,7 +372,7 @@ canvas.add(bg);
     image3.mask(mask3, TVG.MaskMethod.Alpha);
     canvas.add(image3);
 
-    //Transformed Image + Shape Mask Difference
+    // Transformed Image + Shape Mask Difference
     const image4 = new TVG.Picture();
     image4.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(80, 175.78);
     image4.translate(360, 260);
@@ -389,7 +389,7 @@ canvas.add(bg);
     image4.mask(mask4, TVG.MaskMethod.Alpha);
     canvas.add(image4);
 
-    //Transformed Image + Shape Mask Lighten
+    // Transformed Image + Shape Mask Lighten
     const image5 = new TVG.Picture();
     image5.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(80, 175.78);
     image5.translate(460, 260);
@@ -406,7 +406,7 @@ canvas.add(bg);
     image5.mask(mask5, TVG.MaskMethod.Alpha);
     canvas.add(image5);
 
-    //Transformed Image + Shape Mask Darken
+    // Transformed Image + Shape Mask Darken
     const image6 = new TVG.Picture();
     image6.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(80, 175.78);
     image6.translate(560, 260);
@@ -424,7 +424,7 @@ canvas.add(bg);
     canvas.add(image6);
   }
   {
-    //Transformed Image + Shape Mask Add
+    // Transformed Image + Shape Mask Add
     const image = new TVG.Picture();
     image.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
     image.translate(60, 340);
@@ -442,7 +442,7 @@ canvas.add(bg);
     image.mask(mask, TVG.MaskMethod.InvAlpha);
     canvas.add(image);
 
-    //Transformed Image + Shape Mask Subtract
+    // Transformed Image + Shape Mask Subtract
     const image2 = new TVG.Picture();
     image2.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
     image2.translate(160, 340);
@@ -460,7 +460,7 @@ canvas.add(bg);
     image2.mask(mask2, TVG.MaskMethod.InvAlpha);
     canvas.add(image2);
 
-    //Transformed Image + Shape Mask Intersect
+    // Transformed Image + Shape Mask Intersect
     const image3 = new TVG.Picture();
     image3.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
     image3.translate(260, 340);
@@ -478,7 +478,7 @@ canvas.add(bg);
     image3.mask(mask3, TVG.MaskMethod.InvAlpha);
     canvas.add(image3);
 
-    //Transformed Image + Shape Mask Difference
+    // Transformed Image + Shape Mask Difference
     const image4 = new TVG.Picture();
     image4.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
     image4.translate(360, 340);
@@ -496,7 +496,7 @@ canvas.add(bg);
     image4.mask(mask4, TVG.MaskMethod.InvAlpha);
     canvas.add(image4);
 
-    //Transformed Image + Shape Mask Lighten
+    // Transformed Image + Shape Mask Lighten
     const image5 = new TVG.Picture();
     image5.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
     image5.translate(460, 340);
@@ -514,7 +514,7 @@ canvas.add(bg);
     image5.mask(mask5, TVG.MaskMethod.InvAlpha);
     canvas.add(image5);
 
-    //Transformed Image + Shape Mask Darken
+    // Transformed Image + Shape Mask Darken
     const image6 = new TVG.Picture();
     image6.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
     image6.translate(560, 340);

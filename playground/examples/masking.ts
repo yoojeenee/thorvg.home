@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//BG
+// Background
 const bg = new TVG.Shape();
 bg.appendRect(0, 0, 600, 600);
 bg.fill(0, 0, 0, 255);
@@ -27,19 +27,19 @@ canvas.add(bg);
   const svgString = await svgResponse.text();
   const svgData = new TextEncoder().encode(svgString);
 
-  //Masking
+  // Masking
   {
-    //Solid Rectangle
+    // Solid Rectangle
     const shape = new TVG.Shape();
     shape.appendRect(0, 0, 150, 150);
     shape.fill(0, 0, 255);
 
-    //Mask
+    // Mask
     const mask = new TVG.Shape();
     mask.appendCircle(75, 75, 46.875, 46.875);
     mask.fill(255, 255, 255);
 
-    //Nested Mask
+    // Nested Mask
     const nMask = new TVG.Shape();
     nMask.appendCircle(82.5, 82.5, 46.875, 46.875);
     nMask.fill(255, 255, 255);
@@ -48,14 +48,14 @@ canvas.add(bg);
     shape.mask(mask, TVG.MaskMethod.Alpha);
     canvas.add(shape);
 
-    //SVG
+    // SVG
     const svg = new TVG.Picture();
     svg.load(svgData, { type: 'svg' });
     svg.opacity(100);
     svg.scale(1.125);
     svg.translate(18.75, 150);
 
-    //Mask2
+    // Mask2
     const mask2 = new TVG.Shape();
     mask2.appendCircle(56.25, 187.5, 28.125, 28.125);
     mask2.appendRect(56.25, 187.5, 75, 75, { rx: 11.25, ry: 11.25 });
@@ -63,7 +63,7 @@ canvas.add(bg);
     svg.mask(mask2, TVG.MaskMethod.Alpha);
     canvas.add(svg);
 
-    //Star
+    // Star
     const star = new TVG.Shape();
     star.fill(80, 80, 80);
     star.moveTo(224.625, 12.75);
@@ -79,7 +79,7 @@ canvas.add(bg);
     star.close();
     star.stroke({ width: 11.25, color: [255, 255, 255, 255], join: TVG.StrokeJoin.Miter });
 
-    //Mask3
+    // Mask3
     const mask3 = new TVG.Shape();
     mask3.appendCircle(225, 75, 46.875, 46.875);
     mask3.fill(255, 255, 255);
@@ -91,7 +91,7 @@ canvas.add(bg);
     image.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 }).size(75, 112.5);
     image.translate(187.5, 150);
 
-    //Mask4
+    // Mask4
     const mask4 = new TVG.Shape();
     mask4.moveTo(224.625, 144);
     mask4.lineTo(244.875, 184.875);
@@ -110,19 +110,19 @@ canvas.add(bg);
     canvas.add(image);
   }
 
-  //Inverse Masking
+  // Inverse Masking
   {
-    //Solid Rectangle
+    // Solid Rectangle
     const shape = new TVG.Shape();
     shape.appendRect(300, 0, 150, 150);
     shape.fill(0, 0, 255);
 
-    //Mask
+    // Mask
     const mask = new TVG.Shape();
     mask.appendCircle(375, 75, 46.875, 46.875);
     mask.fill(255, 255, 255);
 
-    //Nested Mask
+    // Nested Mask
     const nMask = new TVG.Shape();
     nMask.appendCircle(382.5, 82.5, 46.875, 46.875);
     nMask.fill(255, 255, 255);
@@ -131,14 +131,14 @@ canvas.add(bg);
     shape.mask(mask, TVG.MaskMethod.InvAlpha);
     canvas.add(shape);
 
-    //SVG
+    // SVG
     const svg = new TVG.Picture();
     svg.load(svgData, { type: 'svg' });
     svg.opacity(100);
     svg.scale(1.125);
     svg.translate(318.75, 150);
 
-    //Mask2
+    // Mask2
     const mask2 = new TVG.Shape();
     mask2.appendCircle(356.25, 187.5, 28.125, 28.125);
     mask2.appendRect(356.25, 187.5, 75, 75, { rx: 11.25, ry: 11.25 });
@@ -146,7 +146,7 @@ canvas.add(bg);
     svg.mask(mask2, TVG.MaskMethod.InvAlpha);
     canvas.add(svg);
 
-    //Star
+    // Star
     const star = new TVG.Shape();
     star.fill(80, 80, 80);
     star.moveTo(524.625, 12.75);
@@ -162,7 +162,7 @@ canvas.add(bg);
     star.close();
     star.stroke({ width: 3.75, color: [255, 255, 255, 255] });
 
-    //Mask3
+    // Mask3
     const mask3 = new TVG.Shape();
     mask3.appendCircle(525, 75, 46.875, 46.875);
     mask3.fill(255, 255, 255);
@@ -173,7 +173,7 @@ canvas.add(bg);
     image.load(imageData, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ABGR8888 }).size(75, 112.5);
     image.translate(487.5, 150);
 
-    //Mask4
+    // Mask4
     const mask4 = new TVG.Shape();
     mask4.moveTo(524.625, 144);
     mask4.lineTo(544.875, 184.875);
@@ -192,7 +192,7 @@ canvas.add(bg);
     canvas.add(image);
   }
 
-  //Luma Masking
+  // Luma Masking
   {
     const shape = new TVG.Shape();
     shape.appendRect(0, 262.5, 150, 150);
@@ -261,7 +261,7 @@ canvas.add(bg);
     canvas.add(image);
   }
 
-  //Inverse Luma Masking
+  // Inverse Luma Masking
   {
     const shape = new TVG.Shape();
     shape.appendRect(300, 262.5, 150, 150);

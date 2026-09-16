@@ -12,19 +12,19 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Load raw image data (200x300, ARGB8888)
+// Load raw image data (200x300, ARGB8888)
 (async () => {
   const response = await fetch('playground/assets/images/rawimage_200x300.raw');
   const arrayBuffer = await response.arrayBuffer();
   const data = new Uint8Array(arrayBuffer);
 
-  //Picture 1: Simple display
+  // Picture 1: Simple display
   const picture = new TVG.Picture();
   picture.load(data, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
   picture.translate(260, 162.5);
   canvas.add(picture);
 
-  //Picture 2: Rotated, scaled, with opacity and clipping
+  // Picture 2: Rotated, scaled, with opacity and clipping
   const picture2 = new TVG.Picture();
   picture2.load(data, { type: 'raw', width: 200, height: 300, colorSpace: TVG.ColorSpace.ARGB8888 });
 
@@ -33,7 +33,7 @@ const canvas = new TVG.Canvas('#canvas', {
   picture2.scale(0.975);
   picture2.opacity(128);
 
-  //Create circular clipping mask
+  // Create circular clipping mask
   const circle = new TVG.Shape();
   circle.appendCircle(227.5, 227.5, 130, 130);
   picture2.clip(circle);

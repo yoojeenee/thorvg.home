@@ -20,7 +20,7 @@ function animate() {
 
   canvas.clear();
 
-  //Shape
+  // Shape
   const shape = new TVG.Shape();
   shape.moveTo(0, -71.5625);
   shape.lineTo(33.75, -3.4375);
@@ -36,13 +36,13 @@ function animate() {
   shape.fill(0, 0, 255, 255);
   shape.stroke({ width: 1.875, color: [255, 255, 255, 255] });
 
-  //Transform Matrix
+  // Transform Matrix
   const scaleX = 1 - (progress * 0.5);
   const scaleY = 1 + (progress * 2.0);
   const translateX = progress * 312.5 + 187.5;
   const translateY = progress * -62.5 + 237.5;
 
-  //rotation
+  // Rotation
   const angle = 45;
   const rad = (angle * Math.PI) / 180;
   const cos = Math.cos(rad);

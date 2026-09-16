@@ -21,7 +21,7 @@ function animate(currentTime) {
 
   canvas.clear();
 
-  //Shape1
+  // Shape1
   const shape1 = new TVG.Shape();
   shape1.appendRect(-285, -300, 280, 280);
   shape1.appendRect(-145, -160, 380, 380, { rx: 100, ry: 100 });
@@ -42,7 +42,7 @@ function animate(currentTime) {
 
   canvas.add(shape1);
 
-  //Shape2
+  // Shape2
   const shape2 = new TVG.Shape();
   shape2.appendRect(-50, -50, 180, 180);
   shape2.fill(0, 255, 255, 255);
@@ -53,7 +53,7 @@ function animate(currentTime) {
 
   canvas.add(shape2);
 
-  //Shape3
+  // Shape3
   const shape3 = new TVG.Shape();
 
   /* Look, how shape3's origin is different with shape2

@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Star
+// Star
 const star1 = new TVG.Shape();
 star1.moveTo(153.75, 30);
 star1.lineTo(247.5, 304.29);
@@ -23,7 +23,7 @@ star1.close();
 star1.fill(0, 255, 255, 255);
 star1.fillRule(TVG.FillRule.Winding);
 
-//Star 2
+// Star 2
 const star2 = new TVG.Shape();
 star2.moveTo(401.25, 287.14);
 star2.lineTo(495, 561.43);

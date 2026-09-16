@@ -27,7 +27,7 @@ const startTime = performance.now();
   picture.translate(300, 300);
   picture.scale(0.6);
 
-  //Add picture to canvas once
+  // Add picture to canvas once
   canvas.add(picture);
 
   function animate(currentTime) {

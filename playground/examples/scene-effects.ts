@@ -17,7 +17,7 @@ const canvas = new TVG.Canvas('#canvas', {
 const blur = [null, null, null]; //(for direction both, horizontal, vertical)
 let fill, tint, trintone;
 
-//blur scene
+// Blur scene
 (async () => {
   const response = await fetch('playground/assets/images/tiger.svg');
   const svgString = await response.text();
@@ -35,7 +35,7 @@ let fill, tint, trintone;
     canvas.add(blur[i]);
   }
 
-  //fill scene
+  // Fill scene
   {
     fill = new TVG.Scene();
 
@@ -48,7 +48,7 @@ let fill, tint, trintone;
     canvas.add(fill);
   }
 
-  //tint scene
+  // Tint scene
   {
     tint = new TVG.Scene();
 
@@ -61,7 +61,7 @@ let fill, tint, trintone;
     canvas.add(tint);
   }
 
-  //trinton scene
+  // Trinton scene
   {
     trintone = new TVG.Scene();
 
@@ -83,21 +83,21 @@ let fill, tint, trintone;
     const duration = 2500; // 2.5 seconds
     const progress = ((elapsed % duration) / duration);
 
-    //Apply GaussianBlur post effect (sigma, direction, border option, quality)
+    // Apply GaussianBlur post effect (sigma, direction, border option, quality)
     for (let i = 0; i < 3; i++) {
       blur[i].resetEffects();
       blur[i].gaussianBlur(10.0 * progress, i, 0, 100);
     }
 
-    //Apply Fill post effect (rgba)
+    // Apply Fill post effect (rgba)
     fill.resetEffects();
     fill.fillEffect(0, Math.floor(progress * 255), 0, Math.floor(255 * progress));
 
-    //Apply Tint post effect (black:rgb, white:rgb, intensity)
+    // Apply Tint post effect (black:rgb, white:rgb, intensity)
     tint.resetEffects();
     tint.tint(0, 0, 0, 0, Math.floor(progress * 255), 0, progress * 100);
 
-    //Apply Tritone post effect (shadow:rgb, midtone:rgb, highlight:rgb, blending with original)
+    // Apply Tritone post effect (shadow:rgb, midtone:rgb, highlight:rgb, blending with original)
     trintone.resetEffects();
     trintone.tritone(0, Math.floor(progress * 255), 0, 199, 110, 36, 255, 255, 255, 0);
 

@@ -17,7 +17,7 @@ bg.appendRect(0, 0, 600, 600);
 bg.fill(0, 0, 0, 255);
 canvas.add(bg);
 
-//Shape 1
+// Shape 1
 const shape1 = new TVG.Shape();
 shape1.appendRect(37.5, 37.5, 150, 150);
 shape1.fill(50, 50, 50, 255);
@@ -27,7 +27,7 @@ shape1.stroke({
   join: TVG.StrokeJoin.Bevel
 });
 
-//Shape 2
+// Shape 2
 const shape2 = new TVG.Shape();
 shape2.appendRect(225, 37.5, 150, 150);
 shape2.fill(50, 50, 50, 255);
@@ -37,7 +37,7 @@ shape2.stroke({
   join: TVG.StrokeJoin.Round
 });
 
-//Shape 3
+// Shape 3
 const shape3 = new TVG.Shape();
 shape3.appendRect(412.5, 37.5, 150, 150);
 shape3.fill(50, 50, 50, 255);
@@ -47,25 +47,25 @@ shape3.stroke({
   join: TVG.StrokeJoin.Miter
 });
 
-//Shape 4
+// Shape 4
 const shape4 = new TVG.Shape();
 shape4.appendCircle(112.5, 300, 75, 75);
 shape4.fill(50, 50, 50, 255);
 shape4.stroke({ width: 1, color: [255, 255, 255, 255] });
 
-//Shape 5
+// Shape 5
 const shape5 = new TVG.Shape();
 shape5.appendCircle(300, 300, 75, 75);
 shape5.fill(50, 50, 50, 255);
 shape5.stroke({ width: 2, color: [255, 255, 255, 255] });
 
-//Shape 6
+// Shape 6
 const shape6 = new TVG.Shape();
 shape6.appendCircle(487.5, 300, 75, 75);
 shape6.fill(50, 50, 50, 255);
 shape6.stroke({ width: 4, color: [255, 255, 255, 255] });
 
-//Stroke width test
+// Stroke width test
 for (let i = 0; i < 10; i++) {
   const y = 412.5 + 18.75 * i;
   const hline = new TVG.Shape();
@@ -90,7 +90,7 @@ for (let i = 0; i < 10; i++) {
   canvas.add(vline);
 }
 
-//Stroke cap test
+// Stroke cap test
 const line1 = new TVG.Shape();
 line1.moveTo(270, 435);
 line1.lineTo(337.5, 435);

@@ -13,13 +13,13 @@ const canvas = new TVG.Canvas('#canvas', {
 });
 
 (async () => {
-  //Background
+  // Background
   const background = new TVG.Shape();
   background.appendRect(0, 0, 600, 600);
   background.fill(75, 75, 75);
   canvas.add(background);
 
-  //Load a necessary font data.
+  // Load a necessary font data.
   const fonts = ['DMSans', 'Pretendard', 'NanumGothicCoding', 'SentyCloud'];
   await Promise.all(fonts.map(async (fontName) => {
     const response = await fetch(\`playground/fonts/\${fontName}.otf\`);
@@ -99,15 +99,15 @@ const canvas = new TVG.Canvas('#canvas', {
     .rotate(180);
   canvas.add(text9);
 
-  //gradient texts
+  // Gradient texts
   const text10 = new TVG.Text();
   text10.font('Pretendard').fontSize(29)
     .text('Linear Text');
 
-  //LinearGradient
+  // LinearGradient
   const linearGradient = new TVG.LinearGradient(0, 205, 205, 205);
 
-  //Gradient Color Stops
+  // Gradient Color Stops
   linearGradient.setStops(
     [0, [255, 0, 0, 255]],
     [0.5, [255, 255, 0, 255]],
@@ -122,10 +122,10 @@ const canvas = new TVG.Canvas('#canvas', {
   text11.font('NanumGothicCoding').fontSize(23)
     .text('나눔고딕코딩(UTF-8)');
 
-  //RadialGradient
+  // RadialGradient
   const radialGradient = new TVG.RadialGradient(115, 14.5, 115, 115, 14.5);
 
-  //Gradient Color Stops
+  // Gradient Color Stops
   radialGradient.setStops(
     [0, [0, 255, 255, 255]],
     [0.5, [255, 255, 0, 255]],

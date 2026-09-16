@@ -31,7 +31,7 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   let engineRenderer = null;
 
   function setCanvasStatus(message, type) {
-    if (message === 'Code executed successfully') return;
+    if (message === 'Code executed successfully' || message === 'Ready') return;
     showPreviewToast(message);
   }
 
@@ -244,12 +244,14 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     exampleTitle.textContent = 'Try your code';
     exampleDescription.textContent = 'Paste your own ThorVG WebCanvas or native code below, or pick an example from the Playground.';
     exampleCategory.hidden = true;
-    exampleCodeContent.textContent = '';
+    const starterCode = "import { init } from '@thorvg/webcanvas';\n\nconst TVG = await init({\n  renderer: 'gl',\n  locateFile: (path) => 'playground/' + path.split('/').pop()\n});\n\nconst canvas = new TVG.Canvas('#canvas', {\n  width: 600,\n  height: 600,\n});\n\n// Write your code here\n";
+    originalExampleCode = starterCode;
+    exampleCodeContent.textContent = starterCode;
     updateExampleLineNumbers();
     document.querySelector('.example-pagination').hidden = true;
 
     if (!viewEngineUnavailable) {
-      runOnCanvas('');
+      runOnCanvas(starterCode);
       syncRunBtnState();
     } else {
       setCanvasStatus('Live preview isn’t available when opened directly from disk (file://). Run this site through a local server to try it.', 'error');

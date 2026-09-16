@@ -12,11 +12,11 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Radial grad
+// Radial grad
 {
   let x1, y1 = 60.0, r = 90.0;
 
-  //Pad
+  // Pad
   x1 = 30.0;
   const shape1 = new TVG.Shape();
   shape1.appendRect(x1, y1, 2.0 * r, 2.0 * r);
@@ -33,7 +33,7 @@ const canvas = new TVG.Canvas('#canvas', {
 
   canvas.add(shape1);
 
-  //Reflect
+  // Reflect
   x1 = 215.0;
   const shape2 = new TVG.Shape();
   shape2.appendRect(x1, y1, 2.0 * r, 2.0 * r);
@@ -50,7 +50,7 @@ const canvas = new TVG.Canvas('#canvas', {
 
   canvas.add(shape2);
 
-  //Repeat
+  // Repeat
   x1 = 400.0;
   const shape3 = new TVG.Shape();
   shape3.appendRect(x1, y1, 2.0 * r, 2.0 * r);
@@ -68,11 +68,11 @@ const canvas = new TVG.Canvas('#canvas', {
   canvas.add(shape3);
 }
 
-//Linear grad
+// Linear grad
 {
   let x1, y1 = 340.0, r = 90.0;
 
-  //Pad
+  // Pad
   x1 = 30.0;
   const shape1 = new TVG.Shape();
   shape1.appendRect(x1, y1, 2.0 * r, 2.0 * r);
@@ -89,7 +89,7 @@ const canvas = new TVG.Canvas('#canvas', {
 
   canvas.add(shape1);
 
-  //Reflect
+  // Reflect
   x1 = 215.0;
   const shape2 = new TVG.Shape();
   shape2.appendRect(x1, y1, 2.0 * r, 2.0 * r);
@@ -106,7 +106,7 @@ const canvas = new TVG.Canvas('#canvas', {
 
   canvas.add(shape2);
 
-  //Repeat
+  // Repeat
   x1 = 400.0;
   const shape3 = new TVG.Shape();
   shape3.appendRect(x1, y1, 2.0 * r, 2.0 * r);

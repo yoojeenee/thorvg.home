@@ -20,7 +20,7 @@ const canvas = new TVG.Canvas('#canvas', {
 
   const picture = new TVG.Picture();
 
-  picture.accessible = true;  // allow access to the SVG internals, it must be set before the SVG load call.
+  picture.accessible = true; // allow access to the SVG internals, it must be set before the SVG load call.
   picture.load(svgString, { type: 'svg' });
   picture.size(600, 600);
 
@@ -30,13 +30,13 @@ const canvas = new TVG.Canvas('#canvas', {
   // If picture.accessible is set to true, only ID-accessible nodes are traversed,
   // which improves efficiency. Otherwise, all nodes are considered.
   accessor.set(picture, (paint) => {
-    // figure out SVG node with the unique ID "star".
+    // Figure out SVG node with the unique ID "star".
     if (accessor.name(paint.id) === 'star' && paint instanceof TVG.Shape) {
       // override color
       paint.fill(0, 0, 255);
     }
 
-    // you can return false, to stop traversing immediately
+    // You can return false, to stop traversing immediately
     return true;
   });
 

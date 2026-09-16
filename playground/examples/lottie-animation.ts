@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600
 });
 
-//Load Lottie animation from file
+// Load Lottie animation from file
 (async () => {
   const response = await fetch('playground/assets/lottie/sample.json');
   const lottieData = await response.text();
@@ -23,14 +23,14 @@ const canvas = new TVG.Canvas('#canvas', {
 
   animation.load(lottieData);
 
-  //image scaling preserving its aspect ratio
+  // Image scaling preserving its aspect ratio
   picture.size(500, 500);
   picture.origin(0.5, 0.5);
   picture.translate(300, 300);
 
   canvas.add(picture);
 
-  //Run animation loop
+  // Run animation loop
   animation.play((frame) => {
     canvas.update();
     canvas.render();

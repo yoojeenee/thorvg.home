@@ -17,14 +17,14 @@ const canvas = new TVG.Canvas('#canvas', {
 (async () => {
   const data = await fetch('playground/assets/lottie/extensions/spin.json').then(res => res.text());
 
-  //LottieAnimation Controller
+  // LottieAnimation Controller
   const animation = new TVG.LottieAnimation();
   animation.load(data);
 
   const picture = animation.picture;
   picture.origin(0.5, 0.5);
 
-  //image scaling preserving its aspect ratio
+  // Image scaling preserving its aspect ratio
   const { width, height } = picture.size();
   const scale = ((width > height) ? SIZE / width : SIZE / height) * 0.8;
   picture.scale(scale);
@@ -44,11 +44,11 @@ const canvas = new TVG.Canvas('#canvas', {
   let cur = { x: 0, y: 0 };
 
   function calculate(prv, cur) {
-    //degree with dot product
+    // Degree with dot product
     let degree = Math.acos((prv.x * cur.x + prv.y * cur.y) / (Math.sqrt(prv.x * prv.x + prv.y * prv.y) * Math.sqrt(cur.x * cur.x + cur.y * cur.y)));
     degree *= 30;  //weight x30
 
-    //direction with cross product
+    // Direction with cross product
     const dir = prv.x * cur.y - prv.y * cur.x;
     if (dir < 0) degree *= -1;
 
@@ -62,7 +62,7 @@ const canvas = new TVG.Canvas('#canvas', {
     animation.apply(slot.rotation);
   }
 
-  //Map a pointer event to canvas coordinates
+  // Map a pointer event to canvas coordinates
   const el = document.querySelector('#canvas');
   function position(e) {
     const rect = el.getBoundingClientRect();
@@ -97,7 +97,7 @@ const canvas = new TVG.Canvas('#canvas', {
     pressed = false;
     const p = position(e);
 
-    //flicking in 500ms
+    // Flicking in 500ms
     if (performance.now() - downTime > 500) return;
     if (Math.abs(down.x - p.x) < 10 && Math.abs(down.y - p.y) < 10) return;
 
@@ -111,7 +111,7 @@ const canvas = new TVG.Canvas('#canvas', {
 
   canvas.render();
 
-  //Run animation loop
+  // Run animation loop
   let frame = 0;
   let lastTime = 0;
   function animate(time) {
@@ -119,7 +119,7 @@ const canvas = new TVG.Canvas('#canvas', {
     const delta = (time - lastTime) / 1000;
     lastTime = time;
 
-    //update cursor
+    // Update cursor
     const wiggle = Math.sin(time * 0.01) * 20 + 320;
     const cx = (cur.x + origin.x) / scale + wiggle;
     const cy = (cur.y + origin.y) / scale;
@@ -127,7 +127,7 @@ const canvas = new TVG.Canvas('#canvas', {
     slot.cursor = animation.gen({ finger_cursor: { p: { x: 'var $bm_rt; $bm_rt = [' + cx + ', ' + cy + '];' } } });
     animation.apply(slot.cursor);
 
-    //spinning effect
+    // Spinning effect
     if (effect.on) {
       let progress = (time - effect.time) / effect.duration;
       if (progress >= 1) {

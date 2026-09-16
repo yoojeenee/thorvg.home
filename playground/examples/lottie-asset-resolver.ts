@@ -17,14 +17,14 @@ const size = W / NUM_PER_ROW;
 function sizing(picture, counter) {
   picture.origin(0.5, 0.5);
 
-  //image scaling preserving its aspect ratio
+  // Image scaling preserving its aspect ratio
   const { width, height } = picture.size();
   picture.scale(((width > height) ? size / width : size / height) * 0.85);
   picture.translate((counter % NUM_PER_ROW) * size + size / 2, Math.floor(counter / NUM_PER_ROW) * H + size / 2);
 }
 
 (async () => {
-  //The resolver callback is synchronous, so prefetch the assets to resolve with.
+  // The resolver callback is synchronous, so prefetch the assets to resolve with.
   const [logo, font, resolver1, resolver2] = await Promise.all([
     fetch('playground/assets/images/logo.png').then(r => r.arrayBuffer()).then(b => new Uint8Array(b)),
     fetch('playground/fonts/SentyCloud.ttf').then(r => r.arrayBuffer()).then(b => new Uint8Array(b)),
@@ -34,11 +34,11 @@ function sizing(picture, counter) {
 
   const animations = [];
 
-  //asset resolver (image)
+  // Asset resolver (image)
   {
     const animation = new TVG.LottieAnimation();
 
-    //set a resolver prior to load a resource
+    // Set a resolver prior to load a resource
     animation.picture.resolver((paint, src) => {
       if (!(paint instanceof TVG.Picture)) return false;
       //The engine may fail to access the source image. This demonstrates how to resolve it with a valid user-provided source.
@@ -52,7 +52,7 @@ function sizing(picture, counter) {
     animations.push(animation);
   }
 
-  //asset resolver (font)
+  // Asset resolver (font)
   {
     TVG.Font.load('SentyCloud', font);
 
@@ -60,7 +60,7 @@ function sizing(picture, counter) {
 
     animation.picture.resolver((paint, src) => {
       if (!(paint instanceof TVG.Text)) return false;
-      //The engine may fail to access the source font. This demonstrates how to resolve it with a valid user-provided font.
+      // The engine may fail to access the source font. This demonstrates how to resolve it with a valid user-provided font.
       paint.font('SentyCloud');
       return true;  //return true if font loading is successful
     });
@@ -73,7 +73,7 @@ function sizing(picture, counter) {
 
   canvas.render();
 
-  //Run animation loop
+  // Run animation loop
   const states = animations.map(animation => ({
     animation,
     frame: 0,

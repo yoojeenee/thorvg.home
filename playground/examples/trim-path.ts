@@ -12,7 +12,7 @@ const canvas = new TVG.Canvas('#canvas', {
   height: 600,
 });
 
-//Shape 1
+// Shape 1
 const shape1 = new TVG.Shape();
 shape1.appendCircle(183.75, 93.75, 37.5, 90);
 shape1.appendCircle(183.75, 273.75, 37.5, 90);
