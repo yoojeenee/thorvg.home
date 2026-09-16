@@ -124,6 +124,7 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   }
 
   let lastAppliedCode = '';
+  let exampleEditor = null;
 
   function setPreviewCleared(cleared) {
     if (examplePreviewClearBtn) examplePreviewClearBtn.disabled = cleared;
@@ -182,7 +183,16 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   }
 
   if (exampleZoomSlider && exampleZoomPopup && exampleCanvas) {
+    const originalDPR = window.devicePixelRatio;
     let zoomPopupHideTimer = null;
+
+    const setEffectiveDPR = (dpr) => {
+      try {
+        Object.defineProperty(window, 'devicePixelRatio', { get: () => dpr, configurable: true });
+      } catch (err) {
+        // Some browsers may not allow overriding devicePixelRatio; zoom still works visually.
+      }
+    };
 
     const positionZoomPopup = () => {
       const min = Number(exampleZoomSlider.min);
@@ -207,6 +217,15 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
       }, 1200);
     });
 
+    // Re-run at the new DPR only once the user releases the slider (not on every
+    // drag tick), so the canvas re-renders crisply at the new zoom level.
+    exampleZoomSlider.addEventListener('change', () => {
+      const value = Number(exampleZoomSlider.value);
+      setEffectiveDPR(originalDPR * (value / 100));
+      const code = exampleEditor ? exampleEditor.getValue() : lastAppliedCode;
+      if (code) runOnCanvas(code);
+    });
+
     updateZoom();
   }
 
@@ -227,6 +246,7 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   (async () => {
     const editor = exampleMonacoContainer ? await createExampleEditor(exampleMonacoContainer) : null;
     if (!editor) return;
+    exampleEditor = editor;
 
     function getCode() {
       return editor.getValue();
