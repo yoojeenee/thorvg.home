@@ -52,6 +52,10 @@
             <div class="example-code-panel-header">
               <span class="example-code-panel-header-label">Canvas Preview</span>
               <div class="example-code-panel-header-actions">
+                <div class="example-zoom-control">
+                  <input type="range" id="example-zoom-slider" min="50" max="200" step="10" value="100">
+                  <output class="example-zoom-popup" id="example-zoom-popup" for="example-zoom-slider">100%</output>
+                </div>
                 <button type="button" class="example-copy-code-btn" id="example-preview-clear-btn">
                   <span class="example-copy-code-label">Clear</span>
                 </button>

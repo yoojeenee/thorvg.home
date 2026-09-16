@@ -11,6 +11,8 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   const examplePreviewClearBtn = document.getElementById('example-preview-clear-btn');
   const examplePreviewRunBtn = document.getElementById('example-preview-run-btn');
   const examplePreviewToast = document.getElementById('example-preview-toast');
+  const exampleZoomSlider = document.getElementById('example-zoom-slider');
+  const exampleZoomPopup = document.getElementById('example-zoom-popup');
   const exampleCodePanel = document.getElementById('example-code-panel');
   const exampleCodeContent = document.getElementById('example-code-content');
   const examplePrevLink = document.getElementById('example-prev-link');
@@ -136,6 +138,35 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     });
   }
 
+  if (exampleZoomSlider && exampleZoomPopup && exampleCanvas) {
+    let zoomPopupHideTimer = null;
+
+    const positionZoomPopup = () => {
+      const min = Number(exampleZoomSlider.min);
+      const max = Number(exampleZoomSlider.max);
+      const ratio = (Number(exampleZoomSlider.value) - min) / (max - min);
+      exampleZoomPopup.style.left = (ratio * 100) + '%';
+    };
+
+    const updateZoom = () => {
+      const value = Number(exampleZoomSlider.value);
+      exampleZoomPopup.textContent = value + '%';
+      positionZoomPopup();
+      exampleCanvas.style.transform = 'scale(' + (value / 100) + ')';
+    };
+
+    exampleZoomSlider.addEventListener('input', () => {
+      updateZoom();
+      exampleZoomPopup.classList.add('is-visible');
+      clearTimeout(zoomPopupHideTimer);
+      zoomPopupHideTimer = setTimeout(() => {
+        exampleZoomPopup.classList.remove('is-visible');
+      }, 1200);
+    });
+
+    updateZoom();
+  }
+
   let copyResetTimer = null;
   let codeToastHideTimer = null;
   let originalExampleCode = '';
@@ -203,7 +234,7 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
 
     if (viewEngineUnavailable) {
       setExampleCode('Opening this page directly from disk (file://) blocks loading example source files.\nRun this site through a local server (e.g. `python3 -m http.server`) to view the code.');
-      setCanvasStatus('Live preview isn’t available when opened directly from disk (file://). Run this site through a local server to see it.', 'error');
+      setCanvasStatus('Live preview isn’t available when opened directly from disk (file://).\nRun this site through a local server to see it.', 'error');
     } else {
       fetch(example.file)
         .then((res) => {
