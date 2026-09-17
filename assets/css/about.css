@@ -121,6 +121,42 @@
   text-align: left;
 }
 
+.perf-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  font-family: "Inter", var(--font-body);
+}
+
+.perf-chart-legend text {
+  font-size: 12px;
+  fill: var(--color-text);
+  dominant-baseline: middle;
+}
+
+.perf-chart-grid line {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.perf-chart-axis line {
+  stroke: #c9ccd3;
+  stroke-width: 1;
+}
+
+.perf-chart-ylabels text {
+  font-size: 11px;
+  fill: var(--color-text);
+  text-anchor: end;
+}
+
+.perf-chart-xlabels text {
+  font-size: 10.5px;
+  fill: var(--color-text);
+  text-anchor: end;
+}
+
 .docs-content table.data-table {
   width: 100%;
   max-width: 640px;
@@ -128,6 +164,7 @@
   border-collapse: collapse;
   table-layout: fixed;
   font-size: 0.78rem;
+  font-family: "Inter", var(--font-body);
 }
 
 .docs-content table.data-table thead {

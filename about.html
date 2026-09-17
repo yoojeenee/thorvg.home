@@ -7,7 +7,7 @@
   <meta name="description" content="ThorVG is a platform-independent library for drawing vector-based scenes and animations, including SVG and Lottie.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/docs.css">
   <link rel="stylesheet" href="assets/css/about.css">
@@ -189,7 +189,67 @@
         </p>
         <h4>Performance Overview</h4>
         <figure>
-          <img src="assets/images/diagrams/example_performance.png" alt="CPU rendering performance benchmark comparing ThorVG and Skia">
+          <svg class="perf-chart" viewBox="0 0 640 380" role="img" aria-label="CPU rendering performance benchmark comparing ThorVG and Skia, in frames per second">
+            <g class="perf-chart-legend">
+              <circle cx="46" cy="20" r="5" fill="#6c4cf0"></circle>
+              <text x="56" y="20">ThorVG</text>
+              <circle cx="140" cy="20" r="5" fill="#d8dbe0"></circle>
+              <text x="150" y="20">Skia</text>
+            </g>
+            <g class="perf-chart-grid">
+              <line x1="37" y1="288" x2="42" y2="288"></line>
+              <line x1="37" y1="227" x2="42" y2="227"></line>
+              <line x1="37" y1="166" x2="42" y2="166"></line>
+              <line x1="37" y1="105" x2="42" y2="105"></line>
+              <line x1="37" y1="44" x2="42" y2="44"></line>
+            </g>
+            <g class="perf-chart-axis">
+              <line x1="42" y1="44" x2="42" y2="288"></line>
+              <line x1="42" y1="288" x2="632" y2="288"></line>
+            </g>
+            <g class="perf-chart-ylabels">
+              <text x="36" y="48">80</text>
+              <text x="36" y="109">60</text>
+              <text x="36" y="170">40</text>
+              <text x="36" y="231">20</text>
+              <text x="36" y="292">0</text>
+            </g>
+            <g class="perf-chart-bars">
+              <path d="M51.5,288.0 L51.5,59.2 A3.0,3.0 0 0 1 54.5,56.2 L66.5,56.2 A3.0,3.0 0 0 1 69.5,59.2 L69.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M73.5,288.0 L73.5,238.5 A3.0,3.0 0 0 1 76.5,235.5 L88.5,235.5 A3.0,3.0 0 0 1 91.5,238.5 L91.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M110.5,288.0 L110.5,181.2 A3.0,3.0 0 0 1 113.5,178.2 L125.5,178.2 A3.0,3.0 0 0 1 128.5,181.2 L128.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M132.5,288.0 L132.5,260.2 A3.0,3.0 0 0 1 135.5,257.2 L147.5,257.2 A3.0,3.0 0 0 1 150.5,260.2 L150.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M169.5,288.0 L169.5,121.1 A3.0,3.0 0 0 1 172.5,118.1 L184.5,118.1 A3.0,3.0 0 0 1 187.5,121.1 L187.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M191.5,288.0 L191.5,238.5 A3.0,3.0 0 0 1 194.5,235.5 L206.5,235.5 A3.0,3.0 0 0 1 209.5,238.5 L209.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M228.5,288.0 L228.5,163.5 A3.0,3.0 0 0 1 231.5,160.5 L243.5,160.5 A3.0,3.0 0 0 1 246.5,163.5 L246.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M250.5,288.0 L250.5,259.0 A3.0,3.0 0 0 1 253.5,256.0 L265.5,256.0 A3.0,3.0 0 0 1 268.5,259.0 L268.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M287.5,288.1 L287.5,214.8 A3.0,3.0 0 0 1 290.5,211.8 L302.5,211.8 A3.0,3.0 0 0 1 305.5,214.8 L305.5,288.1 Z" fill="#6c4cf0"></path>
+              <path d="M309.5,288.0 L309.5,277.3 A3.0,3.0 0 0 1 312.5,274.3 L324.5,274.3 A3.0,3.0 0 0 1 327.5,277.3 L327.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M346.5,288.0 L346.5,173.6 A3.0,3.0 0 0 1 349.5,170.6 L361.5,170.6 A3.0,3.0 0 0 1 364.5,173.6 L364.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M368.5,288.0 L368.5,259.3 A3.0,3.0 0 0 1 371.5,256.3 L383.5,256.3 A3.0,3.0 0 0 1 386.5,259.3 L386.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M405.5,288.0 L405.5,271.5 A3.0,3.0 0 0 1 408.5,268.5 L420.5,268.5 A3.0,3.0 0 0 1 423.5,271.5 L423.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M427.5,288.0 L427.5,272.7 A3.0,3.0 0 0 1 430.5,269.7 L442.5,269.7 A3.0,3.0 0 0 1 445.5,272.7 L445.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M464.5,288.0 L464.5,277.6 A3.0,3.0 0 0 1 467.5,274.6 L479.5,274.6 A3.0,3.0 0 0 1 482.5,277.6 L482.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M486.5,288.0 L486.5,277.6 A3.0,3.0 0 0 1 489.5,274.6 L501.5,274.6 A3.0,3.0 0 0 1 504.5,277.6 L504.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M523.5,288.1 L523.5,263.6 A3.0,3.0 0 0 1 526.5,260.6 L538.5,260.6 A3.0,3.0 0 0 1 541.5,263.6 L541.5,288.1 Z" fill="#6c4cf0"></path>
+              <path d="M545.5,288.0 L545.5,265.1 A3.0,3.0 0 0 1 548.5,262.1 L560.5,262.1 A3.0,3.0 0 0 1 563.5,265.1 L563.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M582.5,288.0 L582.5,270.0 A3.0,3.0 0 0 1 585.5,267.0 L597.5,267.0 A3.0,3.0 0 0 1 600.5,270.0 L600.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M604.5,288.0 L604.5,272.7 A3.0,3.0 0 0 1 607.5,269.7 L619.5,269.7 A3.0,3.0 0 0 1 622.5,272.7 L622.5,288.0 Z" fill="#d8dbe0"></path>
+            </g>
+            <g class="perf-chart-xlabels">
+              <text x="71.5" y="300" transform="rotate(-40 71.5 300)">Rects</text>
+              <text x="130.5" y="300" transform="rotate(-40 130.5 300)">Rotated Rects</text>
+              <text x="189.5" y="300" transform="rotate(-40 189.5 300)">Stroke</text>
+              <text x="248.5" y="300" transform="rotate(-40 248.5 300)">Rects + Stroke</text>
+              <text x="307.5" y="300" transform="rotate(-40 307.5 300)">Rotated Rects + Stroke</text>
+              <text x="366.5" y="300" transform="rotate(-40 366.5 300)">Circles</text>
+              <text x="425.5" y="300" transform="rotate(-40 425.5 300)">Images (PNG)</text>
+              <text x="484.5" y="300" transform="rotate(-40 484.5 300)">Rotated Images</text>
+              <text x="543.5" y="300" transform="rotate(-40 543.5 300)">Linear Gradient (Rects)</text>
+              <text x="602.5" y="300" transform="rotate(-40 602.5 300)">Radial Gradient (Circles)</text>
+            </g>
+          </svg>
+          <figcaption class="caption-text">CPU rendering performance in frames per second (fps) &mdash; higher is better.</figcaption>
         </figure>
         <table class="data-table">
           <thead>
@@ -298,8 +358,69 @@
           rendering. Even for general vector rendering, WebGPU consistently maintains higher
           performance while producing identical visual output.
         </p>
+        <h4>Performance Overview</h4>
         <figure>
-          <img src="assets/images/diagrams/example_gpu_performance.png" alt="WebGPU vs OpenGL rendering performance comparison">
+          <svg class="perf-chart" viewBox="0 0 640 380" role="img" aria-label="WebGPU vs OpenGL rendering performance comparison, in frames per second">
+            <g class="perf-chart-legend">
+              <circle cx="46" cy="20" r="5" fill="#6c4cf0"></circle>
+              <text x="56" y="20">WGPU</text>
+              <circle cx="140" cy="20" r="5" fill="#d8dbe0"></circle>
+              <text x="150" y="20">GL</text>
+            </g>
+            <g class="perf-chart-grid">
+              <line x1="37" y1="288" x2="42" y2="288"></line>
+              <line x1="37" y1="227" x2="42" y2="227"></line>
+              <line x1="37" y1="166" x2="42" y2="166"></line>
+              <line x1="37" y1="105" x2="42" y2="105"></line>
+              <line x1="37" y1="44" x2="42" y2="44"></line>
+            </g>
+            <g class="perf-chart-axis">
+              <line x1="42" y1="44" x2="42" y2="288"></line>
+              <line x1="42" y1="288" x2="632" y2="288"></line>
+            </g>
+            <g class="perf-chart-ylabels">
+              <text x="36" y="48">200</text>
+              <text x="36" y="109">150</text>
+              <text x="36" y="170">100</text>
+              <text x="36" y="231">50</text>
+              <text x="36" y="292">0</text>
+            </g>
+            <g class="perf-chart-bars">
+              <path d="M51.5,288.0 L51.5,89.9 A3.0,3.0 0 0 1 54.5,86.9 L66.5,86.9 A3.0,3.0 0 0 1 69.5,89.9 L69.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M73.5,288.0 L73.5,112.9 A3.0,3.0 0 0 1 76.5,109.9 L88.5,109.9 A3.0,3.0 0 0 1 91.5,112.9 L91.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M110.5,288.0 L110.5,98.7 A3.0,3.0 0 0 1 113.5,95.7 L125.5,95.7 A3.0,3.0 0 0 1 128.5,98.7 L128.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M132.5,288.0 L132.5,118.6 A3.0,3.0 0 0 1 135.5,115.6 L147.5,115.6 A3.0,3.0 0 0 1 150.5,118.6 L150.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M169.5,288.0 L169.5,182.2 A3.0,3.0 0 0 1 172.5,179.2 L184.5,179.2 A3.0,3.0 0 0 1 187.5,182.2 L187.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M191.5,288.0 L191.5,233.7 A3.0,3.0 0 0 1 194.5,230.7 L206.5,230.7 A3.0,3.0 0 0 1 209.5,233.7 L209.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M228.5,288.0 L228.5,192.4 A3.0,3.0 0 0 1 231.5,189.4 L243.5,189.4 A3.0,3.0 0 0 1 246.5,192.4 L246.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M250.5,288.0 L250.5,254.5 A3.0,3.0 0 0 1 253.5,251.5 L265.5,251.5 A3.0,3.0 0 0 1 268.5,254.5 L268.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M287.5,288.0 L287.5,192.4 A3.0,3.0 0 0 1 290.5,189.4 L302.5,189.4 A3.0,3.0 0 0 1 305.5,192.4 L305.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M309.5,288.0 L309.5,254.4 A3.0,3.0 0 0 1 312.5,251.4 L324.5,251.4 A3.0,3.0 0 0 1 327.5,254.4 L327.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M346.5,288.0 L346.5,211.7 A3.0,3.0 0 0 1 349.5,208.7 L361.5,208.7 A3.0,3.0 0 0 1 364.5,211.7 L364.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M368.5,288.1 L368.5,202.6 A3.0,3.0 0 0 1 371.5,199.6 L383.5,199.6 A3.0,3.0 0 0 1 386.5,202.6 L386.5,288.1 Z" fill="#d8dbe0"></path>
+              <path d="M405.5,288.0 L405.5,166.9 A3.0,3.0 0 0 1 408.5,163.9 L420.5,163.9 A3.0,3.0 0 0 1 423.5,166.9 L423.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M427.5,288.0 L427.5,217.8 A3.0,3.0 0 0 1 430.5,214.8 L442.5,214.8 A3.0,3.0 0 0 1 445.5,217.8 L445.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M464.5,288.0 L464.5,152.7 A3.0,3.0 0 0 1 467.5,149.7 L479.5,149.7 A3.0,3.0 0 0 1 482.5,152.7 L482.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M486.5,288.0 L486.5,217.9 A3.0,3.0 0 0 1 489.5,214.9 L501.5,214.9 A3.0,3.0 0 0 1 504.5,217.9 L504.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M523.5,288.0 L523.5,158.4 A3.0,3.0 0 0 1 526.5,155.4 L538.5,155.4 A3.0,3.0 0 0 1 541.5,158.4 L541.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M545.5,288.0 L545.5,242.2 A3.0,3.0 0 0 1 548.5,239.2 L560.5,239.2 A3.0,3.0 0 0 1 563.5,242.2 L563.5,288.0 Z" fill="#d8dbe0"></path>
+              <path d="M582.5,288.0 L582.5,228.4 A3.0,3.0 0 0 1 585.5,225.4 L597.5,225.4 A3.0,3.0 0 0 1 600.5,228.4 L600.5,288.0 Z" fill="#6c4cf0"></path>
+              <path d="M604.5,288.0 L604.5,254.4 A3.0,3.0 0 0 1 607.5,251.4 L619.5,251.4 A3.0,3.0 0 0 1 622.5,254.4 L622.5,288.0 Z" fill="#d8dbe0"></path>
+            </g>
+            <g class="perf-chart-xlabels">
+              <text x="71.5" y="300" transform="rotate(-40 71.5 300)">Rects</text>
+              <text x="130.5" y="300" transform="rotate(-40 130.5 300)">Rotated Rects</text>
+              <text x="189.5" y="300" transform="rotate(-40 189.5 300)">Stroke</text>
+              <text x="248.5" y="300" transform="rotate(-40 248.5 300)">Rects + Stroke</text>
+              <text x="307.5" y="300" transform="rotate(-40 307.5 300)">Rotated Rects + Stroke</text>
+              <text x="366.5" y="300" transform="rotate(-40 366.5 300)">Circles</text>
+              <text x="425.5" y="300" transform="rotate(-40 425.5 300)">Images</text>
+              <text x="484.5" y="300" transform="rotate(-40 484.5 300)">Rotated Images</text>
+              <text x="543.5" y="300" transform="rotate(-40 543.5 300)">Linear Gradient (Rect)</text>
+              <text x="602.5" y="300" transform="rotate(-40 602.5 300)">Radial Gradient (Circle)</text>
+            </g>
+          </svg>
+          <figcaption class="caption-text">WebGPU vs OpenGL rendering performance in frames per second (fps) &mdash; higher is better.</figcaption>
         </figure>
         <table class="data-table">
           <thead>
