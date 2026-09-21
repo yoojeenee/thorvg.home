@@ -24,7 +24,6 @@
   letter-spacing: 0.02em;
   color: var(--color-text);
   text-align: center;
-  transform: scaleY(1.25);
   transform-origin: center;
 }
 
