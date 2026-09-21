@@ -1,6 +1,27 @@
 /* ---------- Hero ---------- */
+main {
+  overflow-x: clip;
+}
+
 .hero {
+  position: relative;
   padding: var(--space-7) 0 var(--space-7);
+}
+
+/* Blurred green orb behind the page content. Fixed to the viewport so it
+   stays put while scrolling; no isolation on .hero so z-index -1 sits at the
+   root and everything (including the footer) paints above it. */
+.hero::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  left: 50%;
+  top: 58%;
+  width: min(1000px, 110vw);
+  aspect-ratio: 1400 / 1500;
+  transform: translate(-50%, -50%);
+  background: url("../images/gradient-bg.svg") center / contain no-repeat;
+  pointer-events: none;
 }
 
 .hero-inner {
@@ -10,9 +31,9 @@
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   text-align: center;
 }
