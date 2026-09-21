@@ -1,0 +1,305 @@
+/* ---------- Post header ---------- */
+.blog-post {
+  --post-pad: clamp(1.25rem, 4vw, 3rem);
+  --post-text-width: 676px;
+  padding: var(--space-5) 0 var(--space-6);
+}
+
+.blog-post-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  text-align: center;
+}
+
+.blog-post-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.blog-post-meta time {
+  color: var(--color-text);
+}
+
+.blog-post-meta span {
+  color: #5d5d5d;
+}
+
+.blog-post-title {
+  margin-top: var(--space-3);
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+/* ---------- Post body ---------- */
+.blog-post-body {
+  max-width: calc(var(--post-text-width) + 2 * var(--post-pad));
+  margin: var(--space-5) auto 0;
+  padding: 0 var(--post-pad);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.blog-post-body > * + * {
+  margin-top: 1.25rem;
+}
+
+.blog-post-body p {
+  font-weight: 300;
+}
+
+.blog-post-body strong {
+  font-weight: 500;
+}
+
+.blog-post-body h1 {
+  font-weight: 500;
+}
+
+.blog-post-body h2,
+.blog-post-body h3,
+.blog-post-body h4 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.blog-post-body h2 {
+  margin-top: var(--space-4);
+  font-size: 1.725rem;
+}
+
+.blog-post-body h3 {
+  margin-top: var(--space-3);
+  font-size: 1.3rem;
+}
+
+.blog-post-body h4 {
+  margin-top: var(--space-3);
+  font-size: 1.0625rem;
+}
+
+.blog-post-body a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+
+.blog-post-body a:hover {
+  color: #aaaaaa;
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+  padding-left: 1.4rem;
+}
+
+.blog-post-body li {
+  font-weight: 300;
+}
+
+.blog-post-body li + li {
+  margin-top: 0.4rem;
+}
+
+.blog-post-body blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-border);
+  font-size: 0.95rem;
+  color: #5d5d5d;
+}
+
+.blog-post-body img,
+.blog-post-body video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.blog-post-body figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.blog-post-body figcaption {
+  margin-top: 0.75rem;
+  font-family: "Inter", var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+  text-align: center;
+  color: #5d5d5d;
+}
+
+.blog-post-body hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-4) 0;
+}
+
+.blog-post-body .code-block {
+  max-width: none;
+}
+
+.blog-post-body :not(pre) > code {
+  padding: 0.1em 0.35em;
+  background: var(--color-surface);
+  border-radius: 4px;
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85em;
+}
+
+.blog-post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.blog-post-body th,
+.blog-post-body td {
+  padding: 0.55rem 0.75rem 0.55rem 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-post-body th {
+  font-weight: 500;
+}
+
+/* ---------- Post info (tags + writer) ---------- */
+.blog-post-info {
+  max-width: 900px;
+  margin: var(--space-5) auto 0;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+.blog-post-info[hidden],
+.blog-post-tags[hidden],
+.blog-post-writer[hidden] {
+  display: none;
+}
+
+.blog-post-info-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5) clamp(1.25rem, 4vw, 3rem);
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+
+.blog-post-info-inner > * {
+  width: 100%;
+  max-width: var(--post-text-width);
+  margin: 0 auto;
+}
+
+.blog-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-post-tags li {
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.blog-post-writer-label {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #5d5d5d;
+}
+
+.blog-post-writer-name {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+/* ---------- Post footer ---------- */
+.blog-post-footer {
+  max-width: calc(var(--post-text-width) + 2 * var(--post-pad));
+  margin: var(--space-5) auto 0;
+  padding: 0 var(--post-pad);
+}
+
+.blog-post-back {
+  font-size: 0.875rem;
+  font-weight: 300;
+  transition: color 0.15s ease;
+}
+
+.blog-post-back:hover {
+  color: #aaaaaa;
+}
+
+/* ---------- Code copy button (same as Tutorial) ---------- */
+.code-copy-btn {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.code-block.is-single-line .code-copy-btn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.code-copy-btn .code-copy-icon,
+.code-copy-btn .code-check-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.code-copy-btn .code-copy-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.code-copy-btn .code-check-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.code-copy-btn.is-copied .code-copy-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.code-copy-btn.is-copied .code-check-icon {
+  opacity: 1;
+  transform: scale(1);
+}

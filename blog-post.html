@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — ThorVG</title>
+  <meta name="description" content="ThorVG is a platform-independent library for drawing vector-based scenes and animations, including SVG and Lottie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/blog-post.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="assets/images/thorvg-logo.svg" alt="ThorVG" class="logo-img"></a>
+      <nav class="main-nav" id="main-nav">
+        <a href="about.html">About</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="tutorial.html">Tutorial</a>
+        <a href="api.html">API</a>
+        <a href="https://deepwiki.com/thorvg/thorvg" target="_blank" rel="noopener" class="nav-external">DeepWiki<span class="external-icon">&#8599;</span></a>
+        <a href="blogs.html" class="active">Blogs</a>
+        <a href="https://github.com/thorvg/thorvg/releases" target="_blank" rel="noopener" class="nav-external">Releases<span class="external-icon">&#8599;</span></a>
+        <a href="playground.html">Playground</a>
+        <a href="view.html">View</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <img src="assets/icons/menu.svg" alt="" class="menu-icon">
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <article class="blog-post">
+      <header class="blog-post-header container">
+        <div class="blog-post-meta">
+          <time id="blog-post-date"></time>
+          <span id="blog-post-category"></span>
+        </div>
+        <h1 class="blog-post-title" id="blog-post-title"></h1>
+      </header>
+
+      <div class="blog-post-body" id="blog-post-body"></div>
+
+      <section class="blog-post-info" id="blog-post-info" hidden>
+        <div class="blog-post-info-inner">
+          <ul class="blog-post-tags" id="blog-post-tags"></ul>
+          <div class="blog-post-writer" id="blog-post-writer" hidden>
+            <h2 class="blog-post-writer-label">Writer</h2>
+            <div class="blog-post-writer-name" id="blog-post-writer-name"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="blog-post-footer">
+        <a href="blogs.html" class="blog-post-back">&larr; Back to Blogs</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ThorVG. Open source under the MIT License.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="assets/js/blog-data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/blog-post.js"></script>
+</body>
+</html>
