@@ -94,3 +94,20 @@ if (viewRendererSelect && viewQualitySelect && viewCanvasStatusRenderer && viewC
 
   renderCanvasStatus();
 }
+
+const siteHeaderForAutoHide = document.querySelector('.site-header');
+
+if (siteHeaderForAutoHide) {
+  const revealHotzone = 10;
+
+  const showHeader = () => siteHeaderForAutoHide.classList.remove('is-hidden');
+  const hideHeader = () => siteHeaderForAutoHide.classList.add('is-hidden');
+
+  window.addEventListener('mousemove', (event) => {
+    if (event.clientY <= revealHotzone) {
+      showHeader();
+    }
+  }, { passive: true });
+
+  siteHeaderForAutoHide.addEventListener('mouseleave', hideHeader);
+}
