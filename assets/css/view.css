@@ -253,7 +253,7 @@
   justify-content: space-between;
   gap: 0.5rem;
   font-size: 0.72rem;
-  font-weight: 300;
+  font-weight: 400;
   color: #5d5d5d;
 }
 
@@ -379,14 +379,14 @@
 .view-select-control label,
 .view-control-label {
   font-size: 0.78rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text);
 }
 
 .view-range-header output,
 .view-files-empty {
   font-size: 0.78rem;
-  font-weight: 300;
+  font-weight: 400;
   color: #5d5d5d;
 }
 
@@ -451,7 +451,7 @@
   border-radius: 8px;
   background: #ffffff;
   color: var(--color-text);
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   transition: background 0.15s ease;
 }
@@ -486,7 +486,7 @@
   color: var(--color-text);
   font-family: inherit;
   font-size: 0.7rem;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
 }
 
@@ -526,7 +526,7 @@
   background: #ffffff;
   color: var(--color-text);
   font-size: 0.7rem;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.15s ease;
