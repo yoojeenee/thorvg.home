@@ -89,7 +89,7 @@
 
 .view-history-entry {
   margin: 0;
-  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   color: #d0d0d0;
 }
@@ -305,10 +305,9 @@
   padding: 0.3rem 0.55rem;
   background: rgba(0, 0, 0, 0.85);
   border-radius: 6px;
-  font-family: "SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   color: #7fff6b;
-  letter-spacing: 0.02em;
   pointer-events: none;
 }
 
@@ -341,7 +340,6 @@
   display: flex;
   gap: 0.4rem;
   font-size: 0.69rem;
-  letter-spacing: -0.01em;
   pointer-events: none;
 }
 
@@ -383,7 +381,6 @@
   font-size: 0.78rem;
   font-weight: 300;
   color: var(--color-text);
-  letter-spacing: 0.04em;
 }
 
 .view-range-header output,
