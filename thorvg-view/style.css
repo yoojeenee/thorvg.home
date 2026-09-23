@@ -245,7 +245,7 @@ input[type=range]::-moz-range-thumb {
     vertical-align: middle;
 }
 
-h2.ctrl-title {
+p.ctrl-title {
     margin: 0;
     flex: 1;
     font-family: var(--font-sans);
@@ -259,7 +259,7 @@ h2.ctrl-title {
     color: var(--ctrl-title-color);
 }
 
-h4.ctrl-description {
+p.ctrl-description {
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 0.9rem;

@@ -30,13 +30,56 @@
 
 ---
 
+## 페이지별 `h1` 적용 현황
+
+| 페이지 | 적용 셀렉터 | Size | Weight |
+|---|---|---|--------|
+| [index.html](index.html:38) `Thor Vector Graphics` | `.hero h1` (`index.css`) | `clamp(2rem, 4vw, 3rem)` | 700    |
+| [about.html](about.html:39), [showcase.html](showcase.html:38), [tutorial.html](tutorial.html:39) | `.docs-content h1` (`docs.css`) | `clamp(1.75rem, 3vw, 2.5rem)` | 600    |
+| [api.html](api.html:37), [playground.html](playground.html:39), [blogs.html](blogs.html:38) | `.page-content h1` (`common.css`) | `clamp(1.75rem, 3vw, 2.5rem)` | 600    |
+| [blog-post.html](blog-post.html:42) (동적 제목) | `.blog-post-title` (`blog-post.css`) | `clamp(2rem, 5vw, 3.2rem)` | 500    |
+| [blog-post.html](blog-post.html:45) 게시글 본문 중 `# ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | `.blog-post-body h1` (`blog-post.css`, font-size 미지정 → 브라우저 기본값 약 2em) | ~2.125rem(추정) | 500    |
+
+---
+
+## 페이지별 `h2` 적용 현황
+
+| 페이지 | 위치/용도 | 적용 셀렉터 | Size | Weight |
+|---|---|---|---|---|
+| [index.html:39](index.html:39) `Open · Lightweight · Fast · Everywhere` | 히어로 태그라인 | `.hero-subtitle` (`index.css`) | 1.35rem | 600 |
+| [about.html](about.html:40) (About ThorVG, Design Principles, Rendering Engine, Platforms & Formats, Community) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
+| [showcase.html](showcase.html:39) (In Practice, ThorVG Demo) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
+| [tutorial.html](tutorial.html:42) (Build and install, Basic Programming, More examples) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
+| [playground-example.html:44](playground-example.html:44) `#example-title` | 예제 타이틀 | `.example-header-top h2` (`playground-example.css`) | `clamp(1rem, 1.4vw, 1.15rem)` | 500 |
+| [blog-post.html](blog-post.html:45) 게시글 본문 중 `## ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 섹션 제목 | `.blog-post-body h2` (`blog-post.css`) | 1.725rem | 500 |
+
+---
+
+## 페이지별 `h3` 적용 현황
+
+| 페이지                                                                                          | 위치/용도 | 적용 셀렉터 | Size | Weight |
+|----------------------------------------------------------------------------------------------|---|---|---|---|
+| [showcase.html](showcase.html:41) (Camtasia, Canva iOS, dotLottie, Espressif, ...)           | 카드/서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.05rem | 600 |
+| [tutorial.html](tutorial.html:102) (Initialization, Shape, Path, Fill, Stroke, ...)          | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.05rem | 600 |
+| [about.html](about.html:132) (LightWeight Design, Broad Portability, CPU Rasterization, ...) | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.05rem | 600 |
+| [blog-post.html](blog-post.html:45) 게시글 본문 중 `### ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링)    | 서브섹션 제목 | `.blog-post-body h3` (`blog-post.css`) | 1.3rem | 500 |
+
+---
+
+## 페이지별 `h4` 적용 현황
+
+| 페이지 | 위치/용도 | 적용 셀렉터 | Size | Weight |
+|---|---|---|---|---|
+| [tutorial.html](tutorial.html:59) (Build with Visual Studio, Build with Xcode, Install via NPM, Install via CDN) | 세부 항목 제목 | `.docs-content h4` (`docs.css`) | 0.8rem | 600 |
+| [about.html](about.html:190) (Performance Overview ×2, Expressions) | 세부 항목 제목 | `.docs-content h4` (`docs.css`) | 0.8rem | 600 |
+
+---
+
 ## 홈 (`index.css`)
 
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
-| `.hero h1` | font-heading | `clamp(2rem, 4vw, 3rem)` | 700 |
-| `.hero-tagline` (h2) | font-heading | 1.35rem | 600 |
-| `.hero-subtitle` | 상속 | 1rem | 300 |
+| `.hero-body` | 상속 | 1rem | 300 |
 
 ---
 
@@ -44,10 +87,6 @@
 
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
-| `h1` | font-heading | `clamp(1.75rem, 3vw, 2.5rem)` | 500 |
-| `h2` | font-heading | 1.4rem | 600 |
-| `h3` | font-heading | 1.05rem | 600 |
-| `h4` | font-heading | 0.8rem | 600 |
 | `p`, `li` | 상속 | 0.9rem | 300 |
 | `p strong`, `li strong` | 상속 | 0.9rem | 500 |
 | `p code`, `li code`, `blockquote code` | font-mono | 0.85rem | 400 |
@@ -74,7 +113,6 @@
 
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
-| `.page-content h1` (오버라이드) | font-heading | `clamp(1.75rem, 3vw, 2.5rem)` | 500 |
 | `.blog-filter-tabs a` | 상속 | 0.875rem | 400 |
 | `.blog-list-category` | 상속 | 0.875rem | 500 |
 | `.blog-list-date` | 상속 | 0.875rem | 300 |
@@ -89,12 +127,9 @@
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
 | `.blog-post-meta` | 상속 | 0.875rem | 400 |
-| `.blog-post-title` | font-body | `clamp(2rem, 5vw, 3.2rem)` | 500 |
 | `.blog-post-body` (기본) | 상속 | 1.0625rem | 400 |
 | `.blog-post-body p` | 상속 | 1.0625rem | 300 |
 | `.blog-post-body strong` | 상속 | 1.0625rem | 500 |
-| `.blog-post-body h1` | 상속 | — | 500 |
-| `.blog-post-body h2/h3/h4` | font-body | h2 1.725rem / h3 1.3rem / h4 1.0625rem | 500 |
 | `.blog-post-body li` | 상속 | 1.0625rem | 300 |
 | `.blog-post-body blockquote` | 상속 | 0.95rem | 미지정 |
 | `.blog-post-body figcaption` | `"Inter", var(--font-body)` | 13px | 300 |
@@ -134,7 +169,6 @@
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
 | `.example-back-link` | 상속 | 0.85rem | 300 |
-| `.example-header-top h2` | font-heading | `clamp(1rem, 1.4vw, 1.15rem)` | 500 |
 | `.example-description` | 상속 | 12px | 미지정 |
 | `.example-code-panel-header-label` | 상속 | 0.82rem | 400 |
 | `.example-zoom-popup` | 상속 | 0.7rem | 500 |
@@ -181,7 +215,7 @@
 
 | 요소(대략적 라인) | Font | Size | Weight |
 |---|---|---|---|
-| L251 | font-sans | 0.85rem | 700 |
+| L251 (`p.ctrl-title`) | font-sans | 0.85rem | 700 |
 | L263 | font-sans | 0.9rem | 600 |
 | L280 | 상속 | 0.875rem | — |
 | L287 | 상속 | — | 600 |
