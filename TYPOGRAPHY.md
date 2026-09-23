@@ -48,7 +48,7 @@
 |---|---|---|---|---|
 | [index.html:39](index.html:39) `Open · Lightweight · Fast · Everywhere` | 히어로 태그라인 | `.hero-subtitle` (`index.css`) | 1.35rem | 600 |
 | [about.html](about.html:40) (About ThorVG, Design Principles, Rendering Engine, Platforms & Formats, Community) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
-| [showcase.html](showcase.html:39) (In Practice, ThorVG Demo) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
+| [showcase.html](showcase.html:40) (In Practice, ThorVG Demo) | 섹션 제목 | `#in-practice`, `#thorvg-demo` (`showcase.css`, `.docs-content h2` 오버라이드) | 1.2rem | 600 |
 | [tutorial.html](tutorial.html:42) (Build and install, Basic Programming, More examples) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
 | [playground-example.html:44](playground-example.html:44) `#example-title` | 예제 타이틀 | `.example-header-top h2` (`playground-example.css`) | `clamp(1rem, 1.4vw, 1.15rem)` | 500 |
 | [blog-post.html](blog-post.html:45) 게시글 본문 중 `## ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 섹션 제목 | `.blog-post-body h2` (`blog-post.css`) | 1.725rem | 500 |
@@ -59,7 +59,7 @@
 
 | 페이지                                                                                          | 위치/용도 | 적용 셀렉터 | Size | Weight |
 |----------------------------------------------------------------------------------------------|---|---|---|---|
-| [showcase.html](showcase.html:41) (Camtasia, Canva iOS, dotLottie, Espressif, ...)           | 카드/서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.05rem | 600 |
+| [showcase.html](showcase.html:41) (Camtasia, Canva iOS, dotLottie, Espressif, ..., Other Projects, Thor Janitor) | 카드/서브섹션 제목 | `.showcase-row-title` (`showcase.css`, `.docs-content h3` 오버라이드) | `clamp(1.5rem, 2.4vw, 1.8rem)` | 600 |
 | [tutorial.html](tutorial.html:102) (Initialization, Shape, Path, Fill, Stroke, ...)          | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.05rem | 600 |
 | [about.html](about.html:132) (LightWeight Design, Broad Portability, CPU Rasterization, ...) | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.05rem | 600 |
 | [blog-post.html](blog-post.html:45) 게시글 본문 중 `### ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링)    | 서브섹션 제목 | `.blog-post-body h3` (`blog-post.css`) | 1.3rem | 500 |
@@ -106,6 +106,18 @@
 | `p.partner-name` | 상속 | 1rem | 500 |
 | `table.data-table` | `"Inter", var(--font-body)` | 0.78rem | th 500 / td 300 |
 | `.perf-chart` 텍스트(SVG) | `"Inter", var(--font-body)` | 10.5~12px | 미지정 |
+
+---
+
+## Showcase 전용 (`showcase.css`)
+
+`.docs-content h2`/`h3` (`docs.css`)를 이 페이지에서만 오버라이드합니다.
+
+| 요소 | Font | Size | Weight | 비고 |
+|---|---|---|---|---|
+| `#in-practice`, `#thorvg-demo` | 상속 | 1.2rem | 600 | `text-transform: uppercase` (In Practice 전체, ThorVG Demo는 `.uppercase`로 감싼 "Demo"만) |
+| `.showcase-row-title` (h3) | 상속 | `clamp(1.5rem, 2.4vw, 1.8rem)` | 600 | |
+| `.showcase-row-desc` | 상속 | 0.85rem | 300 | |
 
 ---
 
