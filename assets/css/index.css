@@ -32,7 +32,7 @@
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.85;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   max-width: 680px;
   text-align: center;
 }

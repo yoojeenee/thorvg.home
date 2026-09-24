@@ -41,7 +41,7 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 400;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
   border-radius: 6px;
   transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }

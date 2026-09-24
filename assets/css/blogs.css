@@ -12,12 +12,12 @@
 .blog-filter-tabs a {
   font-size: 0.875rem;
   font-weight: 400;
-  color: #999999;
+  color: var(--color-text-muted);
   transition: color 0.15s ease;
 }
 
 .blog-filter-tabs a:hover {
-  color: #5d5d5d;
+  color: #aaaaaa;
 }
 
 .blog-filter-tabs a.is-active {
@@ -66,7 +66,7 @@
 .blog-list-date {
   font-size: 0.875rem;
   font-weight: 300;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .blog-list-body {
@@ -97,7 +97,7 @@
   padding: var(--space-4) 0;
   font-size: 0.9rem;
   font-weight: 300;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .blog-empty-state[hidden] {

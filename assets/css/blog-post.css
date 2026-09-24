@@ -27,7 +27,7 @@
 }
 
 .blog-post-meta span {
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .blog-post-title {
@@ -118,7 +118,7 @@
   padding-left: 1rem;
   border-left: 3px solid var(--color-border);
   font-size: 0.95rem;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .blog-post-body img,
@@ -140,7 +140,7 @@
   font-weight: 300;
   line-height: 1.5;
   text-align: center;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .blog-post-body hr {
@@ -228,7 +228,7 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 400;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .blog-post-writer-name {

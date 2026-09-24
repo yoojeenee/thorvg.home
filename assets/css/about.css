@@ -193,7 +193,7 @@
 
 .docs-content table.data-table td {
   font-weight: 300;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .docs-content table.data-table tbody tr {

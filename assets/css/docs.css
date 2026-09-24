@@ -25,7 +25,7 @@
   padding: 0.3rem 0 0.3rem 0.75rem;
   font-size: 0.78rem;
   font-weight: 300;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   transition: color 0.15s ease;
 }
 
@@ -41,7 +41,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   margin: 0 0 var(--space-2);
 }
 
@@ -94,7 +94,7 @@
   font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.8;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .docs-content h2 + p,
@@ -112,7 +112,7 @@
   font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.8;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .docs-content li::marker {
@@ -163,13 +163,13 @@
 
 .docs-content blockquote p {
   margin-top: 0;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .docs-content p a,
 .docs-content li a,
 .docs-content blockquote a {
-  color: #3b82f6;
+  color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.15s ease;
@@ -207,11 +207,11 @@
   font-size: 0.8rem;
   font-weight: 300;
   line-height: 1.45;
-  color: #5d5d5d;
+  color: var(--color-text-muted);
 }
 
 .docs-content figcaption a {
-  color: #3b82f6;
+  color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.15s ease;
@@ -225,7 +225,7 @@
   font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.8;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 @media (max-width: 960px) {
