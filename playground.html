@@ -17,14 +17,22 @@
       <a href="index.html" class="logo"><img src="assets/images/thorvg-logo.svg" alt="ThorVG" class="logo-img"></a>
       <nav class="main-nav" id="main-nav">
         <a href="about.html">About</a>
-        <a href="showcase.html">Showcase</a>
         <a href="tutorial.html">Tutorial</a>
         <a href="api.html">API</a>
-        <a href="https://deepwiki.com/thorvg/thorvg" target="_blank" rel="noopener" class="nav-external">DeepWiki<span class="external-icon">&#8599;</span></a>
-        <a href="blogs.html">Blogs</a>
-        <a href="https://github.com/thorvg/thorvg/releases" target="_blank" rel="noopener" class="nav-external">Releases<span class="external-icon">&#8599;</span></a>
         <a href="playground.html" class="active">Playground</a>
         <a href="view.html">View</a>
+        <div class="nav-dropdown" id="resources-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="resources-menu" aria-haspopup="true">
+            Resources
+            <img src="assets/icons/chevron-down.svg" alt="" class="nav-dropdown-caret">
+          </button>
+          <div class="nav-dropdown-menu" id="resources-menu">
+          <a href="showcase.html">Showcase</a>
+          <a href="blogs.html">Blog</a>
+          <a href="https://deepwiki.com/thorvg/thorvg" target="_blank" rel="noopener" class="nav-external">DeepWiki<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="external-icon" aria-hidden="true"><path d="M6.75 17.25 17.25 6.75M9 6.75h8.25V15"/></svg></a>
+          <a href="https://github.com/thorvg/thorvg/releases" target="_blank" rel="noopener" class="nav-external">Releases<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="external-icon" aria-hidden="true"><path d="M6.75 17.25 17.25 6.75M9 6.75h8.25V15"/></svg></a>
+          </div>
+        </div>
       </nav>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
         <img src="assets/icons/menu.svg" alt="" class="menu-icon">
