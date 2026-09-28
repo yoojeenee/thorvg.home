@@ -32,8 +32,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 300;
+  font-size: 0.95rem;
+  font-weight: 400;
   color: var(--color-text);
   transition: color 0.15s ease;
 }
@@ -59,7 +59,8 @@
 
 .page-content .example-description {
   margin-top: 0.4rem;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .example-code-panel {
@@ -109,7 +110,7 @@
 
 .example-code-panel-header-label {
   font-size: 0.82rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-text);
   white-space: nowrap;
 }
@@ -249,7 +250,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--color-text);
   cursor: pointer;
@@ -290,7 +291,7 @@
 }
 
 .example-copy-code-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -393,7 +394,9 @@
 }
 
 .example-pagination-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -405,7 +408,7 @@
 
 .example-pagination-count {
   font-size: 0.78rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text);
   white-space: nowrap;
 }

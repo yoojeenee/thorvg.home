@@ -23,8 +23,9 @@
 .docs-toc-list a {
   display: block;
   padding: 0.3rem 0 0.3rem 0.75rem;
-  font-size: 0.78rem;
-  font-weight: 300;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--color-text);
   transition: color 0.15s ease;
 }
@@ -39,7 +40,8 @@
 
 .docs-toc-label {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--color-text);
   margin: 0 0 var(--space-2);
@@ -71,14 +73,14 @@
 }
 
 .docs-content h3 {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 600;
   margin-top: 2.5rem;
   scroll-margin-top: calc(76px + var(--space-3));
 }
 
 .docs-content h4 {
-  font-size: 0.8rem;
+  font-size: 1.02rem;
   font-weight: 600;
   text-transform: uppercase;
   margin-top: 2rem;
@@ -91,9 +93,10 @@
 .docs-content p {
   max-width: 640px;
   margin-top: var(--space-3);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 300;
   line-height: 1.8;
+  letter-spacing: 0.01em;
   color: var(--color-text);
 }
 
@@ -109,7 +112,7 @@
 }
 
 .docs-content li {
-  font-size: 0.9rem;
+  font-size: 1.02rem;
   font-weight: 300;
   line-height: 1.8;
   color: var(--color-text);

@@ -17,8 +17,8 @@
   border-radius: 9999px;
   background: var(--color-text);
   color: var(--color-bg);
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 300;
   transition: background 0.15s ease;
 }
 
@@ -51,8 +51,9 @@
   padding: 0.4rem 1rem;
   border-radius: 9999px;
   font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   background: #ededed;
   color: var(--color-text);
   cursor: pointer;
@@ -120,14 +121,14 @@
 }
 
 .playground-card-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--color-text);
 }
 
 .playground-card-desc {
   flex: 1;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.6;
   color: var(--color-text-muted);
@@ -138,7 +139,7 @@
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.2rem;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 400;
   color: #0d0d0d;
   transition: color 0.15s ease;
