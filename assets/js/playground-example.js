@@ -259,7 +259,8 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
     function syncRunBtnState() {
       if (!exampleAutoRunCheckbox || !exampleRunCodeBtn) return;
       const checked = exampleAutoRunCheckbox.checked;
-      exampleRunCodeBtn.disabled = checked || getCode() === lastAppliedCode;
+      exampleRunCodeBtn.hidden = checked;
+      exampleRunCodeBtn.disabled = getCode() === lastAppliedCode;
     }
 
     editor.onDidChangeModelContent(() => {

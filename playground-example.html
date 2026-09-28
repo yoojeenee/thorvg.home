@@ -64,6 +64,7 @@
                   <input type="range" id="example-zoom-slider" min="50" max="200" step="10" value="100">
                   <output class="example-zoom-popup" id="example-zoom-popup" for="example-zoom-slider">100%</output>
                 </div>
+                <span class="example-header-divider" aria-hidden="true"></span>
                 <button type="button" class="example-copy-code-btn" id="example-preview-clear-btn">
                   <span class="example-copy-code-label">Clear</span>
                 </button>
@@ -82,12 +83,14 @@
               <span class="example-code-panel-header-label">Code Editor</span>
               <div class="example-code-panel-header-actions">
                 <label class="example-auto-run-toggle">
-                  <input type="checkbox" id="example-auto-run-checkbox" checked>
                   Auto Run
+                  <input type="checkbox" id="example-auto-run-checkbox" class="toggle-switch-input" checked>
+                  <span class="toggle-switch" aria-hidden="true"><span class="toggle-switch-knob"></span></span>
                 </label>
                 <button type="button" class="example-copy-code-btn example-run-code-btn" id="example-run-code-btn">
                   <span class="example-copy-code-label">Run</span>
                 </button>
+                <span class="example-header-divider" aria-hidden="true"></span>
                 <button type="button" class="example-copy-code-btn" id="example-reset-code-btn">
                   <span class="example-copy-code-label">Reset</span>
                 </button>
