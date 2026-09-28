@@ -20,7 +20,7 @@
 | `h1`~`h4` | font-heading | 요소별 상이 | 요소별 상이 |
 | `.main-nav a`, `.nav-dropdown-trigger` | 상속 | 0.85rem | 400 |
 | `.main-nav a.active`, `.nav-dropdown-trigger.active` | 상속 | 0.85rem | 500 |
-| `.btn` | 상속 | 0.95rem | 600 |
+| `.btn` | 상속 | 1rem | 500 |
 | `.page-content h1` | font-heading | `clamp(1.75rem, 3vw, 2.5rem)` | 600 |
 | `.page-content .placeholder-text` | 상속 | 0.95rem | 400(미지정) |
 | `.page-content .page-lede` | 상속 | 1rem | 300 |
@@ -55,7 +55,7 @@
 | [tutorial.html](tutorial.html:50) (Build and install, Basic Programming, More examples) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
 | [playground-example.html:52](playground-example.html:52) `#example-title` | 예제 타이틀 | `.example-header-top h2` (`playground-example.css`) | `clamp(1rem, 1.4vw, 1.15rem)` | 500 |
 | [blog.html](blog.html) 게시글 목록 카드 제목 (`blog.js`가 런타임 렌더링) | 게시글 카드 제목 | `.blog-list-title` (`blog.css`) | 1.05rem | 500 |
-| [blog-post.html](blog-post.html:53) 게시글 본문 중 `## ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 섹션 제목 | `.blog-post-body h2` (`blog-post.css`) | 1.725rem | 500 |
+| [blog-post.html](blog-post.html:53) 게시글 본문 중 `## ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 섹션 제목 | `.blog-post-body h2` (`blog-post.css`) | 1.4rem | 500 |
 
 ---
 
@@ -141,18 +141,18 @@
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
 | `.blog-post-meta` | 상속 | 0.875rem | 400 |
-| `.blog-post-body` (기본) | 상속 | 1.0625rem | 400 |
-| `.blog-post-body p` | 상속 | 1.0625rem | 300 |
-| `.blog-post-body strong` | 상속 | 1.0625rem | 500 |
-| `.blog-post-body li` | 상속 | 1.0625rem | 300 |
+| `.blog-post-body` (기본) | 상속 | 1.05rem | 400 |
+| `.blog-post-body p` | 상속 | 1.05rem | 300 |
+| `.blog-post-body strong` | 상속 | 1.05rem | 500 |
+| `.blog-post-body li` | 상속 | 1.05rem | 300 |
 | `.blog-post-body blockquote` | 상속 | 0.95rem | 미지정 |
 | `.blog-post-body figcaption` | `"Inter", var(--font-body)` | 13px | 300 |
 | `.blog-post-body :not(pre) > code` | font-mono | 0.85em | 미지정 |
 | `.blog-post-body table` | 상속 | 0.9rem | th 500 |
-| `.blog-post-tags li` | 상속 | 0.875rem | 400 |
-| `.blog-post-writer-label` | font-body | 0.875rem | 400 |
-| `.blog-post-writer-name` | 상속 | 0.875rem | 400 |
-| `.blog-post-back` | 상속 | 0.875rem | 300 |
+| `.blog-post-tags li` | 상속 | 0.875rem | 500 |
+| `.blog-post-writer-label` | font-body | 0.9rem | 400 |
+| `.blog-post-writer-name` | 상속 | 0.9rem | 400 |
+| `.blog-post-back` | 상속 | 0.95rem | 400 |
 
 ---
 
