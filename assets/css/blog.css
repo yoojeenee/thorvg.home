@@ -1,23 +1,37 @@
 /* ---------- Blog filter tabs ---------- */
 .blog-filter-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
   list-style: none;
   margin: var(--space-4) 0 0;
   padding: 0;
   padding-bottom: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.blog-filter-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.blog-filter-tabs li {
+  flex: 0 0 auto;
 }
 
 .blog-filter-tabs a {
-  font-size: 0.875rem;
+  display: block;
+  white-space: nowrap;
+  font-size: 0.75rem;
   font-weight: 400;
-  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a4a4a4;
   transition: color 0.15s ease;
 }
 
 .blog-filter-tabs a:hover {
-  color: #aaaaaa;
+  color: #5d5d5d;
 }
 
 .blog-filter-tabs a.is-active {
