@@ -7,7 +7,7 @@
 | 변수 | 값 | 용도 |
 |---|---|---|
 | `--font-heading` | `"Poppins", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif` | `h1`~`h4` |
-| `--font-body` | `"Google Sans Flex", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif` | `body` 및 본문 텍스트 |
+| `--font-body` | `"DM Sans", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif` | `body` 및 본문 텍스트 |
 | `--font-mono` | `"SF Mono", SFMono-Regular, ui-monospace, Consolas, "Liberation Mono", Menlo, monospace` | 코드 블록, 파일 상세값 등 |
 
 ---

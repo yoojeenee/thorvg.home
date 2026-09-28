@@ -51,12 +51,11 @@ thorvg.home/
   running text.
 - **Typography**:
   - Headings (`h1`–`h3`) and section titles: **Poppins**
-  - Body text (nav, paragraphs, buttons): **Google Sans Flex** (variable
-    font, free/open — SIL OFL — despite the "Google" name; not the same as
-    the proprietary "Google Sans" used in Google's own products)
+  - Body text (nav, paragraphs, buttons): **DM Sans** (variable font,
+    free/open — SIL OFL)
   - Korean text always renders in **Noto Sans KR** — this isn't a separate
     rule to maintain, it falls out of the font stack automatically since
-    neither Poppins nor Google Sans Flex ship Hangul glyphs, so the browser
+    neither Poppins nor DM Sans ship Hangul glyphs, so the browser
     falls back to Noto Sans KR wherever Korean characters appear.
   - Loaded via Google Fonts in each page's `<head>`. `--font-heading` and
     `--font-body` are kept as separate CSS variables (even when they
