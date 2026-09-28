@@ -43,3 +43,154 @@
   justify-content: center;
   gap: var(--space-2);
 }
+
+/* ---------- Demo carousel ---------- */
+:root {
+  --demo-card-width: min(600px, 76vw);
+  --demo-dot-size: 6px;
+  --demo-dot-gap: 10px;
+  --demo-dot-step: calc(var(--demo-dot-size) + var(--demo-dot-gap));
+  --demo-dot-visible: 5;
+}
+
+.demo-carousel {
+  padding: var(--space-4) 0 calc(var(--space-4) + 1rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.demo-carousel-title {
+  margin-bottom: var(--space-4);
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.demo-carousel-stage {
+  position: relative;
+}
+
+.demo-carousel-viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.demo-carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.demo-carousel-track {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.demo-card {
+  flex: 0 0 var(--demo-card-width);
+  width: var(--demo-card-width);
+  scroll-snap-align: center;
+}
+
+.demo-card-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.demo-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.demo-card-title {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.demo-carousel-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.demo-carousel-arrow:hover {
+  background: var(--color-surface);
+}
+
+.demo-carousel-arrow--prev {
+  left: clamp(0.5rem, 3vw, 2rem);
+}
+
+.demo-carousel-arrow--next {
+  right: clamp(0.5rem, 3vw, 2rem);
+}
+
+.demo-carousel-arrow-icon {
+  width: 11px;
+  height: 7px;
+}
+
+.demo-carousel-arrow--prev .demo-carousel-arrow-icon {
+  transform: rotate(90deg);
+}
+
+.demo-carousel-arrow--next .demo-carousel-arrow-icon {
+  transform: rotate(-90deg);
+}
+
+.demo-carousel-dots {
+  /* A fixed-width window onto the dot strip — only ~5 dots' worth of
+     space, matching Swiper's "dynamic bullets" pagination. The track
+     inside slides and the dots nearer the edges scale down, so only a
+     handful are ever legible at once no matter how many demos exist. */
+  width: calc(var(--demo-dot-step) * var(--demo-dot-visible) - var(--demo-dot-gap));
+  height: var(--demo-dot-size);
+  margin: var(--space-3) auto 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-carousel-dots-track {
+  display: flex;
+  align-items: center;
+  gap: var(--demo-dot-gap);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.25s ease;
+}
+
+.demo-carousel-dot {
+  flex: 0 0 var(--demo-dot-size);
+  width: var(--demo-dot-size);
+  height: var(--demo-dot-size);
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-border);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.15s ease;
+}
+
+.demo-carousel-dot.is-active {
+  background: var(--color-text);
+}
