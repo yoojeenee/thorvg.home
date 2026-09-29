@@ -88,7 +88,8 @@
 }
 
 .playground-card:hover {
-  border-color: #c4c4c4;
+  /*border-color: rgba(13, 13, 13, 0.05);*/
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .playground-card-media {
