@@ -125,10 +125,9 @@ img {
 
 .main-nav a {
   color: var(--color-text);
-  font-size: 0.82rem;
+  font-size: 0.87rem;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   transition: color 0.15s ease;
 }
@@ -175,10 +174,9 @@ img {
   cursor: pointer;
   color: var(--color-text);
   font-family: inherit;
-  font-size: 0.85rem;
+  font-size: 0.87rem;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   transition: color 0.15s ease;
 }
