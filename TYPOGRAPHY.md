@@ -18,8 +18,8 @@
 |---|---|---|-----------------------------------------------------|
 | `body` | font-body | 기본값 | 400                                                 |
 | `h1`~`h4` | font-heading | 요소별 상이 | 요소별 상이                                              |
-| `.main-nav a`, `.nav-dropdown-trigger` | 상속 | 0.85rem | 400                                                 |
-| `.main-nav a.active`, `.nav-dropdown-trigger.active` | 상속 | 0.85rem | 400(bold 아님, `color: var(--color-text-muted)`로 구분)* |
+| `.main-nav a`, `.nav-dropdown-trigger` | 상속 | 0.82rem | 400                                                 |
+| `.main-nav a.active`, `.nav-dropdown-trigger.active` | 상속 | 0.82rem | 400(bold 아님, `color: var(--color-text-muted)`로 구분)* |
 | `.btn` | 상속 | 1rem | 400                                                 |
 | `.page-content h1` | font-heading | `clamp(1.75rem, 3vw, 2.5rem)` | 600                                                 |
 | `.page-content .placeholder-text` | 상속 | 0.95rem | 400(미지정)                                            |
