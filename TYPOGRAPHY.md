@@ -14,19 +14,19 @@
 
 ## 공통 (`common.css`)
 
-| 요소 | Font | Size | Weight |
-|---|---|---|---|
-| `body` | font-body | 기본값 | 400 |
-| `h1`~`h4` | font-heading | 요소별 상이 | 요소별 상이 |
-| `.main-nav a`, `.nav-dropdown-trigger` | 상속 | 0.85rem | 400 |
+| 요소 | Font | Size | Weight                                              |
+|---|---|---|-----------------------------------------------------|
+| `body` | font-body | 기본값 | 400                                                 |
+| `h1`~`h4` | font-heading | 요소별 상이 | 요소별 상이                                              |
+| `.main-nav a`, `.nav-dropdown-trigger` | 상속 | 0.85rem | 400                                                 |
 | `.main-nav a.active`, `.nav-dropdown-trigger.active` | 상속 | 0.85rem | 400(bold 아님, `color: var(--color-text-muted)`로 구분)* |
-| `.btn` | 상속 | 1rem | 500 |
-| `.page-content h1` | font-heading | `clamp(1.75rem, 3vw, 2.5rem)` | 600 |
-| `.page-content .placeholder-text` | 상속 | 0.95rem | 400(미지정) |
-| `.page-content .page-lede` | 상속 | 1rem | 300 |
-| `.playground-card-tag` | 상속 | 0.75rem | 400 |
-| `.code-block code` | font-mono | 0.8rem | 400 |
-| `.site-footer` | 상속 | 0.8rem | 300 |
+| `.btn` | 상속 | 1rem | 400                                                 |
+| `.page-content h1` | font-heading | `clamp(1.75rem, 3vw, 2.5rem)` | 600                                                 |
+| `.page-content .placeholder-text` | 상속 | 0.95rem | 400(미지정)                                            |
+| `.page-content .page-lede` | 상속 | 1rem | 300                                                 |
+| `.playground-card-tag` | 상속 | 0.75rem | 400                                                 |
+| `.code-block code` | font-mono | 0.8rem | 400                                                 |
+| `.site-footer` | 상속 | 0.8rem | 300                                                 |
 
 > \* 헤더 우측 메뉴의 활성 상태는 더 이상 bold(font-weight)로 구분하지 않습니다. 대신 `--color-text-muted`
 > (`rgba(26, 26, 26, 0.4)` — `docs-toc-float-list`의 비활성 링크와 동일한 연회색) 색상으로 표시합니다.

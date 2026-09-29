@@ -8,32 +8,8 @@
   margin-right: auto;
 }
 
-.btn-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.playground-intro .btn-secondary {
   margin-top: var(--space-3);
-  padding: 0.55rem 1.4rem;
-  border-radius: 9999px;
-  background: var(--color-text);
-  color: var(--color-bg);
-  font-size: 1rem;
-  font-weight: 300;
-  transition: background 0.15s ease;
-}
-
-.btn-pill:hover {
-  background: #2b2b2b;
-}
-
-.btn-pill-icon {
-  width: 0.6em;
-  height: 0.6em;
-  transition: transform 0.2s ease;
-}
-
-.btn-pill:hover .btn-pill-icon {
-  transform: translateX(3px);
 }
 
 .filter-chips {
