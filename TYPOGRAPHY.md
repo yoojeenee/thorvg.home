@@ -56,7 +56,7 @@
 | [index.html:47](index.html:47) `Open · Lightweight · Fast · Everywhere` | 히어로 태그라인 | `.hero-subtitle` (`index.css`) | 1.35rem | 600 |
 | [index.html:64](index.html:64) `ThorVG Demos` | 데모 캐러셀 제목 | `.demo-carousel-title` (`index.css`) | 20px | 500 |
 | [about.html](about.html:48) (About ThorVG, Design Principles, Rendering Engine, Platforms & Formats, Community) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
-| [showcase.html](showcase.html:47) (In Practice), [showcase.html:168](showcase.html:168) (Demo) | 섹션 제목 | `#in-practice`, `#thorvg-demo` (`showcase.css`, `.docs-content h2` 오버라이드) | 1.1rem | 600 |
+| [showcase.html](showcase.html:47) (In Practice), [showcase.html:168](showcase.html:168) (Demo) | 섹션 제목 | `#in-practice`, `#thorvg-demo` (`gallery.css`, `.docs-content h2` 오버라이드) | 1.1rem | 600 |
 | [tutorial.html](tutorial.html:50) (Build and install, Basic Programming, More examples) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
 | [playground-example.html:52](playground-example.html:52) `#example-title` | 예제 타이틀 | `.example-header-top h2` (`playground-example.css`) | `clamp(1rem, 1.4vw, 1.15rem)` | 500 |
 | [blog.html](blog.html) 게시글 목록 카드 제목 (`blog.js`가 런타임 렌더링) | 게시글 카드 제목 | `.blog-list-title` (`blog.css`) | 1.05rem | 500 |
@@ -68,7 +68,7 @@
 
 | 페이지 | 위치/용도 | 적용 셀렉터 | Size | Weight |
 |---|---|---|---|---|
-| [showcase.html](showcase.html:52) (Camtasia, Canva iOS, dotLottie, Espressif, Godot, Lottie Creator, LVGL, Segger, Tizen, Other Projects, Janitor) | 카드 제목 | `.showcase-row-title` (`showcase.css`, `.docs-content h3` 오버라이드) | `clamp(1.5rem, 2.4vw, 1.8rem)` | 600 |
+| [showcase.html](showcase.html:52) (Camtasia, Canva iOS, dotLottie, Espressif, Godot, Lottie Creator, LVGL, Segger, Tizen, Other Projects, Janitor) | 카드 제목 | `.showcase-row-title` (`gallery.css`, `.docs-content h3` 오버라이드) | `clamp(1.5rem, 2.4vw, 1.8rem)` | 600 |
 | [tutorial.html](tutorial.html:110) (Initialization, Shape, Path, Fill, Stroke, ...) | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.25rem | 600 |
 | [about.html](about.html:140) (LightWeight Design, Broad Portability, CPU Rasterization, ...) | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.25rem | 600 |
 | [blog-post.html](blog-post.html:53) 게시글 본문 중 `### ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 서브섹션 제목 | `.blog-post-body h3` (`blog-post.css`) | 1.3rem | 500 |
@@ -121,7 +121,7 @@
 
 ---
 
-## Showcase 전용 (`showcase.css`)
+## Showcase 전용 (`gallery.css`, Playground과 공유)
 
 | 요소 | Font | Size | Weight |
 |---|---|---|---|
@@ -171,7 +171,7 @@
 
 ---
 
-## Playground 목록 (`playground.css`)
+## Playground 목록 (`gallery.css`, Showcase와 공유)
 
 | 요소 | Font | Size | Weight |
 |---|---|---|---|

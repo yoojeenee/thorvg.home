@@ -1,3 +1,23 @@
+/* ---------- Gallery button (used alongside .btn) ---------- */
+.btn-gallery {
+  padding: 0.5rem 1.6rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-gallery:hover,
+.btn-gallery:focus-visible {
+  border-color: var(--color-text);
+}
+
+.btn-gallery:hover .btn-arrow,
+.btn-gallery:focus-visible .btn-arrow {
+  max-width: 24px;
+  margin-left: 0.4rem;
+  opacity: 1;
+}
+
 /* ---------- Playground grid ---------- */
 .playground-intro {
   text-align: center;
@@ -8,7 +28,7 @@
   margin-right: auto;
 }
 
-.playground-intro .btn-secondary {
+.playground-intro .btn-gallery {
   margin-top: var(--space-3);
 }
 
@@ -27,7 +47,7 @@
   padding: 0.4rem 1rem;
   border-radius: var(--radius-full);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.87rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   background: #ededed;
@@ -144,5 +164,94 @@
 @media (max-width: 560px) {
   .playground-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Showcase page layout (no TOC sidebar) ---------- */
+.docs-layout--single .docs-content {
+  padding-left: 0;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.docs-content h1 {
+  text-align: center;
+}
+
+/* ---------- Showcase "In Practice" rows ---------- */
+/* Row layout inspired by https://romemichal.pl/#about "Selected works" list */
+
+.showcase-list {
+  margin-top: var(--space-3);
+  scroll-margin-top: calc(76px + var(--space-3));
+}
+
+.showcase-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-4);
+  align-items: start;
+  padding: var(--space-4) 0;
+}
+
+.showcase-list .showcase-row:first-child {
+  padding-top: var(--space-2);
+}
+
+.showcase-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.showcase-row-info .btn {
+  align-self: flex-start;
+}
+
+.showcase-row-title {
+  margin: 0 !important;
+  font-size: clamp(1.5rem, 2.4vw, 1.8rem) !important;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.docs-content .showcase-row-desc {
+  margin: 0 !important;
+  max-width: none !important;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+
+.showcase-row-media {
+  display: block;
+  background: var(--color-surface);
+}
+
+.showcase-row-media img,
+.showcase-row-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.showcase-row-media--list {
+  aspect-ratio: auto;
+  overflow: visible;
+  border: none;
+  background: none;
+}
+
+.showcase-row-media--list ul {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  .showcase-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
   }
 }

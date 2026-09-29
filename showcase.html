@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,300..700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/docs.css">
-  <link rel="stylesheet" href="assets/css/showcase.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
 </head>
 <body>
   <header class="site-header">
@@ -44,9 +44,32 @@
   <main>
     <div class="docs-layout docs-layout--single container">
       <article class="docs-content">
-        <h2 id="in-practice">In Practice</h2>
+        <h1>Showcase</h1>
 
-        <div class="showcase-list">
+        <div class="filter-chips" id="showcase-filters">
+          <button type="button" class="filter-chip is-active" data-filter="thorvg-demo">Demo</button>
+          <button type="button" class="filter-chip" data-filter="in-practice">In Practice</button>
+        </div>
+
+        <div class="showcase-list" id="thorvg-demo">
+          <div class="showcase-row">
+            <div class="showcase-row-info">
+              <h3 id="thor-janitor" class="showcase-row-title">Janitor</h3>
+              <p class="showcase-row-desc">Check out <a href="https://github.com/thorvg/thorvg.janitor" target="_blank" rel="noopener">Thor Janitor</a>, an interactive demo game fully rendered using ThorVG. It renders tens of thousands of objects in real-time with effects like DropShadow and Blur, running stably at 120+ FPS!</p>
+              <a href="https://thorvg-janitor.vercel.app/" target="_blank" rel="noopener" class="btn btn-gallery">
+                Give it a try
+                <span class="btn-arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+                </span>
+              </a>
+            </div>
+            <div class="showcase-row-media">
+              <video src="assets/videos/hero-realtime.mp4" class="hero-media" autoplay muted loop playsinline controls></video>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-list" id="in-practice" hidden>
           <div class="showcase-row">
             <div class="showcase-row-info">
               <h3 id="camtasia" class="showcase-row-title">Camtasia</h3>
@@ -164,39 +187,8 @@
             </div>
           </div>
         </div>
-
-        <h2 id="thorvg-demo"><span class="uppercase">Demo</span></h2>
-        <div class="showcase-list">
-          <div class="showcase-row">
-            <div class="showcase-row-info">
-              <h3 id="thor-janitor" class="showcase-row-title">Janitor</h3>
-              <p class="showcase-row-desc">Check out <a href="https://github.com/thorvg/thorvg.janitor" target="_blank" rel="noopener">Thor Janitor</a>, an interactive demo game fully rendered using ThorVG. It renders tens of thousands of objects in real-time with effects like DropShadow and Blur, running stably at 120+ FPS! <a href="https://thorvg-janitor.vercel.app/" target="_blank" rel="noopener">Give it a try!</a></p>
-            </div>
-            <div class="showcase-row-media">
-              <video src="assets/videos/hero-realtime.mp4" class="hero-media" autoplay muted loop playsinline controls></video>
-            </div>
-          </div>
-        </div>
       </article>
     </div>
-
-    <aside class="docs-toc-float">
-      <ol class="docs-toc-float-list">
-        <li><a href="#in-practice">In Practice</a></li>
-        <li><a href="#camtasia" class="docs-toc-sub">Camtasia</a></li>
-        <li><a href="#canva-ios" class="docs-toc-sub">Canva iOS</a></li>
-        <li><a href="#dotlottie" class="docs-toc-sub">dotLottie</a></li>
-        <li><a href="#espressif" class="docs-toc-sub">Espressif</a></li>
-        <li><a href="#godot" class="docs-toc-sub">Godot</a></li>
-        <li><a href="#lottie-creator" class="docs-toc-sub">Lottie Creator</a></li>
-        <li><a href="#lvgl" class="docs-toc-sub">LVGL</a></li>
-        <li><a href="#segger" class="docs-toc-sub">Segger</a></li>
-        <li><a href="#tizen" class="docs-toc-sub">Tizen</a></li>
-        <li><a href="#other-projects" class="docs-toc-sub">Other Projects</a></li>
-        <li><a href="#thorvg-demo">Demo</a></li>
-        <li><a href="#thor-janitor" class="docs-toc-sub">Janitor</a></li>
-      </ol>
-    </aside>
   </main>
 
   <footer class="site-footer">
@@ -212,6 +204,6 @@
   </footer>
 
   <script src="assets/js/common.js"></script>
-  <script src="assets/js/docs-toc.js"></script>
+  <script src="assets/js/showcase.js"></script>
 </body>
 </html>
