@@ -25,6 +25,11 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  /* Match .header-inner's max-width and fixed side padding so this
+     page's content aligns with the header instead of .container's
+     narrower max-width and responsive clamp. */
+  max-width: 1440px;
+  padding: 0 2rem;
 }
 
 /* ---------- Playground example viewer ---------- */
