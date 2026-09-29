@@ -39,7 +39,7 @@
   cursor: pointer;
   padding: 0.4rem 1rem;
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 400;
   color: var(--color-text-muted);
   border-radius: 6px;
@@ -54,7 +54,7 @@
 
 .lang-tabs-header .lang-tab {
   padding: 0.7rem 0;
-  font-weight: 400;
+  font-weight: 500;
   border-radius: 0;
   border-bottom: 2px solid transparent;
 }

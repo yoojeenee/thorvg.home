@@ -163,11 +163,11 @@
 
 ## Tutorial 전용 (`tutorial.css`)
 
-| 요소 | Font | Size | Weight |
-|---|---|---|---|
-| `.lang-tab` | font-body | 0.8rem | 400 |
-| `.lang-tabs-header .lang-tab` | font-body | 0.8rem(상속) | 400 |
-| `.example-window-address` | font-mono | 0.7rem | 미지정 |
+| 요소 | Font | Size       | Weight |
+|---|---|------------|--------|
+| `.lang-tab` | font-body | 0.82rem    | 500    |
+| `.lang-tabs-header .lang-tab` | font-body | 0.8rem(상속) | 400    |
+| `.example-window-address` | font-mono | 0.7rem     | 미지정    |
 
 ---
 
