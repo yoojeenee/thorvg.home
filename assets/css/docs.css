@@ -80,6 +80,7 @@
 .docs-content h1 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 600;
+  scroll-margin-top: calc(76px + var(--space-3));
 }
 
 .docs-content h2 {
