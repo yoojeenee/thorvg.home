@@ -9,7 +9,7 @@
 | `--color-bg` | `#ffffff` | 페이지/카드 배경, 어두운 배경 위 흰 텍스트 |
 | `--color-surface` | `#f5f5f7` | 카드·코드블록 등 표면 배경 |
 | `--color-text` | `#000000` | 기본 본문·제목 텍스트 |
-| `--color-text-muted` | `rgba(26, 26, 26, 0.4)` | 보조/캡션 텍스트, 헤더 메뉴 활성 상태, `docs-toc-float-list` 비활성 링크 |
+| `--color-text-muted` | `rgba(26, 26, 26, 0.5)` | 보조/캡션 텍스트, 헤더 메뉴 활성 상태, `docs-toc-float-list` 비활성 링크 |
 | `--color-accent` | `#6c4cf0` | 버튼 등 강조 배경 |
 | `--color-accent-strong` | `#5a3ce0` | accent hover |
 | `--color-border` | `#e3e5ea` | 테두리, 구분선 |

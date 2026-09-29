@@ -29,7 +29,7 @@
     display: block;
     position: fixed;
     top: calc(76px + var(--space-4) + var(--space-3));
-    left: 24px;
+    left: calc(max(0px, (100vw - 1440px) / 2) + 2rem);
     width: 212px;
     max-height: calc(100vh - 76px - var(--space-4) - var(--space-3) - var(--space-2));
     overflow-y: auto;
@@ -48,7 +48,7 @@
 .docs-toc-float-list a {
   display: block;
   padding: 4px 0;
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.01em;
