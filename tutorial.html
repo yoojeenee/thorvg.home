@@ -42,7 +42,7 @@
   </header>
 
   <main>
-    <div class="docs-layout container">
+    <div class="docs-layout docs-layout--single container">
       <article class="docs-content" data-lang="cpp">
         <h1>Tutorial</h1>
         <p>It explains how to set up the environment for building ThorVG and how to draw various graphic elements through ThorVG with simple examples.</p>
@@ -797,27 +797,30 @@ canvas.render();</code></pre>
           </div>
         </div>
       </article>
-
-      <aside class="docs-toc">
-        <p class="docs-toc-label">On this page</p>
-        <ul class="docs-toc-list">
-          <li><a href="#build-and-install">Build and install</a></li>
-          <li><a href="#basic-programming">Basic Programming</a></li>
-          <li><a href="#initialization" class="docs-toc-sub">Initialization</a></li>
-          <li><a href="#shape" class="docs-toc-sub">Shape</a></li>
-          <li><a href="#path" class="docs-toc-sub">Path</a></li>
-          <li><a href="#fill" class="docs-toc-sub">Fill</a></li>
-          <li><a href="#stroke" class="docs-toc-sub">Stroke</a></li>
-          <li><a href="#scene-and-transformation" class="docs-toc-sub">Scene and Transformation</a></li>
-          <li><a href="#picture" class="docs-toc-sub">Picture</a></li>
-          <li><a href="#text" class="docs-toc-sub">Text</a></li>
-          <li><a href="#composition" class="docs-toc-sub">Composition</a></li>
-          <li><a href="#animation" class="docs-toc-sub">Animation</a></li>
-          <li><a href="#drawing-the-final-step" class="docs-toc-sub">Drawing, the final step</a></li>
-          <li><a href="#more-examples">More examples</a></li>
-        </ul>
-      </aside>
     </div>
+
+    <aside class="docs-toc-float">
+      <div class="docs-toc-float-label">On this page</div>
+      <div class="docs-toc-float-rail">
+      <div class="docs-toc-float-indicator"></div>
+      <ol class="docs-toc-float-list">
+        <li><a href="#build-and-install">Build and install</a></li>
+        <li><a href="#basic-programming">Basic Programming</a></li>
+        <li><a href="#initialization" class="docs-toc-sub">Initialization</a></li>
+        <li><a href="#shape" class="docs-toc-sub">Shape</a></li>
+        <li><a href="#path" class="docs-toc-sub">Path</a></li>
+        <li><a href="#fill" class="docs-toc-sub">Fill</a></li>
+        <li><a href="#stroke" class="docs-toc-sub">Stroke</a></li>
+        <li><a href="#scene-and-transformation" class="docs-toc-sub">Scene and Transformation</a></li>
+        <li><a href="#picture" class="docs-toc-sub">Picture</a></li>
+        <li><a href="#text" class="docs-toc-sub">Text</a></li>
+        <li><a href="#composition" class="docs-toc-sub">Composition</a></li>
+        <li><a href="#animation" class="docs-toc-sub">Animation</a></li>
+        <li><a href="#drawing-the-final-step" class="docs-toc-sub">Drawing, the final step</a></li>
+        <li><a href="#more-examples">More examples</a></li>
+      </ol>
+      </div>
+    </aside>
   </main>
 
   <footer class="site-footer">
@@ -833,6 +836,7 @@ canvas.render();</code></pre>
   </footer>
 
   <script src="assets/js/common.js"></script>
+  <script src="assets/js/docs-toc.js"></script>
   <script src="assets/js/tutorial.js"></script>
 </body>
 </html>

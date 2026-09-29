@@ -8,47 +8,100 @@
   padding-bottom: var(--space-5);
 }
 
-.docs-toc {
-  position: sticky;
-  top: calc(76px + var(--space-4));
+.docs-layout--single {
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.docs-toc-list {
+.docs-layout--single .docs-content {
+  padding-left: 0;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Floating table of contents (About / Showcase / Tutorial) ---------- */
+.docs-toc-float {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .docs-toc-float {
+    display: block;
+    position: fixed;
+    top: calc(76px + var(--space-4) + var(--space-3));
+    left: 24px;
+    width: 212px;
+    max-height: calc(100vh - 76px - var(--space-4) - var(--space-3) - var(--space-2));
+    overflow-y: auto;
+  }
+}
+
+.docs-toc-float-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+}
+
+.docs-toc-float-rail {
+  position: relative;
+}
+
+.docs-toc-float-rail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #dcdcdc;
+}
+
+.docs-toc-float-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: #1a1a1a;
+  transform: translateY(0px);
+  transition: transform 0.2s ease, height 0.2s ease;
+}
+
+.docs-toc-float-list {
+  position: relative;
   list-style: none;
   margin: 0;
-  padding: 0;
-  border-left: 2px solid #ededed;
+  padding-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
 }
 
-.docs-toc-list a {
+.docs-toc-float-list a {
   display: block;
-  padding: 0.3rem 0 0.3rem 0.75rem;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--color-text);
-  transition: color 0.15s ease;
+  line-height: 1.4;
+  color: #1a1a1a;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
 }
 
-.docs-toc-list a:hover {
-  color: #aaaaaa;
+.docs-toc-float-list a:hover {
+  opacity: 0.7;
 }
 
-.docs-toc-list a.docs-toc-sub {
-  padding-left: calc(var(--space-2) + 0.75rem);
+.docs-toc-float-list a.is-active {
+  opacity: 1;
 }
 
-.docs-toc-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin: 0 0 var(--space-2);
+.docs-toc-float-list a.is-active:hover {
+  opacity: 1;
 }
 
-.docs-toc-list li {
-  margin-bottom: 0.2rem;
+.docs-toc-float-list a.docs-toc-sub {
+  padding-left: 0.75rem;
 }
 
 .docs-content {
@@ -240,9 +293,5 @@
 
   .docs-content {
     padding-left: 0;
-  }
-
-  .docs-toc {
-    display: none;
   }
 }

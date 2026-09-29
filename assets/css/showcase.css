@@ -1,12 +1,3 @@
-/* ---------- Showcase page layout (no TOC sidebar) ---------- */
-.docs-layout--single {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.docs-layout--single .docs-content {
-  padding-left: 0;
-}
-
 #in-practice,
 #thorvg-demo .uppercase {
   text-transform: uppercase;

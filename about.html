@@ -42,7 +42,7 @@
   </header>
 
   <main>
-    <div class="docs-layout container">
+    <div class="docs-layout docs-layout--single container">
       <article class="docs-content">
         <h1>About</h1>
         <h2 id="about-thorvg">About ThorVG</h2>
@@ -697,33 +697,36 @@
           <li><a href="https://opencollective.com/thorvg" target="_blank" rel="noopener">Open Collective</a></li>
         </ul>
       </article>
-
-      <aside class="docs-toc">
-        <p class="docs-toc-label">On this page</p>
-        <ul class="docs-toc-list">
-          <li><a href="#about-thorvg">About ThorVG</a></li>
-          <li><a href="#design-principles">Design Principles</a></li>
-          <li><a href="#lightweight-design" class="docs-toc-sub">LightWeight Design</a></li>
-          <li><a href="#broad-portability" class="docs-toc-sub">Broad Portability</a></li>
-          <li><a href="#rendering-engine">Rendering Engine</a></li>
-          <li><a href="#cpu-rasterization" class="docs-toc-sub">CPU Rasterization</a></li>
-          <li><a href="#threading" class="docs-toc-sub">Threading</a></li>
-          <li><a href="#smart-rendering" class="docs-toc-sub">Smart Rendering</a></li>
-          <li><a href="#render-backends" class="docs-toc-sub">Render Backends</a></li>
-          <li><a href="#platforms-and-formats">Platforms &amp; Formats</a></li>
-          <li><a href="#supported-platforms" class="docs-toc-sub">Supported Platforms</a></li>
-          <li><a href="#svg" class="docs-toc-sub">SVG</a></li>
-          <li><a href="#lottie" class="docs-toc-sub">Lottie</a></li>
-          <li><a href="#webcanvas" class="docs-toc-sub">WebCanvas</a></li>
-          <li><a href="#thorvg-view" class="docs-toc-sub">ThorVG View</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#references" class="docs-toc-sub">References</a></li>
-          <li><a href="#contributors" class="docs-toc-sub">Contributors</a></li>
-          <li><a href="#partners" class="docs-toc-sub">Partners</a></li>
-          <li><a href="#sponsors" class="docs-toc-sub">Sponsors</a></li>
-        </ul>
-      </aside>
     </div>
+
+    <aside class="docs-toc-float">
+      <div class="docs-toc-float-label">On this page</div>
+      <div class="docs-toc-float-rail">
+      <div class="docs-toc-float-indicator"></div>
+      <ol class="docs-toc-float-list">
+        <li><a href="#about-thorvg">About ThorVG</a></li>
+        <li><a href="#design-principles">Design Principles</a></li>
+        <li><a href="#lightweight-design" class="docs-toc-sub">LightWeight Design</a></li>
+        <li><a href="#broad-portability" class="docs-toc-sub">Broad Portability</a></li>
+        <li><a href="#rendering-engine">Rendering Engine</a></li>
+        <li><a href="#cpu-rasterization" class="docs-toc-sub">CPU Rasterization</a></li>
+        <li><a href="#threading" class="docs-toc-sub">Threading</a></li>
+        <li><a href="#smart-rendering" class="docs-toc-sub">Smart Rendering</a></li>
+        <li><a href="#render-backends" class="docs-toc-sub">Render Backends</a></li>
+        <li><a href="#platforms-and-formats">Platforms &amp; Formats</a></li>
+        <li><a href="#supported-platforms" class="docs-toc-sub">Supported Platforms</a></li>
+        <li><a href="#svg" class="docs-toc-sub">SVG</a></li>
+        <li><a href="#lottie" class="docs-toc-sub">Lottie</a></li>
+        <li><a href="#webcanvas" class="docs-toc-sub">WebCanvas</a></li>
+        <li><a href="#thorvg-view" class="docs-toc-sub">ThorVG View</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#references" class="docs-toc-sub">References</a></li>
+        <li><a href="#contributors" class="docs-toc-sub">Contributors</a></li>
+        <li><a href="#partners" class="docs-toc-sub">Partners</a></li>
+        <li><a href="#sponsors" class="docs-toc-sub">Sponsors</a></li>
+      </ol>
+      </div>
+    </aside>
   </main>
 
   <footer class="site-footer">
@@ -739,5 +742,6 @@
   </footer>
 
   <script src="assets/js/common.js"></script>
+  <script src="assets/js/docs-toc.js"></script>
 </body>
 </html>
