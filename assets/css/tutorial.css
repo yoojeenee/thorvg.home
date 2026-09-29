@@ -5,7 +5,7 @@
   margin-top: var(--space-1);
   padding: 2px;
   background: #ededed;
-  border-radius: 8px;
+  border-radius: var(--radius-full);
 }
 
 /* ---------- Language tabs ---------- */
@@ -42,7 +42,7 @@
   font-size: 0.82rem;
   font-weight: 400;
   color: var(--color-text-muted);
-  border-radius: 6px;
+  border-radius: var(--radius-full);
   transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
