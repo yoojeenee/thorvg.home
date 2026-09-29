@@ -9,7 +9,7 @@
 | `--color-bg` | `#ffffff` | 페이지/카드 배경, 어두운 배경 위 흰 텍스트 |
 | `--color-surface` | `#f5f5f7` | 카드·코드블록 등 표면 배경 |
 | `--color-text` | `#000000` | 기본 본문·제목 텍스트 |
-| `--color-text-muted` | `#5d5d5d` | 보조/캡션 텍스트 |
+| `--color-text-muted` | `rgba(26, 26, 26, 0.4)` | 보조/캡션 텍스트, 헤더 메뉴 활성 상태, `docs-toc-float-list` 비활성 링크 |
 | `--color-accent` | `#6c4cf0` | 버튼 등 강조 배경 |
 | `--color-accent-strong` | `#5a3ce0` | accent hover |
 | `--color-border` | `#e3e5ea` | 테두리, 구분선 |
@@ -29,7 +29,7 @@
 | `.site-header`, `.main-nav` | background / border-bottom | `--color-bg` / `--color-border` | 헤더 |
 | `.main-nav a` | color | `--color-text` | 기본 |
 | `.main-nav a:hover` | color | `#aaaaaa` | hover 페이드 |
-| `.main-nav a.active` | color | `--color-text` | 활성 |
+| `.main-nav a.active`, `.nav-dropdown-trigger.active` | color | `--color-text-muted` | 활성(연회색, bold 아님) |
 | `.menu-toggle` | background | `--color-bg` | 모바일 메뉴 버튼 |
 | `.btn-primary` | background / color | `--color-accent` / `#fff` | 기본 버튼 |
 | `.btn-primary:hover` | background | `--color-accent-strong` | hover |
@@ -70,6 +70,9 @@
 |---|---|---|---|
 | `.docs-toc-list a`, `.docs-toc-label`, `p`, `li`, `li strong`, `figcaption.caption-text` | color | `--color-text` | 기본 텍스트 |
 | `.docs-toc-list a:hover`, `li::marker`, `figcaption a:hover`, `blockquote a:hover` | color | `#aaaaaa` | hover / 마커 |
+| `.docs-toc-float-list a` | color | `--color-text-muted` | 기본(비활성) |
+| `.docs-toc-float-list a:hover` | color | `rgba(26, 26, 26, 0.7)` | hover(중간 진하기) |
+| `.docs-toc-float-list a.is-active`, `.docs-toc-float-list a.is-active:hover` | color | `#1a1a1a` | 활성 |
 | `.docs-content blockquote p`, `figcaption` | color | `--color-text-muted` | 보조 텍스트 |
 | `blockquote a`, `figcaption a` | color | `--color-link` | 인용/캡션 내 링크 |
 | `blockquote code` | background / box-shadow | `rgba(0,0,0,0.04)` / `rgba(0,0,0,0.08)` | 인라인 코드 배경 |

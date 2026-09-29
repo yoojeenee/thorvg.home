@@ -83,21 +83,20 @@
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.4;
-  color: #1a1a1a;
-  opacity: 0.4;
-  transition: opacity 0.15s ease;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
 }
 
 .docs-toc-float-list a:hover {
-  opacity: 0.7;
+  color: rgba(26, 26, 26, 0.7);
 }
 
 .docs-toc-float-list a.is-active {
-  opacity: 1;
+  color: #1a1a1a;
 }
 
 .docs-toc-float-list a.is-active:hover {
-  opacity: 1;
+  color: #1a1a1a;
 }
 
 .docs-toc-float-list a.docs-toc-sub {
