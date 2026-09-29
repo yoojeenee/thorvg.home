@@ -18,20 +18,21 @@
   opacity: 1;
 }
 
-/* ---------- Playground grid ---------- */
-.playground-intro {
+/* ---------- Gallery intro (used by Showcase / Playground) ---------- */
+.gallery-intro {
   text-align: center;
 }
 
-.playground-intro .page-lede {
+.gallery-intro .page-lede {
   margin-left: auto;
   margin-right: auto;
 }
 
-.playground-intro .btn-gallery {
+.gallery-intro .btn-gallery {
   margin-top: var(--space-3);
 }
 
+/* ---------- Playground grid ---------- */
 .filter-chips {
   margin-top: var(--space-5);
   display: flex;
@@ -167,18 +168,6 @@
   }
 }
 
-/* ---------- Showcase page layout (no TOC sidebar) ---------- */
-.docs-layout--single .docs-content {
-  padding-left: 0;
-  max-width: none;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.docs-content h1 {
-  text-align: center;
-}
-
 /* ---------- Showcase "In Practice" rows ---------- */
 /* Row layout inspired by https://romemichal.pl/#about "Selected works" list */
 
@@ -217,13 +206,29 @@
   color: var(--color-text);
 }
 
-.docs-content .showcase-row-desc {
-  margin: 0 !important;
-  max-width: none !important;
+.showcase-row-desc,
+.showcase-row-media--list li {
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.85;
   color: var(--color-text);
+}
+
+.showcase-row-desc {
+  margin: 0;
+}
+
+.showcase-row-desc a,
+.showcase-row-media--list li a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.showcase-row-desc a:hover,
+.showcase-row-media--list li a:hover {
+  color: #aaaaaa;
 }
 
 .showcase-row-media {
@@ -246,7 +251,16 @@
 }
 
 .showcase-row-media--list ul {
-  margin-top: 0;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.showcase-row-media--list li::marker {
+  color: #aaaaaa;
+}
+
+.showcase-row-media--list li + li {
+  margin-top: 0.4rem;
 }
 
 @media (max-width: 1023px) {
