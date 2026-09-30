@@ -185,6 +185,7 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
   if (exampleZoomSlider && exampleZoomPopup && exampleCanvas) {
     const originalDPR = window.devicePixelRatio;
     let zoomPopupHideTimer = null;
+    let isPointerOverZoomSlider = false;
 
     const setEffectiveDPR = (dpr) => {
       try {
@@ -208,13 +209,38 @@ if (exampleTitle && typeof PLAYGROUND_EXAMPLES !== 'undefined') {
       exampleCanvas.style.transform = 'scale(' + (value / 100) + ')';
     };
 
-    exampleZoomSlider.addEventListener('input', () => {
-      updateZoom();
+    const showZoomPopup = () => {
+      clearTimeout(zoomPopupHideTimer);
       exampleZoomPopup.classList.add('is-visible');
+    };
+
+    const scheduleHideZoomPopup = (delay) => {
       clearTimeout(zoomPopupHideTimer);
       zoomPopupHideTimer = setTimeout(() => {
-        exampleZoomPopup.classList.remove('is-visible');
-      }, 1200);
+        if (!isPointerOverZoomSlider) exampleZoomPopup.classList.remove('is-visible');
+      }, delay);
+    };
+
+    exampleZoomSlider.addEventListener('mouseenter', () => {
+      isPointerOverZoomSlider = true;
+      showZoomPopup();
+    });
+
+    exampleZoomSlider.addEventListener('mouseleave', () => {
+      isPointerOverZoomSlider = false;
+      scheduleHideZoomPopup(400);
+    });
+
+    exampleZoomSlider.addEventListener('focus', showZoomPopup);
+
+    exampleZoomSlider.addEventListener('blur', () => {
+      if (!isPointerOverZoomSlider) scheduleHideZoomPopup(200);
+    });
+
+    exampleZoomSlider.addEventListener('input', () => {
+      updateZoom();
+      showZoomPopup();
+      scheduleHideZoomPopup(1200);
     });
 
     // Re-run at the new DPR only once the user releases the slider (not on every
