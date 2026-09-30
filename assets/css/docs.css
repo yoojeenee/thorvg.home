@@ -130,18 +130,27 @@
 .docs-content ul {
   max-width: 640px;
   margin: 1.25rem 0 0;
-  padding-left: 1.25rem;
+  padding-left: 0;
+  list-style: none;
 }
 
 .docs-content li {
+  position: relative;
+  padding-left: 1.4rem;
   font-size: 1.02rem;
   font-weight: 300;
   line-height: 1.8;
   color: var(--color-text);
 }
 
-.docs-content li::marker {
-  color: #aaaaaa;
+.docs-content li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0.1rem;
+  top: 0.15em;
+  font-size: 1.4em;
+  line-height: 1;
+  color: #cccccc;
 }
 
 .docs-content li + li {
