@@ -78,6 +78,30 @@ img {
   display: block;
 }
 
+/* ---------- Bullet lists (shared dot style for docs content & showcase) ---------- */
+.docs-content ul,
+.showcase-row-media--list ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.docs-content li,
+.showcase-row-media--list li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.docs-content li::before,
+.showcase-row-media--list li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0.1rem;
+  top: 0.15em;
+  font-size: 1.4em;
+  line-height: 1;
+  color: #cccccc;
+}
+
 /* ---------- Layout ---------- */
 .container {
   width: 100%;
@@ -446,7 +470,7 @@ img {
 }
 
 .page-content h1 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 3vw, 2.2rem);
   font-weight: 600;
 }
 
