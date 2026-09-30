@@ -38,6 +38,7 @@
    article.css, which is tuned for the sidebar-less About/Showcase/Tutorial
    .docs-layout and uses a different, 640px, reading width) ---------- */
 .docs-content h1 {
+  padding-top: var(--space-2);
   font-size: clamp(1.75rem, 3vw, 1.8rem);
   font-weight: 600;
   scroll-margin-top: calc(76px + var(--space-3));
@@ -47,7 +48,10 @@
   font-size: 1.4rem;
   font-weight: 600;
   margin-top: 4rem;
-  scroll-margin-top: calc(76px + var(--space-3));
+  /* Account for the sticky header (76px) plus the sticky .docs-lang-switch
+     (~70px, present on every page that has h2/h3 anchors) so jumping to a
+     sidebar sub-link doesn't land the heading underneath either of them. */
+  scroll-margin-top: calc(76px + 70px + var(--space-3));
 }
 
 .docs-content h2:first-of-type {
@@ -58,7 +62,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 2.5rem;
-  scroll-margin-top: calc(76px + var(--space-3));
+  scroll-margin-top: calc(76px + 70px + var(--space-3));
 }
 
 .docs-content h4 {
@@ -140,6 +144,11 @@
 
 .docs-content figure {
   margin: var(--space-2) 0 0;
+}
+
+.docs-content figure.example-window {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .docs-content ul + figure {
