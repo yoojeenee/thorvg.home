@@ -239,6 +239,63 @@
   font-weight: 400;
 }
 
+/* ---------- Floating table of contents (same as About / Showcase / Tutorial) ---------- */
+.docs-toc-float {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .docs-toc-float {
+    display: block;
+    position: fixed;
+    top: calc(76px + var(--space-4) + var(--space-3));
+    left: calc(max(0px, (100vw - 1440px) / 2) + 2rem);
+    width: 212px;
+    max-height: calc(100vh - 76px - var(--space-4) - var(--space-3) - var(--space-2));
+    overflow-y: auto;
+  }
+}
+
+.docs-toc-float[hidden] {
+  display: none;
+}
+
+.docs-toc-float-list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.docs-toc-float-list a {
+  display: block;
+  padding: 5px 0;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
+}
+
+.docs-toc-float-list a:hover {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.docs-toc-float-list a.is-active {
+  color: #1a1a1a;
+}
+
+.docs-toc-float-list a.is-active:hover {
+  color: #1a1a1a;
+}
+
+.docs-toc-float-list a.docs-toc-sub {
+  padding-left: 14px;
+}
+
 /* ---------- Post footer ---------- */
 .blog-post-footer {
   max-width: calc(var(--post-text-width) + 2 * var(--post-pad));

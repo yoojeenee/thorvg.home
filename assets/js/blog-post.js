@@ -108,6 +108,89 @@ if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
     info.hidden = tags.length === 0 && !meta.writer;
   }
 
+  // Floating table of contents, built from the rendered post's h1/h2 headings.
+  function slugify(text) {
+    return text.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function buildToc(container) {
+    const toc = document.getElementById('blog-post-toc');
+    const list = document.getElementById('blog-post-toc-list');
+    if (!toc || !list) return;
+
+    const headings = [...container.querySelectorAll('h1, h2')];
+    if (!headings.length) {
+      toc.hidden = true;
+      return;
+    }
+
+    const usedIds = new Set();
+    list.replaceChildren(...headings.map((heading) => {
+      let slug = slugify(heading.textContent);
+      let uniqueSlug = slug;
+      let suffix = 2;
+      while (usedIds.has(uniqueSlug)) {
+        uniqueSlug = slug + '-' + suffix++;
+      }
+      usedIds.add(uniqueSlug);
+      heading.id = uniqueSlug;
+
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = '#' + uniqueSlug;
+      link.textContent = heading.textContent;
+      if (heading.tagName === 'H2') link.classList.add('docs-toc-sub');
+      item.appendChild(link);
+      return item;
+    }));
+
+    toc.hidden = false;
+    initTocScrollSpy(list);
+  }
+
+  // Same scroll-spy behavior as docs-toc.js, run once the TOC exists.
+  function initTocScrollSpy(list) {
+    const sections = [...list.querySelectorAll('a[href^="#"]')]
+      .map((link) => {
+        const heading = document.getElementById(link.getAttribute('href').slice(1));
+        return heading ? { link, heading } : null;
+      })
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const HEADER_OFFSET = 96;
+
+    function updateActiveTocLink() {
+      const scrollPos = window.scrollY + HEADER_OFFSET;
+      let activeIndex = 0;
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i].heading.offsetTop <= scrollPos) {
+          activeIndex = i;
+        } else {
+          break;
+        }
+      }
+      sections.forEach((section, i) => {
+        section.link.classList.toggle('is-active', i === activeIndex);
+      });
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveTocLink();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    window.addEventListener('resize', updateActiveTocLink);
+    updateActiveTocLink();
+  }
+
   const id = new URLSearchParams(window.location.search).get('id');
   const post = BLOG_POSTS.find((item) => item.id === id);
 
@@ -138,6 +221,7 @@ if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
             pre.classList.toggle('is-single-line', !code.textContent.trim().includes('\n'));
             pre.appendChild(createCopyButton(() => code.textContent));
           });
+          buildToc(blogPostBody);
         })
         .catch((error) => {
           console.error(error);
