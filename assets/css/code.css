@@ -1,0 +1,73 @@
+/* ---------- Code block (Tutorial / Blog post / Playground example) ---------- */
+.code-block {
+  position: relative;
+  max-width: 640px;
+  margin: var(--space-2) 0 0;
+  padding: 0.85rem 3.25rem 0.85rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.code-block code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--color-text);
+  white-space: pre;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.code-block.is-single-line .code-copy-btn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.code-copy-btn .code-copy-icon,
+.code-copy-btn .code-check-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.code-copy-btn .code-copy-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.code-copy-btn .code-check-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.code-copy-btn.is-copied .code-copy-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.code-copy-btn.is-copied .code-check-icon {
+  opacity: 1;
+  transform: scale(1);
+}

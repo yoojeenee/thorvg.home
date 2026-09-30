@@ -103,56 +103,6 @@
   margin-top: 0;
 }
 
-.code-copy-btn {
-  position: absolute;
-  top: 0.1rem;
-  right: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--color-text);
-  cursor: pointer;
-}
-
-.code-block.is-single-line .code-copy-btn {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.code-copy-btn .code-copy-icon,
-.code-copy-btn .code-check-icon {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.code-copy-btn .code-copy-icon {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.code-copy-btn .code-check-icon {
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-.code-copy-btn.is-copied .code-copy-icon {
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-.code-copy-btn.is-copied .code-check-icon {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* ---------- Example window ---------- */
 .example-window {
   max-width: 480px;
