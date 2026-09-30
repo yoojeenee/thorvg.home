@@ -64,7 +64,7 @@
 
 ---
 
-## 서브페이지 공통 본문 `.docs-content` (`docs.css`) — About/Showcase/Tutorial 등에서 재사용
+## 서브페이지 공통 본문 `.docs-content` (`article.css`) — About/Showcase/Tutorial 등에서 재사용
 
 | 요소 | 속성 | 값 | 비고 |
 |---|---|---|---|
@@ -203,7 +203,7 @@
 |---|---|---|---|
 | `#aaaaaa` | 10곳 이상 (common, docs, blog-post, blogs, playground-example, about) | 어두운 텍스트/링크의 hover 페이드 색 | 이미 사실상 전역 컨벤션이라 `--color-text-hover` 등으로 토큰화하기 좋은 후보 |
 | `#ffffff` / `#fff` (배경으로) | view.css, tutorial.css, playground-example.css 다수 | 카드/버튼/입력 배경 | `--color-bg`와 값이 같아 그대로 교체 가능 |
-| `rgba(0, 0, 0, 0.0x~0.1x)` | view.css, docs.css, blog-post.css, thorvg-view | 오버레이/그림자/약한 배경 틴트 | 용도가 제각각이라 하나로 묶기보다 개별 검토 필요 |
+| `rgba(0, 0, 0, 0.0x~0.1x)` | view.css, article.css, blog-post.css, thorvg-view | 오버레이/그림자/약한 배경 틴트 | 용도가 제각각이라 하나로 묶기보다 개별 검토 필요 |
 | `#999999` | blogs.css `.blog-filter-tabs a` (비활성 탭, 현재는 `--color-text-muted`로 대체됨) | — | 이번 세션에서 제거됨 (참고용) |
 
 ---

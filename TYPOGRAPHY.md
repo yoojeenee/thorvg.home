@@ -40,7 +40,7 @@
 | 페이지 | 적용 셀렉터 | Size | Weight |
 |---|---|---|--------|
 | [index.html](index.html:46) `Thor Vector Graphics` | `.hero h1` (`index.css`) | `clamp(2rem, 4vw, 3rem)` | 700    |
-| [about.html](about.html:47), [showcase.html](showcase.html:46), [tutorial.html](tutorial.html:47) | `.docs-content h1` (`docs.css`) | `clamp(1.75rem, 3vw, 2.5rem)` | 600    |
+| [about.html](about.html:47), [showcase.html](showcase.html:46), [tutorial.html](tutorial.html:47) | `.docs-content h1` (`article.css`) | `clamp(1.75rem, 3vw, 2.5rem)` | 600    |
 | [api.html](api.html:45), [playground.html](playground.html:47) | `.page-content h1` (`common.css`) | `clamp(1.75rem, 3vw, 2.5rem)` | 600    |
 | [blog-post.html](blog-post.html:50) (동적 제목) | `.blog-post-title` (`blog-post.css`) | `clamp(2rem, 5vw, 3.2rem)` | 500    |
 | [blog-post.html](blog-post.html:53) 게시글 본문 중 `# ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | `.blog-post-body h1` (`blog-post.css`, font-size 미지정 → 브라우저 기본값 약 2em) | ~2.125rem(추정) | 500    |
@@ -55,9 +55,9 @@
 |---|---|---|---|---|
 | [index.html:47](index.html:47) `Open · Lightweight · Fast · Everywhere` | 히어로 태그라인 | `.hero-subtitle` (`index.css`) | 1.35rem | 600 |
 | [index.html:64](index.html:64) `ThorVG Demos` | 데모 캐러셀 제목 | `.demo-carousel-title` (`index.css`) | 20px | 500 |
-| [about.html](about.html:48) (About ThorVG, Design Principles, Rendering Engine, Platforms & Formats, Community) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
+| [about.html](about.html:48) (About ThorVG, Design Principles, Rendering Engine, Platforms & Formats, Community) | 섹션 제목 | `.docs-content h2` (`article.css`) | 1.4rem | 600 |
 | [showcase.html](showcase.html:47) (In Practice), [showcase.html:168](showcase.html:168) (Demo) | 섹션 제목 | `#in-practice`, `#thorvg-demo` (`gallery.css`, `.docs-content h2` 오버라이드) | 1.1rem | 600 |
-| [tutorial.html](tutorial.html:50) (Build and install, Basic Programming, More examples) | 섹션 제목 | `.docs-content h2` (`docs.css`) | 1.4rem | 600 |
+| [tutorial.html](tutorial.html:50) (Build and install, Basic Programming, More examples) | 섹션 제목 | `.docs-content h2` (`article.css`) | 1.4rem | 600 |
 | [playground-example.html:52](playground-example.html:52) `#example-title` | 예제 타이틀 | `.example-header-top h2` (`playground-example.css`) | `clamp(1rem, 1.4vw, 1.15rem)` | 500 |
 | [blog.html](blog.html) 게시글 목록 카드 제목 (`blog.js`가 런타임 렌더링) | 게시글 카드 제목 | `.blog-list-title` (`blog.css`) | 1.05rem | 500 |
 | [blog-post.html](blog-post.html:53) 게시글 본문 중 `## ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 섹션 제목 | `.blog-post-body h2` (`blog-post.css`) | 1.4rem | 500 |
@@ -69,8 +69,8 @@
 | 페이지 | 위치/용도 | 적용 셀렉터 | Size | Weight |
 |---|---|---|---|---|
 | [showcase.html](showcase.html:52) (Camtasia, Canva iOS, dotLottie, Espressif, Godot, Lottie Creator, LVGL, Segger, Tizen, Other Projects, Janitor) | 카드 제목 | `.showcase-row-title` (`gallery.css`, `.docs-content h3` 오버라이드) | `clamp(1.5rem, 2.4vw, 1.8rem)` | 600 |
-| [tutorial.html](tutorial.html:110) (Initialization, Shape, Path, Fill, Stroke, ...) | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.25rem | 600 |
-| [about.html](about.html:140) (LightWeight Design, Broad Portability, CPU Rasterization, ...) | 서브섹션 제목 | `.docs-content h3` (`docs.css`) | 1.25rem | 600 |
+| [tutorial.html](tutorial.html:110) (Initialization, Shape, Path, Fill, Stroke, ...) | 서브섹션 제목 | `.docs-content h3` (`article.css`) | 1.25rem | 600 |
+| [about.html](about.html:140) (LightWeight Design, Broad Portability, CPU Rasterization, ...) | 서브섹션 제목 | `.docs-content h3` (`article.css`) | 1.25rem | 600 |
 | [blog-post.html](blog-post.html:53) 게시글 본문 중 `### ` (마크다운, `blog-post/*.md`를 JS가 런타임 렌더링) | 서브섹션 제목 | `.blog-post-body h3` (`blog-post.css`) | 1.3rem | 500 |
 
 ---
@@ -79,8 +79,8 @@
 
 | 페이지 | 위치/용도 | 적용 셀렉터 | Size | Weight |
 |---|---|---|---|---|
-| [tutorial.html](tutorial.html:67) (Build with Visual Studio, Build with Xcode, Install via NPM, Install via CDN) | 세부 항목 제목 | `.docs-content h4` (`docs.css`) | 1.02rem | 600 |
-| [about.html](about.html:198) (Performance Overview ×2, Expressions) | 세부 항목 제목 | `.docs-content h4` (`docs.css`) | 1.02rem | 600 |
+| [tutorial.html](tutorial.html:67) (Build with Visual Studio, Build with Xcode, Install via NPM, Install via CDN) | 세부 항목 제목 | `.docs-content h4` (`article.css`) | 1.02rem | 600 |
+| [about.html](about.html:198) (Performance Overview ×2, Expressions) | 세부 항목 제목 | `.docs-content h4` (`article.css`) | 1.02rem | 600 |
 
 ---
 
@@ -93,7 +93,7 @@
 
 ---
 
-## 서브페이지 공통 본문 `.docs-content` (`docs.css`) — About/Showcase/Tutorial/API 등에서 재사용
+## 서브페이지 공통 본문 `.docs-content` (`article.css`) — About/Showcase/Tutorial/API 등에서 재사용
 
 | 요소 | Font | Size | Weight |
 |---|---|---|---|

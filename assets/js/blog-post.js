@@ -148,7 +148,7 @@ if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
     initTocScrollSpy(list);
   }
 
-  // Same scroll-spy behavior as docs-toc.js, run once the TOC exists.
+  // Same scroll-spy behavior as article-toc.js, run once the TOC exists.
   function initTocScrollSpy(list) {
     const sections = [...list.querySelectorAll('a[href^="#"]')]
       .map((link) => {
