@@ -1,8 +1,36 @@
 /* ---------- Post header ---------- */
-.blog-post {
+main {
   --post-pad: clamp(1.25rem, 4vw, 3rem);
   --post-text-width: 676px;
+}
+
+.blog-post {
   padding: var(--space-5) 0 var(--space-6);
+}
+
+/* Same distance from the visible top as .example-back-link on
+   playground-example.html: that page's header auto-hides (no space
+   reserved for it), ours doesn't, so this sits var(--space-3) below the
+   header instead of below the viewport top. */
+.blog-post-back-top-row {
+  /* Match .header-inner's max-width and fixed side padding so the link
+     inside aligns with the header logo instead of the narrower post
+     content column. */
+  max-width: 1440px;
+  margin: var(--space-3) auto 0;
+  padding: 0 2rem;
+}
+
+.blog-post-back-top {
+  display: inline-flex;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-text);
+  transition: color 0.15s ease;
+}
+
+.blog-post-back-top:hover {
+  color: #aaaaaa;
 }
 
 .blog-post-header {
@@ -317,10 +345,10 @@
   .docs-toc-float {
     display: block;
     position: fixed;
-    top: calc(76px + var(--space-4) + var(--space-3));
+    top: calc(76px + var(--space-4) + var(--space-3) + var(--space-4));
     left: calc(max(0px, (100vw - 1440px) / 2) + 2rem);
     width: 212px;
-    max-height: calc(100vh - 76px - var(--space-4) - var(--space-3) - var(--space-2));
+    max-height: calc(100vh - 76px - var(--space-4) - var(--space-3) - var(--space-4) - var(--space-2));
     overflow-y: auto;
   }
 }
@@ -354,6 +382,7 @@
 }
 
 .docs-toc-float-list a.is-active {
+  font-weight: 500;
   color: #1a1a1a;
 }
 
