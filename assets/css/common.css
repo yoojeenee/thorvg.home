@@ -44,6 +44,20 @@ body {
   line-height: 1.6;
 }
 
+/* Pin the footer to the bottom of the viewport on short pages, instead of
+   letting it float up right under a short <main>. Excludes the full-
+   viewport app pages (view.html, playground-example.html), which already
+   manage their own height: 100vh layout and have no footer. */
+body:not(.page-view):not(.page-example) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body:not(.page-view):not(.page-example) > main {
+  flex: 1 0 auto;
+}
+
 h1, h2, h3, h4 {
   margin: 0;
   font-family: var(--font-heading);

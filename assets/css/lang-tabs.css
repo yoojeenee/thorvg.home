@@ -65,6 +65,7 @@
   border-bottom-color: var(--color-text);
 }
 
+.docs-content .lang-c,
 .docs-content .lang-cpp,
 .docs-content .lang-js {
   display: none;
@@ -77,6 +78,16 @@
 
 .lang-group[data-lang="js"] > .lang-js,
 .lang-group[data-lang="js"] .lang-tabs .lang-js {
+  display: block;
+}
+
+/* ---------- Global language switch (Docs section) ----------
+   Unlike .lang-group above (one toggle per section, tutorial.html only),
+   Docs pages set data-lang once on .docs-content and every .lang-c/.lang-cpp/
+   .lang-js block on the page reacts to it — see docs.js. */
+.docs-content[data-lang="c"] .lang-c,
+.docs-content[data-lang="cpp"] .lang-cpp,
+.docs-content[data-lang="js"] .lang-js {
   display: block;
 }
 

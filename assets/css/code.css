@@ -1,7 +1,7 @@
 /* ---------- Code block (Tutorial / Blog post / Playground example) ---------- */
 .code-block {
   position: relative;
-  max-width: 640px;
+  width: 100%;
   margin: var(--space-2) 0 0;
   padding: 0.85rem 3.25rem 0.85rem 1rem;
   background: var(--color-surface);

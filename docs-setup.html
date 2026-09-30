@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started — ThorVG Docs</title>
+  <meta name="description" content="ThorVG is a platform-independent library for drawing vector-based scenes and animations, including SVG and Lottie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,300..700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/code.css">
+  <link rel="stylesheet" href="assets/css/lang-tabs.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="assets/images/thorvg-logo.svg" alt="ThorVG" class="logo-img"></a>
+      <nav class="main-nav" id="main-nav">
+        <a href="about.html">About</a>
+        <a href="docs.html" class="active">Docs</a>
+        <a href="playground.html">Playground</a>
+        <a href="view.html">View</a>
+        <div class="nav-dropdown" id="resources-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="resources-menu" aria-haspopup="true">
+            Resources
+            <img src="assets/icons/chevron-down.svg" alt="" class="nav-dropdown-caret">
+          </button>
+          <div class="nav-dropdown-menu" id="resources-menu">
+          <a href="showcase.html">Showcase</a>
+          <a href="blog.html">Blog</a>
+          <a href="https://deepwiki.com/thorvg/thorvg" target="_blank" rel="noopener" class="nav-external">DeepWiki<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="external-icon" aria-hidden="true"><path d="M6.75 17.25 17.25 6.75M9 6.75h8.25V15"/></svg></a>
+          <a href="https://github.com/thorvg/thorvg/releases" target="_blank" rel="noopener" class="nav-external">Releases<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="external-icon" aria-hidden="true"><path d="M6.75 17.25 17.25 6.75M9 6.75h8.25V15"/></svg></a>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <img src="assets/icons/menu.svg" alt="" class="menu-icon">
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="docs-shell container">
+      <nav class="docs-sidebar" aria-label="Docs navigation">
+        <div class="docs-sidebar-group">
+          <p class="docs-sidebar-title">Get Started</p>
+          <ul class="docs-sidebar-list">
+            <li><a href="docs.html" class="docs-sidebar-link">Introduction</a></li>
+            <li><a href="docs-setup.html" class="docs-sidebar-link">Setup</a></li>
+          </ul>
+        </div>
+        <div class="docs-sidebar-group">
+          <p class="docs-sidebar-title">Guide</p>
+          <ul class="docs-sidebar-list">
+            <li class="docs-sidebar-item">
+              <div class="docs-sidebar-item-row">
+                <a href="docs-basic-programing.html" class="docs-sidebar-link">Basic Programming</a>
+                <button type="button" class="docs-sidebar-toggle" aria-expanded="true" aria-controls="guide-subnav" aria-label="Toggle Basic Programming subsections">
+                  <svg class="docs-sidebar-caret" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="m.646 1.352.707-.707 3.65 3.646L8.647.651l.707.707-4.35 4.347z" clip-rule="evenodd"></path></svg>
+                </button>
+              </div>
+              <ul class="docs-sidebar-sublist" id="guide-subnav">
+                <li><a href="docs-basic-programing.html#shape" class="docs-sidebar-link docs-sidebar-sub">Shape</a></li>
+                <li><a href="docs-basic-programing.html#path" class="docs-sidebar-link docs-sidebar-sub">Path</a></li>
+                <li><a href="docs-basic-programing.html#fill" class="docs-sidebar-link docs-sidebar-sub">Fill</a></li>
+                <li><a href="docs-basic-programing.html#stroke" class="docs-sidebar-link docs-sidebar-sub">Stroke</a></li>
+                <li><a href="docs-basic-programing.html#scene-and-transformation" class="docs-sidebar-link docs-sidebar-sub">Scene &amp; Transformation</a></li>
+                <li><a href="docs-basic-programing.html#picture" class="docs-sidebar-link docs-sidebar-sub">Picture</a></li>
+                <li><a href="docs-basic-programing.html#text" class="docs-sidebar-link docs-sidebar-sub">Text</a></li>
+                <li><a href="docs-basic-programing.html#composition" class="docs-sidebar-link docs-sidebar-sub">Composition</a></li>
+                <li><a href="docs-basic-programing.html#animation" class="docs-sidebar-link docs-sidebar-sub">Animation</a></li>
+                <li><a href="docs-basic-programing.html#drawing-the-final-step" class="docs-sidebar-link docs-sidebar-sub">Drawing, the final step</a></li>
+                <li><a href="docs-basic-programing.html#more-examples" class="docs-sidebar-link docs-sidebar-sub">More examples</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="docs-sidebar-group">
+          <p class="docs-sidebar-title">API Reference</p>
+          <ul class="docs-sidebar-list">
+            <li><span class="docs-sidebar-link" aria-disabled="true">Coming soon</span></li>
+          </ul>
+        </div>
+      </nav>
+
+      <article class="docs-content" data-lang="cpp">
+        <div class="docs-lang-switch">
+          <div class="lang-toggle" role="group" aria-label="Choose a language">
+            <button type="button" class="lang-tab" data-lang="c">C</button>
+            <button type="button" class="lang-tab" data-lang="cpp">C++</button>
+            <button type="button" class="lang-tab" data-lang="js">JavaScript</button>
+          </div>
+        </div>
+
+        <div class="docs-body">
+        <h1>Setup</h1>
+        <p>Install ThorVG to start rendering vector scenes and Lottie animations.</p>
+
+        <div class="lang-c lang-cpp">
+          <p>You can download the ThorVG tarball via the <a href="https://github.com/thorvg/thorvg/tags" target="_blank" rel="noopener">Releases</a> link. The latest version is recommended. ThorVG supports the <a href="https://mesonbuild.com/" target="_blank" rel="noopener">meson</a> build system. Install meson and <a href="https://ninja-build.org/" target="_blank" rel="noopener">ninja</a> if you don't have them already.</p>
+          <p>Both the C and C++ APIs are part of the same compiled library, so the build steps below are identical regardless of which one you plan to use.</p>
+          <p>Run meson to configure ThorVG in the thorvg root folder.</p>
+          <pre class="code-block"><code>meson setup builddir</code></pre>
+          <p>Run ninja to build and install ThorVG.</p>
+          <pre class="code-block"><code>ninja -C builddir install</code></pre>
+          <p>Regardless of the installation, all build results (symbols, executable) are generated in the builddir folder in thorvg. Some results such as examples won't be installed — see the <a href="docs-basic-programing.html#more-examples">More examples</a> section to see how to change it.</p>
+          <p>Note that some systems might include the ThorVG package as a default component. In that case, you can skip this manual installation.</p>
+
+          <h4>Build with Visual Studio</h4>
+          <p>If you want to create Visual Studio project files, use the command <code>--backend=vs</code>. The resulting solution file (thorvg.sln) will be located in the build folder.</p>
+          <pre class="code-block"><code>meson setup builddir --backend=vs</code></pre>
+
+          <h4>Build with Xcode</h4>
+          <p>If you want to create Xcode project files, use the command <code>--backend=xcode</code>. The resulting project file (thorvg.xcodeproj) will be located in the build folder.</p>
+          <pre class="code-block"><code>meson setup builddir --backend=xcode</code></pre>
+
+          <h4>Include the header</h4>
+          <p>As the prerequisite for the rest of this guide, include the ThorVG header in your source code.</p>
+          <pre class="code-block lang-c"><code>#include &lt;thorvg_capi.h&gt;</code></pre>
+          <pre class="code-block lang-cpp"><code>#include &lt;thorvg.h&gt;</code></pre>
+        </div>
+
+        <div class="lang-js">
+          <p>ThorVG WebCanvas is available via NPM-based package managers (npm, yarn, pnpm) and can also be accessed through the unpkg CDN. The latest version is recommended.</p>
+
+          <h4>Install via NPM</h4>
+          <p>Install ThorVG WebCanvas via npm:</p>
+          <pre class="code-block"><code>npm install @thorvg/webcanvas</code></pre>
+          <p>Then import it in your TypeScript or JavaScript code:</p>
+          <pre class="code-block"><code>import ThorVG from '@thorvg/webcanvas';</code></pre>
+
+          <h4>Install via CDN</h4>
+          <p>For quick prototyping or simple projects, you can use ThorVG WebCanvas directly from a CDN without any build tools.</p>
+          <pre class="code-block"><code>&lt;script src="https://unpkg.com/@thorvg/webcanvas@latest/dist/webcanvas.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <p>Once installed, continue to the <a href="docs-basic-programing.html">Guide</a> to draw your first shape.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 ThorVG. Open source under the MIT License.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/thorvg/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt="" class="footer-social-icon"></a>
+        <a href="https://github.com/thorvg/thorvg" target="_blank" rel="noopener" aria-label="GitHub"><img src="assets/icons/github.svg" alt="" class="footer-social-icon"></a>
+        <a href="https://discord.com/invite/n25xj6J6HM" target="_blank" rel="noopener" aria-label="Discord"><img src="assets/icons/discord.svg" alt="" class="footer-social-icon"></a>
+        <a href="mailto:thorvg@thorvg.org" aria-label="Email"><img src="assets/icons/email.svg" alt="" class="footer-social-icon"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/code-copy.js"></script>
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>
