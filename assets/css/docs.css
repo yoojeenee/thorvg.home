@@ -381,16 +381,16 @@
   border-color: var(--color-text);
 }
 
-.docs-card-title {
-  font-family: var(--font-heading);
+.docs-content .docs-card-title {
   font-size: 1.05rem;
   font-weight: 600;
+  margin-top: var(--space-1);
 }
 
-.docs-card-desc {
+.docs-content .docs-card-desc {
   margin-top: 0.4rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
   color: var(--color-text-muted);
 }
 
