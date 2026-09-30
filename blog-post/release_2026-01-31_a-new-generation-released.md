@@ -1,7 +1,9 @@
 ---
-title: "ThorVG v1.0 - A New Generation Released"
+title: "A New Generation Released"
 date: 2026-01-31
 tags: Release
+version: 1.0
+excerpt: "ThorVG reaches version 1.0 with a rebuilt foundation for high-performance, scalable, and portable 2D vector graphics."
 writer: Hermet Park
 ---
 

@@ -25,32 +25,11 @@ function createCopyButton(getText) {
 
 const blogPostBody = document.getElementById('blog-post-body');
 
-if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
+if (blogPostBody && typeof parseFrontMatter !== 'undefined') {
   const blogPostTitle = document.getElementById('blog-post-title');
   const blogPostDate = document.getElementById('blog-post-date');
   const blogPostCategory = document.getElementById('blog-post-category');
-
-  const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
-  function formatDate(dateString) {
-    const [year, month, day] = dateString.split('-').map(Number);
-    return dateFormatter.format(new Date(year, month - 1, day));
-  }
-
-  function parseFrontMatter(text) {
-    const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
-    if (!match) return { meta: {}, body: text };
-
-    const meta = {};
-    match[1].split(/\r?\n/).forEach((line) => {
-      const index = line.indexOf(':');
-      if (index > 0) {
-        meta[line.slice(0, index).trim()] = line.slice(index + 1).trim().replace(/^["']|["']$/g, '');
-      }
-    });
-
-    return { meta, body: text.slice(match[0].length) };
-  }
+  const blogPostVersion = document.getElementById('blog-post-version');
 
   // Resolve relative media paths against the markdown file's folder, not the page's.
   function resolveMediaPaths(container, fileUrl) {
@@ -75,7 +54,7 @@ if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
     });
   }
 
-  function showPost(title, date, category) {
+  function showPost(title, date, category, version) {
     document.title = title + ' — ThorVG';
     blogPostTitle.textContent = title;
     if (date) {
@@ -83,6 +62,8 @@ if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
       blogPostDate.dateTime = date;
     }
     blogPostCategory.textContent = category || '';
+    blogPostVersion.textContent = version || '';
+    blogPostVersion.hidden = !version;
   }
 
   // Tags and writer box below the body; hidden when the front-matter has neither.
@@ -192,41 +173,43 @@ if (blogPostBody && typeof BLOG_POSTS !== 'undefined') {
   }
 
   const id = new URLSearchParams(window.location.search).get('id');
-  const post = BLOG_POSTS.find((item) => item.id === id);
 
-  if (!post) {
+  if (!id) {
     showPost('Post not found');
     blogPostBody.innerHTML = '<p>The requested post could not be found. Go back to the Blogs page to pick one.</p>';
+  } else if (viewEngineUnavailable) {
+    blogPostBody.innerHTML = '<p>Opening this page directly from disk (file://) blocks loading post files. Run this site through a local server (e.g. <code>python3 -m http.server</code>) to read the post.</p>';
   } else {
-    showPost(post.title, post.date, post.category);
+    const file = blogIdToFile(id);
 
-    if (viewEngineUnavailable) {
-      blogPostBody.innerHTML = '<p>Opening this page directly from disk (file://) blocks loading post files. Run this site through a local server (e.g. <code>python3 -m http.server</code>) to read the post.</p>';
-    } else {
-      fetch(post.file)
-        .then((res) => {
-          if (!res.ok) throw new Error('Failed to load post');
-          return res.text();
-        })
-        .then((text) => {
-          const { meta, body } = parseFrontMatter(text);
-          showPost(meta.title || post.title, meta.date || post.date, post.category);
-          showPostInfo(meta);
-          blogPostBody.innerHTML = marked.parse(body);
-          resolveMediaPaths(blogPostBody, new URL(post.file, window.location.href));
-          addImageCaptions(blogPostBody);
-          blogPostBody.querySelectorAll('pre').forEach((pre) => {
-            const code = pre.querySelector('code');
-            pre.classList.add('code-block');
-            pre.classList.toggle('is-single-line', !code.textContent.trim().includes('\n'));
-            pre.appendChild(createCopyButton(() => code.textContent));
-          });
-          buildToc(blogPostBody);
-        })
-        .catch((error) => {
-          console.error(error);
-          blogPostBody.innerHTML = '<p>Unable to load this post.</p>';
+    fetch(file)
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status === 404 ? 'not-found' : 'Failed to load post');
+        return res.text();
+      })
+      .then((text) => {
+        const { meta, body } = parseFrontMatter(text);
+        showPost(meta.title || id, meta.date, meta.tags ? blogCategoryFromMeta(meta) : '', meta.version);
+        showPostInfo(meta);
+        blogPostBody.innerHTML = marked.parse(body);
+        resolveMediaPaths(blogPostBody, new URL(file, window.location.href));
+        addImageCaptions(blogPostBody);
+        blogPostBody.querySelectorAll('pre').forEach((pre) => {
+          const code = pre.querySelector('code');
+          pre.classList.add('code-block');
+          pre.classList.toggle('is-single-line', !code.textContent.trim().includes('\n'));
+          pre.appendChild(createCopyButton(() => code.textContent));
         });
-    }
+        buildToc(blogPostBody);
+      })
+      .catch((error) => {
+        console.error(error);
+        if (error.message === 'not-found') {
+          showPost('Post not found');
+          blogPostBody.innerHTML = '<p>The requested post could not be found. Go back to the Blogs page to pick one.</p>';
+        } else {
+          blogPostBody.innerHTML = '<p>Unable to load this post.</p>';
+        }
+      });
   }
 }

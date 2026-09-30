@@ -1,7 +1,9 @@
 ---
-title: "ThorVG v1.1 - Rising the Standard"
+title: "Rising the Standard"
 date: 2026-07-23
 tags: Release
+version: 1.1
+excerpt: "ThorVG v1.1 refines the engine for real-world production with GPU rendering optimizations, expanded Lottie/SVG compliance, and OpenType font support."
 writer: Hermet Park
 ---
 

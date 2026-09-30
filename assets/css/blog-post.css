@@ -40,6 +40,23 @@
   text-wrap: balance;
 }
 
+.blog-post-version {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-2);
+  padding: 0.2rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: #ededed;
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.blog-post-version[hidden] {
+  display: none;
+}
+
 /* ---------- Post body (typography matches .docs-content) ---------- */
 .blog-post-body {
   max-width: calc(var(--post-text-width) + 2 * var(--post-pad));

@@ -1,18 +1,8 @@
-const BLOG_POSTS = [
-  {
-    id: 'release_2026-07-23_thorvg-v1-1-rising-the-standard',
-    title: 'ThorVG v1.1 - Rising the Standard',
-    date: '2026-07-23',
-    category: 'Release',
-    excerpt: 'Content coming soon.',
-    file: 'blog-post/release_2026-07-23_thorvg-v1-1-rising-the-standard.md',
-  },
-  {
-    id: 'release_2026-01-31_thorvg-v1-0-a-new-generation-released',
-    title: 'ThorVG v1.0 - A New Generation Released',
-    date: '2026-01-31',
-    category: 'Release',
-    excerpt: 'Content coming soon.',
-    file: 'blog-post/release_2026-01-31_thorvg-v1-0-a-new-generation-released.md',
-  },
+// Every other piece of post metadata (title, date, tags, version, writer,
+// excerpt) lives in each file's own front matter and is read at runtime —
+// this list only says which posts exist, since a static site with no build
+// step or server can't list a folder's contents on its own.
+const BLOG_POST_FILES = [
+  'blog-post/release_2026-07-23_rising-the-standard.md',
+  'blog-post/release_2026-01-31_a-new-generation-released.md',
 ];
