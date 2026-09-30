@@ -65,6 +65,7 @@
   display: flex;
   align-items: baseline;
   gap: 1rem;
+  transition: transform 0.15s ease;
 }
 
 .blog-list-category {
@@ -85,6 +86,7 @@
   transition: transform 0.15s ease;
 }
 
+.blog-list-item:hover .blog-list-meta,
 .blog-list-item:hover .blog-list-body {
   transform: translateX(0.5rem);
 }
