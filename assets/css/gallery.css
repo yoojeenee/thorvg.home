@@ -51,7 +51,7 @@
   font-size: 0.87rem;
   font-weight: 400;
   letter-spacing: 0.01em;
-  background: #ededed;
+  background: var(--color-chip);
   color: var(--color-text);
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;

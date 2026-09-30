@@ -372,7 +372,7 @@
 .docs-card {
   display: block;
   padding: var(--space-3);
-  background: rgba(25, 25, 26, 0.05);
+  background: rgba(25, 25, 26, 0.03);
   border-radius: 12px;
   transition: border-color 0.15s ease;
 }

@@ -3,10 +3,11 @@
   --color-bg: #ffffff;
   --color-surface: #f5f5f7;
   --color-text: #000000;
-  --color-text-muted: rgba(26, 26, 26, 0.5);
+  --color-text-muted: rgba(25, 25, 26, 0.5);
   --color-accent: #6c4cf0;
   --color-accent-strong: #5a3ce0;
   --color-border: #e3e5ea;
+  --color-chip: rgba(25, 25, 26, 0.07);
   --color-link: #17a9fe;
   --color-placeholder: #707070;
   --color-placeholder-dark: #5b6f7b;

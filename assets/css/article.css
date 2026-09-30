@@ -62,6 +62,7 @@
 
 .docs-toc-float-list a.is-active {
   color: #1a1a1a;
+  font-weight: 500;
 }
 
 .docs-toc-float-list a.is-active:hover {
