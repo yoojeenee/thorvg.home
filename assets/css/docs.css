@@ -369,9 +369,25 @@
 }
 
 .docs-content .docs-card-title {
+  display: flex;
+  align-items: center;
   font-size: 1.05rem;
   font-weight: 600;
   margin-top: var(--space-1);
+}
+
+.docs-card-title .playground-card-link-icon {
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.35em;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.docs-card:hover .playground-card-link-icon {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .docs-content .docs-card-desc {
