@@ -143,13 +143,9 @@
   transition: color 0.15s ease;
 }
 
-.playground-card:hover .playground-card-link {
-  color: var(--color-text-muted);
-}
-
 .playground-card-link-icon {
-  width: 0.6em;
-  height: 0.6em;
+  width: 1.0em;
+  height: 1.0em;
   transition: transform 0.2s ease;
 }
 

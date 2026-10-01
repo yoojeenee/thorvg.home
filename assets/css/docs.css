@@ -302,7 +302,7 @@
 
 .docs-sidebar-caret {
   display: block;
-  width: 10px;
+  width: 9px;
   height: 6px;
   transition: transform 0.15s ease;
 }
