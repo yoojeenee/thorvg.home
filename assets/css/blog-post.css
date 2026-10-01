@@ -23,6 +23,8 @@ main {
 
 .blog-post-back-top {
   display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.95rem;
   font-weight: 400;
   color: var(--color-text);
@@ -31,6 +33,17 @@ main {
 
 .blog-post-back-top:hover {
   color: #aaaaaa;
+}
+
+.blog-post-back-top .playground-card-link-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.blog-post-back-top:hover .playground-card-link-icon {
+  transform: translateX(-3px);
 }
 
 .blog-post-header {

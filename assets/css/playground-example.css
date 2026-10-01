@@ -47,6 +47,18 @@
   color: #aaaaaa;
 }
 
+.example-back-link .playground-card-link-icon,
+.example-pagination-label .playground-card-link-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.example-back-link:hover .playground-card-link-icon {
+  transform: translateX(-3px);
+}
+
 .example-header {
   margin-top: var(--space-3);
 }
@@ -455,10 +467,21 @@
 }
 
 .example-pagination-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+}
+
+#example-prev-link:hover .playground-card-link-icon {
+  transform: translateX(-3px);
+}
+
+#example-next-link:hover .playground-card-link-icon {
+  transform: translateX(3px);
 }
 
 .example-pagination-title {
