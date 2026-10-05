@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="g-du" x1="475" y1="0" x2="653.125" y2="187.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff0000" stop-opacity="0.498"/>
+      <stop offset="0.5" stop-color="#ffff00" stop-opacity="0.498"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.498"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="600" height="600" fill="#ffffff"/>
+
+  <!-- Solid shape at 50% through the loop: progress = 0.5 -->
+  <rect x="237.5" y="237.5" width="125" height="125" rx="31.25" ry="31.25"
+    fill="#7FFFFF" stroke="#0000FF" stroke-width="9.375"/>
+
+  <!-- Gradient shape, translated by (-300, 300) at progress = 0.5 -->
+  <rect transform="translate(-300,300)" x="475" y="0" width="125" height="125" fill="url(#g-du)"/>
+</svg>

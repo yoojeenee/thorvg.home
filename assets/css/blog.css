@@ -107,7 +107,7 @@
 .blog-list-version {
   display: inline-flex;
   align-items: center;
-  padding: 0.1rem 0.9rem;
+  padding: 0.1rem 0.6rem;
   border-radius: var(--radius-full);
   background: var(--color-chip);
   color: var(--color-text);

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="stops-base">
+      <stop offset="0" stop-color="#7F27FF"/>
+      <stop offset="0.33" stop-color="#9F70FD"/>
+      <stop offset="0.66" stop-color="#FDBF60"/>
+      <stop offset="1" stop-color="#FF8911"/>
+    </linearGradient>
+    <radialGradient id="rad-pad" href="#stops-base" gradientUnits="userSpaceOnUse" cx="120" cy="150" r="30" spreadMethod="pad"/>
+    <radialGradient id="rad-reflect" href="#stops-base" gradientUnits="userSpaceOnUse" cx="305" cy="150" r="30" spreadMethod="reflect"/>
+    <radialGradient id="rad-repeat" href="#stops-base" gradientUnits="userSpaceOnUse" cx="490" cy="150" r="30" spreadMethod="repeat"/>
+    <linearGradient id="lin-pad" href="#stops-base" gradientUnits="userSpaceOnUse" x1="30" y1="340" x2="67.5" y2="377.5" spreadMethod="pad"/>
+    <linearGradient id="lin-reflect" href="#stops-base" gradientUnits="userSpaceOnUse" x1="215" y1="340" x2="252.5" y2="377.5" spreadMethod="reflect"/>
+    <linearGradient id="lin-repeat" href="#stops-base" gradientUnits="userSpaceOnUse" x1="400" y1="340" x2="437.5" y2="377.5" spreadMethod="repeat"/>
+  </defs>
+
+  <rect x="0" y="0" width="600" height="600" fill="#ffffff"/>
+
+  <rect x="30" y="60" width="180" height="180" fill="url(#rad-pad)"/>
+  <rect x="215" y="60" width="180" height="180" fill="url(#rad-reflect)"/>
+  <rect x="400" y="60" width="180" height="180" fill="url(#rad-repeat)"/>
+
+  <rect x="30" y="340" width="180" height="180" fill="url(#lin-pad)"/>
+  <rect x="215" y="340" width="180" height="180" fill="url(#lin-reflect)"/>
+  <rect x="400" y="340" width="180" height="180" fill="url(#lin-repeat)"/>
+</svg>
