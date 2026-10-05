@@ -1,0 +1,31 @@
+{
+  "name": "LoadFontOptions",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Font",
+  "signature": "export interface LoadFontOptions",
+  "source": "src/core/Font.ts:22",
+  "members": [
+    {
+      "name": "type",
+      "kind": "property",
+      "type": "FontType",
+      "static": false,
+      "readonly": false,
+      "brief": "Font type ('ttf' | 'otf')",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 24
+    }
+  ],
+  "nested": []
+}

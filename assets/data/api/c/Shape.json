@@ -1,0 +1,1207 @@
+{
+  "name": "Shape",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_shape_new",
+      "kind": "function",
+      "line": 1350,
+      "signature": "Tvg_Paint tvg_shape_new(void)",
+      "brief": "Creates a new Shape object.",
+      "description": [
+        "This function allocates and returns a new Shape instance. To properly destroy the Shape object, use tvg_paint_rel()."
+      ],
+      "params": [],
+      "returns": "The newly created Shape object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_paint_rel()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_reset",
+      "kind": "function",
+      "line": 1361,
+      "signature": "Tvg_Result tvg_shape_reset(Tvg_Paint paint)",
+      "brief": "Resets the shape path properties.",
+      "description": [
+        "The color, the fill and the stroke properties are retained."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "The memory, where the path data is stored, is not deallocated at this stage for caching effect."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_move_to",
+      "kind": "function",
+      "line": 1373,
+      "signature": "Tvg_Result tvg_shape_move_to(Tvg_Paint paint, float x, float y)",
+      "brief": "Sets the initial point of the sub-path.",
+      "description": [
+        "The value of the current point is set to the given point."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "x",
+          "type": "float",
+          "description": "The horizontal coordinate of the initial point of the sub-path."
+        },
+        {
+          "name": "y",
+          "type": "float",
+          "description": "The vertical coordinate of the initial point of the sub-path."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_line_to",
+      "kind": "function",
+      "line": 1386,
+      "signature": "Tvg_Result tvg_shape_line_to(Tvg_Paint paint, float x, float y)",
+      "brief": "Adds a new point to the sub-path, which results in drawing a line from the current point to the given end-point.",
+      "description": [
+        "The value of the current point is set to the given end-point."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "x",
+          "type": "float",
+          "description": "The horizontal coordinate of the end-point of the line."
+        },
+        {
+          "name": "y",
+          "type": "float",
+          "description": "The vertical coordinate of the end-point of the line."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "In case this is the first command in the path, it corresponds to the tvg_shape_move_to() call."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_cubic_to",
+      "kind": "function",
+      "line": 1404,
+      "signature": "Tvg_Result tvg_shape_cubic_to(Tvg_Paint paint, float cx1, float cy1, float cx2, float cy2, float x, float y)",
+      "brief": "Adds new points to the sub-path, which results in drawing a cubic Bezier curve.",
+      "description": [
+        "The Bezier curve starts at the current point and ends at the given end-point (`x`, `y`). Two control points (`cx1`, `cy1`) and (`cx2`, `cy2`) are used to determine the shape of the curve. The value of the current point is set to the given end-point."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "cx1",
+          "type": "float",
+          "description": "The horizontal coordinate of the 1st control point."
+        },
+        {
+          "name": "cy1",
+          "type": "float",
+          "description": "The vertical coordinate of the 1st control point."
+        },
+        {
+          "name": "cx2",
+          "type": "float",
+          "description": "The horizontal coordinate of the 2nd control point."
+        },
+        {
+          "name": "cy2",
+          "type": "float",
+          "description": "The vertical coordinate of the 2nd control point."
+        },
+        {
+          "name": "x",
+          "type": "float",
+          "description": "The horizontal coordinate of the endpoint of the curve."
+        },
+        {
+          "name": "y",
+          "type": "float",
+          "description": "The vertical coordinate of the endpoint of the curve."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "In case this is the first command in the path, no data from the path are rendered."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_close",
+      "kind": "function",
+      "line": 1415,
+      "signature": "Tvg_Result tvg_shape_close(Tvg_Paint paint)",
+      "brief": "Closes the current sub-path by drawing a line from the current point to the initial point of the sub-path.",
+      "description": [
+        "The value of the current point is set to the initial point of the closed sub-path."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "In case the sub-path does not contain any points, this function has no effect."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_append_rect",
+      "kind": "function",
+      "line": 1441,
+      "signature": "Tvg_Result tvg_shape_append_rect(Tvg_Paint paint, float x, float y, float w, float h, float rx, float ry, bool cw)",
+      "brief": "Appends a rectangle to the path.",
+      "description": [
+        "The rectangle with rounded corners can be achieved by setting non-zero values to `rx` and `ry` arguments. The `rx` and `ry` values specify the radii of the ellipse defining the rounding of the corners.",
+        "The position of the rectangle is specified by the coordinates of its upper-left corner -  `x` and `y` arguments.",
+        "The rectangle is treated as a new sub-path - it is not connected with the previous sub-path.",
+        "The value of the current point is set to (`x` + `w`, `y` + `ry`) - in case `ry` is greater than `h`/2 the current point is set to (`x` + `w`, `y` + `h`/2)."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "x",
+          "type": "float",
+          "description": "The horizontal coordinate of the upper-left corner of the rectangle."
+        },
+        {
+          "name": "y",
+          "type": "float",
+          "description": "The vertical coordinate of the upper-left corner of the rectangle."
+        },
+        {
+          "name": "w",
+          "type": "float",
+          "description": "The width of the rectangle."
+        },
+        {
+          "name": "h",
+          "type": "float",
+          "description": "The height of the rectangle."
+        },
+        {
+          "name": "rx",
+          "type": "float",
+          "description": "The x-axis radius of the ellipse defining the rounded corners of the rectangle."
+        },
+        {
+          "name": "ry",
+          "type": "float",
+          "description": "The y-axis radius of the ellipse defining the rounded corners of the rectangle."
+        },
+        {
+          "name": "cw",
+          "type": "bool",
+          "description": "Specifies the path direction: `true` for clockwise, `false` for counterclockwise."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "For `rx` and `ry` greater than or equal to the half of `w` and the half of `h`, respectively, the shape become an ellipse."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_append_circle",
+      "kind": "function",
+      "line": 1460,
+      "signature": "Tvg_Result tvg_shape_append_circle(Tvg_Paint paint, float cx, float cy, float rx, float ry, bool cw)",
+      "brief": "Appends an ellipse to the path.",
+      "description": [
+        "The position of the ellipse is specified by the coordinates of its center - `cx` and `cy` arguments.",
+        "The ellipse is treated as a new sub-path - it is not connected with the previous sub-path.",
+        "The value of the current point is set to (`cx`, `cy` - `ry`)."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "cx",
+          "type": "float",
+          "description": "The horizontal coordinate of the center of the ellipse."
+        },
+        {
+          "name": "cy",
+          "type": "float",
+          "description": "The vertical coordinate of the center of the ellipse."
+        },
+        {
+          "name": "rx",
+          "type": "float",
+          "description": "The x-axis radius of the ellipse."
+        },
+        {
+          "name": "ry",
+          "type": "float",
+          "description": "The y-axis radius of the ellipse."
+        },
+        {
+          "name": "cw",
+          "type": "bool",
+          "description": "Specifies the path direction: `true` for clockwise, `false` for counterclockwise."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_append_path",
+      "kind": "function",
+      "line": 1477,
+      "signature": "Tvg_Result tvg_shape_append_path(Tvg_Paint paint, const Tvg_Path_Command* cmds, uint32_t cmdCnt, const Tvg_Point* pts, uint32_t ptsCnt)",
+      "brief": "Appends a given sub-path to the path.",
+      "description": [
+        "The current point value is set to the last point from the sub-path. For each command from the `cmds` array, an appropriate number of points in `pts` array should be specified. If the number of points in the `pts` array is different than the number required by the `cmds` array, the shape with this sub-path will not be displayed on the screen."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "cmds",
+          "type": "const Tvg_Path_Command*",
+          "description": "The array of the commands in the sub-path."
+        },
+        {
+          "name": "cmdCnt",
+          "type": "uint32_t",
+          "description": "The length of the `cmds` array."
+        },
+        {
+          "name": "pts",
+          "type": "const Tvg_Point*",
+          "description": "The array of the two-dimensional points."
+        },
+        {
+          "name": "ptsCnt",
+          "type": "uint32_t",
+          "description": "The length of the `pts` array."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "A `nullptr` passed as the argument or `cmdCnt` or `ptsCnt` equal to zero."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_path",
+      "kind": "function",
+      "line": 1496,
+      "signature": "Tvg_Result tvg_shape_get_path(const Tvg_Paint paint, const Tvg_Path_Command** cmds, uint32_t* cmdsCnt, const Tvg_Point** pts, uint32_t* ptsCnt)",
+      "brief": "Retrieves the current path data of the shape.",
+      "description": [
+        "This function provides access to the shape's path data, including the commands and points that define the path."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": ""
+        },
+        {
+          "name": "cmds",
+          "type": "const Tvg_Path_Command**",
+          "description": "Pointer to the array of commands representing the path. Can be `nullptr` if this information is not needed."
+        },
+        {
+          "name": "cmdsCnt",
+          "type": "uint32_t*",
+          "description": "Pointer to the variable that receives the number of commands in the `cmds` array. Can be `nullptr` if this information is not needed."
+        },
+        {
+          "name": "pts",
+          "type": "const Tvg_Point**",
+          "description": "Pointer to the array of two-dimensional points that define the path. Can be `nullptr` if this information is not needed."
+        },
+        {
+          "name": "ptsCnt",
+          "type": "uint32_t*",
+          "description": "Pointer to the variable that receives the number of points in the `pts` array. Can be `nullptr` if this information is not needed."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "If any of the arguments are `nullptr`, that value will be ignored."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_width",
+      "kind": "function",
+      "line": 1512,
+      "signature": "Tvg_Result tvg_shape_set_stroke_width(Tvg_Paint paint, float width)",
+      "brief": "Sets the stroke width for the path.",
+      "description": [
+        "This function defines the thickness of the stroke applied to all figures in the path object. A stroke is the outline drawn along the edges of the path's geometry."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "width",
+          "type": "float",
+          "description": "The width of the stroke in pixels. Must be positive value. (The initial value is 0)"
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "A value of `width` 0 disables the stroke."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_shape_set_stroke_color()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_width",
+      "kind": "function",
+      "line": 1521,
+      "signature": "Tvg_Result tvg_shape_get_stroke_width(const Tvg_Paint paint, float* width)",
+      "brief": "Gets the shape's stroke width.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "width",
+          "type": "float*",
+          "description": "The stroke width."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_color",
+      "kind": "function",
+      "line": 1538,
+      "signature": "Tvg_Result tvg_shape_set_stroke_color(Tvg_Paint paint, uint8_t r, uint8_t g, uint8_t b, uint8_t a)",
+      "brief": "Sets the shape's stroke color.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "r",
+          "type": "uint8_t",
+          "description": "The red color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "g",
+          "type": "uint8_t",
+          "description": "The green color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "b",
+          "type": "uint8_t",
+          "description": "The blue color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "a",
+          "type": "uint8_t",
+          "description": "The alpha channel value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque. The initial value is 0."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "If the stroke width is 0 (initial value), the stroke will not be visible regardless of the color.",
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_shape_set_stroke_width()",
+        "tvg_shape_set_stroke_gradient()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_color",
+      "kind": "function",
+      "line": 1551,
+      "signature": "Tvg_Result tvg_shape_get_stroke_color(const Tvg_Paint paint, uint8_t* r, uint8_t* g, uint8_t* b, uint8_t* a)",
+      "brief": "Gets the shape's stroke color.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "r",
+          "type": "uint8_t*",
+          "description": "The red color channel value in the range [0 ~ 255]."
+        },
+        {
+          "name": "g",
+          "type": "uint8_t*",
+          "description": "The green color channel value in the range [0 ~ 255]."
+        },
+        {
+          "name": "b",
+          "type": "uint8_t*",
+          "description": "The blue color channel value in the range [0 ~ 255]."
+        },
+        {
+          "name": "a",
+          "type": "uint8_t*",
+          "description": "The alpha channel value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "No stroke was set."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_gradient",
+      "kind": "function",
+      "line": 1565,
+      "signature": "Tvg_Result tvg_shape_set_stroke_gradient(Tvg_Paint paint, Tvg_Gradient grad)",
+      "brief": "Sets the gradient fill of the stroke for all of the figures from the path.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The gradient fill."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_MEMORY_CORRUPTION",
+          "description": "An invalid gradient object or an error with accessing it."
+        }
+      ],
+      "notes": [
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_shape_set_stroke_color()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_gradient",
+      "kind": "function",
+      "line": 1576,
+      "signature": "Tvg_Result tvg_shape_get_stroke_gradient(const Tvg_Paint paint, Tvg_Gradient* grad)",
+      "brief": "Gets the gradient fill of the shape's stroke.",
+      "description": [
+        "The function does not allocate any memory."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient*",
+          "description": "The gradient fill."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_dash",
+      "kind": "function",
+      "line": 1595,
+      "signature": "Tvg_Result tvg_shape_set_stroke_dash(Tvg_Paint paint, const float* dashPattern, uint32_t cnt, float offset)",
+      "brief": "Sets the shape's stroke dash pattern.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "dashPattern",
+          "type": "const float*",
+          "description": "An array of alternating dash and gap lengths."
+        },
+        {
+          "name": "cnt",
+          "type": "uint32_t",
+          "description": "The size of the `dashPattern` array."
+        },
+        {
+          "name": "offset",
+          "type": "float",
+          "description": "The shift of the starting point within the repeating dash pattern, from which the pattern begins to be applied."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "In case `dashPattern` is `nullptr` and `cnt` > 0 or `dashPattern` is not `nullptr` and `cnt` is zero."
+        }
+      ],
+      "notes": [
+        "To reset the stroke dash pattern, pass `nullptr` to `dashPattern` and zero to `cnt`.",
+        "Values of `dashPattern` less than zero are treated as zero.",
+        "If all values in the `dashPattern` are equal to or less than 0, the dash is ignored.",
+        "If the `dashPattern` contains an odd number of elements, the sequence is repeated in the same order to form an even-length pattern, preserving the alternation of dashes and gaps."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_dash",
+      "kind": "function",
+      "line": 1609,
+      "signature": "Tvg_Result tvg_shape_get_stroke_dash(const Tvg_Paint paint, const float** dashPattern, uint32_t* cnt, float* offset)",
+      "brief": "Gets the dash pattern of the stroke.",
+      "description": [
+        "The function does not allocate any memory."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "dashPattern",
+          "type": "const float**",
+          "description": "The array of consecutive pair values of the dash length and the gap length."
+        },
+        {
+          "name": "cnt",
+          "type": "uint32_t*",
+          "description": "The size of the `dashPattern` array."
+        },
+        {
+          "name": "offset",
+          "type": "float*",
+          "description": "The shift of the starting point within the repeating dash pattern."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_cap",
+      "kind": "function",
+      "line": 1620,
+      "signature": "Tvg_Result tvg_shape_set_stroke_cap(Tvg_Paint paint, Tvg_Stroke_Cap cap)",
+      "brief": "Sets the cap style used for stroking the path.",
+      "description": [
+        "The cap style specifies the shape to be used at the end of the open stroked sub-paths."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "cap",
+          "type": "Tvg_Stroke_Cap",
+          "description": "The cap style value. The initial value is `TVG_STROKE_CAP_SQUARE`."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_cap",
+      "kind": "function",
+      "line": 1629,
+      "signature": "Tvg_Result tvg_shape_get_stroke_cap(const Tvg_Paint paint, Tvg_Stroke_Cap* cap)",
+      "brief": "Gets the stroke cap style used for stroking the path.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "cap",
+          "type": "Tvg_Stroke_Cap*",
+          "description": "The cap style value."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_join",
+      "kind": "function",
+      "line": 1638,
+      "signature": "Tvg_Result tvg_shape_set_stroke_join(Tvg_Paint paint, Tvg_Stroke_Join join)",
+      "brief": "Sets the join style for stroked path segments.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "join",
+          "type": "Tvg_Stroke_Join",
+          "description": "The join style value. The initial value is `TVG_STROKE_JOIN_BEVEL`."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_join",
+      "kind": "function",
+      "line": 1647,
+      "signature": "Tvg_Result tvg_shape_get_stroke_join(const Tvg_Paint paint, Tvg_Stroke_Join* join)",
+      "brief": "The function gets the stroke join method",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "join",
+          "type": "Tvg_Stroke_Join*",
+          "description": "The join style value."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_stroke_miterlimit",
+      "kind": "function",
+      "line": 1659,
+      "signature": "Tvg_Result tvg_shape_set_stroke_miterlimit(Tvg_Paint paint, float miterlimit)",
+      "brief": "Sets the stroke miterlimit.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "miterlimit",
+          "type": "float",
+          "description": "The miterlimit imposes a limit on the extent of the stroke join when the `TVG_STROKE_JOIN_MITER` join style is set. The initial value is 4."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "Unsupported `miterlimit` values (less than zero)."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.11",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_stroke_miterlimit",
+      "kind": "function",
+      "line": 1670,
+      "signature": "Tvg_Result tvg_shape_get_stroke_miterlimit(const Tvg_Paint paint, float* miterlimit)",
+      "brief": "The function gets the stroke miterlimit.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "miterlimit",
+          "type": "float*",
+          "description": "The stroke miterlimit."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.11",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_trimpath",
+      "kind": "function",
+      "line": 1685,
+      "signature": "Tvg_Result tvg_shape_set_trimpath(Tvg_Paint paint, float begin, float end, bool simultaneous)",
+      "brief": "Sets the trim of the shape along the defined path segment, allowing control over which part of the shape is visible.",
+      "description": [
+        "If the values of the arguments `begin` and `end` exceed the 0-1 range, they are wrapped around in a manner similar to angle wrapping, effectively treating the range as circular."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "begin",
+          "type": "float",
+          "description": "Specifies the start of the segment to display along the path."
+        },
+        {
+          "name": "end",
+          "type": "float",
+          "description": "Specifies the end of the segment to display along the path."
+        },
+        {
+          "name": "simultaneous",
+          "type": "bool",
+          "description": "Determines how to trim multiple paths within a single shape. If set to `true` (default), trimming is applied simultaneously to all paths; Otherwise, all paths are treated as a single entity with a combined length equal to the sum of their individual lengths and are trimmed as such."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_fill_color",
+      "kind": "function",
+      "line": 1701,
+      "signature": "Tvg_Result tvg_shape_set_fill_color(Tvg_Paint paint, uint8_t r, uint8_t g, uint8_t b, uint8_t a)",
+      "brief": "Sets the shape's solid color.",
+      "description": [
+        "The parts of the shape defined as inner are colored."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "r",
+          "type": "uint8_t",
+          "description": "The red color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "g",
+          "type": "uint8_t",
+          "description": "The green color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "b",
+          "type": "uint8_t",
+          "description": "The blue color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "a",
+          "type": "uint8_t",
+          "description": "The alpha channel value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque. The initial value is 0."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_shape_set_fill_rule()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_fill_color",
+      "kind": "function",
+      "line": 1713,
+      "signature": "Tvg_Result tvg_shape_get_fill_color(const Tvg_Paint paint, uint8_t* r, uint8_t* g, uint8_t* b, uint8_t* a)",
+      "brief": "Gets the shape's solid color.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "r",
+          "type": "uint8_t*",
+          "description": "The red color channel value in the range [0 ~ 255]."
+        },
+        {
+          "name": "g",
+          "type": "uint8_t*",
+          "description": "The green color channel value in the range [0 ~ 255]."
+        },
+        {
+          "name": "b",
+          "type": "uint8_t*",
+          "description": "The blue color channel value in the range [0 ~ 255]."
+        },
+        {
+          "name": "a",
+          "type": "uint8_t*",
+          "description": "The alpha channel value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_fill_rule",
+      "kind": "function",
+      "line": 1725,
+      "signature": "Tvg_Result tvg_shape_set_fill_rule(Tvg_Paint paint, Tvg_Fill_Rule rule)",
+      "brief": "Sets the fill rule for the shape.",
+      "description": [
+        "Specifies how the interior of the shape is determined when its path intersects itself. The initial fill rule is `TVG_FILL_RULE_NON_ZERO`."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "rule",
+          "type": "Tvg_Fill_Rule",
+          "description": "The fill rule to apply to the shape."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_fill_rule",
+      "kind": "function",
+      "line": 1737,
+      "signature": "Tvg_Result tvg_shape_get_fill_rule(const Tvg_Paint paint, Tvg_Fill_Rule* rule)",
+      "brief": "Retrieves the current fill rule used by the shape.",
+      "description": [
+        "This function returns the fill rule, which determines how the interior regions of the shape are calculated when it overlaps itself."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "rule",
+          "type": "Tvg_Fill_Rule*",
+          "description": "The current Tvg_Fill_Rule value of the shape."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_paint_order",
+      "kind": "function",
+      "line": 1747,
+      "signature": "Tvg_Result tvg_shape_set_paint_order(Tvg_Paint paint, bool strokeFirst)",
+      "brief": "Sets the rendering order of the stroke and the fill.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "strokeFirst",
+          "type": "bool",
+          "description": "If `true` the stroke is rendered before the fill, otherwise the stroke is rendered as the second one (the initial option)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.10",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_set_gradient",
+      "kind": "function",
+      "line": 1760,
+      "signature": "Tvg_Result tvg_shape_set_gradient(Tvg_Paint paint, Tvg_Gradient grad)",
+      "brief": "Sets the gradient fill for all of the figures from the path.",
+      "description": [
+        "The parts of the shape defined as inner are filled."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The gradient fill."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_shape_set_fill_rule()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_shape_get_gradient",
+      "kind": "function",
+      "line": 1771,
+      "signature": "Tvg_Result tvg_shape_get_gradient(const Tvg_Paint paint, Tvg_Gradient* grad)",
+      "brief": "Gets the gradient fill of the shape.",
+      "description": [
+        "The function does not allocate any data."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "type": "const Tvg_Paint",
+          "description": "The shape object."
+        },
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient*",
+          "description": "The gradient fill."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

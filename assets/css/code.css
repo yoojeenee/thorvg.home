@@ -12,14 +12,41 @@
 
 .code-block code {
   display: block;
-  width: max-content;
-  min-width: 100%;
+  width: 100%;
+  overflow-x: auto;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.8;
   color: var(--color-text);
   white-space: pre;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  .code-block code::-webkit-scrollbar {
+    height: 6px;
+    background: transparent;
+  }
+
+  .code-block code::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 3px;
+  }
+
+  .code-block:hover code::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .code-block code {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .code-block:hover code {
+    scrollbar-color: #c4c4c4 transparent;
+  }
 }
 
 .code-copy-btn {

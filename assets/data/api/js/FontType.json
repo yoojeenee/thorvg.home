@@ -1,0 +1,18 @@
+{
+  "name": "FontType",
+  "kind": "type",
+  "brief": "Supported font file types. - `'ttf'`: TrueType Font - `'otf'`: OpenType Font",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Font",
+  "signature": "export type FontType = 'ttf' | 'otf';",
+  "source": "src/core/Font.ts:17",
+  "members": [],
+  "nested": []
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Tvg_Filter_Method",
+  "kind": "enum",
+  "brief": "Defines the image filtering method used during image scaling or transformation.",
+  "description": [],
+  "since": "1.1",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:361",
+  "members": [
+    {
+      "name": "TVG_FILTER_METHOD_BILINEAR",
+      "value": "0",
+      "brief": "Smooth interpolation using surrounding pixels for higher quality.",
+      "since": null,
+      "experimental": false,
+      "line": 364
+    },
+    {
+      "name": "TVG_FILTER_METHOD_NEAREST",
+      "value": null,
+      "brief": "Fast filtering using nearest-neighbor sampling.",
+      "since": null,
+      "experimental": false,
+      "line": 365
+    }
+  ],
+  "nested": []
+}

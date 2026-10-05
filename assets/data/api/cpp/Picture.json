@@ -1,0 +1,512 @@
+{
+  "name": "Picture",
+  "kind": "struct",
+  "base": "Paint",
+  "final": false,
+  "brief": "A class representing an image read in one of the supported formats: raw, svg, png, jpg, lot and etc. Besides the methods inherited from the Paint, it provides methods to load & draw images on the canvas.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [
+    "Supported formats are depended on the available TVG loaders.",
+    "See Animation class if the picture data is animatable."
+  ],
+  "warnings": [
+    "This class is not designed for inheritance."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:1683",
+  "members": [
+    {
+      "name": "load",
+      "kind": "method",
+      "line": 1699,
+      "signature": "Result load(const char* filename) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Loads a picture data directly from a file.",
+      "description": [
+        "ThorVG efficiently caches the loaded data using the specified `path` as a key. This means that loading the same file again will not result in duplicate operations; instead, ThorVG will reuse the previously loaded picture data."
+      ],
+      "params": [
+        {
+          "name": "filename",
+          "direction": "in",
+          "description": "A file name, including the path, for the picture file."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "In case the `path` is invalid."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "When trying to load a file with an unknown extension."
+        }
+      ],
+      "notes": [
+        "The Load behavior can be asynchronous if the assigned thread number is greater than zero."
+      ],
+      "warnings": [],
+      "see": [
+        "Initializer::init()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "line": 1723,
+      "signature": "Result load(const char* data, uint32_t size, const char* mimeType, const char* rpath = nullptr, bool copy = false) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Loads a picture data from a memory block of a given size.",
+      "description": [
+        "ThorVG efficiently caches the loaded data using the specified `data` address as a key when the `copy` has `false`. This means that loading the same data again will not result in duplicate operations for the sharable `data`. Instead, ThorVG will reuse the previously loaded picture data."
+      ],
+      "params": [
+        {
+          "name": "data",
+          "direction": "in",
+          "description": "A pointer to a memory location where the content of the picture file is stored. A null-terminated string is expected for non-binary data if `copy` is `false`."
+        },
+        {
+          "name": "size",
+          "direction": "in",
+          "description": "The size in bytes of the memory occupied by the `data`."
+        },
+        {
+          "name": "mimeType",
+          "direction": "in",
+          "description": "Mimetype or extension of data such as \"jpg\", \"jpeg\", \"lot\", \"lottie+json\", \"svg\", \"svg+xml\", \"png\", etc. In case an empty string or an unknown type is provided, the loaders will be tried one by one."
+        },
+        {
+          "name": "rpath",
+          "direction": "in",
+          "description": "A resource directory path, if the `data` needs to access any external resources."
+        },
+        {
+          "name": "copy",
+          "direction": "in",
+          "description": "If `true` the data are copied into the engine local buffer, otherwise they are not."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "In case no data are provided or the `size` is zero or less."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "When trying to load a file with an unknown extension."
+        },
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "If a vector asset has already been loaded into the picture."
+        }
+      ],
+      "notes": [
+        "If you are unsure about the MIME type, you can provide an empty value like `nullptr`, and thorvg will attempt to figure it out."
+      ],
+      "warnings": [
+        "It's the user responsibility to release the `data` memory."
+      ],
+      "see": [],
+      "since": "0.5",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "size",
+      "kind": "method",
+      "line": 1735,
+      "signature": "Result size(float w, float h) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Resizes the picture content to the given width and height.",
+      "description": [
+        "The picture content is resized while keeping the default size aspect ratio. The scaling factor is established for each of dimensions and the smaller value is applied to both of them."
+      ],
+      "params": [
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "A new width of the image in pixels."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "A new height of the image in pixels."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "size",
+      "kind": "method",
+      "line": 1744,
+      "signature": "Result size(float* w, float* h) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the size of the image.",
+      "description": [],
+      "params": [
+        {
+          "name": "w",
+          "direction": "out",
+          "description": "The width of the image in pixels."
+        },
+        {
+          "name": "h",
+          "direction": "out",
+          "description": "The height of the image in pixels."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "origin",
+      "kind": "method",
+      "line": 1774,
+      "signature": "Result origin(float x, float y) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the normalized origin point of the Picture object.",
+      "description": [
+        "This method defines the origin point of the Picture using normalized coordinates. Unlike a typical pivot point used only for transformations, this origin affects both the transformation behavior and the actual rendering position of the Picture.",
+        "The specified origin becomes the reference point for positioning the Picture on the canvas. For example, setting the origin to (0.5f, 0.5f) moves the visual center of the picture to the position specified by Paint::translate().",
+        "The coordinates are given in a normalized range relative to the picture's bounds: - (0.0f, 0.0f): top-left corner - (0.5f, 0.5f): center - (1.0f, 1.0f): bottom-right corner"
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": "in",
+          "description": "The normalized x-coordinate of the origin point (range: 0.0f to 1.0f)."
+        },
+        {
+          "name": "y",
+          "direction": "in",
+          "description": "The normalized y-coordinate of the origin point (range: 0.0f to 1.0f)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "This origin directly affects how the Picture is placed on the canvas when using transformations such as translate(), rotate(), or scale()."
+      ],
+      "warnings": [],
+      "see": [
+        "Paint::translate()",
+        "Paint::rotate()",
+        "Paint::scale()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "origin",
+      "kind": "method",
+      "line": 1788,
+      "signature": "Result origin(float* x, float* y) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the normalized origin point of the Picture object.",
+      "description": [
+        "This method retrieves the current origin point of the Picture, expressed in normalized coordinates relative to the picture’s bounds."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": "out",
+          "description": "The normalized x-coordinate of the origin (range: 0.0f to 1.0f)."
+        },
+        {
+          "name": "y",
+          "direction": "out",
+          "description": "The normalized y-coordinate of the origin (range: 0.0f to 1.0f)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "origin()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "line": 1808,
+      "signature": "Result load(const uint32_t* data, uint32_t w, uint32_t h, ColorSpace cs, bool copy = false) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Loads raw image data in a specific format from a memory block of the given size.",
+      "description": [
+        "ThorVG efficiently caches the loaded data, using the provided `data` address as a key when `copy` is set to `false`. This allows ThorVG to avoid redundant operations by reusing the previously loaded picture data for the same sharable `data`, rather than duplicating the load process."
+      ],
+      "params": [
+        {
+          "name": "data",
+          "direction": "in",
+          "description": "A pointer to the memory block where the raw image data is stored."
+        },
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "The width of the image in pixels."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "The height of the image in pixels."
+        },
+        {
+          "name": "cs",
+          "direction": "in",
+          "description": "Specifies how the 32-bit color values should be interpreted."
+        },
+        {
+          "name": "copy",
+          "direction": "in",
+          "description": "If `true`, the data is copied into the engine's local buffer. If `false`, the data is not copied."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "If the memory data pointed to by `data` is modified, calling this API will re-upload the updated content to the canvas."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": "0.9",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "resolver",
+      "kind": "method",
+      "line": 1832,
+      "signature": "Result resolver(std::function<bool(Paint* paint, const char* src, void* data)> func, void* data) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the asset resolver callback for handling external resources (e.g., images and fonts).",
+      "description": [
+        "This callback is invoked when an external asset reference (such as an image source or file path) is encountered in a Picture object. It allows the user to provide a custom mechanism for loading or substituting assets, such as loading from an external source or a virtual filesystem."
+      ],
+      "params": [
+        {
+          "name": "func",
+          "direction": "in",
+          "description": "A user-defined function that handles the resolution of asset paths. `resolver` can return `true` if the asset was successfully resolved by the user, or `false` if it was not."
+        },
+        {
+          "name": "data",
+          "direction": "in",
+          "description": "A pointer to user-defined data that will be passed to the callback each time it is invoked. This can be used to maintain context or access external resources."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "If the picture is already loaded."
+        }
+      ],
+      "notes": [
+        "`src` will be either a font path or a font name. In the case of a font name, `src` will begin with \"name:\", e.g., \"name:FreeSans-Medium\".",
+        "If `false` is returned by `func`, ThorVG will attempt to resolve the resource using its internal resolution mechanism as a fallback.",
+        "To unset the resolver, pass `nullptr` as the `func` parameter.",
+        "Experimental API"
+      ],
+      "warnings": [
+        "This function must be called before Picture::load() Setting the resolver after loading will have no effect on asset resolution for that asset."
+      ],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "filter",
+      "kind": "method",
+      "line": 1847,
+      "signature": "Result filter(FilterMethod method) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the image filtering method for rendering this picture.",
+      "description": [
+        "Specifies how the image data should be filtered when it is scaled or transformed during rendering. This affects the visual quality and performance of the output."
+      ],
+      "params": [
+        {
+          "name": "method",
+          "direction": "in",
+          "description": "The filtering method to apply. The initial value is `FilterMethod::Bilinear`."
+        }
+      ],
+      "returns": "Always returns `Result::Success`.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "FilterMethod"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "paint",
+      "kind": "method",
+      "line": 1865,
+      "signature": "const Paint* paint(uint32_t id) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Retrieve a Paint object from the Picture scene by its unique ID.",
+      "description": [
+        "Searches for a Paint object within the Picture scene that matches the given `id`."
+      ],
+      "params": [
+        {
+          "name": "id",
+          "direction": "in",
+          "description": "The unique identifier of the Paint object."
+        }
+      ],
+      "returns": "A pointer to the matching Paint object, or `nullptr` if not found.",
+      "retvals": [],
+      "notes": [
+        "Setting Picture::accessible to `true` enables more efficient access."
+      ],
+      "warnings": [],
+      "see": [
+        "Accessor::id()",
+        "Picture::accessible"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 1877,
+      "signature": "static Picture* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new Picture object.",
+      "description": [
+        "This function allocates and returns a new Picture instance. To properly destroy the Picture object, use Paint::rel()."
+      ],
+      "params": [],
+      "returns": "A pointer to the newly created Picture object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Paint::rel()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "type",
+      "kind": "method",
+      "line": 1888,
+      "signature": "Type type() const noexcept override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the ID value of this class.",
+      "description": [
+        "This method can be used to check the current concrete instance type."
+      ],
+      "params": [],
+      "returns": "The class type ID of the Picture instance.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "accessible",
+      "kind": "field",
+      "line": 1905,
+      "value": null,
+      "type": "bool",
+      "static": false,
+      "brief": "Enable or disable accessible mode for a Picture.",
+      "description": [
+        "When accessible mode is enabled, the Picture maintains an internal mapping of ID-accessible vector assets nodes (such as SVG), allowing efficient access to Paint objects and their associated identifier information via Accessor APIs.",
+        "When disabled, no additional mapping is maintained and all nodes are treated as general traversal targets."
+      ],
+      "since": "1.1",
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

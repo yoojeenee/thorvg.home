@@ -1,0 +1,15 @@
+{
+  "name": "Tvg_Animation",
+  "kind": "handle",
+  "brief": "A structure representing an animation controller object.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:87",
+  "members": [],
+  "nested": []
+}

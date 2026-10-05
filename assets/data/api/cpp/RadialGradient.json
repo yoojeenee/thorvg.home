@@ -1,0 +1,186 @@
+{
+  "name": "RadialGradient",
+  "kind": "struct",
+  "base": "Fill",
+  "final": false,
+  "brief": "A class representing the radial gradient fill of the Shape object.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "This class is not designed for inheritance."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:1127",
+  "members": [
+    {
+      "name": "radial",
+      "kind": "method",
+      "line": 1153,
+      "signature": "Result radial(float cx, float cy, float r, float fx, float fy, float fr) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the radial gradient attributes.",
+      "description": [
+        "The radial gradient is defined by the end circle with a center (`cx`, `cy`) and a radius `r` and the start circle with a center/focal point (`fx`, `fy`) and a radius `fr`. The gradient will be rendered such that the gradient stop at an offset of 100% aligns with the edge of the end circle and the stop at an offset of 0% aligns with the edge of the start circle."
+      ],
+      "params": [
+        {
+          "name": "cx",
+          "direction": "in",
+          "description": "The horizontal coordinate of the center of the end circle."
+        },
+        {
+          "name": "cy",
+          "direction": "in",
+          "description": "The vertical coordinate of the center of the end circle."
+        },
+        {
+          "name": "r",
+          "direction": "in",
+          "description": "The radius of the end circle."
+        },
+        {
+          "name": "fx",
+          "direction": "in",
+          "description": "The horizontal coordinate of the center of the start circle."
+        },
+        {
+          "name": "fy",
+          "direction": "in",
+          "description": "The vertical coordinate of the center of the start circle."
+        },
+        {
+          "name": "fr",
+          "direction": "in",
+          "description": "The radius of the start circle."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "in case the radius `r` or `fr` value is negative."
+        }
+      ],
+      "notes": [
+        "In case the radius `r` is zero, an object is filled with a single color using the last color specified in the colorStops().",
+        "In case the focal point (`fx` and `fy`) lies outside the end circle, it is projected onto the edge of the end circle.",
+        "If the start circle doesn't fully fit inside the end circle (after possible repositioning), the `fr` is reduced accordingly.",
+        "By manipulating the position and size of the focal point, a wide range of visual effects can be achieved, such as directing the gradient focus towards a specific edge or enhancing the depth and complexity of shading patterns. If a focal effect is not desired, simply align the focal point (`fx` and `fy`) with the center of the end circle (`cx` and `cy`) and set the radius (`fr`) to zero. This will result in a uniform gradient without any focal variations."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "radial",
+      "kind": "method",
+      "line": 1167,
+      "signature": "Result radial(float* cx, float* cy, float* r, float* fx = nullptr, float* fy = nullptr, float* fr = nullptr) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the radial gradient attributes.",
+      "description": [],
+      "params": [
+        {
+          "name": "cx",
+          "direction": "out",
+          "description": "The horizontal coordinate of the center of the end circle."
+        },
+        {
+          "name": "cy",
+          "direction": "out",
+          "description": "The vertical coordinate of the center of the end circle."
+        },
+        {
+          "name": "r",
+          "direction": "out",
+          "description": "The radius of the end circle."
+        },
+        {
+          "name": "fx",
+          "direction": "out",
+          "description": "The horizontal coordinate of the center of the start circle."
+        },
+        {
+          "name": "fy",
+          "direction": "out",
+          "description": "The vertical coordinate of the center of the start circle."
+        },
+        {
+          "name": "fr",
+          "direction": "out",
+          "description": "The radius of the start circle."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "RadialGradient::radial()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 1174,
+      "signature": "static RadialGradient* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new RadialGradient object.",
+      "description": [],
+      "params": [],
+      "returns": "A new RadialGradient object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "type",
+      "kind": "method",
+      "line": 1185,
+      "signature": "Type type() const noexcept override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the ID value of this class.",
+      "description": [
+        "This method can be used to check the current concrete instance type."
+      ],
+      "params": [],
+      "returns": "The class type ID of the RadialGradient instance.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

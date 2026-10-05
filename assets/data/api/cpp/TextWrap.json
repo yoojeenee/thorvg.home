@@ -1,0 +1,82 @@
+{
+  "name": "TextWrap",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration that defines methods used for wrapping text.",
+  "description": [
+    "This enum provides options to control how text is wrapped when it exceeds the available space. Wrapping affects the layout and flow of text in the rendering area."
+  ],
+  "since": "1.0",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "Text::wrap(TextWrap mode)"
+  ],
+  "source": "inc/thorvg.h:302",
+  "members": [
+    {
+      "name": "None",
+      "kind": "enumerator",
+      "line": 303,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "Do not wrap text. Text is rendered on a single line and may overflow the bounding area.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Character",
+      "kind": "enumerator",
+      "line": 304,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Wrap at the character level. If a word cannot fit, it is broken into individual characters to fit the line.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Word",
+      "kind": "enumerator",
+      "line": 305,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Wrap at the word level. Words that do not fit are moved to the next line.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Smart",
+      "kind": "enumerator",
+      "line": 306,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Smart choose wrapping method: word wrap first, falling back to character wrap if a word does not fit.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Ellipsis",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Truncate overflowing text and append an ellipsis (\"...\") at the end. Typically used for single-line labels.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

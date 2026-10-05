@@ -1,0 +1,611 @@
+{
+  "name": "Shape",
+  "kind": "class",
+  "brief": "Shape class for creating and manipulating vector graphics paths.",
+  "description": [
+    "Extends `Paint` to inherit transformation and opacity methods."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Drawing basic shapes\nconst shape = new TVG.Shape();\n\n// Rectangle with rounded corners\nshape.appendRect(50, 50, 200, 100, 10)\n     .fill(255, 100, 100, 255)\n     .stroke(50, 50, 50, 255, 2);\n\ncanvas.add(shape);",
+    "// Drawing paths with gradients\nconst shape = new TVG.Shape();\nshape.moveTo(100, 100)\n     .lineTo(200, 150)\n     .lineTo(150, 250)\n     .close();\n\nconst gradient = new TVG.LinearGradient(100, 100, 200, 250);\ngradient.addStop(0, [255, 0, 0, 255])\n        .addStop(1, [0, 0, 255, 255]);\n\nshape.fillGradient(gradient);\ncanvas.add(shape);",
+    "// Complex path with transformations\nconst shape = new TVG.Shape();\nshape.appendCircle(0, 0, 50)\n     .fill(100, 200, 255, 255)\n     .translate(400, 300)\n     .scale(1.5)\n     .rotate(45);\n\ncanvas.add(shape);"
+  ],
+  "category": "Shapes",
+  "signature": "export class Shape extends Paint",
+  "source": "src/core/Shape.ts:151",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(ptr?: number, skipRegistry: boolean = false)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 155
+    },
+    {
+      "name": "moveTo",
+      "kind": "method",
+      "signature": "moveTo(x: number, y: number): this",
+      "static": false,
+      "brief": "Moves the path cursor to a new point without drawing.",
+      "description": [
+        "This starts a new subpath at the specified coordinates. Subsequent drawing commands will start from this point."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "X coordinate"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "Y coordinate"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "shape.moveTo(100, 100)\n     .lineTo(200, 200);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 184
+    },
+    {
+      "name": "lineTo",
+      "kind": "method",
+      "signature": "lineTo(x: number, y: number): this",
+      "static": false,
+      "brief": "Draws a straight line from the current point to the specified coordinates.",
+      "description": [],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "End X coordinate"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "End Y coordinate"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Draw a triangle\nshape.moveTo(100, 50)\n     .lineTo(150, 150)\n     .lineTo(50, 150)\n     .close();"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 207
+    },
+    {
+      "name": "cubicTo",
+      "kind": "method",
+      "signature": "cubicTo( cx1: number, cy1: number, cx2: number, cy2: number, x: number, y: number ): this",
+      "static": false,
+      "brief": "Draws a cubic Bézier curve from the current point to (x, y).",
+      "description": [],
+      "params": [
+        {
+          "name": "cx1",
+          "direction": null,
+          "description": "X coordinate of first control point"
+        },
+        {
+          "name": "cy1",
+          "direction": null,
+          "description": "Y coordinate of first control point"
+        },
+        {
+          "name": "cx2",
+          "direction": null,
+          "description": "X coordinate of second control point"
+        },
+        {
+          "name": "cy2",
+          "direction": null,
+          "description": "Y coordinate of second control point"
+        },
+        {
+          "name": "x",
+          "direction": null,
+          "description": "End X coordinate"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "End Y coordinate"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Draw a smooth curve\nshape.moveTo(50, 100)\n     .cubicTo(50, 50, 150, 50, 150, 100);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 232
+    },
+    {
+      "name": "close",
+      "kind": "method",
+      "signature": "close(): this",
+      "static": false,
+      "brief": "Closes the current subpath by drawing a straight line back to the starting point.",
+      "description": [],
+      "params": [],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "shape.moveTo(100, 50)\n     .lineTo(150, 150)\n     .lineTo(50, 150)\n     .close(); // Completes the triangle"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 259
+    },
+    {
+      "name": "appendRect",
+      "kind": "method",
+      "signature": "appendRect( x: number, y: number, w: number, h: number, options: RectOptions = {} ): this",
+      "static": false,
+      "brief": "Appends a rectangle path to the shape.",
+      "description": [
+        "Creates a rectangular path with optional rounded corners. Multiple rectangles can be added to the same shape."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "X coordinate of the top-left corner"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "Y coordinate of the top-left corner"
+        },
+        {
+          "name": "w",
+          "direction": null,
+          "description": "Width of the rectangle"
+        },
+        {
+          "name": "h",
+          "direction": null,
+          "description": "Height of the rectangle"
+        },
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Optional corner rounding and path direction"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Simple rectangle\nshape.appendRect(50, 50, 200, 100);",
+        "// Rounded rectangle\nshape.appendRect(50, 50, 200, 100, { rx: 10, ry: 10 });"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 291
+    },
+    {
+      "name": "appendCircle",
+      "kind": "method",
+      "signature": "appendCircle( cx: number, cy: number, rx: number, ry: number = rx, clockwise: boolean = true ): this",
+      "static": false,
+      "brief": "Appends a circle or ellipse path to the shape.",
+      "description": [
+        "Creates a circular or elliptical path. If only one radius is provided, creates a perfect circle. If two radii are provided, creates an ellipse."
+      ],
+      "params": [
+        {
+          "name": "cx",
+          "direction": null,
+          "description": "X coordinate of the center"
+        },
+        {
+          "name": "cy",
+          "direction": null,
+          "description": "Y coordinate of the center"
+        },
+        {
+          "name": "rx",
+          "direction": null,
+          "description": "Horizontal radius"
+        },
+        {
+          "name": "ry",
+          "direction": null,
+          "description": "Vertical radius (defaults to rx for perfect circle)"
+        },
+        {
+          "name": "clockwise",
+          "direction": null,
+          "description": "Path direction. Default: true"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Perfect circle\nshape.appendCircle(150, 150, 50)\n     .fill(255, 0, 0, 255);",
+        "// Ellipse\nshape.appendCircle(150, 150, 80, 50)\n     .fill(0, 100, 255, 255);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 341
+    },
+    {
+      "name": "appendPath",
+      "kind": "method",
+      "signature": "appendPath( commands: readonly PathCommand[], points: ReadonlyArray<readonly number[]> ): this",
+      "static": false,
+      "brief": "Appends a pre-built path to the shape from raw command and point arrays.",
+      "description": [
+        "This is the low-level counterpart to `moveTo`, `lineTo`, `cubicTo` and `close`. It lets you feed an entire path in a single call, which is useful when the path data already exists in command/point form (e.g. imported from another source or produced by `path`).",
+        "Each command consumes points from `points` in order: - `PathCommand.MoveTo` / `PathCommand.LineTo`: 1 point - `PathCommand.CubicTo`: 3 points (control1, control2, end) - `PathCommand.Close`: 0 points",
+        "The total number of points consumed by `commands` must equal `points.length`."
+      ],
+      "params": [
+        {
+          "name": "commands",
+          "direction": null,
+          "description": "Path commands describing the outline"
+        },
+        {
+          "name": "points",
+          "direction": null,
+          "description": "Points as `[x, y]` pairs, consumed in order by the commands"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Build a triangle in one call\nshape.appendPath(\n  [PathCommand.MoveTo, PathCommand.LineTo, PathCommand.LineTo, PathCommand.Close],\n  [[100, 50], [150, 150], [50, 150]]\n).fill(255, 0, 0, 255);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 382
+    },
+    {
+      "name": "path",
+      "kind": "method",
+      "signature": "path(): { commands: PathCommand[]; points: Array<[number, number]> }",
+      "static": false,
+      "brief": "Retrieves the shape's current path as command and point arrays.",
+      "description": [
+        "Returns a snapshot of the path data accumulated by the path-building methods (or `appendPath`). The returned arrays are copies and can be safely modified and fed back into `appendPath`.",
+        "Mirrors the native `Shape::path()` getter."
+      ],
+      "params": [],
+      "returns": "An object with `commands` (path commands) and `points` ([x, y] tuples)",
+      "examples": [
+        "const { commands, points } = shape.path();\n// Re-append the same outline to another shape\nother.appendPath(commands, points);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 435
+    },
+    {
+      "name": "fillRule",
+      "kind": "method",
+      "signature": "fillRule(rule: FillRule): this",
+      "static": false,
+      "brief": "Sets the fill rule for the shape.",
+      "description": [
+        "The fill rule determines how the interior of a shape is calculated when the path intersects itself or when multiple subpaths overlap."
+      ],
+      "params": [
+        {
+          "name": "rule",
+          "direction": null,
+          "description": "Fill rule: 'winding' (non-zero) or 'evenodd'"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "const star = new TVG.Shape();\n// Draw a self-intersecting star\nstar.moveTo(100, 10)\n    .lineTo(40, 180)\n    .lineTo(190, 60)\n    .lineTo(10, 60)\n    .lineTo(160, 180)\n    .close()\n    .fillRule(FillRule.EvenOdd)  // Use even-odd rule for star shape\n    .fill(255, 200, 0, 255);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 509
+    },
+    {
+      "name": "trimPath",
+      "kind": "method",
+      "signature": "trimPath(begin: number, end: number, simultaneous: boolean = true): this",
+      "static": false,
+      "brief": "Sets the trim of the shape along the defined path segment, controlling which part is visible.",
+      "description": [
+        "This method allows you to trim/cut paths, showing only a portion from the begin to end point. This is particularly useful for animations (e.g., drawing a line progressively) or creating partial shapes like arcs from circles.",
+        "If the values exceed the 0-1 range, they wrap around (similar to angle wrapping)."
+      ],
+      "params": [
+        {
+          "name": "begin",
+          "direction": null,
+          "description": "Start of the segment to display (0.0 to 1.0, where 0 is the path start)"
+        },
+        {
+          "name": "end",
+          "direction": null,
+          "description": "End of the segment to display (0.0 to 1.0, where 1 is the path end)"
+        },
+        {
+          "name": "simultaneous",
+          "direction": null,
+          "description": "How to handle multiple paths within the shape:   - `true` (default): Trimming applied simultaneously to all paths   - `false`: All paths treated as one entity with combined length"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Draw half a circle (arc)\nconst arc = new TVG.Shape();\narc.appendCircle(150, 150, 100)\n   .trimPath(0, 0.5)  // Show only first half\n   .stroke({ width: 5, color: [255, 0, 0, 255] });",
+        "// Animated line drawing effect\nconst line = new TVG.Shape();\nline.moveTo(50, 100)\n    .lineTo(250, 100)\n    .trimPath(0, progress)  // progress from 0 to 1\n    .stroke({ width: 3, color: [0, 100, 255, 255] });",
+        "// Trim multiple paths separately\nconst shape = new TVG.Shape();\nshape.appendRect(50, 50, 100, 100)\n     .appendCircle(200, 100, 50)\n     .trimPath(0.25, 0.75, true)  // Trim each path separately\n     .stroke({ width: 2, color: [0, 0, 0, 255] });"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 561
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "signature": "fill(gradient: Fill): this",
+      "static": false,
+      "brief": "Sets the fill for the shape with a gradient.",
+      "description": [],
+      "params": [
+        {
+          "name": "gradient",
+          "direction": null,
+          "description": "LinearGradient or RadialGradient to use as fill"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 574
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "signature": "fill(r: number, g: number, b: number, a?: number): this",
+      "static": false,
+      "brief": "Sets the fill for the shape with a solid color.",
+      "description": [],
+      "params": [
+        {
+          "name": "r",
+          "direction": null,
+          "description": "Red component (0-255)"
+        },
+        {
+          "name": "g",
+          "direction": null,
+          "description": "Green component (0-255)"
+        },
+        {
+          "name": "b",
+          "direction": null,
+          "description": "Blue component (0-255)"
+        },
+        {
+          "name": "a",
+          "direction": null,
+          "description": "Alpha component (0-255). Default: 255 (opaque)"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 585
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "signature": "fill( gradientOrR: Fill | number, g?: number, b?: number, a: number = 255 ): this",
+      "static": false,
+      "brief": "Sets the fill for the shape with either a solid color or gradient.",
+      "description": [
+        "This method supports two calling patterns: 1. Solid color: `fill(r, g, b, a?)` 2. Gradient: `fill(gradient)`"
+      ],
+      "params": [],
+      "returns": null,
+      "examples": [
+        "// Solid color fill\nshape.fill(255, 0, 0, 255); // Red\nshape.fill(0, 255, 0);      // Green (alpha defaults to 255)",
+        "// Gradient fill\nconst gradient = new TVG.LinearGradient(0, 0, 200, 0);\ngradient.addStop(0, [255, 0, 0, 255])\n        .addStop(1, [0, 0, 255, 255]);\nshape.fill(gradient);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 610
+    },
+    {
+      "name": "stroke",
+      "kind": "method",
+      "signature": "stroke(width: number): this",
+      "static": false,
+      "brief": "Sets the stroke width for the shape.",
+      "description": [],
+      "params": [
+        {
+          "name": "width",
+          "direction": null,
+          "description": "Stroke width in pixels"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 639
+    },
+    {
+      "name": "stroke",
+      "kind": "method",
+      "signature": "stroke(options: StrokeOptions): this",
+      "static": false,
+      "brief": "Sets comprehensive stroke styling options for the shape.",
+      "description": [],
+      "params": [
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Stroke configuration including width, color, gradient, caps, joins, and miter limit"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 647
+    },
+    {
+      "name": "stroke",
+      "kind": "method",
+      "signature": "stroke(widthOrOptions: number | StrokeOptions): this",
+      "static": false,
+      "brief": "Sets the stroke styling for the shape.",
+      "description": [
+        "This method supports two calling patterns: 1. Simple width: `stroke(width)` 2. Full options: `stroke({ width, color, gradient, cap, join, miterLimit })`"
+      ],
+      "params": [],
+      "returns": null,
+      "examples": [
+        "// Simple stroke\nshape.appendCircle(150, 150, 50)\n     .stroke(3);",
+        "// Stroke with color and caps\nshape.appendRect(50, 50, 200, 100)\n     .stroke({\n       width: 5,\n       color: [0, 0, 0, 255],\n       cap: StrokeCap.Round,\n       join: StrokeJoin.Round\n     });",
+        "// Stroke with gradient\nconst gradient = new TVG.LinearGradient(0, 0, 200, 0);\ngradient.addStop(0, [255, 0, 0, 255])\n        .addStop(1, [0, 0, 255, 255]);\n\nshape.appendCircle(150, 150, 50)\n     .stroke({\n       width: 10,\n       gradient: gradient,\n       cap: StrokeCap.Round\n     });"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 690
+    },
+    {
+      "name": "order",
+      "kind": "method",
+      "signature": "order(strokeFirst: boolean): this",
+      "static": false,
+      "brief": "Sets the rendering order of the shape's stroke and fill.",
+      "description": [
+        "By default the fill is rendered first and the stroke on top of it. Passing `true` reverses this so the stroke is drawn first and the fill on top — useful when you want the fill to cover the inner half of a thick stroke."
+      ],
+      "params": [
+        {
+          "name": "strokeFirst",
+          "direction": null,
+          "description": "`true` renders the stroke before the fill; `false` (default) renders the stroke on top"
+        }
+      ],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "shape.appendCircle(150, 150, 50)\n     .fill(255, 255, 255, 255)\n     .stroke({ width: 20, color: [0, 0, 0, 255] })\n     .order(true); // stroke under the fill"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 816
+    },
+    {
+      "name": "reset",
+      "kind": "method",
+      "signature": "reset(): this",
+      "static": false,
+      "brief": "Resets the shape's path data while retaining fill and stroke properties.",
+      "description": [
+        "This method clears all path commands (moveTo, lineTo, cubicTo, appendRect, etc.) but preserves the shape's fill color, gradient, stroke settings, and transformations. This is useful for animations where you want to redraw the path while keeping the same styling."
+      ],
+      "params": [],
+      "returns": "The Shape instance for method chaining",
+      "examples": [
+        "// Animating shape changes while keeping styles\nconst shape = new TVG.Shape();\nshape.appendRect(0, 0, 100, 100);\nshape.fill(255, 0, 0, 255);\nshape.stroke({ width: 5, color: [0, 0, 255, 255] });\n\n// Later, change the shape but keep the fill/stroke\nshape.reset();\nshape.appendCircle(50, 50, 40);\n// Still has red fill and blue stroke!"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 847
+    }
+  ],
+  "nested": []
+}

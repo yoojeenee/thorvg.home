@@ -1,0 +1,384 @@
+{
+  "name": "Scene",
+  "kind": "class",
+  "brief": "Scene class for hierarchical grouping of Paint objects",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Grouping shapes in a scene\nconst scene = new TVG.Scene();\n\nconst background = new TVG.Shape();\nbackground.appendRect(0, 0, 800, 600).fill(240, 240, 240, 255);\n\nconst circle = new TVG.Shape();\ncircle.appendCircle(100, 100, 50).fill(255, 100, 100, 255);\n\nscene.add(background);\nscene.add(circle);\ncanvas.add(scene);",
+    "// Scene transformations affect all children\nconst scene = new TVG.Scene();\n\nfor (let i = 0; i < 5; i++) {\n  const shape = new TVG.Shape();\n  shape.appendRect(i * 60, 100, 50, 50)\n       .fill(100 + i * 30, 150, 255 - i * 30, 255);\n  scene.add(shape);\n}\n\n// Transform entire group\nscene.translate(200, 200).rotate(30);\ncanvas.add(scene);"
+  ],
+  "category": "Scene",
+  "signature": "export class Scene extends Paint",
+  "source": "src/core/Scene.ts:48",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(ptr?: number, skipRegistry: boolean = false)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 52
+    },
+    {
+      "name": "add",
+      "kind": "method",
+      "signature": "add(paint: Paint): this",
+      "static": false,
+      "brief": "Add a paint to the scene",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 68
+    },
+    {
+      "name": "remove",
+      "kind": "method",
+      "signature": "remove(paint?: Paint): this",
+      "static": false,
+      "brief": "Remove paint(s) from the scene If no paint is provided, removes all paints",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 80
+    },
+    {
+      "name": "clear",
+      "kind": "method",
+      "signature": "clear(): this",
+      "static": false,
+      "brief": "Clear all paints from the scene (alias for remove())",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 97
+    },
+    {
+      "name": "resetEffects",
+      "kind": "method",
+      "signature": "resetEffects(): this",
+      "static": false,
+      "brief": "Reset all previously applied scene effects, restoring the scene to its original state.",
+      "description": [],
+      "params": [],
+      "returns": "The Scene instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.dropShadow(128, 128, 128, 200, 45, 5, 2, 60);\nscene.resetEffects(); // Remove all effects"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 113
+    },
+    {
+      "name": "gaussianBlur",
+      "kind": "method",
+      "signature": "gaussianBlur(sigma: number, direction: number = 0, border: number = 0, quality: number = 75): this",
+      "static": false,
+      "brief": "Apply a Gaussian blur effect to the scene.",
+      "description": [],
+      "params": [
+        {
+          "name": "sigma",
+          "direction": null,
+          "description": "Blur intensity (> 0)"
+        },
+        {
+          "name": "direction",
+          "direction": null,
+          "description": "Blur direction: 0 (both), 1 (horizontal), 2 (vertical)"
+        },
+        {
+          "name": "border",
+          "direction": null,
+          "description": "Border mode: 0 (duplicate), 1 (wrap)"
+        },
+        {
+          "name": "quality",
+          "direction": null,
+          "description": "Blur quality (0-100)"
+        }
+      ],
+      "returns": "The Scene instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.add(shape1);\nscene.add(shape2);\nscene.gaussianBlur(1.5, 0, 0, 75); // Apply blur to entire scene"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 137
+    },
+    {
+      "name": "dropShadow",
+      "kind": "method",
+      "signature": "dropShadow(r: number, g: number, b: number, a: number, angle: number, distance: number, sigma: number, quality: number = 60): this",
+      "static": false,
+      "brief": "Apply a drop shadow effect with Gaussian blur filter to the scene.",
+      "description": [],
+      "params": [
+        {
+          "name": "r",
+          "direction": null,
+          "description": "Red component (0-255)"
+        },
+        {
+          "name": "g",
+          "direction": null,
+          "description": "Green component (0-255)"
+        },
+        {
+          "name": "b",
+          "direction": null,
+          "description": "Blue component (0-255)"
+        },
+        {
+          "name": "a",
+          "direction": null,
+          "description": "Alpha/opacity (0-255)"
+        },
+        {
+          "name": "angle",
+          "direction": null,
+          "description": "Shadow angle in degrees (0-360)"
+        },
+        {
+          "name": "distance",
+          "direction": null,
+          "description": "Shadow distance/offset"
+        },
+        {
+          "name": "sigma",
+          "direction": null,
+          "description": "Blur intensity for the shadow (> 0)"
+        },
+        {
+          "name": "quality",
+          "direction": null,
+          "description": "Blur quality (0-100)"
+        }
+      ],
+      "returns": "The Scene instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.add(shape);\n// Add gray drop shadow at 45° angle, 5px distance, 2px blur\nscene.dropShadow(128, 128, 128, 200, 45, 5, 2, 60);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 165
+    },
+    {
+      "name": "fillEffect",
+      "kind": "method",
+      "signature": "fillEffect(r: number, g: number, b: number, a: number): this",
+      "static": false,
+      "brief": "Override the scene content color with a given fill color.",
+      "description": [],
+      "params": [
+        {
+          "name": "r",
+          "direction": null,
+          "description": "Red component (0-255)"
+        },
+        {
+          "name": "g",
+          "direction": null,
+          "description": "Green component (0-255)"
+        },
+        {
+          "name": "b",
+          "direction": null,
+          "description": "Blue component (0-255)"
+        },
+        {
+          "name": "a",
+          "direction": null,
+          "description": "Alpha/opacity (0-255)"
+        }
+      ],
+      "returns": "The Scene instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.add(shape1);\nscene.add(shape2);\nscene.fillEffect(255, 0, 0, 128); // Fill entire scene with semi-transparent red"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 189
+    },
+    {
+      "name": "tint",
+      "kind": "method",
+      "signature": "tint(blackR: number, blackG: number, blackB: number, whiteR: number, whiteG: number, whiteB: number, intensity: number): this",
+      "static": false,
+      "brief": "Apply a tint effect to the scene using black and white color parameters.",
+      "description": [],
+      "params": [
+        {
+          "name": "blackR",
+          "direction": null,
+          "description": "Black tint red component (0-255)"
+        },
+        {
+          "name": "blackG",
+          "direction": null,
+          "description": "Black tint green component (0-255)"
+        },
+        {
+          "name": "blackB",
+          "direction": null,
+          "description": "Black tint blue component (0-255)"
+        },
+        {
+          "name": "whiteR",
+          "direction": null,
+          "description": "White tint red component (0-255)"
+        },
+        {
+          "name": "whiteG",
+          "direction": null,
+          "description": "White tint green component (0-255)"
+        },
+        {
+          "name": "whiteB",
+          "direction": null,
+          "description": "White tint blue component (0-255)"
+        },
+        {
+          "name": "intensity",
+          "direction": null,
+          "description": "Tint intensity (0-100)"
+        }
+      ],
+      "returns": "The Scene instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.add(picture);\n// Apply sepia-like tint\nscene.tint(112, 66, 20, 255, 236, 184, 50);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 216
+    },
+    {
+      "name": "tritone",
+      "kind": "method",
+      "signature": "tritone(shadowR: number, shadowG: number, shadowB: number, midtoneR: number, midtoneG: number, midtoneB: number, highlightR: number, highlightG: number, highlightB: number, blend: number): this",
+      "static": false,
+      "brief": "Apply a tritone color effect to the scene using three color parameters for shadows, midtones, and highlights. A blending factor determines the mix between the original color and the tritone colors.",
+      "description": [],
+      "params": [
+        {
+          "name": "shadowR",
+          "direction": null,
+          "description": "Shadow red component (0-255)"
+        },
+        {
+          "name": "shadowG",
+          "direction": null,
+          "description": "Shadow green component (0-255)"
+        },
+        {
+          "name": "shadowB",
+          "direction": null,
+          "description": "Shadow blue component (0-255)"
+        },
+        {
+          "name": "midtoneR",
+          "direction": null,
+          "description": "Midtone red component (0-255)"
+        },
+        {
+          "name": "midtoneG",
+          "direction": null,
+          "description": "Midtone green component (0-255)"
+        },
+        {
+          "name": "midtoneB",
+          "direction": null,
+          "description": "Midtone blue component (0-255)"
+        },
+        {
+          "name": "highlightR",
+          "direction": null,
+          "description": "Highlight red component (0-255)"
+        },
+        {
+          "name": "highlightG",
+          "direction": null,
+          "description": "Highlight green component (0-255)"
+        },
+        {
+          "name": "highlightB",
+          "direction": null,
+          "description": "Highlight blue component (0-255)"
+        },
+        {
+          "name": "blend",
+          "direction": null,
+          "description": "Blend factor (0-255)"
+        }
+      ],
+      "returns": "The Scene instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.add(picture);\n// Apply tritone: dark blue shadows, gray midtones, yellow highlights\nscene.tritone(0, 0, 128, 128, 128, 128, 255, 255, 0, 128);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 247
+    }
+  ],
+  "nested": []
+}

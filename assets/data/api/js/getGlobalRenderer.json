@@ -1,0 +1,36 @@
+{
+  "name": "getGlobalRenderer",
+  "kind": "function",
+  "brief": "Get the currently configured renderer @internal",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": null,
+  "signature": "export function getGlobalRenderer(): RendererType",
+  "source": "src/index.ts:120",
+  "members": [
+    {
+      "name": "getGlobalRenderer",
+      "kind": "function",
+      "signature": "export function getGlobalRenderer(): RendererType",
+      "brief": "Get the currently configured renderer @internal",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 120
+    }
+  ],
+  "nested": []
+}

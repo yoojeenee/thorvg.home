@@ -1,0 +1,494 @@
+{
+  "name": "Picture",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_picture_new",
+      "kind": "function",
+      "line": 2041,
+      "signature": "Tvg_Paint tvg_picture_new(void)",
+      "brief": "Creates a new Picture object.",
+      "description": [
+        "This function allocates and returns a new Picture instance. To properly destroy the Picture object, use tvg_paint_rel()."
+      ],
+      "params": [],
+      "returns": "The newly created Picture object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_paint_rel()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_load",
+      "kind": "function",
+      "line": 2056,
+      "signature": "Tvg_Result tvg_picture_load(Tvg_Paint picture, const char* path)",
+      "brief": "Loads a picture data directly from a file.",
+      "description": [
+        "ThorVG efficiently caches the loaded data using the specified `path` as a key. This means that loading the same file again will not result in duplicate operations; instead, ThorVG will reuse the previously loaded picture data."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "path",
+          "type": "const char*",
+          "description": "The absolute path to the image file."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "An empty `path`."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "A file with an unknown extension."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_load_raw",
+      "kind": "function",
+      "line": 2077,
+      "signature": "Tvg_Result tvg_picture_load_raw(Tvg_Paint picture, const uint32_t *data, uint32_t w, uint32_t h, Tvg_Colorspace cs, bool copy)",
+      "brief": "Loads raw image data in a specific format from a memory block of the given size.",
+      "description": [
+        "ThorVG efficiently caches the loaded data, using the provided `data` address as a key when `copy` is set to `false`. This allows ThorVG to avoid redundant operations by reusing the previously loaded picture data for the same sharable `data`, rather than duplicating the load process."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "data",
+          "type": "const uint32_t *",
+          "description": "The memory block where the raw image data is stored."
+        },
+        {
+          "name": "w",
+          "type": "uint32_t",
+          "description": "The width of the image in pixels."
+        },
+        {
+          "name": "h",
+          "type": "uint32_t",
+          "description": "The height of the image in pixels."
+        },
+        {
+          "name": "cs",
+          "type": "Tvg_Colorspace",
+          "description": "Specifies how the 32-bit color values should be interpreted (read/write)."
+        },
+        {
+          "name": "copy",
+          "type": "bool",
+          "description": "If `true`, the data is copied into the engine's local buffer. If `false`, the data is not copied."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "No data are provided or the `w` or `h` value is zero or less."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.9",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_load_data",
+      "kind": "function",
+      "line": 2098,
+      "signature": "Tvg_Result tvg_picture_load_data(Tvg_Paint picture, const char *data, uint32_t size, const char *mimetype, const char* rpath, bool copy)",
+      "brief": "Loads a picture data from a memory block of a given size.",
+      "description": [
+        "ThorVG efficiently caches the loaded data using the specified `data` address as a key when the `copy` has `false`. This means that loading the same data again will not result in duplicate operations for the sharable `data`. Instead, ThorVG will reuse the previously loaded picture data."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "data",
+          "type": "const char *",
+          "description": "A pointer to a memory location where the content of the picture file is stored. A null-terminated string is expected for non-binary data if `copy` is `false`"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t",
+          "description": "The size in bytes of the memory occupied by the `data`."
+        },
+        {
+          "name": "mimetype",
+          "type": "const char *",
+          "description": "Mimetype or extension of data such as \"jpg\", \"jpeg\", \"svg\", \"svg+xml\", \"lot\", \"lottie+json\", \"png\", etc. In case an empty string or an unknown type is provided, the loaders will be tried one by one."
+        },
+        {
+          "name": "rpath",
+          "type": "const char*",
+          "description": "A resource directory path, if the `data` needs to access any external resources."
+        },
+        {
+          "name": "copy",
+          "type": "bool",
+          "description": "If `true` the data are copied into the engine local buffer, otherwise they are not."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "In case a `nullptr` is passed as the argument or the `size` is zero or less."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "A file with an unknown extension."
+        }
+      ],
+      "notes": [],
+      "warnings": [
+        ": It's the user responsibility to release the `data` memory if the `copy` is `true`."
+      ],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_set_asset_resolver",
+      "kind": "function",
+      "line": 2123,
+      "signature": "Tvg_Result tvg_picture_set_asset_resolver(Tvg_Paint picture, Tvg_Picture_Asset_Resolver resolver, void* data)",
+      "brief": "Sets the asset resolver callback for handling external resources (e.g., images and fonts).",
+      "description": [
+        "This callback is invoked when an external asset reference (such as an image source or file path) is encountered in a Picture object. It allows the user to provide a custom mechanism for loading or substituting assets, such as loading from an external source or a virtual filesystem."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": ""
+        },
+        {
+          "name": "resolver",
+          "type": "Tvg_Picture_Asset_Resolver",
+          "description": "A user-defined function that handles the resolution of asset paths. The function should return `true` if the asset was successfully resolved by the user, or `false` if it was not."
+        },
+        {
+          "name": "data",
+          "type": "void*",
+          "description": "A pointer to user-defined data that will be passed to the callback each time it is invoked. This can be used to maintain context or access external resources."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "A `nullptr` passed as the `picture` argument."
+        },
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the `picture` is already loaded."
+        }
+      ],
+      "notes": [
+        "This function must be called before tvg_picture_load() Setting the resolver after loading will have no effect on asset resolution for that asset.",
+        "If `false` is returned by `resolver`, ThorVG will attempt to resolve the resource using its internal resolution mechanism as a fallback.",
+        "To unset the resolver, pass `nullptr` as the `resolver` parameter.",
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "Tvg_Picture_Asset_Resolver"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_picture_set_size",
+      "kind": "function",
+      "line": 2136,
+      "signature": "Tvg_Result tvg_picture_set_size(Tvg_Paint picture, float w, float h)",
+      "brief": "Resizes the picture content to the given width and height.",
+      "description": [
+        "The picture content is resized while keeping the default size aspect ratio. The scaling factor is established for each of dimensions and the smaller value is applied to both of them."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "w",
+          "type": "float",
+          "description": "A new width of the image in pixels."
+        },
+        {
+          "name": "h",
+          "type": "float",
+          "description": "A new height of the image in pixels."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_get_size",
+      "kind": "function",
+      "line": 2146,
+      "signature": "Tvg_Result tvg_picture_get_size(const Tvg_Paint picture, float* w, float* h)",
+      "brief": "Gets the size of the loaded picture.",
+      "description": [],
+      "params": [
+        {
+          "name": "picture",
+          "type": "const Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "w",
+          "type": "float*",
+          "description": "A width of the image in pixels."
+        },
+        {
+          "name": "h",
+          "type": "float*",
+          "description": "A height of the image in pixels."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_set_origin",
+      "kind": "function",
+      "line": 2179,
+      "signature": "Tvg_Result tvg_picture_set_origin(Tvg_Paint picture, float x, float y)",
+      "brief": "Sets the normalized origin point of the Picture object.",
+      "description": [
+        "This method defines the origin point of the Picture using normalized coordinates. Unlike a typical pivot point used only for transformations, this origin affects both the transformation behavior and the actual rendering position of the Picture.",
+        "The specified origin becomes the reference point for positioning the Picture on the canvas. For example, setting the origin to (0.5f, 0.5f) moves the visual center of the picture to the position specified by Paint::translate().",
+        "The coordinates are given in a normalized range relative to the picture's bounds: - (0.0f, 0.0f): top-left corner - (0.5f, 0.5f): center - (1.0f, 1.0f): bottom-right corner"
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "x",
+          "type": "float",
+          "description": "The normalized x-coordinate of the origin point (range: 0.0f to 1.0f)."
+        },
+        {
+          "name": "y",
+          "type": "float",
+          "description": "The normalized y-coordinate of the origin point (range: 0.0f to 1.0f)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "This origin directly affects how the Picture is placed on the canvas when using transformations such as translate(), rotate(), or scale()."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_paint_translate()",
+        "tvg_paint_rotate()",
+        "tvg_paint_scale()",
+        "tvg_paint_set_transform()",
+        "tvg_picture_get_origin()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_get_origin",
+      "kind": "function",
+      "line": 2194,
+      "signature": "Tvg_Result tvg_picture_get_origin(const Tvg_Paint picture, float* x, float* y)",
+      "brief": "Gets the normalized origin point of the Picture object.",
+      "description": [
+        "This method retrieves the current origin point of the Picture, expressed in normalized coordinates relative to the picture’s bounds."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "const Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "x",
+          "type": "float*",
+          "description": "The normalized x-coordinate of the origin (range: 0.0f to 1.0f)."
+        },
+        {
+          "name": "y",
+          "type": "float*",
+          "description": "The normalized y-coordinate of the origin (range: 0.0f to 1.0f)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_picture_set_origin()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_get_paint",
+      "kind": "function",
+      "line": 2211,
+      "signature": "Tvg_Paint tvg_picture_get_paint(Tvg_Paint picture, uint32_t id)",
+      "brief": "Retrieve a paint object from the Picture scene by its Unique ID.",
+      "description": [
+        "This function searches for a paint object within the Picture scene that matches the provided `id`."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The picture object."
+        },
+        {
+          "name": "id",
+          "type": "uint32_t",
+          "description": "The Unique ID of the paint object."
+        }
+      ],
+      "returns": "The paint object that matches the given identifier, or `nullptr` if no matching paint object is found.",
+      "retvals": [],
+      "notes": [
+        "Setting tvg_picture_set_accessible() to `true` enables more efficient access."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_accessor_generate_id()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_set_filter",
+      "kind": "function",
+      "line": 2225,
+      "signature": "Tvg_Result tvg_picture_set_filter(Tvg_Paint picture, Tvg_Filter_Method method)",
+      "brief": "Sets the image filtering method for rendering this picture.",
+      "description": [
+        "Specifies how the image data should be filtered when it is scaled or transformed during rendering. This affects the visual quality and performance of the output."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "A Tvg_Paint pointer to the picture object."
+        },
+        {
+          "name": "method",
+          "type": "Tvg_Filter_Method",
+          "description": "The filtering method to apply. The initial value is `TVG_FILTER_METHOD_BILINEAR`."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Tvg_Filter_Method"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_picture_set_accessible",
+      "kind": "function",
+      "line": 2246,
+      "signature": "Tvg_Result tvg_picture_set_accessible(Tvg_Paint picture, bool accessible)",
+      "brief": "Enable or disable accessible mode for a Picture.",
+      "description": [
+        "When accessible mode is enabled, the Picture maintains an internal mapping of ID-accessible vector assets nodes (such as SVG), allowing efficient access to Paint objects and their associated identifier information via Accessor APIs.",
+        "When disabled, no additional mapping is maintained and all nodes are treated as general traversal targets."
+      ],
+      "params": [
+        {
+          "name": "picture",
+          "type": "Tvg_Paint",
+          "description": "The target Picture object."
+        },
+        {
+          "name": "accessible",
+          "type": "bool",
+          "description": "Set to `true` to enable accessible mode, or `false` to disable it."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_accessor_generate_id()",
+        "tvg_accessor_get_name()",
+        "tvg_picture_get_paint()"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

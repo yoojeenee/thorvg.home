@@ -1,0 +1,95 @@
+{
+  "name": "SceneEffect",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration that defines methods used for Scene Effects.",
+  "description": [
+    "This enum provides options to apply various post-processing effects to a scene. Scene effects are typically applied to modify the final appearance of a rendered scene, such as blurring."
+  ],
+  "since": "1.0",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "Scene::add(SceneEffect effect",
+    "...)"
+  ],
+  "source": "inc/thorvg.h:281",
+  "members": [
+    {
+      "name": "Clear",
+      "kind": "enumerator",
+      "line": 282,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "Clear all previously applied scene effects, restoring the scene to its original state.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "GaussianBlur",
+      "kind": "enumerator",
+      "line": 283,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Apply a blur effect with a Gaussian filter. Param(4) = {sigma(double)[> 0], direction(int)[both: 0 / horizontal: 1 / vertical: 2], border(int)[duplicate: 0 / wrap: 1], quality(int)[0 - 100]}",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "DropShadow",
+      "kind": "enumerator",
+      "line": 284,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Apply a drop shadow effect with a Gaussian Blur filter. Param(8) = {color_R(int)[0 - 255], color_G(int)[0 - 255], color_B(int)[0 - 255], opacity(int)[0 - 255], angle(double)[0 - 360], distance(double), blur_sigma(double)[> 0], quality(int)[0 - 100]}",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Fill",
+      "kind": "enumerator",
+      "line": 285,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Override the scene content color with a given fill information. Param(4) = {color_R(int)[0 - 255], color_G(int)[0 - 255], color_B(int)[0 - 255], opacity(int)[0 - 255]}",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Tint",
+      "kind": "enumerator",
+      "line": 286,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Tinting the current scene color with a given black, white color parameters. Param(7) = {black_R(int)[0 - 255], black_G(int)[0 - 255], black_B(int)[0 - 255], white_R(int)[0 - 255], white_G(int)[0 - 255], white_B(int)[0 - 255], intensity(double)[0 - 100]}",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Tritone",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Apply a tritone color effect to the scene using three color parameters for shadows, midtones, and highlights. A blending factor determines the mix between the original color and the tritone colors. Param(9) = {Shadow_R(int)[0 - 255], Shadow_G(int)[0 - 255], Shadow_B(int)[0 - 255], Midtone_R(int)[0 - 255], Midtone_G(int)[0 - 255], Midtone_B(int)[0 - 255], Highlight_R(int)[0 - 255], Highlight_G(int)[0 - 255], Highlight_B(int)[0 - 255], Blend(int)[0 - 255]}",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

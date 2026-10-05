@@ -1,0 +1,51 @@
+{
+  "name": "GradientSpread",
+  "kind": "enum",
+  "brief": "Gradient spread method for areas outside the gradient bounds.",
+  "description": [
+    "Determines how the gradient behaves in regions outside the defined gradient vector."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Gradients",
+  "signature": "export enum GradientSpread",
+  "source": "src/common/constants.ts:119",
+  "members": [
+    {
+      "name": "Pad",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Extend the edge colors to infinity (default)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 121
+    },
+    {
+      "name": "Reflect",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Mirror the gradient pattern",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 123
+    },
+    {
+      "name": "Repeat",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Repeat the gradient pattern",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 125
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,18 @@
+{
+  "name": "AudioResolver",
+  "kind": "type",
+  "brief": "Audio resolver callback",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "LottieAnimation",
+  "signature": "export type AudioResolver = (info: AudioInfo) => void;",
+  "source": "src/core/LottieAnimation.ts:73",
+  "members": [],
+  "nested": []
+}

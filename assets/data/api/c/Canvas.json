@@ -1,0 +1,314 @@
+{
+  "name": "Canvas",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_canvas_destroy",
+      "kind": "function",
+      "line": 703,
+      "signature": "Tvg_Result tvg_canvas_destroy(Tvg_Canvas canvas)",
+      "brief": "Clears the canvas internal data, releases all paints stored by the canvas and destroys the canvas object itself.",
+      "description": [],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "The canvas object to be destroyed."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_add",
+      "kind": "function",
+      "line": 729,
+      "signature": "Tvg_Result tvg_canvas_add(Tvg_Canvas canvas, Tvg_Paint paint)",
+      "brief": "Adds a paint object to the canvas for rendering.",
+      "description": [
+        "Adds the specified paint into the canvas root scene. Only paints added to the canvas are considered rendering targets. The canvas retains the paint object until it is explicitly removed via tvg_canvas_remove()."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "A handle to the canvas that will manage the paint object."
+        },
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "A handle to the paint object to be rendered."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the canvas is not in a valid state to accept new paints."
+        }
+      ],
+      "notes": [
+        "Ownership of the `paint` object is transferred to the canvas upon successful addition. To retain ownership, call tvg_paint_ref() before adding it to the canvas.",
+        "The rendering order of paint objects follows the order in which they are added to the canvas. If layering is required, ensure paints are added in the desired order."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_insert()",
+        "tvg_canvas_remove()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_insert",
+      "kind": "function",
+      "line": 759,
+      "signature": "Tvg_Result tvg_canvas_insert(Tvg_Canvas canvas, Tvg_Paint target, Tvg_Paint at)",
+      "brief": "Inserts a paint object into the canvas root scene.",
+      "description": [
+        "Inserts a paint object into the root scene of the specified canvas. If the `at` parameter is provided, the paint object is inserted immediately before the specified paint in the root scene. If `at` is `nullptr`, the paint object is appended to the end of the root scene."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "A handle to the canvas that will manage the paint object. This parameter must be a valid canvas handle."
+        },
+        {
+          "name": "target",
+          "type": "Tvg_Paint",
+          "description": "A handle to the paint object to be inserted into the root scene. This parameter must not be `nullptr`."
+        },
+        {
+          "name": "at",
+          "type": "Tvg_Paint",
+          "description": "A handle to an existing paint object in the root scene before which `target` will be inserted. If `nullptr`, `target` is appended to the end of the root scene."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Ownership of the `target` object is transferred to the canvas upon successful addition. To retain ownership, call tvg_paint_ref() before adding it to the canvas.",
+        "The rendering order of paint objects follows their order in the root scene. If layering is required, ensure paints are inserted in the desired order."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_add()",
+        "tvg_canvas_remove()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_remove",
+      "kind": "function",
+      "line": 776,
+      "signature": "Tvg_Result tvg_canvas_remove(Tvg_Canvas canvas, Tvg_Paint paint)",
+      "brief": "Removes a paint object from the root scene.",
+      "description": [
+        "This function removes a specified paint object from the root scene. If no paint object is specified (i.e., the default `nullptr` is used), the function performs to clear all paints from the scene."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "A canvas object to remove the `paint`."
+        },
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The paint object to be removed from the root scene. If `nullptr`, remove all the paints from the root scene."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_add()",
+        "tvg_canvas_insert()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_update",
+      "kind": "function",
+      "line": 795,
+      "signature": "Tvg_Result tvg_canvas_update(Tvg_Canvas canvas)",
+      "brief": "Requests the canvas to update modified paint objects in preparation for rendering.",
+      "description": [
+        "This function triggers an internal update for all paint instances that have been modified since the last update. It ensures that the canvas state is ready for accurate rendering."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "The canvas object to be updated."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "The canvas is not properly prepared. This may occur if the canvas target has not been set or if the update is called during drawing. Call tvg_canvas_sync() before trying."
+        }
+      ],
+      "notes": [
+        "Only paint objects that have been changed will be processed.",
+        "If the canvas is configured with multiple threads, the update may be performed asynchronously."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_sync()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_draw",
+      "kind": "function",
+      "line": 816,
+      "signature": "Tvg_Result tvg_canvas_draw(Tvg_Canvas canvas, bool clear)",
+      "brief": "Requests the canvas to render the Paint objects.",
+      "description": [],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "The canvas object containing elements to be drawn."
+        },
+        {
+          "name": "clear",
+          "type": "bool",
+          "description": "If `true`, clears the target buffer to zero before drawing."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "The canvas is not properly prepared. This may occur if the canvas target has not been set or if the update is called during drawing. without calling tvg_canvas_sync() in between."
+        }
+      ],
+      "notes": [
+        "Clearing the buffer is unnecessary if the canvas will be fully covered with opaque content. Skipping the clear can improve performance.",
+        "Drawing may be performed asynchronously if the thread count is greater than zero. To ensure the drawing process is complete, call sync() afterwards.",
+        "If the canvas has not been updated prior to tvg_canvas_draw(), it may implicitly perform tvg_canvas_update()"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_sync()",
+        "tvg_canvas_update()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_sync",
+      "kind": "function",
+      "line": 829,
+      "signature": "Tvg_Result tvg_canvas_sync(Tvg_Canvas canvas)",
+      "brief": "Guarantees that drawing task is finished.",
+      "description": [],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "The canvas object containing elements which were drawn. The Canvas rendering can be performed asynchronously. To make sure that rendering is finished, the tvg_canvas_sync() must be called after the tvg_canvas_draw() regardless of threading."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_draw()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_canvas_set_viewport",
+      "kind": "function",
+      "line": 858,
+      "signature": "Tvg_Result tvg_canvas_set_viewport(Tvg_Canvas canvas, int32_t x, int32_t y, int32_t w, int32_t h)",
+      "brief": "Sets the drawing region of the canvas.",
+      "description": [
+        "This function defines a rectangular area of the canvas to be used for drawing operations. The specified viewport clips rendering output to the boundaries of that rectangle.",
+        "Please note that changing the viewport is only allowed at the beginning of the rendering sequence—that is, after calling tvg_canvas_sync()."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "The canvas object containing elements which were drawn."
+        },
+        {
+          "name": "x",
+          "type": "int32_t",
+          "description": "The x-coordinate of the upper-left corner of the rectangle."
+        },
+        {
+          "name": "y",
+          "type": "int32_t",
+          "description": "The y-coordinate of the upper-left corner of the rectangle."
+        },
+        {
+          "name": "w",
+          "type": "int32_t",
+          "description": "The width of the rectangle."
+        },
+        {
+          "name": "h",
+          "type": "int32_t",
+          "description": "The height of the rectangle."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the canvas is not in a synced state."
+        }
+      ],
+      "notes": [
+        "When the target is reset, the viewport will also be reset to match the target size."
+      ],
+      "warnings": [
+        "Changing the viewport is not allowed after calling tvg_canvas_add(), tvg_canvas_remove(), tvg_canvas_update(), or tvg_canvas_draw()."
+      ],
+      "see": [
+        "tvg_canvas_sync()",
+        "tvg_swcanvas_set_target()",
+        "tvg_glcanvas_set_target()",
+        "tvg_wgcanvas_set_target()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

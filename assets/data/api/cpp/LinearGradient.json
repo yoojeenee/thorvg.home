@@ -1,0 +1,162 @@
+{
+  "name": "LinearGradient",
+  "kind": "struct",
+  "base": "Fill",
+  "final": false,
+  "brief": "A class representing the linear gradient fill of the Shape object.",
+  "description": [
+    "Besides the APIs inherited from the Fill class, it enables setting and getting the linear gradient bounds. The behavior outside the gradient bounds depends on the value specified in the spread API."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "This class is not designed for inheritance."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:1065",
+  "members": [
+    {
+      "name": "linear",
+      "kind": "method",
+      "line": 1081,
+      "signature": "Result linear(float x1, float y1, float x2, float y2) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the linear gradient bounds.",
+      "description": [
+        "The bounds of the linear gradient are defined as a surface constrained by two parallel lines crossing the given points (`x1`, `y1`) and (`x2`, `y2`), respectively. Both lines are perpendicular to the line linking (`x1`, `y1`) and (`x2`, `y2`)."
+      ],
+      "params": [
+        {
+          "name": "x1",
+          "direction": "in",
+          "description": "The horizontal coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "y1",
+          "direction": "in",
+          "description": "The vertical coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "x2",
+          "direction": "in",
+          "description": "The horizontal coordinate of the second point used to determine the gradient bounds."
+        },
+        {
+          "name": "y2",
+          "direction": "in",
+          "description": "The vertical coordinate of the second point used to determine the gradient bounds."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "In case the first and the second points are equal, an object is filled with a single color using the last color specified in the colorStops()."
+      ],
+      "warnings": [],
+      "see": [
+        "Fill::colorStops()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "linear",
+      "kind": "method",
+      "line": 1095,
+      "signature": "Result linear(float* x1, float* y1, float* x2, float* y2) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the linear gradient bounds.",
+      "description": [
+        "The bounds of the linear gradient are defined as a surface constrained by two parallel lines crossing the given points (`x1`, `y1`) and (`x2`, `y2`), respectively. Both lines are perpendicular to the line linking (`x1`, `y1`) and (`x2`, `y2`)."
+      ],
+      "params": [
+        {
+          "name": "x1",
+          "direction": "out",
+          "description": "The horizontal coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "y1",
+          "direction": "out",
+          "description": "The vertical coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "x2",
+          "direction": "out",
+          "description": "The horizontal coordinate of the second point used to determine the gradient bounds."
+        },
+        {
+          "name": "y2",
+          "direction": "out",
+          "description": "The vertical coordinate of the second point used to determine the gradient bounds."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 1102,
+      "signature": "static LinearGradient* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new LinearGradient object.",
+      "description": [],
+      "params": [],
+      "returns": "A new LinearGradient object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "type",
+      "kind": "method",
+      "line": 1113,
+      "signature": "Type type() const noexcept override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the ID value of this class.",
+      "description": [
+        "This method can be used to check the current concrete instance type."
+      ],
+      "params": [],
+      "returns": "The class type ID of the LinearGradient instance.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

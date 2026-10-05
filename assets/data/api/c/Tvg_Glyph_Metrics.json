@@ -1,0 +1,56 @@
+{
+  "name": "Tvg_Glyph_Metrics",
+  "kind": "struct",
+  "brief": "Describes the layout metrics of a glyph.",
+  "description": [
+    "Provides the basic layout metrics used for positioning an individual glyph, including its advance along the baseline direction, bearing relative to the inline axis origin, and its bounding box in local glyph space.",
+    "The advance value represents the distance the pen position moves along the baseline (inline direction), regardless of whether the text is laid out horizontally or vertically.",
+    "The bounding box is defined in the glyph’s local coordinate space and is independent of any layout direction or transformation."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [
+    "Experimental API"
+  ],
+  "warnings": [],
+  "see": [
+    "tvg_text_get_glyph_metrics()"
+  ],
+  "source": "src/bindings/capi/thorvg_capi.h:401",
+  "members": [
+    {
+      "name": "advance",
+      "type": "float",
+      "brief": "The advance distance along the baseline (inline) direction.",
+      "since": null,
+      "experimental": false,
+      "line": 404
+    },
+    {
+      "name": "bearing",
+      "type": "float",
+      "brief": "The bearing from the origin to the glyph’s visible bound along the inline-start direction.",
+      "since": null,
+      "experimental": false,
+      "line": 405
+    },
+    {
+      "name": "min",
+      "type": "Tvg_Point",
+      "brief": "The minimum point of the glyph bounding box in local space.",
+      "since": null,
+      "experimental": false,
+      "line": 406
+    },
+    {
+      "name": "max",
+      "type": "Tvg_Point",
+      "brief": "The maximum point of the glyph bounding box in local space.",
+      "since": null,
+      "experimental": false,
+      "line": 407
+    }
+  ],
+  "nested": []
+}

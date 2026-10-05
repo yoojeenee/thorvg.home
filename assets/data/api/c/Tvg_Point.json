@@ -1,0 +1,32 @@
+{
+  "name": "Tvg_Point",
+  "kind": "struct",
+  "brief": "A data structure representing a point in two-dimensional space.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:123",
+  "members": [
+    {
+      "name": "x",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 126
+    },
+    {
+      "name": "y",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 126
+    }
+  ],
+  "nested": []
+}

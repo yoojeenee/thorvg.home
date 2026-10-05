@@ -1,0 +1,52 @@
+{
+  "name": "FontProvider",
+  "kind": "interface",
+  "brief": "Interface for pluggable font sources.",
+  "description": [
+    "A font provider resolves a font name into binary font data. Implement this interface to load fonts from any source — a self-hosted CDN, a local server, or any custom storage."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "TVG.Font.provider({\n  fetch: async (name) => {\n    const res = await fetch(`/my-fonts/${name}.ttf`);\n    return { data: new Uint8Array(await res.arrayBuffer()), type: 'ttf' };\n  }\n});\n\nawait TVG.Font.load('my-font');"
+  ],
+  "category": "Font",
+  "signature": "export interface FontProvider",
+  "source": "src/core/FontProvider.ts:40",
+  "members": [
+    {
+      "name": "fetch",
+      "kind": "method",
+      "signature": "fetch(name: string, options?: Record<string, unknown>): Promise<FontProviderResult>",
+      "static": false,
+      "brief": "Fetch font data by name.",
+      "description": [],
+      "params": [
+        {
+          "name": "name",
+          "direction": null,
+          "description": "Font name as provided by the caller"
+        },
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Provider-specific options"
+        }
+      ],
+      "returns": "Font binary data and format",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 47
+    }
+  ],
+  "nested": []
+}

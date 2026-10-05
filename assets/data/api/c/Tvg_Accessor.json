@@ -1,0 +1,15 @@
+{
+  "name": "Tvg_Accessor",
+  "kind": "handle",
+  "brief": "A structure representing an object that enables iterating through a scene's descendents.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:92",
+  "members": [],
+  "nested": []
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Tvg_Gradient",
+  "kind": "handle",
+  "brief": "A structure representing a gradient fill of a Tvg_Paint object.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:77",
+  "members": [],
+  "nested": []
+}

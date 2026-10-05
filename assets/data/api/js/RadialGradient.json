@@ -1,0 +1,58 @@
+{
+  "name": "RadialGradient",
+  "kind": "class",
+  "brief": "Radial gradient for filling shapes",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Basic radial gradient\nconst gradient = new TVG.RadialGradient(200, 200, 100);\ngradient.addStop(0, [255, 255, 255, 255])  // White center\n        .addStop(1, [100, 100, 255, 255]);  // Blue edge\n\nconst shape = new TVG.Shape();\nshape.appendCircle(200, 200, 100)\n     .fillGradient(gradient);\n\ncanvas.add(shape);",
+    "// Radial gradient with focal point\n// Create gradient with offset focal point for lighting effect\nconst gradient = new TVG.RadialGradient(\n  200, 200, 100,  // Center and radius\n  170, 170, 0     // Focal point (offset)\n);\ngradient.addStop(0, [255, 255, 200, 255])\n        .addStop(1, [255, 100, 100, 255]);\n\nconst shape = new TVG.Shape();\nshape.appendCircle(200, 200, 100)\n     .fillGradient(gradient);\n\ncanvas.add(shape);"
+  ],
+  "category": "Gradients",
+  "signature": "export class RadialGradient extends Fill",
+  "source": "src/core/RadialGradient.ts:46",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(cx: number, cy: number, r: number, fx: number = cx, fy: number = cy, fr: number = 0)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 47
+    },
+    {
+      "name": "build",
+      "kind": "method",
+      "signature": "build(): this",
+      "static": false,
+      "brief": "Build the gradient (apply all color stops) This should be called after all addStop() calls",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 58
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,67 @@
+{
+  "name": "Bounds",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Shapes",
+  "signature": "export interface Bounds",
+  "source": "src/core/Paint.ts:9",
+  "members": [
+    {
+      "name": "x",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 10
+    },
+    {
+      "name": "y",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 11
+    },
+    {
+      "name": "width",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 12
+    },
+    {
+      "name": "height",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 13
+    }
+  ],
+  "nested": []
+}

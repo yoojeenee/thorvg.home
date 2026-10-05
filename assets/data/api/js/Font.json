@@ -1,0 +1,160 @@
+{
+  "name": "Font",
+  "kind": "class",
+  "brief": "Font loader class for managing custom fonts. Fonts are loaded globally and can be referenced by name in `Text` objects.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Load font from raw data\nconst fontData = await fetch('/fonts/Roboto-Regular.ttf').then(r => r.arrayBuffer());\nTVG.Font.load('Roboto', new Uint8Array(fontData));\n\nconst text = new TVG.Text();\ntext.font('Roboto').fontSize(48).text('Hello!').fill(50, 50, 50);",
+    "// Auto-load from the configured font provider (fontsource CDN by default)\nawait TVG.Font.load('poppins');\nawait TVG.Font.load('roboto', { weight: 700, style: 'italic' });\n\nconst text = new TVG.Text();\ntext.font('poppins').fontSize(48).text('Hello!').fill(50, 50, 50);",
+    "// Use a custom font provider\nTVG.Font.provider({\n  fetch: async (name) => {\n    const res = await fetch(`/my-fonts/${name}.ttf`);\n    return { data: new Uint8Array(await res.arrayBuffer()), type: 'ttf' };\n  }\n});\n\nawait TVG.Font.load('my-font');"
+  ],
+  "category": "Font",
+  "signature": "export class Font",
+  "source": "src/core/Font.ts:65",
+  "members": [
+    {
+      "name": "provider",
+      "kind": "method",
+      "signature": "static provider(provider: FontProvider): void",
+      "static": true,
+      "brief": "Set the font provider used when calling `Font.load()` without raw data.",
+      "description": [
+        "The default provider fetches from the [fontsource](https://fontsource.org) CDN. Replace it to load fonts from your own CDN or any other source."
+      ],
+      "params": [
+        {
+          "name": "provider",
+          "direction": null,
+          "description": "A `FontProvider` implementation"
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "TVG.Font.provider({\n  fetch: async (name) => {\n    const res = await fetch(`https://my-cdn.com/fonts/${name}.ttf`);\n    return { data: new Uint8Array(await res.arrayBuffer()), type: 'ttf' };\n  }\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 87
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "signature": "static load(name: string, data: Uint8Array, options?: LoadFontOptions): void",
+      "static": true,
+      "brief": "Load font from raw data.",
+      "description": [],
+      "params": [
+        {
+          "name": "name",
+          "direction": null,
+          "description": "Unique name to identify this font"
+        },
+        {
+          "name": "data",
+          "direction": null,
+          "description": "Raw font binary data"
+        },
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Load options"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 98
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "signature": "static load(name: string, options?: Record<string, unknown>): Promise<void>",
+      "static": true,
+      "brief": "Auto-load a font using the configured font provider.",
+      "description": [
+        "With the default `FontsourceProvider`, the name must match a fontsource package slug (e.g. `'poppins'`, `'open-sans'`)."
+      ],
+      "params": [
+        {
+          "name": "name",
+          "direction": null,
+          "description": "Font name passed to the provider"
+        },
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Provider-specific options (see `FontsourceOptions` for defaults)"
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "await TVG.Font.load('poppins');\nawait TVG.Font.load('roboto', { weight: 700 });\nawait TVG.Font.load('noto-sans', { subset: 'latin-ext' });"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 116
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "signature": "static load( name: string, dataOrOptions?: Uint8Array | Record<string, unknown>, loadOptions?: LoadFontOptions, ): void | Promise<void>",
+      "static": true,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 118
+    },
+    {
+      "name": "unload",
+      "kind": "method",
+      "signature": "static unload(name: string): void",
+      "static": true,
+      "brief": "Unload a previously loaded font.",
+      "description": [],
+      "params": [
+        {
+          "name": "name",
+          "direction": null,
+          "description": "Font name to unload"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 149
+    }
+  ],
+  "nested": []
+}

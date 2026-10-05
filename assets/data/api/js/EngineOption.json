@@ -1,0 +1,51 @@
+{
+  "name": "EngineOption",
+  "kind": "enum",
+  "brief": "Enumeration to specify rendering engine behavior.",
+  "description": [
+    "The availability or behavior of SmartRender may vary depending on backend support. Currently only the 'sw' renderer supports SmartRender."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Canvas",
+  "signature": "export enum EngineOption",
+  "source": "src/common/constants.ts:166",
+  "members": [
+    {
+      "name": "None",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "No engine options are enabled. This may be used to explicitly disable all optional behaviors.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 168
+    },
+    {
+      "name": "Default",
+      "kind": "enumerator",
+      "value": "1 << 0",
+      "brief": "Uses the default rendering mode.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 170
+    },
+    {
+      "name": "SmartRender",
+      "kind": "enumerator",
+      "value": "1 << 1",
+      "brief": "Enables automatic partial (smart) rendering optimizations.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 172
+    }
+  ],
+  "nested": []
+}

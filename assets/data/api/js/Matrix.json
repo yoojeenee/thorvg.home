@@ -1,0 +1,130 @@
+{
+  "name": "Matrix",
+  "kind": "interface",
+  "brief": "A 3x3 transformation matrix for 2D transformations.",
+  "description": [
+    "The matrix elements represent: - e11, e12: Rotation/scale in X - e21, e22: Rotation/scale in Y - e13, e23: Translation in X and Y - e31, e32: Always 0 (reserved for 3D) - e33: Always 1 (homogeneous coordinate)",
+    "Matrix layout: ``` | e11  e12  e13 | | e21  e22  e23 | | e31  e32  e33 | ```"
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Shapes",
+  "signature": "export interface Matrix",
+  "source": "src/core/Paint.ts:43",
+  "members": [
+    {
+      "name": "e11",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 44
+    },
+    {
+      "name": "e12",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 45
+    },
+    {
+      "name": "e13",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 46
+    },
+    {
+      "name": "e21",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 47
+    },
+    {
+      "name": "e22",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 48
+    },
+    {
+      "name": "e23",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 49
+    },
+    {
+      "name": "e31",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 50
+    },
+    {
+      "name": "e32",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 51
+    },
+    {
+      "name": "e33",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 52
+    }
+  ],
+  "nested": []
+}

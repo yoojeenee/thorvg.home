@@ -1,0 +1,467 @@
+{
+  "name": "Video",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_video_new",
+      "kind": "function",
+      "line": 3468,
+      "signature": "Tvg_Video tvg_video_new(void)",
+      "brief": "Creates a new video playback.",
+      "description": [],
+      "params": [],
+      "returns": "Tvg_Video A new video object.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_del",
+      "kind": "function",
+      "line": 3477,
+      "signature": "Tvg_Result tvg_video_del(Tvg_Video video)",
+      "brief": "Releases the given video object and its resources.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object to release."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_get_picture",
+      "kind": "function",
+      "line": 3494,
+      "signature": "Tvg_Paint tvg_video_get_picture(Tvg_Video video)",
+      "brief": "Retrieves the picture instance associated with this video object.",
+      "description": [
+        "This function provides access to the internal picture used by the video object for rendering video frames. After obtaining the picture, it can be added to a canvas enabling control over video frames with this Video object."
+      ],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": "A picture instance representing the visual content of the video.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [
+        "The picture instance is owned by the video object and should not be deleted manually."
+      ],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_play",
+      "kind": "function",
+      "line": 3505,
+      "signature": "Tvg_Result tvg_video_play(Tvg_Video video)",
+      "brief": "Starts or resumes playback.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not loaded."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_pause",
+      "kind": "function",
+      "line": 3516,
+      "signature": "Tvg_Result tvg_video_pause(Tvg_Video video)",
+      "brief": "Pauses playback while keeping the current position.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not started playing."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_stop",
+      "kind": "function",
+      "line": 3527,
+      "signature": "Tvg_Result tvg_video_stop(Tvg_Video video)",
+      "brief": "Stops playback and rewinds to the start.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not loaded."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_seek",
+      "kind": "function",
+      "line": 3540,
+      "signature": "Tvg_Result tvg_video_seek(Tvg_Video video, float seconds)",
+      "brief": "Sets the playback position.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        },
+        {
+          "name": "seconds",
+          "type": "float",
+          "description": "The target playback position in seconds."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not loaded."
+        },
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "If `seconds` is out of range."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_set_loop",
+      "kind": "function",
+      "line": 3555,
+      "signature": "Tvg_Result tvg_video_set_loop(Tvg_Video video, bool on)",
+      "brief": "Enables or disables repeated playback.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        },
+        {
+          "name": "on",
+          "type": "bool",
+          "description": "`true` to repeat playback, `false` to play once. The initial value is `false`."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not loaded."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_get_loop()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_get_loop",
+      "kind": "function",
+      "line": 3566,
+      "signature": "bool tvg_video_get_loop(Tvg_Video video)",
+      "brief": "Retrieves whether repeated playback is enabled.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": ""
+        }
+      ],
+      "returns": "`true` if repeated playback is enabled, `false` otherwise.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_set_loop()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_set_volume",
+      "kind": "function",
+      "line": 3582,
+      "signature": "Tvg_Result tvg_video_set_volume(Tvg_Video video, float volume)",
+      "brief": "Sets the audio volume level.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        },
+        {
+          "name": "volume",
+          "type": "float",
+          "description": "The audio volume level in the range [0.0, 1.0]. The initial value is @c 1.0."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "If `volume` is out of range."
+        },
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not loaded."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_get_volume()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_get_volume",
+      "kind": "function",
+      "line": 3595,
+      "signature": "float tvg_video_get_volume(Tvg_Video video)",
+      "brief": "Retrieves the current audio volume level.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": "The current audio volume level in the range [0.0, 1.0].",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_set_volume()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_set_mute",
+      "kind": "function",
+      "line": 3610,
+      "signature": "Tvg_Result tvg_video_set_mute(Tvg_Video video, bool on)",
+      "brief": "Mutes or unmutes the audio without changing the volume level.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        },
+        {
+          "name": "on",
+          "type": "bool",
+          "description": "`true` to mute the audio, `false` to unmute. The initial value is `false`."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the video is not loaded."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_get_muted()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_get_muted",
+      "kind": "function",
+      "line": 3623,
+      "signature": "bool tvg_video_get_muted(Tvg_Video video)",
+      "brief": "Retrieves whether the audio is currently muted.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": "`true` if the audio is muted, `false` otherwise.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_set_mute()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_get_time",
+      "kind": "function",
+      "line": 3637,
+      "signature": "float tvg_video_get_time(Tvg_Video video)",
+      "brief": "Retrieves the current playback position.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": "The current playback position in seconds.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_video_seek()",
+        "tvg_video_get_duration()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_video_get_duration",
+      "kind": "function",
+      "line": 3648,
+      "signature": "float tvg_video_get_duration(Tvg_Video video)",
+      "brief": "Retrieves the total duration of the video.",
+      "description": [],
+      "params": [
+        {
+          "name": "video",
+          "type": "Tvg_Video",
+          "description": "The video object."
+        }
+      ],
+      "returns": "The total duration in seconds.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    }
+  ],
+  "nested": []
+}

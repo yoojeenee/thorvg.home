@@ -1,0 +1,15 @@
+{
+  "name": "Tvg_Saver",
+  "kind": "handle",
+  "brief": "A structure representing an object that enables to save a Tvg_Paint object into a file.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:82",
+  "members": [],
+  "nested": []
+}

@@ -1,0 +1,118 @@
+{
+  "name": "Accessor",
+  "kind": "class",
+  "brief": "Utility class for traversing and inspecting paint trees",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Accessor",
+  "signature": "export class Accessor extends WasmObject",
+  "source": "src/core/Accessor.ts:11",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor()",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 12
+    },
+    {
+      "name": "id",
+      "kind": "method",
+      "signature": "static id(name: string): number",
+      "static": true,
+      "brief": "Generate a unique hash ID from a string name (DJB2 hash).",
+      "description": [],
+      "params": [
+        {
+          "name": "name",
+          "direction": null,
+          "description": "The string name to hash"
+        }
+      ],
+      "returns": "The generated hash ID",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 28
+    },
+    {
+      "name": "set",
+      "kind": "method",
+      "signature": "set(paint: Paint, callback: (paint: Paint) => boolean): void",
+      "static": false,
+      "brief": "Traverse the scene tree of a paint and invoke a callback on the paint and each of its descendants. The callback receives the correctly typed Paint subclass (Shape, Scene, Picture, or Text). Return false from the callback to stop traversal early.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "direction": null,
+          "description": "The root paint node to traverse, typically a Picture or Scene"
+        },
+        {
+          "name": "callback",
+          "direction": null,
+          "description": "Called for the root and each descendant paint. Return false to stop."
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "const accessor = new TVG.Accessor();\n\naccessor.set(picture, (paint) => {\n  if (paint instanceof TVG.Shape) {\n    paint.fill(0, 0, 255);\n  }\n  return true; // continue traversal\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 61
+    },
+    {
+      "name": "name",
+      "kind": "method",
+      "signature": "name(id: number): string | null",
+      "static": false,
+      "brief": "Retrieve the original name string for a given ID.",
+      "description": [],
+      "params": [
+        {
+          "name": "id",
+          "direction": null,
+          "description": "The unique identifier, e.g. from `Paint.id`"
+        }
+      ],
+      "returns": "The corresponding name, or null if not found or unavailable",
+      "examples": [
+        "const picture = new TVG.Picture();\npicture.accessible = true;\npicture.load(svgData, { type: 'svg' });\n\nconst accessor = new TVG.Accessor();\naccessor.set(picture, (paint) => {\n  if (accessor.name(paint.id) === 'background') paint.fill(255, 0, 0);\n  return true;\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 99
+    }
+  ],
+  "nested": []
+}

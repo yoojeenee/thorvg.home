@@ -1,0 +1,56 @@
+{
+  "name": "Tvg_Color_Stop",
+  "kind": "struct",
+  "brief": "A data structure storing the information about the color and its relative position inside the gradient bounds.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:320",
+  "members": [
+    {
+      "name": "offset",
+      "type": "float",
+      "brief": "The relative position of the color.",
+      "since": null,
+      "experimental": false,
+      "line": 323
+    },
+    {
+      "name": "r",
+      "type": "uint8_t",
+      "brief": "The red color channel value in the range [0 ~ 255].",
+      "since": null,
+      "experimental": false,
+      "line": 324
+    },
+    {
+      "name": "g",
+      "type": "uint8_t",
+      "brief": "The green color channel value in the range [0 ~ 255].",
+      "since": null,
+      "experimental": false,
+      "line": 325
+    },
+    {
+      "name": "b",
+      "type": "uint8_t",
+      "brief": "The blue color channel value in the range [0 ~ 255].",
+      "since": null,
+      "experimental": false,
+      "line": 326
+    },
+    {
+      "name": "a",
+      "type": "uint8_t",
+      "brief": "The alpha channel value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque.",
+      "since": null,
+      "experimental": false,
+      "line": 327
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Tvg_Text_Wrap",
+  "kind": "enum",
+  "brief": "A data structure storing the information about the color and its relative position inside the gradient bounds.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:339",
+  "members": [
+    {
+      "name": "TVG_TEXT_WRAP_NONE",
+      "value": "0",
+      "brief": "Do not wrap text. Text is rendered on a single line and may overflow the bounding area.",
+      "since": null,
+      "experimental": false,
+      "line": 342
+    },
+    {
+      "name": "TVG_TEXT_WRAP_CHARACTER",
+      "value": null,
+      "brief": "Wrap at the character level. If a word cannot fit, it is broken into individual characters to fit the line.",
+      "since": null,
+      "experimental": false,
+      "line": 343
+    },
+    {
+      "name": "TVG_TEXT_WRAP_WORD",
+      "value": null,
+      "brief": "Wrap at the word level. Words that do not fit are moved to the next line.",
+      "since": null,
+      "experimental": false,
+      "line": 344
+    },
+    {
+      "name": "TVG_TEXT_WRAP_SMART",
+      "value": null,
+      "brief": "Smart choose wrapping method: word wrap first, falling back to character wrap if a word does not fit.",
+      "since": null,
+      "experimental": false,
+      "line": 345
+    },
+    {
+      "name": "TVG_TEXT_WRAP_ELLIPSIS",
+      "value": null,
+      "brief": "Truncate overflowing text and append an ellipsis (\"...\") at the end. Typically used for single-line labels.",
+      "since": null,
+      "experimental": false,
+      "line": 346
+    },
+    {
+      "name": "TVG_TEXT_WRAP_HYPHENATION",
+      "value": null,
+      "brief": "Reserved. No Support.",
+      "since": null,
+      "experimental": false,
+      "line": 347
+    }
+  ],
+  "nested": []
+}

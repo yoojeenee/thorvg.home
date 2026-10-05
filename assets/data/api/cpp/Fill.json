@@ -1,0 +1,334 @@
+{
+  "name": "Fill",
+  "kind": "struct",
+  "base": null,
+  "final": false,
+  "brief": "An abstract class representing the gradient fill of the Shape object.",
+  "description": [
+    "It contains the information about the gradient colors and their arrangement inside the gradient bounds. The gradients bounds are defined in the LinearGradient or RadialGradient class, depending on the type of the gradient to be used. It specifies the gradient behavior in case the area defined by the gradient bounds is smaller than the area to be filled."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:814",
+  "members": [
+    {
+      "name": "~Fill",
+      "kind": "destructor",
+      "line": 827,
+      "signature": "virtual ~Fill()",
+      "static": false,
+      "virtual": true,
+      "pure": false,
+      "const": false,
+      "noexcept": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "colorStops",
+      "kind": "method",
+      "line": 835,
+      "signature": "Result colorStops(const ColorStop* colorStops, uint32_t cnt) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the parameters of the colors of the gradient and their position.",
+      "description": [],
+      "params": [
+        {
+          "name": "colorStops",
+          "direction": "in",
+          "description": "An array of ColorStop data structure."
+        },
+        {
+          "name": "cnt",
+          "direction": "in",
+          "description": "The count of the `colorStops` array equal to the colors number used in the gradient."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "spread",
+      "kind": "method",
+      "line": 842,
+      "signature": "Result spread(FillSpread s) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the FillSpread value, which specifies how to fill the area outside the gradient bounds.",
+      "description": [],
+      "params": [
+        {
+          "name": "s",
+          "direction": "in",
+          "description": "The FillSpread value."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "transform",
+      "kind": "method",
+      "line": 851,
+      "signature": "Result transform(const Matrix& m) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the matrix of the affine transformation for the gradient fill.",
+      "description": [
+        "The augmented matrix of the transformation is expected to be given."
+      ],
+      "params": [
+        {
+          "name": "m",
+          "direction": "in",
+          "description": "The 3x3 augmented matrix."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "colorStops",
+      "kind": "method",
+      "line": 860,
+      "signature": "uint32_t colorStops(const ColorStop** colorStops = nullptr) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the parameters of the colors of the gradient, their position and number.",
+      "description": [],
+      "params": [
+        {
+          "name": "colorStops",
+          "direction": "out",
+          "description": "A pointer to the memory location, where the array of the gradient's ColorStop is stored."
+        }
+      ],
+      "returns": "The number of colors used in the gradient. This value corresponds to the length of the `colorStops` array.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "spread",
+      "kind": "method",
+      "line": 867,
+      "signature": "FillSpread spread() const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the FillSpread value of the fill.",
+      "description": [],
+      "params": [],
+      "returns": "The FillSpread value of this Fill.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "transform",
+      "kind": "method",
+      "line": 876,
+      "signature": "Matrix& transform() const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the matrix of the affine transformation of the gradient fill.",
+      "description": [
+        "In case no transformation was applied, the identity matrix is returned."
+      ],
+      "params": [],
+      "returns": "The augmented transformation matrix.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "duplicate",
+      "kind": "method",
+      "line": 885,
+      "signature": "Fill* duplicate() const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Creates a copy of the Fill object.",
+      "description": [
+        "Return a newly created Fill object with the properties copied from the original."
+      ],
+      "params": [],
+      "returns": "A copied Fill object when succeed, `nullptr` otherwise.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "type",
+      "kind": "method",
+      "line": 896,
+      "signature": "virtual Type type() const noexcept = 0",
+      "static": false,
+      "virtual": true,
+      "pure": true,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the ID value of this class.",
+      "description": [
+        "This method can be used to check the current concrete instance type."
+      ],
+      "params": [],
+      "returns": "The class type ID of the Fill instance.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": [
+    {
+      "name": "ColorStop",
+      "kind": "struct",
+      "base": null,
+      "final": false,
+      "brief": "A data structure storing the information about the color and its relative position inside the gradient bounds.",
+      "description": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "source": "inc/thorvg.h:819",
+      "members": [
+        {
+          "name": "offset",
+          "kind": "field",
+          "line": 820,
+          "value": null,
+          "type": "float",
+          "static": false,
+          "brief": "The relative position of the color.",
+          "description": [],
+          "since": null,
+          "experimental": false
+        },
+        {
+          "name": "r",
+          "kind": "field",
+          "line": 821,
+          "value": null,
+          "type": "uint8_t",
+          "static": false,
+          "brief": "The red color channel value in the range [0 ~ 255].",
+          "description": [],
+          "since": null,
+          "experimental": false
+        },
+        {
+          "name": "g",
+          "kind": "field",
+          "line": 822,
+          "value": null,
+          "type": "uint8_t",
+          "static": false,
+          "brief": "The green color channel value in the range [0 ~ 255].",
+          "description": [],
+          "since": null,
+          "experimental": false
+        },
+        {
+          "name": "b",
+          "kind": "field",
+          "line": 823,
+          "value": null,
+          "type": "uint8_t",
+          "static": false,
+          "brief": "The blue color channel value in the range [0 ~ 255].",
+          "description": [],
+          "since": null,
+          "experimental": false
+        },
+        {
+          "name": "a",
+          "kind": "field",
+          "line": 824,
+          "value": null,
+          "type": "uint8_t",
+          "static": false,
+          "brief": "The alpha channel value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque.",
+          "description": [],
+          "since": null,
+          "experimental": false
+        }
+      ],
+      "nested": []
+    }
+  ]
+}

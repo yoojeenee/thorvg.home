@@ -1,0 +1,319 @@
+{
+  "name": "Animation",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_animation_new",
+      "kind": "function",
+      "line": 2937,
+      "signature": "Tvg_Animation tvg_animation_new(void)",
+      "brief": "Creates a new Animation object.",
+      "description": [],
+      "params": [],
+      "returns": "Tvg_Animation A new Tvg_Animation object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_set_frame",
+      "kind": "function",
+      "line": 2955,
+      "signature": "Tvg_Result tvg_animation_set_frame(Tvg_Animation animation, float no)",
+      "brief": "Specifies the current frame in the animation.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "An animation object."
+        },
+        {
+          "name": "no",
+          "type": "float",
+          "description": "The index of the animation frame to be displayed. The index should be less than the tvg_animation_get_total_frame()."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "if the given `no` is the same as the current frame value."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "The picture data does not support animations."
+        }
+      ],
+      "notes": [
+        "For efficiency, ThorVG ignores updates to the new frame value if the difference from the current frame value is less than 0.001. In such cases, it returns `Result::InsufficientCondition`. Values less than 0.001 may be disregarded and may not be accurately retained by the Animation."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_animation_get_total_frame()"
+      ],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_get_picture",
+      "kind": "function",
+      "line": 2972,
+      "signature": "Tvg_Paint tvg_animation_get_picture(Tvg_Animation animation)",
+      "brief": "Retrieves a picture instance associated with this animation instance.",
+      "description": [
+        "This function provides access to the picture instance that can be used to load animation formats, such as lot. After setting up the picture, it can be added to the designated canvas, enabling control over animation frames with this Animation instance."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "A animation object to the animation object."
+        }
+      ],
+      "returns": "A picture instance that is tied to this animation.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [
+        "The picture instance is owned by Animation. It should not be deleted manually."
+      ],
+      "see": [],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_get_frame",
+      "kind": "function",
+      "line": 2987,
+      "signature": "Tvg_Result tvg_animation_get_frame(Tvg_Animation animation, float* no)",
+      "brief": "Retrieves the current frame number of the animation.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "An animation object."
+        },
+        {
+          "name": "no",
+          "type": "float*",
+          "description": "The current frame number of the animation, between 0 and totalFrame() - 1."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "An invalid `no` pointer."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_animation_get_total_frame()",
+        "tvg_animation_set_frame()"
+      ],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_get_total_frame",
+      "kind": "function",
+      "line": 3002,
+      "signature": "Tvg_Result tvg_animation_get_total_frame(Tvg_Animation animation, float* cnt)",
+      "brief": "Retrieves the total number of frames in the animation.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "An animation object."
+        },
+        {
+          "name": "cnt",
+          "type": "float*",
+          "description": "The total number of frames in the animation."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "An invalid `cnt` pointer."
+        }
+      ],
+      "notes": [
+        "Frame numbering starts from 0.",
+        "If the Picture is not properly configured, this function will return 0."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_get_duration",
+      "kind": "function",
+      "line": 3016,
+      "signature": "Tvg_Result tvg_animation_get_duration(Tvg_Animation animation, float* duration)",
+      "brief": "Retrieves the duration of the animation in seconds.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "An animation object."
+        },
+        {
+          "name": "duration",
+          "type": "float*",
+          "description": "The duration of the animation in seconds."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "An invalid `duration` pointer."
+        }
+      ],
+      "notes": [
+        "If the Picture is not properly configured, this function will return 0."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_set_segment",
+      "kind": "function",
+      "line": 3041,
+      "signature": "Tvg_Result tvg_animation_set_segment(Tvg_Animation animation, float begin, float end)",
+      "brief": "Specifies the playback segment of the animation.",
+      "description": [
+        "The set segment is designated as the play area of the animation. This is useful for playing a specific segment within the entire animation. After setting, the number of animation frames and the playback time are calculated by mapping the playback segment as the entire range."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The animation object."
+        },
+        {
+          "name": "begin",
+          "type": "float",
+          "description": "segment begin frame."
+        },
+        {
+          "name": "end",
+          "type": "float",
+          "description": "segment end frame."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded."
+        },
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "If the `begin` is higher than `end`."
+        }
+      ],
+      "notes": [
+        "Animation allows a range from 0.0 to the total frame. `end` should not be lower than `begin`.",
+        "If a marker has been specified, its range will be disregarded."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_set_marker()",
+        "tvg_animation_get_total_frame()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_get_segment",
+      "kind": "function",
+      "line": 3054,
+      "signature": "Tvg_Result tvg_animation_get_segment(Tvg_Animation animation, float* begin, float* end)",
+      "brief": "Gets the current segment range information.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The animation object."
+        },
+        {
+          "name": "begin",
+          "type": "float*",
+          "description": "segment begin frame."
+        },
+        {
+          "name": "end",
+          "type": "float*",
+          "description": "segment end frame."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_animation_del",
+      "kind": "function",
+      "line": 3063,
+      "signature": "Tvg_Result tvg_animation_del(Tvg_Animation animation)",
+      "brief": "Deletes the given Tvg_Animation object.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Tvg_Animation object to be deleted."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.13",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

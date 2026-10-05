@@ -1,0 +1,39 @@
+{
+  "name": "FilterMethod",
+  "kind": "enum",
+  "brief": "Image filtering method used when a picture is scaled or transformed.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Picture",
+  "signature": "export enum FilterMethod",
+  "source": "src/common/constants.ts:239",
+  "members": [
+    {
+      "name": "Bilinear",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Smooth interpolation using surrounding pixels for higher quality (default)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 241
+    },
+    {
+      "name": "Nearest",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Fast filtering using nearest-neighbor sampling",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 243
+    }
+  ],
+  "nested": []
+}

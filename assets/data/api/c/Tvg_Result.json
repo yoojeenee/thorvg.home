@@ -1,0 +1,82 @@
+{
+  "name": "Tvg_Result",
+  "kind": "enum",
+  "brief": "Enumeration specifying the result from the APIs.",
+  "description": [
+    "All ThorVG APIs could potentially return one of the values in the list. Please note that some APIs may additionally specify the reasons that trigger their return values."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:108",
+  "members": [
+    {
+      "name": "TVG_RESULT_SUCCESS",
+      "value": "0",
+      "brief": "The value returned in case of a correct request execution.",
+      "since": null,
+      "experimental": false,
+      "line": 111
+    },
+    {
+      "name": "TVG_RESULT_INVALID_ARGUMENT",
+      "value": null,
+      "brief": "The value returned in the event of a problem with the arguments given to the API - e.g. empty paths or null pointers.",
+      "since": null,
+      "experimental": false,
+      "line": 112
+    },
+    {
+      "name": "TVG_RESULT_INSUFFICIENT_CONDITION",
+      "value": null,
+      "brief": "The value returned in case the request cannot be processed - e.g. asking for properties of an object, which does not exist.",
+      "since": null,
+      "experimental": false,
+      "line": 113
+    },
+    {
+      "name": "TVG_RESULT_FAILED_ALLOCATION",
+      "value": null,
+      "brief": "The value returned in case of unsuccessful memory allocation.",
+      "since": null,
+      "experimental": false,
+      "line": 114
+    },
+    {
+      "name": "TVG_RESULT_MEMORY_CORRUPTION",
+      "value": null,
+      "brief": "The value returned in the event of bad memory handling - e.g. failing in pointer releasing or casting",
+      "since": null,
+      "experimental": false,
+      "line": 115
+    },
+    {
+      "name": "TVG_RESULT_NOT_SUPPORTED",
+      "value": null,
+      "brief": "The value returned in case of choosing unsupported engine features(options).",
+      "since": null,
+      "experimental": false,
+      "line": 116
+    },
+    {
+      "name": "TVG_RESULT_SYSTEM_ERROR",
+      "value": null,
+      "brief": "The value returned when an underlying system operation fails.",
+      "since": null,
+      "experimental": true,
+      "line": 117
+    },
+    {
+      "name": "TVG_RESULT_UNKNOWN",
+      "value": "255",
+      "brief": "The value returned in all other cases.",
+      "since": null,
+      "experimental": false,
+      "line": 118
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,43 @@
+{
+  "name": "TextLayout",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Text",
+  "signature": "export interface TextLayout",
+  "source": "src/core/Text.ts:16",
+  "members": [
+    {
+      "name": "width",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 17
+    },
+    {
+      "name": "height",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 18
+    }
+  ],
+  "nested": []
+}

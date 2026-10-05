@@ -1,0 +1,104 @@
+{
+  "name": "Tvg_Mask_Method",
+  "kind": "enum",
+  "brief": "Enumeration indicating the method used in the masking of two objects - the target and the source.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:186",
+  "members": [
+    {
+      "name": "TVG_MASK_METHOD_NONE",
+      "value": "0",
+      "brief": "No Masking is applied.",
+      "since": null,
+      "experimental": false,
+      "line": 189
+    },
+    {
+      "name": "TVG_MASK_METHOD_ALPHA",
+      "value": null,
+      "brief": "Alpha Masking using the masking target's pixels as an alpha value.",
+      "since": null,
+      "experimental": false,
+      "line": 190
+    },
+    {
+      "name": "TVG_MASK_METHOD_INVERSE_ALPHA",
+      "value": null,
+      "brief": "Alpha Masking using the complement to the masking target's pixels as an alpha value.",
+      "since": null,
+      "experimental": false,
+      "line": 191
+    },
+    {
+      "name": "TVG_MASK_METHOD_LUMA",
+      "value": null,
+      "brief": "Alpha Masking using the grayscale (0.2126R + 0.7152G + 0.0722*B) of the masking target's pixels.",
+      "since": "0.9",
+      "experimental": false,
+      "line": 192
+    },
+    {
+      "name": "TVG_MASK_METHOD_INVERSE_LUMA",
+      "value": null,
+      "brief": "Alpha Masking using the grayscale (0.2126R + 0.7152G + 0.0722*B) of the complement to the masking target's pixels.",
+      "since": "0.11",
+      "experimental": false,
+      "line": 193
+    },
+    {
+      "name": "TVG_MASK_METHOD_ADD",
+      "value": null,
+      "brief": "Combines the target and source objects pixels using target alpha. (T * TA) + (S * (255 - TA))",
+      "since": "1.0",
+      "experimental": false,
+      "line": 194
+    },
+    {
+      "name": "TVG_MASK_METHOD_SUBTRACT",
+      "value": null,
+      "brief": "Subtracts the source color from the target color while considering their respective target alpha. (T * TA) - (S * (255 - TA))",
+      "since": "1.0",
+      "experimental": false,
+      "line": 195
+    },
+    {
+      "name": "TVG_MASK_METHOD_INTERSECT",
+      "value": null,
+      "brief": "Computes the result by taking the minimum value between the target alpha and the source alpha and multiplies it with the target color. (T * min(TA, SA))",
+      "since": "1.0",
+      "experimental": false,
+      "line": 196
+    },
+    {
+      "name": "TVG_MASK_METHOD_DIFFERENCE",
+      "value": null,
+      "brief": "Calculates the absolute difference between the target color and the source color multiplied by the complement of the target alpha. abs(T - S * (255 - TA))",
+      "since": "1.0",
+      "experimental": false,
+      "line": 197
+    },
+    {
+      "name": "TVG_MASK_METHOD_LIGHTEN",
+      "value": null,
+      "brief": "Where multiple masks intersect, the highest transparency value is used.",
+      "since": "1.0",
+      "experimental": false,
+      "line": 198
+    },
+    {
+      "name": "TVG_MASK_METHOD_DARKEN",
+      "value": null,
+      "brief": "Where multiple masks intersect, the lowest transparency value is used.",
+      "since": "1.0",
+      "experimental": false,
+      "line": 199
+    }
+  ],
+  "nested": []
+}

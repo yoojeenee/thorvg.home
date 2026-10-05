@@ -1,0 +1,17 @@
+{
+  "name": "Tvg_Canvas",
+  "kind": "handle",
+  "brief": "A structure responsible for managing and drawing graphical elements.",
+  "description": [
+    "It sets up the target buffer, which can be drawn on the screen. It stores the Tvg_Paint objects (Shape, Scene, Picture)."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:65",
+  "members": [],
+  "nested": []
+}

@@ -1,0 +1,155 @@
+{
+  "name": "Accessor",
+  "kind": "struct",
+  "base": null,
+  "final": false,
+  "brief": "The Accessor is a utility class to debug the Scene structure by traversing the scene-tree.",
+  "description": [
+    "The Accessor helps you search specific nodes to read the property information, figure out the structure of the scene tree and its size."
+  ],
+  "since": "0.10",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "We strongly warn you not to change the paints of a scene unless you really know the design-structure.",
+    "This class is not designed for inheritance."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:2888",
+  "members": [
+    {
+      "name": "set",
+      "kind": "method",
+      "line": 2900,
+      "signature": "Result set(Paint* paint, std::function<bool(const Paint* paint, void* data)> func, void* data) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Set the access function for traversing the Picture scene tree nodes.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "direction": "in",
+          "description": "The paint node to traverse the internal scene-tree."
+        },
+        {
+          "name": "func",
+          "direction": "in",
+          "description": "The callback function calling for every paint nodes of the Picture."
+        },
+        {
+          "name": "data",
+          "direction": "in",
+          "description": "Data passed to the `func` as its argument."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "The bitmap based picture might not have the scene-tree."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "id",
+      "kind": "method",
+      "line": 2917,
+      "signature": "static uint32_t id(const char* name) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Generate a unique ID (hash key) from a given name.",
+      "description": [
+        "This function computes a unique identifier value based on the provided string. You can use this to assign a unique ID to the Paint object."
+      ],
+      "params": [
+        {
+          "name": "name",
+          "direction": "in",
+          "description": "The input string to generate the unique identifier from."
+        }
+      ],
+      "returns": "The generated unique identifier value.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Paint::id",
+        "Picture::paint()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "name",
+      "kind": "method",
+      "line": 2939,
+      "signature": "const char* name(uint32_t id) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Retrieve the original name string from a given unique ID.",
+      "description": [
+        "Returns the name associated with the specified identifier.",
+        "This method is only valid when Picture::accessible is set to `true` for the Picture associated with the given `paint` in Accessor::set() Otherwise, the name information may not be available."
+      ],
+      "params": [
+        {
+          "name": "id",
+          "direction": "in",
+          "description": "The unique identifier."
+        }
+      ],
+      "returns": "The corresponding name string, or `nullptr` if not found or unavailable.",
+      "retvals": [],
+      "notes": [
+        "This function is only available within Accessor callbacks registered via Accessor::set()."
+      ],
+      "warnings": [],
+      "see": [
+        "Accessor::id()",
+        "Accessor::set()",
+        "Picture::accessible"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 2946,
+      "signature": "static Accessor* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new Accessor object.",
+      "description": [],
+      "params": [],
+      "returns": "A new Accessor object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

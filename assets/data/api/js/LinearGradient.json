@@ -1,0 +1,58 @@
+{
+  "name": "LinearGradient",
+  "kind": "class",
+  "brief": "Linear gradient for filling shapes",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Basic linear gradient\nconst gradient = new TVG.LinearGradient(100, 100, 300, 100);\ngradient.addStop(0, [255, 0, 0, 255])    // Red\n        .addStop(0.5, [255, 255, 0, 255]) // Yellow\n        .addStop(1, [0, 255, 0, 255]);    // Green\n\nconst shape = new TVG.Shape();\nshape.appendRect(100, 100, 200, 100)\n     .fillGradient(gradient);\n\ncanvas.add(shape);",
+    "// Vertical gradient with transparency\nconst gradient = new TVG.LinearGradient(200, 100, 200, 300);\ngradient.addStop(0, [100, 150, 255, 255])\n        .addStop(1, [100, 150, 255, 0])\n        .spread(GradientSpread.Pad);\n\nconst shape = new TVG.Shape();\nshape.appendRect(150, 100, 100, 200)\n     .fillGradient(gradient);\n\ncanvas.add(shape);"
+  ],
+  "category": "Gradients",
+  "signature": "export class LinearGradient extends Fill",
+  "source": "src/core/LinearGradient.ts:44",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(x1: number, y1: number, x2: number, y2: number)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 45
+    },
+    {
+      "name": "build",
+      "kind": "method",
+      "signature": "build(): this",
+      "static": false,
+      "brief": "Build the gradient (apply all color stops) This should be called after all addStop() calls",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 56
+    }
+  ],
+  "nested": []
+}

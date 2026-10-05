@@ -1,0 +1,90 @@
+{
+  "name": "Tvg_Matrix",
+  "kind": "struct",
+  "brief": "A data structure representing a three-dimensional matrix.",
+  "description": [
+    "The elements e11, e12, e21 and e22 represent the rotation matrix, including the scaling factor. The elements e13 and e23 determine the translation of the object along the x and y-axis, respectively. The elements e31 and e32 are set to 0, e33 is set to 1."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:135",
+  "members": [
+    {
+      "name": "e11",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 138
+    },
+    {
+      "name": "e12",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 138
+    },
+    {
+      "name": "e13",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 138
+    },
+    {
+      "name": "e21",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 139
+    },
+    {
+      "name": "e22",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 139
+    },
+    {
+      "name": "e23",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 139
+    },
+    {
+      "name": "e31",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 140
+    },
+    {
+      "name": "e32",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 140
+    },
+    {
+      "name": "e33",
+      "type": "float",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 140
+    }
+  ],
+  "nested": []
+}

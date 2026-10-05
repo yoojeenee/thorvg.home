@@ -1,0 +1,54 @@
+{
+  "name": "StrokeJoin",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration determining the style used at the corners of joined stroked path segments.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:176",
+  "members": [
+    {
+      "name": "Miter",
+      "kind": "enumerator",
+      "line": 177,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "The outer corner of the joined path segments is spiked. The spike is created by extension beyond the join point of the outer edges of the stroke until they intersect. In case the extension goes beyond the limit, the join style is converted to the Bevel style.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Round",
+      "kind": "enumerator",
+      "line": 178,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The outer corner of the joined path segments is rounded. The circular region is centered at the join point.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Bevel",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The outer corner of the joined path segments is bevelled at the join point. The triangular region of the corner is enclosed by a straight line between the outer corners of each stroke.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

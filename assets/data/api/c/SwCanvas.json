@@ -1,0 +1,112 @@
+{
+  "name": "SwCanvas",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_swcanvas_create",
+      "kind": "function",
+      "line": 520,
+      "signature": "Tvg_Canvas tvg_swcanvas_create(Tvg_Engine_Option op)",
+      "brief": "Creates a new Software Canvas object with optional rendering engine settings.",
+      "description": [
+        "This method generates a software canvas instance that can be used for drawing vector graphics. It accepts an optional parameter `op` to choose between different rendering engine behaviors."
+      ],
+      "params": [
+        {
+          "name": "op",
+          "type": "Tvg_Engine_Option",
+          "description": "The rendering engine option."
+        }
+      ],
+      "returns": "A new canvas object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "enum Tvg_Engine_Option"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_swcanvas_set_target",
+      "kind": "function",
+      "line": 544,
+      "signature": "Tvg_Result tvg_swcanvas_set_target(Tvg_Canvas canvas, uint32_t* buffer, uint32_t stride, uint32_t w, uint32_t h, Tvg_Colorspace cs)",
+      "brief": "Sets the buffer used in the rasterization process and defines the used colorspace.",
+      "description": [
+        "For optimisation reasons TVG does not allocate memory for the output buffer on its own. The buffer of a desirable size should be allocated and owned by the caller."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": "The canvas object managing the `buffer`."
+        },
+        {
+          "name": "buffer",
+          "type": "uint32_t*",
+          "description": "The allocated memory block of the size `stride` x `h`."
+        },
+        {
+          "name": "stride",
+          "type": "uint32_t",
+          "description": "The stride of the raster image - in most cases same value as `w`."
+        },
+        {
+          "name": "w",
+          "type": "uint32_t",
+          "description": "The width of the raster image."
+        },
+        {
+          "name": "h",
+          "type": "uint32_t",
+          "description": "The height of the raster image."
+        },
+        {
+          "name": "cs",
+          "type": "Tvg_Colorspace",
+          "description": "The colorspace value defining the way the 32-bits colors should be read/written."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "An invalid canvas or buffer pointer passed or one of the `stride`, `w` or `h` being zero."
+        },
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "if the canvas is performing rendering. Please ensure the canvas is synced."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "The software engine is not supported."
+        }
+      ],
+      "notes": [
+        "Currently, only `TVG_COLORSPACE_ABGR8888`, `TVG_COLORSPACE_ARGB8888`, `TVG_COLORSPACE_ABGR8888S`, and `TVG_COLORSPACE_ARGB8888S` are supported for `cs`."
+      ],
+      "warnings": [
+        "Do not access `buffer` during tvg_canvas_draw() - tvg_canvas_sync(). It should not be accessed while the engine is writing on it."
+      ],
+      "see": [
+        "Tvg_Colorspace"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

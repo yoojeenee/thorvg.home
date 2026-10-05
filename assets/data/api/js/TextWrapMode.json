@@ -1,0 +1,71 @@
+{
+  "name": "TextWrapMode",
+  "kind": "enum",
+  "brief": "Text wrapping mode for multi-line text layout.",
+  "description": [
+    "Controls how text breaks across multiple lines when it exceeds the layout width."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Text",
+  "signature": "export enum TextWrapMode",
+  "source": "src/common/constants.ts:202",
+  "members": [
+    {
+      "name": "None",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "No wrapping - text remains on a single line",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 204
+    },
+    {
+      "name": "Character",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Wrap at any character boundary",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 206
+    },
+    {
+      "name": "Word",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Wrap at word boundaries (default)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 208
+    },
+    {
+      "name": "Smart",
+      "kind": "enumerator",
+      "value": "3",
+      "brief": "Intelligent wrapping with hyphenation support",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 210
+    },
+    {
+      "name": "Ellipsis",
+      "kind": "enumerator",
+      "value": "4",
+      "brief": "Truncate with ellipsis (...) when text exceeds bounds",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 212
+    }
+  ],
+  "nested": []
+}

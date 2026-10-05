@@ -1,0 +1,131 @@
+{
+  "name": "MaskMethod",
+  "kind": "enum",
+  "brief": "Mask method for masking operations.",
+  "description": [
+    "Defines various methods for applying masks to paint objects."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Constants",
+  "signature": "export enum MaskMethod",
+  "source": "src/common/constants.ts:134",
+  "members": [
+    {
+      "name": "None",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "No masking is applied",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 136
+    },
+    {
+      "name": "Alpha",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Alpha masking using the masking target's pixels as an alpha value",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 138
+    },
+    {
+      "name": "InvAlpha",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Alpha masking using the complement to the masking target's pixels",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 140
+    },
+    {
+      "name": "Luma",
+      "kind": "enumerator",
+      "value": "3",
+      "brief": "Alpha masking using the grayscale (0.2126R + 0.7152G + 0.0722B) of the masking target",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 142
+    },
+    {
+      "name": "InvLuma",
+      "kind": "enumerator",
+      "value": "4",
+      "brief": "Alpha masking using the grayscale of the complement to the masking target",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 144
+    },
+    {
+      "name": "Add",
+      "kind": "enumerator",
+      "value": "5",
+      "brief": "Combines target and source using target alpha. (T * TA) + (S * (255 - TA))",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 146
+    },
+    {
+      "name": "Subtract",
+      "kind": "enumerator",
+      "value": "6",
+      "brief": "Subtracts source from target considering alpha. (T * TA) - (S * (255 - TA))",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 148
+    },
+    {
+      "name": "Intersect",
+      "kind": "enumerator",
+      "value": "7",
+      "brief": "Takes minimum alpha and multiplies with target. (T * min(TA, SA))",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 150
+    },
+    {
+      "name": "Difference",
+      "kind": "enumerator",
+      "value": "8",
+      "brief": "Absolute difference between colors. abs(T - S * (255 - TA))",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 152
+    },
+    {
+      "name": "Lighten",
+      "kind": "enumerator",
+      "value": "9",
+      "brief": "Where masks intersect, uses the highest transparency value",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 154
+    },
+    {
+      "name": "Darken",
+      "kind": "enumerator",
+      "value": "10",
+      "brief": "Where masks intersect, uses the lowest transparency value",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 156
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,85 @@
+{
+  "name": "Tvg_Type",
+  "kind": "enum",
+  "brief": "Enumeration indicating the ThorVG object type value.",
+  "description": [
+    "ThorVG's drawing objects can return object type values, allowing you to identify the specific type of each object."
+  ],
+  "since": "1.0",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "tvg_paint_get_type()",
+    "tvg_gradient_get_type()"
+  ],
+  "source": "src/bindings/capi/thorvg_capi.h:242",
+  "members": [
+    {
+      "name": "TVG_TYPE_UNDEF",
+      "value": "0",
+      "brief": "Undefined type.",
+      "since": null,
+      "experimental": false,
+      "line": 245
+    },
+    {
+      "name": "TVG_TYPE_SHAPE",
+      "value": null,
+      "brief": "A shape type paint.",
+      "since": null,
+      "experimental": false,
+      "line": 246
+    },
+    {
+      "name": "TVG_TYPE_SCENE",
+      "value": null,
+      "brief": "A scene type paint.",
+      "since": null,
+      "experimental": false,
+      "line": 247
+    },
+    {
+      "name": "TVG_TYPE_PICTURE",
+      "value": null,
+      "brief": "A picture type paint.",
+      "since": null,
+      "experimental": false,
+      "line": 248
+    },
+    {
+      "name": "TVG_TYPE_TEXT",
+      "value": null,
+      "brief": "A text type paint.",
+      "since": null,
+      "experimental": false,
+      "line": 249
+    },
+    {
+      "name": "TVG_TYPE_LINEAR_GRAD",
+      "value": "10",
+      "brief": "A linear gradient type.",
+      "since": null,
+      "experimental": false,
+      "line": 250
+    },
+    {
+      "name": "TVG_TYPE_RADIAL_GRAD",
+      "value": null,
+      "brief": "A radial gradient type.",
+      "since": null,
+      "experimental": false,
+      "line": 251
+    },
+    {
+      "name": "TVG_TYPE_CONIC_GRAD",
+      "value": null,
+      "brief": "A conic gradient type.",
+      "since": null,
+      "experimental": false,
+      "line": 252
+    }
+  ],
+  "nested": []
+}

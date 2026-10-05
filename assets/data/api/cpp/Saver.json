@@ -1,0 +1,224 @@
+{
+  "name": "Saver",
+  "kind": "struct",
+  "base": null,
+  "final": false,
+  "brief": "A class for exporting a paint object into a specified file, from which to recover the paint data later.",
+  "description": [
+    "ThorVG provides a feature for exporting & importing paint data. The Saver role is to export the paint data to a file. It's useful when you need to save the composed scene or image from a paint object and recreate it later.",
+    "The file format is decided by the extension name(i.e. \"*.tvg\") while the supported formats depend on the TVG packaging environment. If it doesn't support the file format, the save() method returns the `Result::NonSupport` result.",
+    "Once you export a paint to the file successfully, you can recreate it using the Picture class."
+  ],
+  "since": "0.5",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "This class is not designed for inheritance."
+  ],
+  "see": [
+    "Picture::load()"
+  ],
+  "source": "inc/thorvg.h:2794",
+  "members": [
+    {
+      "name": "background",
+      "kind": "method",
+      "line": 2802,
+      "signature": "Result background(Paint* paint) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the base background content for the saved image.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "direction": "in",
+          "description": "The paint to be drawn as the background image for the saving paint."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "save",
+      "kind": "method",
+      "line": 2824,
+      "signature": "Result save(Paint* paint, const char* filename, uint32_t quality = 100) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Exports the given `paint` data to the given `path`",
+      "description": [
+        "If the saver module supports any compression mechanism, it will optimize the data size. This might affect the encoding/decoding time in some cases. You can turn off the compression if you wish to optimize for speed."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "direction": "in",
+          "description": "The paint to be saved with all its associated properties."
+        },
+        {
+          "name": "filename",
+          "direction": "in",
+          "description": "A file name, including the path, where the paint data will be saved."
+        },
+        {
+          "name": "quality",
+          "direction": "in",
+          "description": "The encoded quality level. @c 0 is the minimum, @c 100 is the maximum value(recommended)."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "If currently saving other resources."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "When trying to save a file with an unknown extension or in an unsupported format."
+        },
+        {
+          "value": "Result::Unknown",
+          "description": "In case an empty paint is to be saved."
+        }
+      ],
+      "notes": [
+        "Saving can be asynchronous if the assigned thread number is greater than zero. To guarantee the saving is done, call sync() afterwards."
+      ],
+      "warnings": [],
+      "see": [
+        "Saver::sync()"
+      ],
+      "since": "0.5",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "save",
+      "kind": "method",
+      "line": 2847,
+      "signature": "Result save(Animation* animation, const char* filename, uint32_t quality = 100, uint32_t fps = 0) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": true,
+      "const": false,
+      "noexcept": true,
+      "brief": "Export the provided animation data to the specified file path.",
+      "description": [
+        "This function exports the given animation data to the provided file path. You can also specify the desired frame rate in frames per second (FPS) by providing the fps parameter."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "direction": "in",
+          "description": "The animation to be saved, including all associated properties."
+        },
+        {
+          "name": "filename",
+          "direction": "in",
+          "description": "A file name, including the path, where the animation will be saved."
+        },
+        {
+          "name": "quality",
+          "direction": "in",
+          "description": "The encoded quality level. @c 0 is the minimum, @c 100 is the maximum value(recommended)."
+        },
+        {
+          "name": "fps",
+          "direction": "in",
+          "description": "The desired frames per second (FPS). For example, to encode data at 60 FPS, pass 60. Pass 0 to keep the original frame data."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "if there are ongoing resource-saving operations."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "if an attempt is made to save the file with an unknown extension or in an unsupported format."
+        },
+        {
+          "value": "Result::Unknown",
+          "description": "if attempting to save an empty paint."
+        }
+      ],
+      "notes": [
+        "A higher frames per second (FPS) would result in a larger file size. It is recommended to use the default value.",
+        "Saving can be asynchronous if the assigned thread number is greater than zero. To guarantee the saving is done, call sync() afterwards."
+      ],
+      "warnings": [],
+      "see": [
+        "Saver::sync()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "sync",
+      "kind": "method",
+      "line": 2861,
+      "signature": "Result sync() noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Guarantees that the saving task is finished.",
+      "description": [
+        "The behavior of the Saver works on a sync/async basis, depending on the threading setting of the Initializer. Thus, if you wish to have a benefit of it, you must call sync() after the save() in the proper delayed time. Otherwise, you can call sync() immediately."
+      ],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "The asynchronous tasking is dependent on the Saver module implementation."
+      ],
+      "warnings": [],
+      "see": [
+        "Saver::save()"
+      ],
+      "since": "0.5",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 2870,
+      "signature": "static Saver* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new Saver object.",
+      "description": [],
+      "params": [],
+      "returns": "A new Saver object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.5",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Point",
+  "kind": "struct",
+  "base": null,
+  "final": false,
+  "brief": "A data structure representing a point in two-dimensional space.",
+  "description": [
+    "This structure defines a single point using Cartesian coordinates. It is typically used for specifying positions or coordinates in 2D graphics."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:341",
+  "members": [
+    {
+      "name": "x",
+      "kind": "field",
+      "line": 342,
+      "value": null,
+      "type": "float",
+      "static": false,
+      "brief": "The x-coordinate of the point.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "y",
+      "kind": "field",
+      "line": 343,
+      "value": null,
+      "type": "float",
+      "static": false,
+      "brief": "The y-coordinate of the point.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

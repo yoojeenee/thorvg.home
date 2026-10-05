@@ -1,0 +1,22 @@
+{
+  "name": "LottieSlotData",
+  "kind": "type",
+  "brief": "Lottie slot data, keyed by the `sid` the Lottie exposes.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "`LottieAnimation.gen`"
+  ],
+  "examples": [
+    "const slot: LottieSlotData = {\n  ball_col: { p: { a: 0, k: [0, 1, 0, 1] } },\n};"
+  ],
+  "category": "LottieAnimation",
+  "signature": "export type LottieSlotData = Record<string, unknown>;",
+  "source": "src/core/LottieAnimation.ts:25",
+  "members": [],
+  "nested": []
+}

@@ -1,0 +1,83 @@
+{
+  "name": "AudioInfo",
+  "kind": "interface",
+  "brief": "Describes the current state of a Lottie audio layer.",
+  "description": [
+    "This structure is provided to the audio resolver callback and contains the information required to synchronize audio playback with the animation timeline."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "`AudioResolver` @beta"
+  ],
+  "examples": [],
+  "category": "LottieAnimation",
+  "signature": "export interface AudioInfo",
+  "source": "src/core/LottieAnimation.ts:52",
+  "members": [
+    {
+      "name": "src",
+      "kind": "property",
+      "type": "string | Uint8Array",
+      "static": false,
+      "readonly": false,
+      "brief": "Audio source: a file path/URL, or the embedded raw bytes.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 54
+    },
+    {
+      "name": "mimeType",
+      "kind": "property",
+      "type": "string | null",
+      "static": false,
+      "readonly": false,
+      "brief": "MIME type string; valid when the source is embedded; may be `null`.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 56
+    },
+    {
+      "name": "offset",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Position within the audio file in seconds; valid when `active`.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 58
+    },
+    {
+      "name": "volume",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Volume [0, 1]; valid when `active`.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 60
+    },
+    {
+      "name": "active",
+      "kind": "property",
+      "type": "boolean",
+      "static": false,
+      "readonly": false,
+      "brief": "`true` while the layer is within its playback range.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 62
+    }
+  ],
+  "nested": []
+}

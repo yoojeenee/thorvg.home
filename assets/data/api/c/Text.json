@@ -1,0 +1,600 @@
+{
+  "name": "Text",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_text_new",
+      "kind": "function",
+      "line": 2478,
+      "signature": "Tvg_Paint tvg_text_new(void)",
+      "brief": "Creates a new Text object.",
+      "description": [
+        "This function allocates and returns a new Text instance. To properly destroy the Text object, use tvg_paint_rel()."
+      ],
+      "params": [],
+      "returns": "The newly created Text object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_paint_rel()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_font",
+      "kind": "function",
+      "line": 2499,
+      "signature": "Tvg_Result tvg_text_set_font(Tvg_Paint text, const char* name)",
+      "brief": "Sets the font family for the text.",
+      "description": [
+        "This function specifies the name of the font to be used when rendering text."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "name",
+          "type": "const char*",
+          "description": "The name of the font. This should match a font available through the canvas backend. If set to `nullptr`, ThorVG will attempt to select a fallback font available on the engine."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "The specified `name` cannot be found."
+        }
+      ],
+      "notes": [
+        "This function only sets the font family name. Use size() to define the font size.",
+        "If the `name` is not specified, ThorVG will select an available fallback font."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_set_size()",
+        "tvg_font_load()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_size",
+      "kind": "function",
+      "line": 2520,
+      "signature": "Tvg_Result tvg_text_set_size(Tvg_Paint text, float size)",
+      "brief": "Sets the font size for the text.",
+      "description": [
+        "This function sets the font size used during text rendering. The size is specified in point units, and supports floating-point precision for smooth scaling and animation effects."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "size",
+          "type": "float",
+          "description": "The font size in points. Must be greater than 0.0."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "if the `size` is less than or equal to 0."
+        }
+      ],
+      "notes": [
+        "Use this function in combination with font() to fully define text appearance.",
+        "Fractional sizes (e.g., 12.5) are supported for sub-pixel rendering and animations."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_set_font()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_text",
+      "kind": "function",
+      "line": 2535,
+      "signature": "Tvg_Result tvg_text_set_text(Tvg_Paint text, const char* utf8)",
+      "brief": "Assigns the given unicode text to be rendered.",
+      "description": [
+        "This function sets the unicode text that will be displayed by the rendering system. The text is set according to the specified UTF encoding method, which defaults to UTF-8."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "utf8",
+          "type": "const char*",
+          "description": "The multi-byte text encoded with utf8 string to be rendered."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_text_get_text()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_get_text",
+      "kind": "function",
+      "line": 2551,
+      "signature": "const char* tvg_text_get_text(const Tvg_Paint text)",
+      "brief": "Returns the currently assigned unicode text.",
+      "description": [
+        "This function retrieves the unicode string that is currently set for rendering. The returned text is encoded in UTF-8."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "const Tvg_Paint",
+          "description": "The text object."
+        }
+      ],
+      "returns": "The UTF-8 encoded multi-byte text string.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_set_text()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_text_align",
+      "kind": "function",
+      "line": 2568,
+      "signature": "Tvg_Result tvg_text_align(Tvg_Paint text, float x, float y)",
+      "brief": "Sets text alignment or anchor per axis.",
+      "description": [
+        "If layout width/height is set on an axis, align within the layout box. Otherwise, treat it as an anchor within the text bounds which point of the text box is pinned to the paint position."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "x",
+          "type": "float",
+          "description": "Horizontal alignment/anchor in [0..1]: 0=left/start, 0.5=center, 1=right/end. (The initial value is 0)"
+        },
+        {
+          "name": "y",
+          "type": "float",
+          "description": "Vertical alignment/anchor in [0..1]: 0=top, 0.5=middle, 1=bottom. (The initial value is 0)"
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_text_layout()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_layout",
+      "kind": "function",
+      "line": 2587,
+      "signature": "Tvg_Result tvg_text_layout(Tvg_Paint text, float w, float h)",
+      "brief": "Sets the virtual layout box (constraints) for the text.",
+      "description": [
+        "If width/height is set on an axis, that axis is constrained by a virtual layout box and the text may wrap/align inside it. If width/height == 0, the axis is unconstrained and tvg_text_align() acts as an anchor on that axis."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "w",
+          "type": "float",
+          "description": "Layout width in user space. Use 0 for no horizontal constraint. (The initial value is 0)"
+        },
+        {
+          "name": "h",
+          "type": "float",
+          "description": "Layout height in user space. Use 0 for no vertical constraint. (The initial value is 0)"
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "This defines constraints only; alignment/anchoring is controlled by align()."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_align()",
+        "tvg_text_spacing()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_wrap_mode",
+      "kind": "function",
+      "line": 2603,
+      "signature": "Tvg_Result tvg_text_wrap_mode(Tvg_Paint text, Tvg_Text_Wrap mode)",
+      "brief": "Sets the text wrapping mode for this text object.",
+      "description": [
+        "This method controls how the text is laid out when it exceeds the available space. The wrapping mode determines whether text is truncated, wrapped by character or word, or adjusted automatically. An ellipsis mode is also available for truncation with \"...\"."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "mode",
+          "type": "Tvg_Text_Wrap",
+          "description": "The wrapping strategy to apply. The initial value is `TVG_TEXT_WRAP_NONE`."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Tvg_Text_Wrap",
+        "tvg_text_line_count()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_line_count",
+      "kind": "function",
+      "line": 2619,
+      "signature": "uint32_t tvg_text_line_count(Tvg_Paint text)",
+      "brief": "Returns the number of text lines.",
+      "description": [
+        "This function retrieves the number of lines generated after applying text layout and wrapping. The returned value reflects the current wrapping configuration set by tvg_text_wrap_mode(). The line count is also increased by explicit line feed characters ('\\n') contained in the text."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        }
+      ],
+      "returns": "The total number of lines.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_text_wrap_mode()"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_spacing",
+      "kind": "function",
+      "line": 2642,
+      "signature": "Tvg_Result tvg_text_spacing(Tvg_Paint text, float letter, float line)",
+      "brief": "Set the spacing scale factors for text layout.",
+      "description": [
+        "This function adjusts the letter spacing (horizontal space between glyphs) and line spacing (vertical space between lines of text) using scale factors.",
+        "Both values are relative to the font's default metrics: - The letter spacing is applied as a scale factor to the glyph's advance width. - The line spacing is applied as a scale factor to the glyph's advance height."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "letter",
+          "type": "float",
+          "description": "The scale factor for letter spacing. Values > 1.0 increase spacing, values < 1.0 decrease it. Must be greater than or equal to 0.0. The initial value is 1.0."
+        },
+        {
+          "name": "line",
+          "type": "float",
+          "description": "The scale factor for line spacing. Values > 1.0 increase line spacing, values < 1.0 decrease it. Must be greater than or equal to 0.0. The initial value is 1.0."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_italic",
+      "kind": "function",
+      "line": 2665,
+      "signature": "Tvg_Result tvg_text_set_italic(Tvg_Paint text, float shear)",
+      "brief": "Apply an italic (slant) transformation to the text.",
+      "description": [
+        "This function applies a shear transformation to simulate an italic (oblique) style for the current text object. The shear factor determines the degree of slant applied along the X-axis."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "shear",
+          "type": "float",
+          "description": "The shear factor to apply. A value of 0.0 applies no slant, while values around 0.5 result in a strong slant. Must be in the range [0.0, 0.5]. Recommended value is 0.18."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "The `shear` factor will be clamped to the valid range if it exceeds the limits.",
+        "This does not require the font itself to be italic. It visually simulates the effect by applying a transformation matrix."
+      ],
+      "warnings": [
+        "Excessive slanting may cause visual distortion depending on the font and size."
+      ],
+      "see": [
+        "tvg_text_set_font()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_outline",
+      "kind": "function",
+      "line": 2684,
+      "signature": "Tvg_Result tvg_text_set_outline(Tvg_Paint text, float width, uint8_t r, uint8_t g, uint8_t b)",
+      "brief": "Sets an outline (stroke) around the text object.",
+      "description": [
+        "This function adds an outline to the text with the specified width and RGB color. The outline enhances the visibility of the text by rendering a stroke around its glyphs."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "width",
+          "type": "float",
+          "description": "The width of the outline. Must be positive value. (The initial value is 0)"
+        },
+        {
+          "name": "r",
+          "type": "uint8_t",
+          "description": "Red component of the outline color (0–255)."
+        },
+        {
+          "name": "g",
+          "type": "uint8_t",
+          "description": "Green component of the outline color (0–255)."
+        },
+        {
+          "name": "b",
+          "type": "uint8_t",
+          "description": "Blue component of the outline color (0–255)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "To disable the outline, set `width` to 0."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_set_fill_color() to set the main text fill color."
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_color",
+      "kind": "function",
+      "line": 2701,
+      "signature": "Tvg_Result tvg_text_set_color(Tvg_Paint text, uint8_t r, uint8_t g, uint8_t b)",
+      "brief": "Sets the text solid color.",
+      "description": [],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": ""
+        },
+        {
+          "name": "r",
+          "type": "uint8_t",
+          "description": "The red color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "g",
+          "type": "uint8_t",
+          "description": "The green color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "b",
+          "type": "uint8_t",
+          "description": "The blue color channel value in the range [0 ~ 255]. The initial value is 0."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_set_font()",
+        "tvg_text_set_outline()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_set_gradient",
+      "kind": "function",
+      "line": 2716,
+      "signature": "Tvg_Result tvg_text_set_gradient(Tvg_Paint text, Tvg_Gradient gradient)",
+      "brief": "Sets the gradient fill for the text.",
+      "description": [],
+      "params": [
+        {
+          "name": "text",
+          "type": "Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "gradient",
+          "type": "Tvg_Gradient",
+          "description": ""
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_MEMORY_CORRUPTION",
+          "description": "An invalid gradient object."
+        }
+      ],
+      "notes": [
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_text_set_font()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_text_get_text_metrics",
+      "kind": "function",
+      "line": 2735,
+      "signature": "Tvg_Result tvg_text_get_text_metrics(const Tvg_Paint text, Tvg_Text_Metrics* metrics)",
+      "brief": "Retrieves the layout metrics of the text object.",
+      "description": [
+        "Fills the provided Tvg_Text_Metrics structure with the font layout values of this text object, such as ascent, descent, linegap, and line advance.",
+        "The returned values reflect the font size applied to the text object, but do not include any transformations (e.g., scale, rotation, or translation)."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "const Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "metrics",
+          "type": "Tvg_Text_Metrics*",
+          "description": "A pointer to a Tvg_Text_Metrics structure to be filled with the resulting values."
+        }
+      ],
+      "returns": "TVG_RESULT_INSUFFICIENT_CONDITION if no font or size has been set yet.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "Tvg_Text_Metrics"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_text_get_glyph_metrics",
+      "kind": "function",
+      "line": 2761,
+      "signature": "Tvg_Result tvg_text_get_glyph_metrics(const Tvg_Paint text, const char* ch, Tvg_Glyph_Metrics* metrics, const char** next)",
+      "brief": "Retrieves the layout metrics of a glyph in the text object.",
+      "description": [
+        "Fills the provided Tvg_Glyph_Metrics structure with the horizontal layout values of the specified glyph, such as advance, left-side bearing, and bounding box.",
+        "The returned values reflect the font size applied to the text object, but do not include any transformations (e.g., scale, rotation, or translation).",
+        "The input character must be a single UTF-8 encoded character."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "const Tvg_Paint",
+          "description": "The text object."
+        },
+        {
+          "name": "ch",
+          "type": "const char*",
+          "description": "A pointer to a UTF-8 encoded character."
+        },
+        {
+          "name": "metrics",
+          "type": "Tvg_Glyph_Metrics*",
+          "description": "A pointer to a Tvg_Glyph_Metrics structure to be filled with the resulting values."
+        },
+        {
+          "name": "next",
+          "type": "const char**",
+          "description": "An optional pointer that receives the position immediately following the processed UTF-8 character."
+        }
+      ],
+      "returns": "TVG_RESULT_INVALID_ARGUMENT if the given character is invalid or not supported.",
+      "retvals": [],
+      "notes": [
+        "Currently, ThorVG only supports horizontal text layout.",
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "Tvg_Glyph_Metrics"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    }
+  ],
+  "nested": []
+}

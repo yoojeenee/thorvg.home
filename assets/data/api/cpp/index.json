@@ -1,0 +1,322 @@
+{
+  "language": "cpp",
+  "version": "1.0.0",
+  "source": "inc/thorvg.h",
+  "groups": [
+    {
+      "title": "Core",
+      "items": [
+        {
+          "name": "Fill",
+          "kind": "struct",
+          "brief": "An abstract class representing the gradient fill of the Shape object.",
+          "experimental": false,
+          "file": "Fill.json",
+          "memberCount": 9
+        },
+        {
+          "name": "Paint",
+          "kind": "struct",
+          "brief": "An abstract class for managing graphical elements.",
+          "experimental": false,
+          "file": "Paint.json",
+          "memberCount": 27
+        }
+      ]
+    },
+    {
+      "title": "Drawing",
+      "items": [
+        {
+          "name": "Picture",
+          "kind": "struct",
+          "brief": "A class representing an image read in one of the supported formats: raw, svg, png, jpg, lot and etc. Besides the methods inherited from the Paint, it provides methods to load & draw images on the canvas.",
+          "experimental": false,
+          "file": "Picture.json",
+          "memberCount": 13
+        },
+        {
+          "name": "Scene",
+          "kind": "struct",
+          "brief": "A class to composite children paints.",
+          "experimental": false,
+          "file": "Scene.json",
+          "memberCount": 6
+        },
+        {
+          "name": "Shape",
+          "kind": "struct",
+          "brief": "A class representing two-dimensional figures and their properties.",
+          "experimental": false,
+          "file": "Shape.json",
+          "memberCount": 33
+        },
+        {
+          "name": "Text",
+          "kind": "struct",
+          "brief": "A class to represent text objects in a graphical context, allowing for rendering and manipulation of unicode text.",
+          "experimental": false,
+          "file": "Text.json",
+          "memberCount": 20
+        }
+      ]
+    },
+    {
+      "title": "Gradients",
+      "items": [
+        {
+          "name": "ConicGradient",
+          "kind": "struct",
+          "brief": "A class representing the conic gradient fill of the Shape object.",
+          "experimental": true,
+          "file": "ConicGradient.json",
+          "memberCount": 4
+        },
+        {
+          "name": "LinearGradient",
+          "kind": "struct",
+          "brief": "A class representing the linear gradient fill of the Shape object.",
+          "experimental": false,
+          "file": "LinearGradient.json",
+          "memberCount": 4
+        },
+        {
+          "name": "RadialGradient",
+          "kind": "struct",
+          "brief": "A class representing the radial gradient fill of the Shape object.",
+          "experimental": false,
+          "file": "RadialGradient.json",
+          "memberCount": 4
+        }
+      ]
+    },
+    {
+      "title": "Canvas",
+      "items": [
+        {
+          "name": "Canvas",
+          "kind": "struct",
+          "brief": "An abstract class for drawing graphical elements.",
+          "experimental": false,
+          "file": "Canvas.json",
+          "memberCount": 7
+        },
+        {
+          "name": "GlCanvas",
+          "kind": "struct",
+          "brief": "A class for the rendering graphic elements with a GL raster engine.",
+          "experimental": false,
+          "file": "GlCanvas.json",
+          "memberCount": 3
+        },
+        {
+          "name": "SwCanvas",
+          "kind": "struct",
+          "brief": "A class for the rendering graphical elements with a software raster engine.",
+          "experimental": false,
+          "file": "SwCanvas.json",
+          "memberCount": 3
+        },
+        {
+          "name": "WgCanvas",
+          "kind": "struct",
+          "brief": "A class for the rendering graphic elements with a WebGPU raster engine.",
+          "experimental": false,
+          "file": "WgCanvas.json",
+          "memberCount": 4
+        }
+      ]
+    },
+    {
+      "title": "Animation",
+      "items": [
+        {
+          "name": "Animation",
+          "kind": "struct",
+          "brief": "The Animation class enables manipulation of animatable images.",
+          "experimental": false,
+          "file": "Animation.json",
+          "memberCount": 8
+        }
+      ]
+    },
+    {
+      "title": "System",
+      "items": [
+        {
+          "name": "Accessor",
+          "kind": "struct",
+          "brief": "The Accessor is a utility class to debug the Scene structure by traversing the scene-tree.",
+          "experimental": false,
+          "file": "Accessor.json",
+          "memberCount": 4
+        },
+        {
+          "name": "Initializer",
+          "kind": "struct",
+          "brief": "A class that enables initialization and termination of the TVG engines.",
+          "experimental": false,
+          "file": "Initializer.json",
+          "memberCount": 3
+        },
+        {
+          "name": "Saver",
+          "kind": "struct",
+          "brief": "A class for exporting a paint object into a specified file, from which to recover the paint data later.",
+          "experimental": false,
+          "file": "Saver.json",
+          "memberCount": 5
+        }
+      ]
+    },
+    {
+      "title": "Types",
+      "items": [
+        {
+          "name": "BlendMethod",
+          "kind": "enum",
+          "brief": "Enumeration indicates the method used for blending paint. Please refer to the respective formulas for each method.",
+          "experimental": false,
+          "file": "BlendMethod.json",
+          "memberCount": 18
+        },
+        {
+          "name": "ColorSpace",
+          "kind": "enum",
+          "brief": "Enumeration specifying the methods of combining the 8-bit color channels into 32-bit color.",
+          "experimental": false,
+          "file": "ColorSpace.json",
+          "memberCount": 6
+        },
+        {
+          "name": "EngineOption",
+          "kind": "enum",
+          "brief": "Enumeration to specify rendering engine behavior.",
+          "experimental": false,
+          "file": "EngineOption.json",
+          "memberCount": 4
+        },
+        {
+          "name": "FillRule",
+          "kind": "enum",
+          "brief": "Enumeration specifying the algorithm used to establish which parts of the shape are treated as the inside of the shape.",
+          "experimental": false,
+          "file": "FillRule.json",
+          "memberCount": 2
+        },
+        {
+          "name": "FillSpread",
+          "kind": "enum",
+          "brief": "Enumeration specifying how to fill the area outside the gradient bounds.",
+          "experimental": false,
+          "file": "FillSpread.json",
+          "memberCount": 3
+        },
+        {
+          "name": "FilterMethod",
+          "kind": "enum",
+          "brief": "Defines the image filtering method used during image scaling or transformation.",
+          "experimental": false,
+          "file": "FilterMethod.json",
+          "memberCount": 2
+        },
+        {
+          "name": "GlyphMetrics",
+          "kind": "struct",
+          "brief": "Describes the layout metrics of a glyph.",
+          "experimental": true,
+          "file": "GlyphMetrics.json",
+          "memberCount": 4
+        },
+        {
+          "name": "MaskMethod",
+          "kind": "enum",
+          "brief": "Enumeration indicating the method used in the mask of two objects - the target and the source.",
+          "experimental": false,
+          "file": "MaskMethod.json",
+          "memberCount": 11
+        },
+        {
+          "name": "Matrix",
+          "kind": "struct",
+          "brief": "A data structure representing a three-dimensional matrix.",
+          "experimental": false,
+          "file": "Matrix.json",
+          "memberCount": 3
+        },
+        {
+          "name": "PathCommand",
+          "kind": "enum",
+          "brief": "Enumeration specifying the values of the path commands accepted by ThorVG.",
+          "experimental": false,
+          "file": "PathCommand.json",
+          "memberCount": 4
+        },
+        {
+          "name": "Point",
+          "kind": "struct",
+          "brief": "A data structure representing a point in two-dimensional space.",
+          "experimental": false,
+          "file": "Point.json",
+          "memberCount": 2
+        },
+        {
+          "name": "Result",
+          "kind": "enum",
+          "brief": "Enumeration specifying the result from the APIs.",
+          "experimental": false,
+          "file": "Result.json",
+          "memberCount": 8
+        },
+        {
+          "name": "SceneEffect",
+          "kind": "enum",
+          "brief": "Enumeration that defines methods used for Scene Effects.",
+          "experimental": false,
+          "file": "SceneEffect.json",
+          "memberCount": 6
+        },
+        {
+          "name": "StrokeCap",
+          "kind": "enum",
+          "brief": "Enumeration determining the ending type of a stroke in the open sub-paths.",
+          "experimental": false,
+          "file": "StrokeCap.json",
+          "memberCount": 3
+        },
+        {
+          "name": "StrokeJoin",
+          "kind": "enum",
+          "brief": "Enumeration determining the style used at the corners of joined stroked path segments.",
+          "experimental": false,
+          "file": "StrokeJoin.json",
+          "memberCount": 3
+        },
+        {
+          "name": "TextMetrics",
+          "kind": "struct",
+          "brief": "Describes the font metrics of a text object.",
+          "experimental": true,
+          "file": "TextMetrics.json",
+          "memberCount": 4
+        },
+        {
+          "name": "TextWrap",
+          "kind": "enum",
+          "brief": "Enumeration that defines methods used for wrapping text.",
+          "experimental": false,
+          "file": "TextWrap.json",
+          "memberCount": 5
+        },
+        {
+          "name": "Type",
+          "kind": "enum",
+          "brief": "Enumeration specifying the ThorVG class type value.",
+          "experimental": false,
+          "file": "Type.json",
+          "memberCount": 8
+        }
+      ]
+    }
+  ]
+}

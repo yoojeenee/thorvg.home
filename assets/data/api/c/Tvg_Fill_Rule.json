@@ -1,0 +1,32 @@
+{
+  "name": "Tvg_Fill_Rule",
+  "kind": "enum",
+  "brief": "Enumeration specifying the algorithm used to establish which parts of the shape are treated as the inside of the shape.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:304",
+  "members": [
+    {
+      "name": "TVG_FILL_RULE_NON_ZERO",
+      "value": "0",
+      "brief": "A line from the point to a location outside the shape is drawn. The intersections of the line with the path segment of the shape are counted. Starting from zero, if the path segment of the shape crosses the line clockwise, one is added, otherwise one is subtracted. If the resulting sum is non zero, the point is inside the shape.",
+      "since": null,
+      "experimental": false,
+      "line": 307
+    },
+    {
+      "name": "TVG_FILL_RULE_EVEN_ODD",
+      "value": null,
+      "brief": "A line from the point to a location outside the shape is drawn and its intersections with the path segments of the shape are counted. If the number of intersections is an odd number, the point is inside the shape.",
+      "since": null,
+      "experimental": false,
+      "line": 308
+    }
+  ],
+  "nested": []
+}

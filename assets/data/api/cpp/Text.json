@@ -1,0 +1,778 @@
+{
+  "name": "Text",
+  "kind": "struct",
+  "base": "Paint",
+  "final": false,
+  "brief": "A class to represent text objects in a graphical context, allowing for rendering and manipulation of unicode text.",
+  "description": [],
+  "since": "0.15",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "This class is not designed for inheritance."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:2043",
+  "members": [
+    {
+      "name": "font",
+      "kind": "method",
+      "line": 2062,
+      "signature": "Result font(const char* name) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the font family for the text.",
+      "description": [
+        "This function specifies the name of the font to be used when rendering text."
+      ],
+      "params": [
+        {
+          "name": "name",
+          "direction": "in",
+          "description": "The name of the font. This should match a font available through the canvas backend. If set to `nullptr`, ThorVG will attempt to select a fallback font available on the engine."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "when the specified `name` cannot be found."
+        }
+      ],
+      "notes": [
+        "This function only sets the font family name. Use size() to define the font size.",
+        "If the `name` is not specified, ThorVG will select an available fallback font."
+      ],
+      "warnings": [],
+      "see": [
+        "Text::size()",
+        "Text::load()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "size",
+      "kind": "method",
+      "line": 2082,
+      "signature": "Result size(float size) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the font size for the text.",
+      "description": [
+        "This function sets the font size used during text rendering. The size is specified in point units, and supports floating-point precision for smooth scaling and animation effects."
+      ],
+      "params": [
+        {
+          "name": "size",
+          "direction": "in",
+          "description": "The font size in points. Must be greater than 0.0."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "if the `size` is less than or equal to 0."
+        }
+      ],
+      "notes": [
+        "Use this function in combination with font() to fully define text appearance.",
+        "Fractional sizes (e.g., 12.5) are supported for sub-pixel rendering and animations."
+      ],
+      "warnings": [],
+      "see": [
+        "Text::font()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "text",
+      "kind": "method",
+      "line": 2095,
+      "signature": "Result text(const char* text) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Assigns the given unicode text to be rendered.",
+      "description": [
+        "This function sets the unicode string that will be displayed by the rendering system. The text is set according to the specified UTF encoding method, which defaults to UTF-8."
+      ],
+      "params": [
+        {
+          "name": "text",
+          "direction": "in",
+          "description": "The multi-byte text encoded with utf8 string to be rendered."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Text::text()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "text",
+      "kind": "method",
+      "line": 2108,
+      "signature": "const char* text() const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the currently assigned unicode text.",
+      "description": [
+        "This function retrieves the unicode string that is currently set for rendering. The returned text is encoded in UTF-8."
+      ],
+      "params": [],
+      "returns": "The UTF-8 encoded multi-byte text string.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "Text::text(const char* text)"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "align",
+      "kind": "method",
+      "line": 2124,
+      "signature": "Result align(float x, float y) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets text alignment or anchor per axis.",
+      "description": [
+        "If layout width/height is set on an axis, align within the layout box. Otherwise, treat it as an anchor within the text bounds which point of the text box is pinned to the paint position."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": "in",
+          "description": "Horizontal alignment/anchor in [0..1]: 0=left/start, 0.5=center, 1=right/end. (The initial value is 0)"
+        },
+        {
+          "name": "y",
+          "direction": "in",
+          "description": "Vertical alignment/anchor in [0..1]: 0=top, 0.5=middle, 1=bottom. (The initial value is 0)"
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "layout()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "layout",
+      "kind": "method",
+      "line": 2142,
+      "signature": "Result layout(float w, float h) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the virtual layout box (constraints) for the text.",
+      "description": [
+        "If width/height is set on an axis, that axis is constrained by a virtual layout box and the text may wrap/align inside it. If width/height == 0, the axis is unconstrained and align() acts as an anchor on that axis."
+      ],
+      "params": [
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "Layout width in user space. Use 0 for no horizontal constraint. (The initial value is 0)"
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "Layout height in user space. Use 0 for no vertical constraint. (The initial value is 0)"
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "This defines constraints only; alignment/anchoring is controlled by align()."
+      ],
+      "warnings": [],
+      "see": [
+        "align()",
+        "spacing()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "wrap",
+      "kind": "method",
+      "line": 2157,
+      "signature": "Result wrap(TextWrap mode) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the text wrapping mode for this text object.",
+      "description": [
+        "This method controls how the text is laid out when it exceeds the available space. The wrapping mode determines whether text is truncated, wrapped by character or word, or adjusted automatically. An ellipsis mode is also available for truncation with \"...\"."
+      ],
+      "params": [
+        {
+          "name": "mode",
+          "direction": "in",
+          "description": "The wrapping strategy to apply. The initial value is `TextWrap::None`"
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "TextWrap",
+        "Text::lines()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "lines",
+      "kind": "method",
+      "line": 2171,
+      "signature": "uint32_t lines() noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Returns the number of text lines.",
+      "description": [
+        "This function retrieves the number of lines generated after applying text layout and wrapping. The returned value reflects the current wrapping configuration set by Text::wrap(). The line count is also increased by explicit line feed characters ('\\n') contained in the text."
+      ],
+      "params": [],
+      "returns": "The total number of lines.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Text::wrap()"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "italic",
+      "kind": "method",
+      "line": 2193,
+      "signature": "Result italic(float shear = 0.18f) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": true,
+      "const": false,
+      "noexcept": true,
+      "brief": "Apply an italic (slant) transformation to the text.",
+      "description": [
+        "This function applies a shear transformation to simulate an italic (oblique) style for the current text object. The shear factor determines the degree of slant applied along the X-axis."
+      ],
+      "params": [
+        {
+          "name": "shear",
+          "direction": "in",
+          "description": "The shear factor to apply. A value of 0.0 applies no slant, while values around 0.5 result in a strong slant. Must be in the range [0.0, 0.5]. Default value is 0.18."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "The `shear` factor will be clamped to the valid range if it exceeds the limits.",
+        "This does not require the font itself to be italic. It visually simulates the effect by applying a transformation matrix."
+      ],
+      "warnings": [
+        "Excessive slanting may cause visual distortion depending on the font and size."
+      ],
+      "see": [
+        "Text::font()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "outline",
+      "kind": "method",
+      "line": 2211,
+      "signature": "Result outline(float width, uint8_t r, uint8_t g, uint8_t b) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets an outline (stroke) around the text object.",
+      "description": [
+        "This function adds an outline to the text with the specified width and RGB color. The outline enhances the visibility of the text by rendering a stroke around its glyphs."
+      ],
+      "params": [
+        {
+          "name": "width",
+          "direction": "in",
+          "description": "The width of the outline. Must be positive value. (The initial value is 0)"
+        },
+        {
+          "name": "r",
+          "direction": "in",
+          "description": "Red component of the outline color (0–255)."
+        },
+        {
+          "name": "g",
+          "direction": "in",
+          "description": "Green component of the outline color (0–255)."
+        },
+        {
+          "name": "b",
+          "direction": "in",
+          "description": "Blue component of the outline color (0–255)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "To disable the outline, set `width` to 0."
+      ],
+      "warnings": [],
+      "see": [
+        "Text::fill() to set the main text fill color."
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "line": 2225,
+      "signature": "Result fill(uint8_t r, uint8_t g, uint8_t b) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the text color.",
+      "description": [],
+      "params": [
+        {
+          "name": "r",
+          "direction": "in",
+          "description": "The red color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "g",
+          "direction": "in",
+          "description": "The green color channel value in the range [0 ~ 255]. The initial value is 0."
+        },
+        {
+          "name": "b",
+          "direction": "in",
+          "description": "The blue color channel value in the range [0 ~ 255]. The initial value is 0."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Text::font()",
+        "Text::outline()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "line": 2239,
+      "signature": "Result fill(Fill* f) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the gradient fill for all of the figures from the text.",
+      "description": [
+        "The parts of the text defined as inner are filled."
+      ],
+      "params": [
+        {
+          "name": "f",
+          "direction": "in",
+          "description": "The unique pointer to the gradient fill."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Either a solid color or a gradient fill is applied, depending on what was set as last."
+      ],
+      "warnings": [],
+      "see": [
+        "Text::font()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "spacing",
+      "kind": "method",
+      "line": 2261,
+      "signature": "Result spacing(float letter, float line) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Set the spacing scale factors for text layout.",
+      "description": [
+        "This function adjusts the letter spacing (horizontal space between glyphs) and line spacing (vertical space between lines of text) using scale factors.",
+        "Both values are relative to the font's default metrics: - The letter spacing is applied as a scale factor to the glyph's advance width. - The line spacing is applied as a scale factor to the glyph's advance height."
+      ],
+      "params": [
+        {
+          "name": "letter",
+          "direction": "in",
+          "description": "The scale factor for letter spacing. Values > 1.0 increase spacing, values < 1.0 decrease it. Must be greater than or equal to 0.0. The initial value is 1.0."
+        },
+        {
+          "name": "line",
+          "direction": "in",
+          "description": "The scale factor for line spacing. Values > 1.0 increase line spacing, values < 1.0 decrease it. Must be greater than or equal to 0.0. The initial value is 1.0."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "metrics",
+      "kind": "method",
+      "line": 2279,
+      "signature": "Result metrics(TextMetrics& metrics) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Retrieves the layout metrics of the text object.",
+      "description": [
+        "Fills the provided `TextMetrics` structure with the font layout values of this text object, such as ascent, descent, linegap, and line advance.",
+        "The returned values reflect the font size applied to the text object, but do not include any transformations (e.g., scale, rotation, or translation)."
+      ],
+      "params": [
+        {
+          "name": "metrics",
+          "direction": "out",
+          "description": "A reference to a `TextMetrics` structure to be filled with the resulting values."
+        }
+      ],
+      "returns": "Result::InsufficientCondition if no font or size has been set yet.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "TextMetrics"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "metrics",
+      "kind": "method",
+      "line": 2304,
+      "signature": "Result metrics(const char* ch, GlyphMetrics& metrics, const char** next = nullptr) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Retrieves the layout metrics of a glyph in the text object.",
+      "description": [
+        "Fills the provided `GlyphMetrics` structure with the horizontal layout values of the specified glyph, such as advance, left-side bearing, and bounding box.",
+        "The returned values reflect the font size applied to the text object, but do not include any transformations (e.g., scale, rotation, or translation).",
+        "The input character must be a single UTF-8 encoded character."
+      ],
+      "params": [
+        {
+          "name": "ch",
+          "direction": "in",
+          "description": "A pointer to a UTF-8 encoded character."
+        },
+        {
+          "name": "metrics",
+          "direction": "out",
+          "description": "A reference to a GlyphMetrics structure to be filled with the resulting values."
+        },
+        {
+          "name": "next",
+          "direction": "out",
+          "description": "An optional pointer that receives the position immediately following the processed UTF-8 character."
+        }
+      ],
+      "returns": "Result::InvalidArguments if the given character is invalid or not supported.",
+      "retvals": [],
+      "notes": [
+        "Currently, ThorVG only supports horizontal text layout.",
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "GlyphMetrics"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "line": 2322,
+      "signature": "static Result load(const char* filename) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Loads a scalable font data (ttf/otf) from a file.",
+      "description": [
+        "ThorVG efficiently caches the loaded data using the specified `path` as a key. This means that loading the same file again will not result in duplicate operations; instead, ThorVG will reuse the previously loaded font data."
+      ],
+      "params": [
+        {
+          "name": "filename",
+          "direction": "in",
+          "description": "A file name, including the path, for the font file."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "In case the `path` is invalid."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "When trying to load a file with an unknown extension."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Text::unload(const char* filename)"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "line": 2349,
+      "signature": "static Result load(const char* name, const char* data, uint32_t size, const char* mimeType = \"ttf\", bool copy = false) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Loads a scalable font data (ttf/otf) from a memory block of a given size.",
+      "description": [
+        "ThorVG efficiently caches the loaded font data using the specified `name` as a key. This means that loading the same fonts again will not result in duplicate operations. Instead, ThorVG will reuse the previously loaded font data."
+      ],
+      "params": [
+        {
+          "name": "name",
+          "direction": "in",
+          "description": "The name under which the font will be stored and accessible (e.x. in a `font`() API)."
+        },
+        {
+          "name": "data",
+          "direction": "in",
+          "description": "A pointer to a memory location where the content of the font data is stored."
+        },
+        {
+          "name": "size",
+          "direction": "in",
+          "description": "The size in bytes of the memory occupied by the `data`."
+        },
+        {
+          "name": "mimeType",
+          "direction": "in",
+          "description": "Mimetype or extension of font data. In case an empty string is provided the loader will be determined automatically."
+        },
+        {
+          "name": "copy",
+          "direction": "in",
+          "description": "If `true` the data are copied into the engine local buffer, otherwise they are not (default)."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "If no name is provided or if `size` is zero while `data` points to a valid memory location."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "When trying to load a file with an unsupported extension."
+        },
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "If attempting to unload the font data that has not been previously loaded."
+        }
+      ],
+      "notes": [
+        "To unload the font data loaded using this API, pass the proper `name` and `nullptr` as `data`.",
+        "If you are unsure about the MIME type, you can provide an empty value like `nullptr`, and thorvg will attempt to figure it out."
+      ],
+      "warnings": [
+        "It's the user responsibility to release the `data` memory."
+      ],
+      "see": [
+        "Text::font(const char* name",
+        "float size",
+        "const char* style)"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "unload",
+      "kind": "method",
+      "line": 2365,
+      "signature": "static Result unload(const char* filename) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Unloads the specified scalable font data (TTF) that was previously loaded.",
+      "description": [
+        "This function is used to release resources associated with a font file that has been loaded into memory."
+      ],
+      "params": [
+        {
+          "name": "filename",
+          "direction": "in",
+          "description": "The file name of the loaded font, including the path."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "Fails if the loader is not initialized."
+        }
+      ],
+      "notes": [
+        "If the font data is currently in use, it will not be immediately unloaded."
+      ],
+      "warnings": [],
+      "see": [
+        "Text::load(const char* filename)"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 2379,
+      "signature": "static Text* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new Text object.",
+      "description": [
+        "This function allocates and returns a new Text instance. To properly destroy the Text object, use Paint::rel()."
+      ],
+      "params": [],
+      "returns": "A pointer to the newly created Text object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Paint::rel()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "type",
+      "kind": "method",
+      "line": 2390,
+      "signature": "Type type() const noexcept override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the ID value of this class.",
+      "description": [
+        "This method can be used to check the current concrete instance type."
+      ],
+      "params": [],
+      "returns": "The class type ID of the Text instance.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

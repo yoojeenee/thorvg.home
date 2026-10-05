@@ -1,0 +1,54 @@
+{
+  "name": "StrokeCap",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration determining the ending type of a stroke in the open sub-paths.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:165",
+  "members": [
+    {
+      "name": "Butt",
+      "kind": "enumerator",
+      "line": 166,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "The stroke ends exactly at each of the two end-points of a sub-path. For zero length sub-paths no stroke is rendered.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Round",
+      "kind": "enumerator",
+      "line": 167,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The stroke is extended in both end-points of a sub-path by a half circle, with a radius equal to the half of a stroke width. For zero length sub-paths a full circle is rendered.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Square",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The stroke is extended in both end-points of a sub-path by a rectangle, with the width equal to the stroke width and the length equal to the half of the stroke width. For zero length sub-paths the square is rendered with the size of the stroke width.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

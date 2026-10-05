@@ -1,0 +1,67 @@
+{
+  "name": "CanvasOptions",
+  "kind": "interface",
+  "brief": "Configuration options for Canvas initialization.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Canvas",
+  "signature": "export interface CanvasOptions",
+  "source": "src/core/Canvas.ts:61",
+  "members": [
+    {
+      "name": "width",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Canvas width in pixels. Default: 800",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 63
+    },
+    {
+      "name": "height",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Canvas height in pixels. Default: 600",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 65
+    },
+    {
+      "name": "enableDevicePixelRatio",
+      "kind": "property",
+      "type": "boolean",
+      "static": false,
+      "readonly": false,
+      "brief": "Enable device pixel ratio for high-DPI displays. Default: true",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 67
+    },
+    {
+      "name": "engineOption",
+      "kind": "property",
+      "type": "EngineOption",
+      "static": false,
+      "readonly": false,
+      "brief": "Rendering engine behavior option. Default: EngineOption.Default",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 69
+    }
+  ],
+  "nested": []
+}

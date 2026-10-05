@@ -1,0 +1,514 @@
+{
+  "language": "js",
+  "version": "1.1.2",
+  "source": "src",
+  "groups": [
+    {
+      "title": "Core",
+      "items": [
+        {
+          "name": "Paint",
+          "kind": "class",
+          "brief": "Base class for all drawable objects",
+          "experimental": false,
+          "file": "Paint.json",
+          "memberCount": 23
+        }
+      ]
+    },
+    {
+      "title": "Drawing",
+      "items": [
+        {
+          "name": "Font",
+          "kind": "class",
+          "brief": "Font loader class for managing custom fonts. Fonts are loaded globally and can be referenced by name in `Text` objects.",
+          "experimental": false,
+          "file": "Font.json",
+          "memberCount": 5
+        },
+        {
+          "name": "FontsourceProvider",
+          "kind": "class",
+          "brief": "Font provider that fetches fonts from the [fontsource](https://fontsource.org) CDN.",
+          "experimental": false,
+          "file": "FontsourceProvider.json",
+          "memberCount": 1
+        },
+        {
+          "name": "Picture",
+          "kind": "class",
+          "brief": "Picture class for loading and displaying images and vector graphics",
+          "experimental": false,
+          "file": "Picture.json",
+          "memberCount": 14
+        },
+        {
+          "name": "Scene",
+          "kind": "class",
+          "brief": "Scene class for hierarchical grouping of Paint objects",
+          "experimental": false,
+          "file": "Scene.json",
+          "memberCount": 10
+        },
+        {
+          "name": "Shape",
+          "kind": "class",
+          "brief": "Shape class for creating and manipulating vector graphics paths.",
+          "experimental": false,
+          "file": "Shape.json",
+          "memberCount": 19
+        },
+        {
+          "name": "Text",
+          "kind": "class",
+          "brief": "Text rendering class with font support",
+          "experimental": false,
+          "file": "Text.json",
+          "memberCount": 14
+        }
+      ]
+    },
+    {
+      "title": "Gradients",
+      "items": [
+        {
+          "name": "LinearGradient",
+          "kind": "class",
+          "brief": "Linear gradient for filling shapes",
+          "experimental": false,
+          "file": "LinearGradient.json",
+          "memberCount": 2
+        },
+        {
+          "name": "RadialGradient",
+          "kind": "class",
+          "brief": "Radial gradient for filling shapes",
+          "experimental": false,
+          "file": "RadialGradient.json",
+          "memberCount": 2
+        }
+      ]
+    },
+    {
+      "title": "Canvas",
+      "items": [
+        {
+          "name": "Canvas",
+          "kind": "class",
+          "brief": "Canvas rendering context for ThorVG vector graphics.",
+          "experimental": false,
+          "file": "Canvas.json",
+          "memberCount": 11
+        }
+      ]
+    },
+    {
+      "title": "Animation",
+      "items": [
+        {
+          "name": "Animation",
+          "kind": "class",
+          "brief": "Animation controller for Lottie animations The Animation owns a Picture internally and manages frame updates",
+          "experimental": false,
+          "file": "Animation.json",
+          "memberCount": 17
+        },
+        {
+          "name": "LottieAnimation",
+          "kind": "class",
+          "brief": "Animation controller with the Lottie extensions: markers, slots, etc.",
+          "experimental": false,
+          "file": "LottieAnimation.json",
+          "memberCount": 21
+        },
+        {
+          "name": "Video",
+          "kind": "class",
+          "brief": "Video controller. The Video owns a Picture internally and manages frame updates",
+          "experimental": false,
+          "file": "Video.json",
+          "memberCount": 19
+        }
+      ]
+    },
+    {
+      "title": "System",
+      "items": [
+        {
+          "name": "Accessor",
+          "kind": "class",
+          "brief": "Utility class for traversing and inspecting paint trees",
+          "experimental": false,
+          "file": "Accessor.json",
+          "memberCount": 4
+        },
+        {
+          "name": "InitOptions",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "InitOptions.json",
+          "memberCount": 4
+        },
+        {
+          "name": "getGlobalRenderer",
+          "kind": "function",
+          "brief": "Get the currently configured renderer @internal",
+          "experimental": false,
+          "file": "getGlobalRenderer.json",
+          "memberCount": 1
+        },
+        {
+          "name": "init",
+          "kind": "function",
+          "brief": "Initialize ThorVG WASM module and rendering engine.",
+          "experimental": false,
+          "file": "init.json",
+          "memberCount": 1
+        }
+      ]
+    },
+    {
+      "title": "Types",
+      "items": [
+        {
+          "name": "AnimationInfo",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "AnimationInfo.json",
+          "memberCount": 3
+        },
+        {
+          "name": "AnimationSegment",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "AnimationSegment.json",
+          "memberCount": 2
+        },
+        {
+          "name": "AssetResolver",
+          "kind": "type",
+          "brief": "Callback that resolves an external asset (image or font) referenced by a loaded picture, such as the assets inside a Lottie file.",
+          "experimental": false,
+          "file": "AssetResolver.json",
+          "memberCount": 0
+        },
+        {
+          "name": "AudioInfo",
+          "kind": "interface",
+          "brief": "Describes the current state of a Lottie audio layer.",
+          "experimental": false,
+          "file": "AudioInfo.json",
+          "memberCount": 5
+        },
+        {
+          "name": "AudioResolver",
+          "kind": "type",
+          "brief": "Audio resolver callback",
+          "experimental": false,
+          "file": "AudioResolver.json",
+          "memberCount": 0
+        },
+        {
+          "name": "BlendMethod",
+          "kind": "enum",
+          "brief": "Blend method for compositing paint layers.",
+          "experimental": false,
+          "file": "BlendMethod.json",
+          "memberCount": 18
+        },
+        {
+          "name": "Bounds",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "Bounds.json",
+          "memberCount": 4
+        },
+        {
+          "name": "CanvasOptions",
+          "kind": "interface",
+          "brief": "Configuration options for Canvas initialization.",
+          "experimental": false,
+          "file": "CanvasOptions.json",
+          "memberCount": 4
+        },
+        {
+          "name": "CanvasTarget",
+          "kind": "type",
+          "brief": "Canvas target accepted by `Canvas`.",
+          "experimental": false,
+          "file": "CanvasTarget.json",
+          "memberCount": 0
+        },
+        {
+          "name": "ColorSpace",
+          "kind": "enum",
+          "brief": "Color space enum for raw image data. Specifies the channel order and alpha premultiplication.",
+          "experimental": false,
+          "file": "ColorSpace.json",
+          "memberCount": 6
+        },
+        {
+          "name": "ColorStop",
+          "kind": "type",
+          "brief": "",
+          "experimental": false,
+          "file": "ColorStop.json",
+          "memberCount": 0
+        },
+        {
+          "name": "EngineOption",
+          "kind": "enum",
+          "brief": "Enumeration to specify rendering engine behavior.",
+          "experimental": false,
+          "file": "EngineOption.json",
+          "memberCount": 3
+        },
+        {
+          "name": "ErrorContext",
+          "kind": "interface",
+          "brief": "Context information provided when an error occurs.",
+          "experimental": false,
+          "file": "ErrorContext.json",
+          "memberCount": 1
+        },
+        {
+          "name": "ErrorHandler",
+          "kind": "interface",
+          "brief": "Error handler callback function.",
+          "experimental": false,
+          "file": "ErrorHandler.json",
+          "memberCount": 0
+        },
+        {
+          "name": "FillRule",
+          "kind": "enum",
+          "brief": "Fill rule for determining whether a point is inside a shape.",
+          "experimental": false,
+          "file": "FillRule.json",
+          "memberCount": 2
+        },
+        {
+          "name": "FilterMethod",
+          "kind": "enum",
+          "brief": "Image filtering method used when a picture is scaled or transformed.",
+          "experimental": false,
+          "file": "FilterMethod.json",
+          "memberCount": 2
+        },
+        {
+          "name": "FontProvider",
+          "kind": "interface",
+          "brief": "Interface for pluggable font sources.",
+          "experimental": false,
+          "file": "FontProvider.json",
+          "memberCount": 1
+        },
+        {
+          "name": "FontProviderResult",
+          "kind": "interface",
+          "brief": "Result returned by a `FontProvider` after fetching font data.",
+          "experimental": false,
+          "file": "FontProviderResult.json",
+          "memberCount": 2
+        },
+        {
+          "name": "FontType",
+          "kind": "type",
+          "brief": "Supported font file types. - `'ttf'`: TrueType Font - `'otf'`: OpenType Font",
+          "experimental": false,
+          "file": "FontType.json",
+          "memberCount": 0
+        },
+        {
+          "name": "FontsourceOptions",
+          "kind": "interface",
+          "brief": "Options for loading a font from the fontsource CDN.",
+          "experimental": false,
+          "file": "FontsourceOptions.json",
+          "memberCount": 3
+        },
+        {
+          "name": "GradientSpread",
+          "kind": "enum",
+          "brief": "Gradient spread method for areas outside the gradient bounds.",
+          "experimental": false,
+          "file": "GradientSpread.json",
+          "memberCount": 3
+        },
+        {
+          "name": "LoadDataOptions",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "LoadDataOptions.json",
+          "memberCount": 4
+        },
+        {
+          "name": "LoadFontOptions",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "LoadFontOptions.json",
+          "memberCount": 1
+        },
+        {
+          "name": "LottieMarker",
+          "kind": "interface",
+          "brief": "A named frame range embedded in the Lottie file at design time.",
+          "experimental": false,
+          "file": "LottieMarker.json",
+          "memberCount": 3
+        },
+        {
+          "name": "LottieSlotData",
+          "kind": "type",
+          "brief": "Lottie slot data, keyed by the `sid` the Lottie exposes.",
+          "experimental": false,
+          "file": "LottieSlotData.json",
+          "memberCount": 0
+        },
+        {
+          "name": "MaskMethod",
+          "kind": "enum",
+          "brief": "Mask method for masking operations.",
+          "experimental": false,
+          "file": "MaskMethod.json",
+          "memberCount": 11
+        },
+        {
+          "name": "Matrix",
+          "kind": "interface",
+          "brief": "A 3x3 transformation matrix for 2D transformations.",
+          "experimental": false,
+          "file": "Matrix.json",
+          "memberCount": 9
+        },
+        {
+          "name": "MimeType",
+          "kind": "type",
+          "brief": "MIME type or format hint for loading picture data.",
+          "experimental": false,
+          "file": "MimeType.json",
+          "memberCount": 0
+        },
+        {
+          "name": "PathCommand",
+          "kind": "enum",
+          "brief": "Path command for building shapes.",
+          "experimental": false,
+          "file": "PathCommand.json",
+          "memberCount": 4
+        },
+        {
+          "name": "PictureSize",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "PictureSize.json",
+          "memberCount": 2
+        },
+        {
+          "name": "RectOptions",
+          "kind": "interface",
+          "brief": "Options for creating rectangles with rounded corners.",
+          "experimental": false,
+          "file": "RectOptions.json",
+          "memberCount": 3
+        },
+        {
+          "name": "RendererType",
+          "kind": "type",
+          "brief": "Rendering backend type for Canvas.",
+          "experimental": false,
+          "file": "RendererType.json",
+          "memberCount": 0
+        },
+        {
+          "name": "SceneEffect",
+          "kind": "enum",
+          "brief": "Scene effect for post-processing effects.",
+          "experimental": false,
+          "file": "SceneEffect.json",
+          "memberCount": 6
+        },
+        {
+          "name": "StrokeCap",
+          "kind": "enum",
+          "brief": "Stroke cap style for line endings.",
+          "experimental": false,
+          "file": "StrokeCap.json",
+          "memberCount": 3
+        },
+        {
+          "name": "StrokeJoin",
+          "kind": "enum",
+          "brief": "Stroke join style for line corners.",
+          "experimental": false,
+          "file": "StrokeJoin.json",
+          "memberCount": 3
+        },
+        {
+          "name": "StrokeOptions",
+          "kind": "interface",
+          "brief": "Comprehensive stroke styling options.",
+          "experimental": false,
+          "file": "StrokeOptions.json",
+          "memberCount": 8
+        },
+        {
+          "name": "TextLayout",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "TextLayout.json",
+          "memberCount": 2
+        },
+        {
+          "name": "TextOutline",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "TextOutline.json",
+          "memberCount": 2
+        },
+        {
+          "name": "TextWrapMode",
+          "kind": "enum",
+          "brief": "Text wrapping mode for multi-line text layout.",
+          "experimental": false,
+          "file": "TextWrapMode.json",
+          "memberCount": 5
+        },
+        {
+          "name": "ThorVGError",
+          "kind": "class",
+          "brief": "Error class for ThorVG WASM operations. Contains error code and operation information.",
+          "experimental": false,
+          "file": "ThorVGError.json",
+          "memberCount": 4
+        },
+        {
+          "name": "ThorVGNamespace",
+          "kind": "interface",
+          "brief": "",
+          "experimental": false,
+          "file": "ThorVGNamespace.json",
+          "memberCount": 27
+        },
+        {
+          "name": "ThorVGResultCode",
+          "kind": "enum",
+          "brief": "ThorVG error result codes returned by native WASM operations.",
+          "experimental": false,
+          "file": "ThorVGResultCode.json",
+          "memberCount": 8
+        }
+      ]
+    }
+  ]
+}

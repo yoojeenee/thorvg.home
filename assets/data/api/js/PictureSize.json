@@ -1,0 +1,43 @@
+{
+  "name": "PictureSize",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Picture",
+  "signature": "export interface PictureSize",
+  "source": "src/core/Picture.ts:51",
+  "members": [
+    {
+      "name": "width",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 52
+    },
+    {
+      "name": "height",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 53
+    }
+  ],
+  "nested": []
+}

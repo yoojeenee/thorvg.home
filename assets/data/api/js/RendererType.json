@@ -1,0 +1,28 @@
+{
+  "name": "RendererType",
+  "kind": "type",
+  "brief": "Rendering backend type for Canvas.",
+  "description": [
+    "ThorVG supports three rendering backends, each with different performance characteristics and browser compatibility:",
+    "## Available Renderers",
+    "### `'sw'` - Software Renderer - **Rendering**: CPU-based software rendering - **Performance**: Slower, but works everywhere - **Compatibility**: All browsers and devices - **Best for**: Maximum compatibility, simple graphics, server-side rendering",
+    "### `'gl'` - WebGL Renderer (Recommended) - **Rendering**: GPU-accelerated using WebGL 2.0 - **Performance**: Excellent performance with wide browser support - **Compatibility**: Chrome 56+, Firefox 51+, Safari 15+, Edge 79+ - **Best for**: Production applications, interactive graphics, animations - **Recommended for most use cases**",
+    "### `'wg'` - WebGPU Renderer - **Rendering**: Next-generation GPU API - **Performance**: Best performance for complex scenes - **Compatibility**: Chrome 113+, Edge 113+ (limited support) - **Best for**: Maximum performance, modern browsers only"
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Recommended setup with WebGL\nconst TVG = await ThorVG.init({ renderer: 'gl' });\nconst canvas = new TVG.Canvas('#canvas', { width: 800, height: 600 });",
+    "// Maximum performance with WebGPU (modern browsers only)\nconst TVG = await ThorVG.init({ renderer: 'wg' });",
+    "// Maximum compatibility with Software renderer\nconst TVG = await ThorVG.init({ renderer: 'sw' });"
+  ],
+  "category": "Other",
+  "signature": "export type RendererType = 'sw' | 'gl' | 'wg';",
+  "source": "src/common/constants.ts:302",
+  "members": [],
+  "nested": []
+}

@@ -1,0 +1,418 @@
+{
+  "language": "c",
+  "version": "1.0.0",
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "groups": [
+    {
+      "title": "Core",
+      "items": [
+        {
+          "name": "Fill",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Fill.json",
+          "memberCount": 9
+        },
+        {
+          "name": "Paint",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "Paint.json",
+          "memberCount": 29
+        }
+      ]
+    },
+    {
+      "title": "Drawing",
+      "items": [
+        {
+          "name": "Font",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Font.json",
+          "memberCount": 3
+        },
+        {
+          "name": "Picture",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "Picture.json",
+          "memberCount": 12
+        },
+        {
+          "name": "Scene",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Scene.json",
+          "memberCount": 10
+        },
+        {
+          "name": "Shape",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Shape.json",
+          "memberCount": 32
+        },
+        {
+          "name": "Text",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "Text.json",
+          "memberCount": 16
+        }
+      ]
+    },
+    {
+      "title": "Gradients",
+      "items": [
+        {
+          "name": "ConicGradient",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "ConicGradient.json",
+          "memberCount": 3
+        },
+        {
+          "name": "LinearGradient",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "LinearGradient.json",
+          "memberCount": 3
+        },
+        {
+          "name": "RadialGradient",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "RadialGradient.json",
+          "memberCount": 3
+        }
+      ]
+    },
+    {
+      "title": "Canvas",
+      "items": [
+        {
+          "name": "Canvas",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Canvas.json",
+          "memberCount": 8
+        },
+        {
+          "name": "GlCanvas",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "GlCanvas.json",
+          "memberCount": 2
+        },
+        {
+          "name": "SwCanvas",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "SwCanvas.json",
+          "memberCount": 2
+        },
+        {
+          "name": "WgCanvas",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "WgCanvas.json",
+          "memberCount": 3
+        }
+      ]
+    },
+    {
+      "title": "Animation",
+      "items": [
+        {
+          "name": "Animation",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Animation.json",
+          "memberCount": 9
+        },
+        {
+          "name": "LottieAnimation",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "LottieAnimation.json",
+          "memberCount": 16
+        },
+        {
+          "name": "Video",
+          "kind": "functions",
+          "brief": "",
+          "experimental": true,
+          "file": "Video.json",
+          "memberCount": 15
+        }
+      ]
+    },
+    {
+      "title": "System",
+      "items": [
+        {
+          "name": "Accessor",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Accessor.json",
+          "memberCount": 4
+        },
+        {
+          "name": "Initializer",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Initializer.json",
+          "memberCount": 3
+        },
+        {
+          "name": "Saver",
+          "kind": "functions",
+          "brief": "",
+          "experimental": false,
+          "file": "Saver.json",
+          "memberCount": 5
+        }
+      ]
+    },
+    {
+      "title": "Types",
+      "items": [
+        {
+          "name": "Tvg_Accessor",
+          "kind": "handle",
+          "brief": "A structure representing an object that enables iterating through a scene's descendents.",
+          "experimental": false,
+          "file": "Tvg_Accessor.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Animation",
+          "kind": "handle",
+          "brief": "A structure representing an animation controller object.",
+          "experimental": false,
+          "file": "Tvg_Animation.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Audio_Info",
+          "kind": "struct",
+          "brief": "Describes the current state of a Lottie audio layer.",
+          "experimental": true,
+          "file": "Tvg_Audio_Info.json",
+          "memberCount": 7
+        },
+        {
+          "name": "Tvg_Blend_Method",
+          "kind": "enum",
+          "brief": "Enumeration indicates the method used for blending paint. Please refer to the respective formulas for each method.",
+          "experimental": false,
+          "file": "Tvg_Blend_Method.json",
+          "memberCount": 18
+        },
+        {
+          "name": "Tvg_Canvas",
+          "kind": "handle",
+          "brief": "A structure responsible for managing and drawing graphical elements.",
+          "experimental": false,
+          "file": "Tvg_Canvas.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Color_Stop",
+          "kind": "struct",
+          "brief": "A data structure storing the information about the color and its relative position inside the gradient bounds.",
+          "experimental": false,
+          "file": "Tvg_Color_Stop.json",
+          "memberCount": 5
+        },
+        {
+          "name": "Tvg_Colorspace",
+          "kind": "enum",
+          "brief": "Enumeration specifying the methods of combining the 8-bit color channels into 32-bit color.",
+          "experimental": false,
+          "file": "Tvg_Colorspace.json",
+          "memberCount": 6
+        },
+        {
+          "name": "Tvg_Engine_Option",
+          "kind": "enum",
+          "brief": "Enumeration to specify rendering engine behavior.",
+          "experimental": false,
+          "file": "Tvg_Engine_Option.json",
+          "memberCount": 4
+        },
+        {
+          "name": "Tvg_Fill_Rule",
+          "kind": "enum",
+          "brief": "Enumeration specifying the algorithm used to establish which parts of the shape are treated as the inside of the shape.",
+          "experimental": false,
+          "file": "Tvg_Fill_Rule.json",
+          "memberCount": 2
+        },
+        {
+          "name": "Tvg_Filter_Method",
+          "kind": "enum",
+          "brief": "Defines the image filtering method used during image scaling or transformation.",
+          "experimental": false,
+          "file": "Tvg_Filter_Method.json",
+          "memberCount": 2
+        },
+        {
+          "name": "Tvg_Glyph_Metrics",
+          "kind": "struct",
+          "brief": "Describes the layout metrics of a glyph.",
+          "experimental": true,
+          "file": "Tvg_Glyph_Metrics.json",
+          "memberCount": 4
+        },
+        {
+          "name": "Tvg_Gradient",
+          "kind": "handle",
+          "brief": "A structure representing a gradient fill of a Tvg_Paint object.",
+          "experimental": false,
+          "file": "Tvg_Gradient.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Mask_Method",
+          "kind": "enum",
+          "brief": "Enumeration indicating the method used in the masking of two objects - the target and the source.",
+          "experimental": false,
+          "file": "Tvg_Mask_Method.json",
+          "memberCount": 11
+        },
+        {
+          "name": "Tvg_Matrix",
+          "kind": "struct",
+          "brief": "A data structure representing a three-dimensional matrix.",
+          "experimental": false,
+          "file": "Tvg_Matrix.json",
+          "memberCount": 9
+        },
+        {
+          "name": "Tvg_Paint",
+          "kind": "handle",
+          "brief": "A structure representing a graphical element.",
+          "experimental": false,
+          "file": "Tvg_Paint.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Path_Command",
+          "kind": "alias",
+          "brief": "Enumeration specifying the values of the path commands accepted by ThorVG.",
+          "experimental": false,
+          "file": "Tvg_Path_Command.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Point",
+          "kind": "struct",
+          "brief": "A data structure representing a point in two-dimensional space.",
+          "experimental": false,
+          "file": "Tvg_Point.json",
+          "memberCount": 2
+        },
+        {
+          "name": "Tvg_Result",
+          "kind": "enum",
+          "brief": "Enumeration specifying the result from the APIs.",
+          "experimental": false,
+          "file": "Tvg_Result.json",
+          "memberCount": 8
+        },
+        {
+          "name": "Tvg_Saver",
+          "kind": "handle",
+          "brief": "A structure representing an object that enables to save a Tvg_Paint object into a file.",
+          "experimental": false,
+          "file": "Tvg_Saver.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_Stroke_Cap",
+          "kind": "enum",
+          "brief": "Enumeration determining the ending type of a stroke in the open sub-paths.",
+          "experimental": false,
+          "file": "Tvg_Stroke_Cap.json",
+          "memberCount": 3
+        },
+        {
+          "name": "Tvg_Stroke_Fill",
+          "kind": "enum",
+          "brief": "Enumeration specifying how to fill the area outside the gradient bounds.",
+          "experimental": false,
+          "file": "Tvg_Stroke_Fill.json",
+          "memberCount": 3
+        },
+        {
+          "name": "Tvg_Stroke_Join",
+          "kind": "enum",
+          "brief": "Enumeration specifying how to fill the area outside the gradient bounds.",
+          "experimental": false,
+          "file": "Tvg_Stroke_Join.json",
+          "memberCount": 3
+        },
+        {
+          "name": "Tvg_Text_Metrics",
+          "kind": "struct",
+          "brief": "Describes the font metrics of a text object.",
+          "experimental": true,
+          "file": "Tvg_Text_Metrics.json",
+          "memberCount": 4
+        },
+        {
+          "name": "Tvg_Text_Wrap",
+          "kind": "enum",
+          "brief": "A data structure storing the information about the color and its relative position inside the gradient bounds.",
+          "experimental": false,
+          "file": "Tvg_Text_Wrap.json",
+          "memberCount": 6
+        },
+        {
+          "name": "Tvg_Type",
+          "kind": "enum",
+          "brief": "Enumeration indicating the ThorVG object type value.",
+          "experimental": false,
+          "file": "Tvg_Type.json",
+          "memberCount": 8
+        },
+        {
+          "name": "Tvg_Video",
+          "kind": "handle",
+          "brief": "A structure representing a video playback controller object.",
+          "experimental": true,
+          "file": "Tvg_Video.json",
+          "memberCount": 0
+        },
+        {
+          "name": "Tvg_WgContext",
+          "kind": "struct",
+          "brief": "Encapsulates the WebGPU context required for rendering.",
+          "experimental": true,
+          "file": "Tvg_WgContext.json",
+          "memberCount": 3
+        }
+      ]
+    }
+  ]
+}

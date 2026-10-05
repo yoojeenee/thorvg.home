@@ -1,0 +1,116 @@
+{
+  "name": "Result",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration specifying the result from the APIs.",
+  "description": [
+    "All ThorVG APIs could potentially return one of the values in the list. Please note that some APIs may additionally specify the reasons that trigger their return values."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:101",
+  "members": [
+    {
+      "name": "Success",
+      "kind": "enumerator",
+      "line": 102,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "The value returned in case of a correct request execution.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "InvalidArguments",
+      "kind": "enumerator",
+      "line": 103,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The value returned in the event of a problem with the arguments given to the API - e.g. empty paths or null pointers.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "InsufficientCondition",
+      "kind": "enumerator",
+      "line": 104,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The value returned in case the request cannot be processed - e.g. asking for properties of an object, which does not exist.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "FailedAllocation",
+      "kind": "enumerator",
+      "line": 105,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The value returned in case of unsuccessful memory allocation.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "MemoryCorruption",
+      "kind": "enumerator",
+      "line": 106,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The value returned in the event of bad memory handling - e.g. failing in pointer releasing or casting",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "NonSupport",
+      "kind": "enumerator",
+      "line": 107,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The value returned in case of choosing unsupported engine features(options).",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "SystemError",
+      "kind": "enumerator",
+      "line": 108,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The value returned when an underlying system operation fails.",
+      "description": [],
+      "since": null,
+      "experimental": true
+    },
+    {
+      "name": "Unknown",
+      "kind": "enumerator",
+      "line": 0,
+      "value": "255",
+      "type": "",
+      "static": false,
+      "brief": "The value returned in all other cases.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

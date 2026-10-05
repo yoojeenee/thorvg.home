@@ -1,0 +1,55 @@
+{
+  "name": "FontsourceOptions",
+  "kind": "interface",
+  "brief": "Options for loading a font from the fontsource CDN.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Font",
+  "signature": "export interface FontsourceOptions",
+  "source": "src/providers/FontsourceProvider.ts:14",
+  "members": [
+    {
+      "name": "weight",
+      "kind": "property",
+      "type": "100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900",
+      "static": false,
+      "readonly": false,
+      "brief": "Font weight to load. @defaultValue 400",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 19
+    },
+    {
+      "name": "style",
+      "kind": "property",
+      "type": "'normal' | 'italic'",
+      "static": false,
+      "readonly": false,
+      "brief": "Font style to load. @defaultValue 'normal'",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 24
+    },
+    {
+      "name": "subset",
+      "kind": "property",
+      "type": "string",
+      "static": false,
+      "readonly": false,
+      "brief": "Unicode subset to load. @defaultValue 'latin'",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 29
+    }
+  ],
+  "nested": []
+}

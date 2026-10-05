@@ -1,0 +1,365 @@
+{
+  "name": "Text",
+  "kind": "class",
+  "brief": "Text rendering class with font support",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Basic text rendering\nconst text = new TVG.Text();\ntext.font('Arial', 48)\n    .text('Hello ThorVG!')\n    .fill(50, 50, 50, 255)\n    .translate(100, 200);\n\ncanvas.add(text);",
+    "// Text with custom font and styling\n// Load custom font first\nconst fontData = await fetch('/fonts/custom.ttf').then(r => r.arrayBuffer());\nTVG.Font.load('CustomFont', new Uint8Array(fontData));\n\nconst text = new TVG.Text();\ntext.font('CustomFont', 64)\n    .text('Custom Font')\n    .fill(100, 150, 255, 255)\n    .stroke(50, 50, 50, 255, 2);\n\ncanvas.add(text);",
+    "// Multi-line text with wrapping\nconst text = new TVG.Text();\ntext.font('Arial')\n    .fontSize(24)\n    .text('This is a long text that will wrap across multiple lines')\n    .fill(50, 50, 50)\n    .layout(300, 200)\n    .wrap(TextWrapMode.Word);\n\ncanvas.add(text);"
+  ],
+  "category": "Text",
+  "signature": "export class Text extends Paint",
+  "source": "src/core/Text.ts:75",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(ptr?: number, skipRegistry: boolean = false)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 79
+    },
+    {
+      "name": "font",
+      "kind": "method",
+      "signature": "font(name: string): this",
+      "static": false,
+      "brief": "Set the font to use for this text.",
+      "description": [],
+      "params": [
+        {
+          "name": "name",
+          "direction": null,
+          "description": "Font name"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 96
+    },
+    {
+      "name": "text",
+      "kind": "method",
+      "signature": "text(content: string): this",
+      "static": false,
+      "brief": "Set the text content (UTF-8 supported)",
+      "description": [],
+      "params": [
+        {
+          "name": "content",
+          "direction": null,
+          "description": "Text content to display"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 117
+    },
+    {
+      "name": "fontSize",
+      "kind": "method",
+      "signature": "fontSize(size: number): this",
+      "static": false,
+      "brief": "Set the font size",
+      "description": [],
+      "params": [
+        {
+          "name": "size",
+          "direction": null,
+          "description": "Font size in pixels"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 139
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "signature": "fill(gradient: Fill): this",
+      "static": false,
+      "brief": "Set text color (RGB) or fill with gradient",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 149
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "signature": "fill(r: number, g: number, b: number): this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 150
+    },
+    {
+      "name": "fill",
+      "kind": "method",
+      "signature": "fill(gradientOrR: Fill | number, g?: number, b?: number): this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 151
+    },
+    {
+      "name": "align",
+      "kind": "method",
+      "signature": "align(x: number, y: number): this",
+      "static": false,
+      "brief": "Set text alignment/anchor point",
+      "description": [],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "Horizontal alignment/anchor in [0..1]: 0=left/start, 0.5=center, 1=right/end (Default: 0)"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "Vertical alignment/anchor in [0..1]: 0=top, 0.5=middle, 1=bottom (Default: 0)"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 175
+    },
+    {
+      "name": "layout",
+      "kind": "method",
+      "signature": "layout(width: number, height: number = 0): this",
+      "static": false,
+      "brief": "Set text layout constraints (for wrapping)",
+      "description": [],
+      "params": [
+        {
+          "name": "width",
+          "direction": null,
+          "description": "Maximum width (0 = no constraint)"
+        },
+        {
+          "name": "height",
+          "direction": null,
+          "description": "Maximum height (0 = no constraint)"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 187
+    },
+    {
+      "name": "wrap",
+      "kind": "method",
+      "signature": "wrap(mode: TextWrapMode): this",
+      "static": false,
+      "brief": "Set text wrap mode",
+      "description": [],
+      "params": [
+        {
+          "name": "mode",
+          "direction": null,
+          "description": "Wrap mode: TextWrapMode.None, TextWrapMode.Character, TextWrapMode.Word, TextWrapMode.Smart, or TextWrapMode.Ellipsis"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 198
+    },
+    {
+      "name": "lines",
+      "kind": "method",
+      "signature": "lines(): number",
+      "static": false,
+      "brief": "Get the number of text lines.",
+      "description": [
+        "Reflects the layout produced by the current wrap configuration, and also counts explicit line feed characters ('\\n') contained in the text."
+      ],
+      "params": [],
+      "returns": "The total number of lines",
+      "examples": [
+        "text.text('Hello wrapped world').layout(100).wrap(TVG.TextWrapMode.Word);\nconsole.log(text.lines()); // number of lines after wrapping"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "`wrap`"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 221
+    },
+    {
+      "name": "spacing",
+      "kind": "method",
+      "signature": "spacing(letter: number, line: number): this",
+      "static": false,
+      "brief": "Set text spacing (letter and line spacing)",
+      "description": [],
+      "params": [
+        {
+          "name": "letter",
+          "direction": null,
+          "description": "Letter spacing scale factor (1.0 = default, >1.0 = wider, <1.0 = narrower)"
+        },
+        {
+          "name": "line",
+          "direction": null,
+          "description": "Line spacing scale factor (1.0 = default, >1.0 = wider, <1.0 = narrower)"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 231
+    },
+    {
+      "name": "italic",
+      "kind": "method",
+      "signature": "italic(shear: number = 0.18): this",
+      "static": false,
+      "brief": "Set italic style with shear factor",
+      "description": [],
+      "params": [
+        {
+          "name": "shear",
+          "direction": null,
+          "description": "Shear factor (0.0 = no italic, default: 0.18, typical range: 0.1-0.3)"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 242
+    },
+    {
+      "name": "outline",
+      "kind": "method",
+      "signature": "outline(width: number, r: number, g: number, b: number): this",
+      "static": false,
+      "brief": "Set text outline (stroke)",
+      "description": [],
+      "params": [
+        {
+          "name": "width",
+          "direction": null,
+          "description": "Outline width"
+        },
+        {
+          "name": "r",
+          "direction": null,
+          "description": "Red (0-255)"
+        },
+        {
+          "name": "g",
+          "direction": null,
+          "description": "Green (0-255)"
+        },
+        {
+          "name": "b",
+          "direction": null,
+          "description": "Blue (0-255)"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 256
+    }
+  ],
+  "nested": []
+}

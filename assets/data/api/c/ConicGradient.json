@@ -1,0 +1,122 @@
+{
+  "name": "ConicGradient",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_conic_gradient_new",
+      "kind": "function",
+      "line": 1810,
+      "signature": "Tvg_Gradient tvg_conic_gradient_new(void)",
+      "brief": "Creates a new conic gradient object.",
+      "description": [],
+      "params": [],
+      "returns": "A new conic gradient object.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_conic_gradient_set",
+      "kind": "function",
+      "line": 1908,
+      "signature": "Tvg_Result tvg_conic_gradient_set(Tvg_Gradient grad, float cx, float cy, float angle)",
+      "brief": "Sets the conic gradient attributes.",
+      "description": [
+        "The gradient sweeps a full turn clockwise around the center (`cx`, `cy`), beginning at `angle`. Color stop offsets from 0% to 100% map clockwise over one full turn from `angle`."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which attributes are to be set."
+        },
+        {
+          "name": "cx",
+          "type": "float",
+          "description": "The horizontal coordinate of the center of the gradient."
+        },
+        {
+          "name": "cy",
+          "type": "float",
+          "description": "The vertical coordinate of the center of the gradient."
+        },
+        {
+          "name": "angle",
+          "type": "float",
+          "description": "The initial angle in degrees, measured clockwise from the 3 o'clock direction (positive x-axis)."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "FillSpread options are ignored because the gradient always sweeps a full turn.",
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_conic_gradient_get()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_conic_gradient_get",
+      "kind": "function",
+      "line": 1923,
+      "signature": "Tvg_Result tvg_conic_gradient_get(const Tvg_Gradient grad, float* cx, float* cy, float* angle)",
+      "brief": "Gets the conic gradient attributes.",
+      "description": [],
+      "params": [
+        {
+          "name": "grad",
+          "type": "const Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which to get the gradient attributes."
+        },
+        {
+          "name": "cx",
+          "type": "float*",
+          "description": "The horizontal coordinate of the center of the gradient."
+        },
+        {
+          "name": "cy",
+          "type": "float*",
+          "description": "The vertical coordinate of the center of the gradient."
+        },
+        {
+          "name": "angle",
+          "type": "float*",
+          "description": "The initial angle in degrees."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_conic_gradient_set()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,67 @@
+{
+  "name": "InitOptions",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Initialization",
+  "signature": "export interface InitOptions",
+  "source": "src/index.ts:69",
+  "members": [
+    {
+      "name": "locateFile",
+      "kind": "property",
+      "type": "(path: string)",
+      "static": false,
+      "readonly": false,
+      "brief": "Optional function to locate WASM files. If not provided, assumes WASM files are in the same directory as the JavaScript bundle.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 71
+    },
+    {
+      "name": "renderer",
+      "kind": "property",
+      "type": "RendererType",
+      "static": false,
+      "readonly": false,
+      "brief": "Renderer type: 'sw' (Software), 'gl' (WebGL), or 'wg' (WebGPU). Default: 'gl'. WebGPU provides best performance but requires Chrome 113+ or Edge 113+.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 73
+    },
+    {
+      "name": "onError",
+      "kind": "property",
+      "type": "ErrorHandler",
+      "static": false,
+      "readonly": false,
+      "brief": "Global error handler for all ThorVG operations. If provided, errors will be passed to this handler instead of being thrown.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 75
+    },
+    {
+      "name": "threads",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Number of worker threads count. Ignored in default preset. Default: 0.",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 77
+    }
+  ],
+  "nested": []
+}

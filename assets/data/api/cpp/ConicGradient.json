@@ -1,0 +1,157 @@
+{
+  "name": "ConicGradient",
+  "kind": "struct",
+  "base": "Fill",
+  "final": false,
+  "brief": "A class representing the conic gradient fill of the Shape object.",
+  "description": [
+    "The gradient color transitions by the angle measured around a center point, completing a full clockwise turn from the start angle."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [
+    "FillSpread options are ignored because the gradient always sweeps a full turn.",
+    "Experimental API"
+  ],
+  "warnings": [
+    "This class is not designed for inheritance."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:1205",
+  "members": [
+    {
+      "name": "conic",
+      "kind": "method",
+      "line": 1218,
+      "signature": "Result conic(float cx, float cy, float angle = 0.0f) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": true,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the conic gradient attributes.",
+      "description": [
+        "The gradient sweeps a full turn clockwise around the center (`cx`, `cy`), beginning at `angle`. Color stop offsets from 0% to 100% map clockwise over one full turn from `angle`."
+      ],
+      "params": [
+        {
+          "name": "cx",
+          "direction": "in",
+          "description": "The horizontal coordinate of the center of the gradient."
+        },
+        {
+          "name": "cy",
+          "direction": "in",
+          "description": "The vertical coordinate of the center of the gradient."
+        },
+        {
+          "name": "angle",
+          "direction": "in",
+          "description": "The initial angle in degrees, measured clockwise from the 3 o'clock direction (positive x-axis). The default is 0.0f."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "ConicGradient::conic(float* cx",
+        "float* cy",
+        "float* angle)"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "conic",
+      "kind": "method",
+      "line": 1229,
+      "signature": "Result conic(float* cx, float* cy, float* angle = nullptr) const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Gets the conic gradient attributes.",
+      "description": [],
+      "params": [
+        {
+          "name": "cx",
+          "direction": "out",
+          "description": "The horizontal coordinate of the center of the gradient."
+        },
+        {
+          "name": "cy",
+          "direction": "out",
+          "description": "The vertical coordinate of the center of the gradient."
+        },
+        {
+          "name": "angle",
+          "direction": "out",
+          "description": "The start angle in degrees."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "ConicGradient::conic(float cx",
+        "float cy",
+        "float angle)"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 1236,
+      "signature": "static ConicGradient* gen() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new ConicGradient object.",
+      "description": [],
+      "params": [],
+      "returns": "A new ConicGradient object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "type",
+      "kind": "method",
+      "line": 1245,
+      "signature": "Type type() const noexcept override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the ID value of this class.",
+      "description": [
+        "This method can be used to check the current concrete instance type."
+      ],
+      "params": [],
+      "returns": "The class type ID of the ConicGradient instance.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

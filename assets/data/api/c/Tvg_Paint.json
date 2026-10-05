@@ -1,0 +1,17 @@
+{
+  "name": "Tvg_Paint",
+  "kind": "handle",
+  "brief": "A structure representing a graphical element.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "The TvgPaint objects cannot be shared between Canvases."
+  ],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:72",
+  "members": [],
+  "nested": []
+}

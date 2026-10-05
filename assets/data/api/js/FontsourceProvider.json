@@ -1,0 +1,41 @@
+{
+  "name": "FontsourceProvider",
+  "kind": "class",
+  "brief": "Font provider that fetches fonts from the [fontsource](https://fontsource.org) CDN.",
+  "description": [
+    "This is the default provider used by `Font.load` when no raw data is supplied."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Restore to default (if you previously swapped it out)\nTVG.Font.provider(new FontsourceProvider());"
+  ],
+  "category": "Font",
+  "signature": "export class FontsourceProvider implements FontProvider",
+  "source": "src/providers/FontsourceProvider.ts:45",
+  "members": [
+    {
+      "name": "fetch",
+      "kind": "method",
+      "signature": "async fetch(name: string, options?: FontsourceOptions): Promise<FontProviderResult>",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 46
+    }
+  ],
+  "nested": []
+}

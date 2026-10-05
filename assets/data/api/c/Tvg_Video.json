@@ -1,0 +1,17 @@
+{
+  "name": "Tvg_Video",
+  "kind": "handle",
+  "brief": "A structure representing a video playback controller object.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [
+    "Experimental API"
+  ],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:99",
+  "members": [],
+  "nested": []
+}

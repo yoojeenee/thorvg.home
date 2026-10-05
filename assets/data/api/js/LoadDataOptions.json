@@ -1,0 +1,67 @@
+{
+  "name": "LoadDataOptions",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Picture",
+  "signature": "export interface LoadDataOptions",
+  "source": "src/core/Picture.ts:37",
+  "members": [
+    {
+      "name": "type",
+      "kind": "property",
+      "type": "MimeType",
+      "static": false,
+      "readonly": false,
+      "brief": "MIME type or format hint (e.g., 'svg', 'png', 'jpg', 'raw')",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 39
+    },
+    {
+      "name": "width",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Width of raw image (required for type='raw')",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 41
+    },
+    {
+      "name": "height",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Height of raw image (required for type='raw')",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 43
+    },
+    {
+      "name": "colorSpace",
+      "kind": "property",
+      "type": "ColorSpace",
+      "static": false,
+      "readonly": false,
+      "brief": "Color space of raw image (required for type='raw', default: ColorSpace.ARGB8888)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 45
+    }
+  ],
+  "nested": []
+}

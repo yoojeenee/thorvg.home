@@ -1,0 +1,43 @@
+{
+  "name": "FontProviderResult",
+  "kind": "interface",
+  "brief": "Result returned by a `FontProvider` after fetching font data.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Font",
+  "signature": "export interface FontProviderResult",
+  "source": "src/core/FontProvider.ts:12",
+  "members": [
+    {
+      "name": "data",
+      "kind": "property",
+      "type": "Uint8Array",
+      "static": false,
+      "readonly": false,
+      "brief": "Raw font binary data",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 14
+    },
+    {
+      "name": "type",
+      "kind": "property",
+      "type": "FontType",
+      "static": false,
+      "readonly": false,
+      "brief": "Font format",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 16
+    }
+  ],
+  "nested": []
+}

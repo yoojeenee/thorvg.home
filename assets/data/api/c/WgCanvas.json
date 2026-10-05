@@ -1,0 +1,180 @@
+{
+  "name": "WgCanvas",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_wgcanvas_create",
+      "kind": "function",
+      "line": 651,
+      "signature": "Tvg_Canvas tvg_wgcanvas_create(Tvg_Engine_Option op)",
+      "brief": "Creates a new WebGPU Canvas object with optional rendering engine settings.",
+      "description": [
+        "This method generates a WebGPU canvas instance that can be used for drawing vector graphics. It accepts an optional parameter `op` to choose between different rendering engine behaviors."
+      ],
+      "params": [
+        {
+          "name": "op",
+          "type": "Tvg_Engine_Option",
+          "description": "The rendering engine option."
+        }
+      ],
+      "returns": "A new canvas object.",
+      "retvals": [],
+      "notes": [
+        "Currently, it does not support `TVG_ENGINE_OPTION_SMART_RENDER`. The request will be ignored."
+      ],
+      "warnings": [],
+      "see": [
+        "enum Tvg_Engine_Option"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_wgcanvas_set_target",
+      "kind": "function",
+      "line": 673,
+      "signature": "Tvg_Result tvg_wgcanvas_set_target(Tvg_Canvas canvas, void* device, void* instance, void* target, uint32_t w, uint32_t h, Tvg_Colorspace cs, int type)",
+      "brief": "Sets the drawing target for the rasterization.",
+      "description": [],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": ""
+        },
+        {
+          "name": "device",
+          "type": "void*",
+          "description": "WGPUDevice, a desired handle for the wgpu device."
+        },
+        {
+          "name": "instance",
+          "type": "void*",
+          "description": "WGPUInstance, context for all other wgpu objects."
+        },
+        {
+          "name": "target",
+          "type": "void*",
+          "description": "Either WGPUSurface or WGPUTexture, serving as handles to a presentable surface or texture."
+        },
+        {
+          "name": "w",
+          "type": "uint32_t",
+          "description": "The width of the target."
+        },
+        {
+          "name": "h",
+          "type": "uint32_t",
+          "description": "The height of the target."
+        },
+        {
+          "name": "cs",
+          "type": "Tvg_Colorspace",
+          "description": "Specifies how the pixel values should be interpreted. Currently, it allows `TVG_COLORSPACE_ABGR8888` and `TVG_COLORSPACE_ABGR8888S`."
+        },
+        {
+          "name": "type",
+          "type": "int",
+          "description": "@c 0: surface, @c 1: texture are used as presentable target."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "if the canvas is performing rendering. Please ensure the canvas is synced."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "In case the wg engine is not supported."
+        }
+      ],
+      "notes": [],
+      "warnings": [
+        "Regardless of the value of `cs`, this target API uses the default alpha mode."
+      ],
+      "see": [
+        "tvg_wgcanvas_set_target_with_context()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_wgcanvas_set_target_with_context",
+      "kind": "function",
+      "line": 690,
+      "signature": "Tvg_Result tvg_wgcanvas_set_target_with_context(Tvg_Canvas canvas, const Tvg_WgContext* context, void* target, uint32_t w, uint32_t h, Tvg_Colorspace cs, int type)",
+      "brief": "Sets the drawing target for the rasterization.",
+      "description": [],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": ""
+        },
+        {
+          "name": "context",
+          "type": "const Tvg_WgContext*",
+          "description": "Tvg_WgContext context."
+        },
+        {
+          "name": "target",
+          "type": "void*",
+          "description": "Either WGPUSurface or WGPUTexture, serving as handles to a presentable surface or texture."
+        },
+        {
+          "name": "w",
+          "type": "uint32_t",
+          "description": "The width of the target."
+        },
+        {
+          "name": "h",
+          "type": "uint32_t",
+          "description": "The height of the target."
+        },
+        {
+          "name": "cs",
+          "type": "Tvg_Colorspace",
+          "description": "Specifies how the pixel values should be interpreted. Currently, it allows `TVG_COLORSPACE_ABGR8888` and `TVG_COLORSPACE_ABGR8888S`."
+        },
+        {
+          "name": "type",
+          "type": "int",
+          "description": "@c 0: surface, @c 1: texture are used as presentable target."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "if the canvas is performing rendering. Please ensure the canvas is synced."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "In case the wg engine is not supported."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    }
+  ],
+  "nested": []
+}

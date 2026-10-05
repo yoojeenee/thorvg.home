@@ -1,0 +1,79 @@
+{
+  "name": "ColorSpace",
+  "kind": "enum",
+  "brief": "Color space enum for raw image data. Specifies the channel order and alpha premultiplication.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Picture",
+  "signature": "export enum ColorSpace",
+  "source": "src/common/constants.ts:220",
+  "members": [
+    {
+      "name": "ABGR8888",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Alpha, Blue, Green, Red - alpha-premultiplied",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 222
+    },
+    {
+      "name": "ARGB8888",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Alpha, Red, Green, Blue - alpha-premultiplied",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 224
+    },
+    {
+      "name": "ABGR8888S",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Alpha, Blue, Green, Red - un-alpha-premultiplied",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 226
+    },
+    {
+      "name": "ARGB8888S",
+      "kind": "enumerator",
+      "value": "3",
+      "brief": "Alpha, Red, Green, Blue - un-alpha-premultiplied",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 228
+    },
+    {
+      "name": "Grayscale8",
+      "kind": "enumerator",
+      "value": "4",
+      "brief": "Single channel grayscale data",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 230
+    },
+    {
+      "name": "Unknown",
+      "kind": "enumerator",
+      "value": "255",
+      "brief": "Unknown channel data (reserved for initial value)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 232
+    }
+  ],
+  "nested": []
+}

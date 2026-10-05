@@ -1,0 +1,601 @@
+{
+  "name": "LottieAnimation",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_lottie_animation_new",
+      "kind": "function",
+      "line": 3170,
+      "signature": "Tvg_Animation tvg_lottie_animation_new(void)",
+      "brief": "Creates a new LottieAnimation object.",
+      "description": [],
+      "params": [],
+      "returns": "Tvg_Animation A new Tvg_LottieAnimation object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_gen_slot",
+      "kind": "function",
+      "line": 3182,
+      "signature": "uint32_t tvg_lottie_animation_gen_slot(Tvg_Animation animation, const char* slot)",
+      "brief": "Generates a new slot from the given slot data.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "slot",
+          "type": "const char*",
+          "description": "The Lottie slot data in JSON format."
+        }
+      ],
+      "returns": "The generated slot ID when successful, 0 otherwise.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_apply_slot",
+      "kind": "function",
+      "line": 3196,
+      "signature": "Tvg_Result tvg_lottie_animation_apply_slot(Tvg_Animation animation, uint32_t id)",
+      "brief": "Applies a previously generated slot to the animation.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "id",
+          "type": "uint32_t",
+          "description": "The ID of the slot to apply, or 0 to reset all slots."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded."
+        },
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "When the given `id` is invalid"
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "The Lottie Animation is not supported."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_del_slot",
+      "kind": "function",
+      "line": 3212,
+      "signature": "Tvg_Result tvg_lottie_animation_del_slot(Tvg_Animation animation, uint32_t id)",
+      "brief": "Deletes a previously generated slot.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "id",
+          "type": "uint32_t",
+          "description": "The ID of the slot to delete."
+        }
+      ],
+      "returns": "Tvg_Result enumeration.",
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded or the slot ID is invalid."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "The Lottie Animation is not supported."
+        }
+      ],
+      "notes": [
+        "This function should be paired with gen."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_gen_slot()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_set_marker",
+      "kind": "function",
+      "line": 3226,
+      "signature": "Tvg_Result tvg_lottie_animation_set_marker(Tvg_Animation animation, const char* marker)",
+      "brief": "Specifies a segment by marker.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "marker",
+          "type": "const char*",
+          "description": "The name of the segment marker."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded."
+        },
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "When the given `marker` is invalid."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "The Lottie Animation is not supported."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_get_markers_cnt",
+      "kind": "function",
+      "line": 3238,
+      "signature": "Tvg_Result tvg_lottie_animation_get_markers_cnt(Tvg_Animation animation, uint32_t* cnt)",
+      "brief": "Gets the marker count of the animation.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "cnt",
+          "type": "uint32_t*",
+          "description": "The count value of the markers."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "In case a `nullptr` is passed as the argument."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_get_marker",
+      "kind": "function",
+      "line": 3243,
+      "signature": "TVG_DEPRECATED Tvg_Result tvg_lottie_animation_get_marker(Tvg_Animation animation, uint32_t idx, const char** name)",
+      "brief": "",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": ""
+        },
+        {
+          "name": "idx",
+          "type": "uint32_t",
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "const char**",
+          "description": ""
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": "see tvg_lottie_animation_get_marker_info()",
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_get_marker_info",
+      "kind": "function",
+      "line": 3263,
+      "signature": "Tvg_Result tvg_lottie_animation_get_marker_info(Tvg_Animation animation, uint32_t idx, const char** name, float* begin, float* end)",
+      "brief": "Retrieves marker information by index.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "idx",
+          "type": "uint32_t",
+          "description": "The zero-based index of the animation marker."
+        },
+        {
+          "name": "name",
+          "type": "const char**",
+          "description": "Pointer to receive the marker name. Pass `nullptr` if the value is not required."
+        },
+        {
+          "name": "begin",
+          "type": "float*",
+          "description": "Pointer to receive the marker's starting frame. Pass `nullptr` if the value is not required."
+        },
+        {
+          "name": "end",
+          "type": "float*",
+          "description": "Pointer to receive the marker's ending frame. Pass `nullptr` if the value is not required."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "if `idx` is out of range."
+        },
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_get_markers_cnt()"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_tween",
+      "kind": "function",
+      "line": 3280,
+      "signature": "Tvg_Result tvg_lottie_animation_tween(Tvg_Animation animation, float from, float to, float progress)",
+      "brief": "Interpolates between two frames over a specified duration.",
+      "description": [
+        "This method performs tweening, a process of generating intermediate frame between `from` and `to` based on the given `progress`."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "from",
+          "type": "float",
+          "description": "The start frame number of the interpolation."
+        },
+        {
+          "name": "to",
+          "type": "float",
+          "description": "The end frame number of the interpolation."
+        },
+        {
+          "name": "progress",
+          "type": "float",
+          "description": "The current progress of the interpolation (range: 0.0 to 1.0)."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "In case the animation is not loaded."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_tween_to",
+      "kind": "function",
+      "line": 3299,
+      "signature": "Tvg_Result tvg_lottie_animation_tween_to(Tvg_Animation animation, float to)",
+      "brief": "Sets the target frame for dynamic tweening.",
+      "description": [
+        "This method starts a dynamic interpolation from the current animation frame toward `to`. Use tvg_lottie_animation_tween_go() to update the interpolation progress."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "to",
+          "type": "float",
+          "description": "The target frame number of the interpolation."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the animation is not loaded."
+        }
+      ],
+      "notes": [
+        "The dynamic tweening set by this method is discarded when tvg_animation_set_frame() or tvg_lottie_animation_tween() is called.",
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_tween_go()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_lottie_animation_tween_go",
+      "kind": "function",
+      "line": 3316,
+      "signature": "Tvg_Result tvg_lottie_animation_tween_go(Tvg_Animation animation, float progress)",
+      "brief": "Updates the current tween toward the target frame.",
+      "description": [
+        "This method advances the interpolation started by tvg_lottie_animation_tween_to() using the given `progress` value."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "progress",
+          "type": "float",
+          "description": "The current progress of the interpolation (range: 0.0 to 1.0)."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the animation is not loaded."
+        },
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If tvg_lottie_animation_tween_to() has not been called."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_tween_to()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_lottie_animation_set_quality",
+      "kind": "function",
+      "line": 3334,
+      "signature": "Tvg_Result tvg_lottie_animation_set_quality(Tvg_Animation animation, uint8_t value)",
+      "brief": "Sets the quality level for Lottie effects.",
+      "description": [
+        "This function controls the rendering quality of effects like blur, shadows, etc. Lower values prioritize performance while higher values prioritize quality."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The Lottie animation object."
+        },
+        {
+          "name": "value",
+          "type": "uint8_t",
+          "description": "The quality level (0-100). 0 represents lowest quality/best performance, 100 represents highest quality/lowest performance, the initial value is 50."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the animation is not loaded."
+        }
+      ],
+      "notes": [
+        "This option is used as a hint; its behavior heavily depends on the render backend."
+      ],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_lottie_animation_expressions_supported",
+      "kind": "function",
+      "line": 3343,
+      "signature": "bool tvg_lottie_animation_expressions_supported(void)",
+      "brief": "Checks whether Lottie expressions are supported.",
+      "description": [],
+      "params": [],
+      "returns": "`true` if expression support is enabled in this build, otherwise `false`.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_lottie_animation_set_audio_resolver",
+      "kind": "function",
+      "line": 3410,
+      "signature": "Tvg_Result tvg_lottie_animation_set_audio_resolver(Tvg_Animation animation, Tvg_Audio_Resolver resolver, void* data)",
+      "brief": "Sets the audio resolver callback for Lottie audio layers.",
+      "description": [
+        "The resolver is invoked whenever the playback state of an audio layer changes. It allows applications to synchronize audio playback with the animation timeline."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "A Lottie animation object."
+        },
+        {
+          "name": "resolver",
+          "type": "Tvg_Audio_Resolver",
+          "description": "A user-defined callback that receives audio playback state updates."
+        },
+        {
+          "name": "data",
+          "type": "void*",
+          "description": "User data passed to `resolver`."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "The animation has not been loaded."
+        }
+      ],
+      "notes": [
+        "To disable audio notifications, pass `nullptr` as `resolver`.",
+        "Experimental API."
+      ],
+      "warnings": [],
+      "see": [
+        "Tvg_Audio_Resolver"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_lottie_animation_set_volume",
+      "kind": "function",
+      "line": 3435,
+      "signature": "Tvg_Result tvg_lottie_animation_set_volume(Tvg_Animation animation, float volume)",
+      "brief": "Sets the master playback volume of the Lottie animation.",
+      "description": [
+        "The specified volume is applied to all media assets in the animation. Each media asset preserves its own volume, and the effective playback volume is calculated by multiplying the master volume by the media asset's volume.",
+        "A value of 1.0 preserves the original volume. A value of 0.0 mutes all media. Values greater than 1.0 amplify the playback volume.",
+        "The recommended range is [0.0, 2.0]."
+      ],
+      "params": [
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "A Lottie animation object."
+        },
+        {
+          "name": "volume",
+          "type": "float",
+          "description": "Master playback volume."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the animation is not loaded."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_get_volume()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "tvg_lottie_animation_get_volume",
+      "kind": "function",
+      "line": 3448,
+      "signature": "float tvg_lottie_animation_get_volume(const Tvg_Animation animation)",
+      "brief": "Retrieves the master playback volume of the Lottie animation.",
+      "description": [],
+      "params": [
+        {
+          "name": "animation",
+          "type": "const Tvg_Animation",
+          "description": "A Lottie animation object."
+        }
+      ],
+      "returns": "The current master playback volume, otherwise 0 if the animation is invalid.",
+      "retvals": [],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_lottie_animation_set_volume()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    }
+  ],
+  "nested": []
+}

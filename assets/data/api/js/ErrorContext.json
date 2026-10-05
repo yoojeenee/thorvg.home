@@ -1,0 +1,31 @@
+{
+  "name": "ErrorContext",
+  "kind": "interface",
+  "brief": "Context information provided when an error occurs.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Error Handling",
+  "signature": "export interface ErrorContext",
+  "source": "src/common/errors.ts:56",
+  "members": [
+    {
+      "name": "operation",
+      "kind": "property",
+      "type": "string",
+      "static": false,
+      "readonly": false,
+      "brief": "The operation that failed (e.g., 'moveTo', 'render', 'update')",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 58
+    }
+  ],
+  "nested": []
+}

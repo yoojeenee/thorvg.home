@@ -1,0 +1,119 @@
+{
+  "name": "Type",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration specifying the ThorVG class type value.",
+  "description": [
+    "ThorVG's drawing objects can return class type values, allowing you to identify the specific class of each object."
+  ],
+  "since": "1.0",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "Paint::type()",
+    "Fill::type()"
+  ],
+  "source": "inc/thorvg.h:322",
+  "members": [
+    {
+      "name": "Undefined",
+      "kind": "enumerator",
+      "line": 323,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "Unknown class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Shape",
+      "kind": "enumerator",
+      "line": 324,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Shape class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Scene",
+      "kind": "enumerator",
+      "line": 325,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Scene class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Picture",
+      "kind": "enumerator",
+      "line": 326,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Picture class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Text",
+      "kind": "enumerator",
+      "line": 327,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Text class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "LinearGradient",
+      "kind": "enumerator",
+      "line": 328,
+      "value": "10",
+      "type": "",
+      "static": false,
+      "brief": "LinearGradient class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "RadialGradient",
+      "kind": "enumerator",
+      "line": 329,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "RadialGradient class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "ConicGradient",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "ConicGradient class",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

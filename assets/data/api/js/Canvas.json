@@ -1,0 +1,328 @@
+{
+  "name": "Canvas",
+  "kind": "class",
+  "brief": "Canvas rendering context for ThorVG vector graphics.",
+  "description": [
+    "Manages the rendering pipeline and provides methods for adding/removing Paint objects and controlling the render loop."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Initialize with renderer\nconst TVG = await ThorVG.init({ renderer: 'gl' });\n\n// Basic canvas setup with shapes\nconst canvas = new TVG.Canvas('#canvas', { width: 800, height: 600 });\n\nconst shape = new TVG.Shape();\nshape.appendRect(100, 100, 200, 150, 10)\n     .fill(255, 100, 50, 255);\n\ncanvas.add(shape).render();",
+    "// Animation loop\nconst canvas = new TVG.Canvas('#canvas');\nconst shape = new TVG.Shape();\n\nlet rotation = 0;\nfunction animate() {\n  shape.reset()\n       .appendRect(0, 0, 100, 100)\n       .fill(100, 150, 255, 255)\n       .rotate(rotation++)\n       .translate(400, 300);\n\n  canvas.update().render();\n  requestAnimationFrame(animate);\n}\nanimate();"
+  ],
+  "category": "Canvas",
+  "signature": "export class Canvas",
+  "source": "src/core/Canvas.ts:115",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(target: CanvasTarget, options: CanvasOptions = {})",
+      "static": false,
+      "brief": "Creates a new Canvas rendering context.",
+      "description": [
+        "The renderer is determined by the global setting from ThorVG.init()."
+      ],
+      "params": [
+        {
+          "name": "target",
+          "direction": null,
+          "description": "CSS selector for the target HTML canvas element (e.g., '#canvas', '.my-canvas'),                 the `HTMLCanvasElement` itself, or an `OffscreenCanvas`"
+        },
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Configuration options for the canvas"
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "// Initialize with renderer\nconst TVG = await ThorVG.init({ renderer: 'gl' });\n\n// Basic canvas with default options (DPR enabled by default)\nconst canvas = new TVG.Canvas('#canvas');",
+        "// Canvas with custom size\nconst TVG = await ThorVG.init({ renderer: 'wg' });\nconst canvas = new TVG.Canvas('#myCanvas', {\n  width: 1920,\n  height: 1080\n});",
+        "// Canvas with DPR disabled for consistent rendering across devices\nconst canvas = new TVG.Canvas('#canvas', {\n  width: 800,\n  height: 600,\n  enableDevicePixelRatio: false\n});",
+        "// Enable smart (partial) rendering (SW renderer)\nconst TVG = await ThorVG.init({ renderer: 'sw' });\nconst canvas = new TVG.Canvas('#canvas', {\n  engineOption: TVG.EngineOption.SmartRender\n});"
+      ],
+      "notes": [],
+      "warnings": [
+        "{Error} If the canvas element is not found or renderer initialization fails"
+      ],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 178
+    },
+    {
+      "name": "add",
+      "kind": "method",
+      "signature": "add(paint: Paint | Video): this",
+      "static": false,
+      "brief": "Adds a Paint object to the canvas for rendering.",
+      "description": [
+        "Paint objects include Shape, Scene, Picture, Text, and Animation.picture. Objects are rendered in the order they are added (painter's algorithm)."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "direction": null,
+          "description": "A Paint object to add to the canvas"
+        }
+      ],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "const shape = new TVG.Shape();\nconst text = new TVG.Text();\ncanvas.add(shape);\ncanvas.add(text);",
+        "// Method chaining\ncanvas.add(shape1)\n      .add(shape2)\n      .render();"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 271
+    },
+    {
+      "name": "remove",
+      "kind": "method",
+      "signature": "remove(paint?: Paint | Video): this",
+      "static": false,
+      "brief": "Removes one or all Paint objects from the canvas.",
+      "description": [],
+      "params": [
+        {
+          "name": "paint",
+          "direction": null,
+          "description": "Optional Paint object to remove. If omitted, removes all Paint objects."
+        }
+      ],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "// Remove a specific paint\ncanvas.remove(shape);",
+        "// Remove all paints\ncanvas.remove();"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 307
+    },
+    {
+      "name": "clear",
+      "kind": "method",
+      "signature": "clear(): this",
+      "static": false,
+      "brief": "Clears all Paint objects from the canvas and renders an empty frame.",
+      "description": [
+        "This is equivalent to `remove` without arguments, but also immediately renders the cleared canvas."
+      ],
+      "params": [],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "canvas.clear(); // Clears and renders empty canvas"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 338
+    },
+    {
+      "name": "update",
+      "kind": "method",
+      "signature": "update(): this",
+      "static": false,
+      "brief": "Updates the canvas state before rendering.",
+      "description": [
+        "This method should be called before `render` when working with animations or when Paint objects have been modified. It ensures all transformations and changes are processed."
+      ],
+      "params": [],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "// Animation loop pattern\nfunction animate() {\n  animation.frame(currentFrame++);\n  canvas.update().render();\n  requestAnimationFrame(animate);\n}"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 383
+    },
+    {
+      "name": "render",
+      "kind": "method",
+      "signature": "render(): this",
+      "static": false,
+      "brief": "Renders all Paint objects to the canvas.",
+      "description": [
+        "This method draws all added Paint objects to the canvas using the configured rendering backend (Software, WebGL, or WebGPU)."
+      ],
+      "params": [],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "// Static rendering\ncanvas.add(shape).add(text).render();",
+        "// Animation loop\nfunction animate() {\n  canvas.update().render();\n  requestAnimationFrame(animate);\n}"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 417
+    },
+    {
+      "name": "resize",
+      "kind": "method",
+      "signature": "resize(width: number, height: number): this",
+      "static": false,
+      "brief": "Resizes the canvas to new dimensions.",
+      "description": [],
+      "params": [
+        {
+          "name": "width",
+          "direction": null,
+          "description": "New width in pixels"
+        },
+        {
+          "name": "height",
+          "direction": null,
+          "description": "New height in pixels"
+        }
+      ],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "canvas.resize(1920, 1080).render();",
+        "// Responsive canvas\nwindow.addEventListener('resize', () => {\n  canvas.resize(window.innerWidth, window.innerHeight).render();\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 492
+    },
+    {
+      "name": "viewport",
+      "kind": "method",
+      "signature": "viewport(x: number, y: number, w: number, h: number): this",
+      "static": false,
+      "brief": "Sets the viewport for rendering a specific region of the canvas.",
+      "description": [
+        "The viewport defines the rectangular region where rendering occurs. Useful for rendering to a portion of the canvas or implementing split-screen views."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "X coordinate of the viewport origin"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "Y coordinate of the viewport origin"
+        },
+        {
+          "name": "w",
+          "direction": null,
+          "description": "Viewport width"
+        },
+        {
+          "name": "h",
+          "direction": null,
+          "description": "Viewport height"
+        }
+      ],
+      "returns": "The canvas instance for method chaining",
+      "examples": [
+        "// Render to top-left quarter of canvas\ncanvas.viewport(0, 0, canvas.width / 2, canvas.height / 2);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 527
+    },
+    {
+      "name": "destroy",
+      "kind": "method",
+      "signature": "destroy(): void",
+      "static": false,
+      "brief": "Destroys the canvas and frees its WASM memory.",
+      "description": [
+        "After calling destroy(), this canvas instance cannot be used. The ThorVG module remains loaded and new canvases can be created."
+      ],
+      "params": [],
+      "returns": null,
+      "examples": [
+        "canvas.destroy();\n// Create a new canvas\nconst newCanvas = new TVG.Canvas('#canvas');"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 552
+    },
+    {
+      "name": "renderer",
+      "kind": "accessor",
+      "signature": "get renderer(): string",
+      "static": false,
+      "brief": "Gets the rendering backend type currently in use.",
+      "description": [],
+      "params": [],
+      "returns": "The renderer type: 'sw' (Software), 'gl' (WebGL), or 'wg' (WebGPU)",
+      "examples": [
+        "const canvas = new TVG.Canvas('#canvas', { renderer: 'wg' });\nconsole.log(canvas.renderer); // 'wg'"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 594
+    },
+    {
+      "name": "dpr",
+      "kind": "accessor",
+      "signature": "get dpr(): number",
+      "static": false,
+      "brief": "Gets the current device pixel ratio applied to this canvas.",
+      "description": [
+        "ThorVG uses an optimized DPR formula for best performance: `1 + ((window.devicePixelRatio - 1) * 0.75)`",
+        "This provides a balance between visual quality and rendering performance, especially on high-DPI displays."
+      ],
+      "params": [],
+      "returns": "The current effective DPR value, or 1.0 if DPR scaling is disabled",
+      "examples": [
+        "// Getting the current DPR\nconst canvas = new TVG.Canvas('#canvas', {\n  enableDevicePixelRatio: true\n});\n\nconsole.log(canvas.dpr); // e.g., 1.75 on a 2x display\nconsole.log(window.devicePixelRatio); // e.g., 2.0",
+        "// Using DPR for responsive calculations\nconst canvas = new TVG.Canvas('#canvas');\nconst shape = new TVG.Shape();\n\n// Adjust stroke width based on DPR for consistent appearance\nconst strokeWidth = 2 / canvas.dpr;\nshape.appendCircle(100, 100, 50)\n     .stroke(255, 0, 0, 255)\n     .strokeWidth(strokeWidth);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "`CanvasOptions.enableDevicePixelRatio` for controlling DPR scaling"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 636
+    }
+  ],
+  "nested": []
+}

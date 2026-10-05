@@ -1,0 +1,20 @@
+{
+  "name": "CanvasTarget",
+  "kind": "type",
+  "brief": "Canvas target accepted by `Canvas`.",
+  "description": [
+    "- `string` - CSS selector of an HTML canvas element (e.g., `'#canvas'`) - `HTMLCanvasElement` - the canvas element itself - `OffscreenCanvas` - an offscreen canvas that transferred to a Web Worker"
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Other",
+  "signature": "export type CanvasTarget = string | HTMLCanvasElement | OffscreenCanvas;",
+  "source": "src/common/constants.ts:313",
+  "members": [],
+  "nested": []
+}

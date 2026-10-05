@@ -1,0 +1,55 @@
+{
+  "name": "AnimationInfo",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Animation",
+  "signature": "export interface AnimationInfo",
+  "source": "src/core/Animation.ts:15",
+  "members": [
+    {
+      "name": "totalFrames",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 16
+    },
+    {
+      "name": "duration",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 17
+    },
+    {
+      "name": "fps",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 18
+    }
+  ],
+  "nested": []
+}

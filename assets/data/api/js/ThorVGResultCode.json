@@ -1,0 +1,99 @@
+{
+  "name": "ThorVGResultCode",
+  "kind": "enum",
+  "brief": "ThorVG error result codes returned by native WASM operations.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Error Handling",
+  "signature": "export enum ThorVGResultCode",
+  "source": "src/common/errors.ts:6",
+  "members": [
+    {
+      "name": "Success",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 7
+    },
+    {
+      "name": "InvalidArguments",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 8
+    },
+    {
+      "name": "InsufficientCondition",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 9
+    },
+    {
+      "name": "FailedAllocation",
+      "kind": "enumerator",
+      "value": "3",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 10
+    },
+    {
+      "name": "MemoryCorruption",
+      "kind": "enumerator",
+      "value": "4",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 11
+    },
+    {
+      "name": "NotSupported",
+      "kind": "enumerator",
+      "value": "5",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 12
+    },
+    {
+      "name": "SystemError",
+      "kind": "enumerator",
+      "value": "6",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 13
+    },
+    {
+      "name": "Unknown",
+      "kind": "enumerator",
+      "value": "255",
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 14
+    }
+  ],
+  "nested": []
+}

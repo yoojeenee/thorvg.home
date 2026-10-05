@@ -1,0 +1,116 @@
+{
+  "name": "Initializer",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_engine_init",
+      "kind": "function",
+      "line": 454,
+      "signature": "Tvg_Result tvg_engine_init(unsigned threads)",
+      "brief": "Initializes the ThorVG engine.",
+      "description": [
+        "ThorVG requires an active runtime environment to operate. Internally, it utilizes a task scheduler to efficiently parallelize rendering operations. You can specify the number of worker threads using the `threads` parameter. During initialization, ThorVG will spawn the specified number of threads."
+      ],
+      "params": [
+        {
+          "name": "threads",
+          "type": "unsigned",
+          "description": "The number of worker threads to create. A value of zero indicates that only the main thread will be used."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "The initializer uses internal reference counting to track multiple calls. The number of threads is fixed on the first call to tvg_engine_init() and cannot be changed in subsequent calls."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_engine_term()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_engine_term",
+      "kind": "function",
+      "line": 466,
+      "signature": "Tvg_Result tvg_engine_term(void)",
+      "brief": "Terminates the ThorVG engine.",
+      "description": [
+        "Cleans up resources and stops any internal threads initialized by tvg_engine_init()."
+      ],
+      "params": [],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "Returned if there is nothing to terminate (e.g., tvg_engine_init() was not called)."
+        }
+      ],
+      "notes": [
+        "The initializer maintains a reference count for safe repeated use. Only the final call to tvg_engine_term() will fully shut down the engine."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_engine_init()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_engine_version",
+      "kind": "function",
+      "line": 480,
+      "signature": "Tvg_Result tvg_engine_version(uint32_t* major, uint32_t* minor, uint32_t* micro, const char** version)",
+      "brief": "Retrieves the version of the TVG engine.",
+      "description": [],
+      "params": [
+        {
+          "name": "major",
+          "type": "uint32_t*",
+          "description": "A major version number."
+        },
+        {
+          "name": "minor",
+          "type": "uint32_t*",
+          "description": "A minor version number."
+        },
+        {
+          "name": "micro",
+          "type": "uint32_t*",
+          "description": "A micro version number."
+        },
+        {
+          "name": "version",
+          "type": "const char**",
+          "description": "The version of the engine in the format major.minor.micro, or a `nullptr` in case of an internal error."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_SUCCESS.",
+          "description": ""
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

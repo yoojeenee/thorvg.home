@@ -1,0 +1,51 @@
+{
+  "name": "StrokeCap",
+  "kind": "enum",
+  "brief": "Stroke cap style for line endings.",
+  "description": [
+    "Determines the shape of the endpoints of open paths when stroked."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Shape",
+  "signature": "export enum StrokeCap",
+  "source": "src/common/constants.ts:58",
+  "members": [
+    {
+      "name": "Butt",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Flat cap at the exact endpoint (no extension)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 60
+    },
+    {
+      "name": "Round",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Rounded cap extending beyond the endpoint by half the stroke width",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 62
+    },
+    {
+      "name": "Square",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Square cap extending beyond the endpoint by half the stroke width",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 64
+    }
+  ],
+  "nested": []
+}

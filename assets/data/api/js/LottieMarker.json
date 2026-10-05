@@ -1,0 +1,57 @@
+{
+  "name": "LottieMarker",
+  "kind": "interface",
+  "brief": "A named frame range embedded in the Lottie file at design time.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "`LottieAnimation.marker`"
+  ],
+  "examples": [],
+  "category": "LottieAnimation",
+  "signature": "export interface LottieMarker",
+  "source": "src/core/LottieAnimation.ts:32",
+  "members": [
+    {
+      "name": "name",
+      "kind": "property",
+      "type": "string",
+      "static": false,
+      "readonly": false,
+      "brief": "The marker name, as authored in the Lottie file",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 34
+    },
+    {
+      "name": "begin",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Starting frame of the marker",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 36
+    },
+    {
+      "name": "end",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Ending frame of the marker",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 38
+    }
+  ],
+  "nested": []
+}

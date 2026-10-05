@@ -1,0 +1,22 @@
+{
+  "name": "ErrorHandler",
+  "kind": "interface",
+  "brief": "Error handler callback function.",
+  "description": [
+    "Handles both ThorVG WASM errors (ThorVGError) and JavaScript errors (Error). Use instanceof to distinguish between error types."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "import { init } from '@thorvg/webcanvas';\n\nconst TVG = await init({\n  onError: (error, context) => {\n    if (error instanceof ThorVGError) {\n      // WASM error - has error.code\n      console.log('WASM error code:', error.code);\n    } else {\n      // JavaScript error\n      console.log('JS error:', error.message);\n    }\n  }\n});"
+  ],
+  "category": "Error Handling",
+  "signature": "export interface ErrorHandler",
+  "source": "src/common/errors.ts:86",
+  "members": [],
+  "nested": []
+}

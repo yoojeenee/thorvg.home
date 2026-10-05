@@ -1,0 +1,127 @@
+{
+  "name": "LinearGradient",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_linear_gradient_new",
+      "kind": "function",
+      "line": 1794,
+      "signature": "Tvg_Gradient tvg_linear_gradient_new(void)",
+      "brief": "Creates a new linear gradient object.",
+      "description": [],
+      "params": [],
+      "returns": "A new linear gradient object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_linear_gradient_set",
+      "kind": "function",
+      "line": 1828,
+      "signature": "Tvg_Result tvg_linear_gradient_set(Tvg_Gradient grad, float x1, float y1, float x2, float y2)",
+      "brief": "Sets the linear gradient bounds.",
+      "description": [
+        "The bounds of the linear gradient are defined as a surface constrained by two parallel lines crossing the given points (`x1`, `y1`) and (`x2`, `y2`), respectively. Both lines are perpendicular to the line linking (`x1`, `y1`) and (`x2`, `y2`)."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which bounds are to be set."
+        },
+        {
+          "name": "x1",
+          "type": "float",
+          "description": "The horizontal coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "y1",
+          "type": "float",
+          "description": "The vertical coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "x2",
+          "type": "float",
+          "description": "The horizontal coordinate of the second point used to determine the gradient bounds."
+        },
+        {
+          "name": "y2",
+          "type": "float",
+          "description": "The vertical coordinate of the second point used to determine the gradient bounds."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "In case the first and the second points are equal, an object is filled with a single color using the last color specified in the tvg_gradient_set_color_stops()."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_gradient_set_color_stops()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_linear_gradient_get",
+      "kind": "function",
+      "line": 1844,
+      "signature": "Tvg_Result tvg_linear_gradient_get(Tvg_Gradient grad, float* x1, float* y1, float* x2, float* y2)",
+      "brief": "Gets the linear gradient bounds.",
+      "description": [
+        "The bounds of the linear gradient are defined as a surface constrained by two parallel lines crossing the given points (`x1`, `y1`) and (`x2`, `y2`), respectively. Both lines are perpendicular to the line linking (`x1`, `y1`) and (`x2`, `y2`)."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which to get the bounds."
+        },
+        {
+          "name": "x1",
+          "type": "float*",
+          "description": "The horizontal coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "y1",
+          "type": "float*",
+          "description": "The vertical coordinate of the first point used to determine the gradient bounds."
+        },
+        {
+          "name": "x2",
+          "type": "float*",
+          "description": "The horizontal coordinate of the second point used to determine the gradient bounds."
+        },
+        {
+          "name": "y2",
+          "type": "float*",
+          "description": "The vertical coordinate of the second point used to determine the gradient bounds."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

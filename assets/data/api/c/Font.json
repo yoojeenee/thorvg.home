@@ -1,0 +1,148 @@
+{
+  "name": "Font",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_font_load",
+      "kind": "function",
+      "line": 2779,
+      "signature": "Tvg_Result tvg_font_load(const char* path)",
+      "brief": "Loads a scalable font data from a file.",
+      "description": [
+        "ThorVG efficiently caches the loaded data using the specified `path` as a key. This means that loading the same file again will not result in duplicate operations; instead, ThorVG will reuse the previously loaded font data."
+      ],
+      "params": [
+        {
+          "name": "path",
+          "type": "const char*",
+          "description": "The path to the font file."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "An invalid `path` passed as an argument."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "When trying to load a file with an unknown extension."
+        }
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "tvg_font_unload()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_font_load_data",
+      "kind": "function",
+      "line": 2804,
+      "signature": "Tvg_Result tvg_font_load_data(const char* name, const char* data, uint32_t size, const char *mimetype, bool copy)",
+      "brief": "Loads a scalable font data from a memory block of a given size.",
+      "description": [
+        "ThorVG efficiently caches the loaded font data using the specified `name` as a key. This means that loading the same fonts again will not result in duplicate operations. Instead, ThorVG will reuse the previously loaded font data."
+      ],
+      "params": [
+        {
+          "name": "name",
+          "type": "const char*",
+          "description": "The name under which the font will be stored and accessible (e.x. in a `tvg_text_set_font` API)."
+        },
+        {
+          "name": "data",
+          "type": "const char*",
+          "description": "A pointer to a memory location where the content of the font data is stored."
+        },
+        {
+          "name": "size",
+          "type": "uint32_t",
+          "description": "The size in bytes of the memory occupied by the `data`."
+        },
+        {
+          "name": "mimetype",
+          "type": "const char *",
+          "description": "Mimetype or extension of font data. In case a `nullptr` or an empty \"\" value is provided the loader will be determined automatically."
+        },
+        {
+          "name": "copy",
+          "type": "bool",
+          "description": "If `true` the data are copied into the engine local buffer, otherwise they are not (default)."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INVALID_ARGUMENT",
+          "description": "If no name is provided or if `size` is zero while `data` points to a valid memory location."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "When trying to load a file with an unknown extension."
+        },
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "When trying to unload the font data that has not been previously loaded."
+        }
+      ],
+      "notes": [
+        "To unload the font data loaded using this API, pass the proper `name` and `nullptr` as `data`."
+      ],
+      "warnings": [
+        ": It's the user responsibility to release the `data` memory."
+      ],
+      "see": [],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_font_unload",
+      "kind": "function",
+      "line": 2820,
+      "signature": "Tvg_Result tvg_font_unload(const char* path)",
+      "brief": "Unloads the specified scalable font data that was previously loaded.",
+      "description": [
+        "This function is used to release resources associated with a font file that has been loaded into memory."
+      ],
+      "params": [
+        {
+          "name": "path",
+          "type": "const char*",
+          "description": "The path to the loaded font file."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "The loader is not initialized."
+        }
+      ],
+      "notes": [
+        "If the font data is currently in use, it will not be immediately unloaded."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_font_load()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

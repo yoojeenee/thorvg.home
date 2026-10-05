@@ -1,0 +1,43 @@
+{
+  "name": "AnimationSegment",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Animation",
+  "signature": "export interface AnimationSegment",
+  "source": "src/core/Animation.ts:24",
+  "members": [
+    {
+      "name": "start",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 25
+    },
+    {
+      "name": "end",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 26
+    }
+  ],
+  "nested": []
+}

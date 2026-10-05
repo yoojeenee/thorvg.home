@@ -1,0 +1,43 @@
+{
+  "name": "TextOutline",
+  "kind": "interface",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Text",
+  "signature": "export interface TextOutline",
+  "source": "src/core/Text.ts:24",
+  "members": [
+    {
+      "name": "width",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 25
+    },
+    {
+      "name": "color",
+      "kind": "property",
+      "type": "readonly [number, number, number]",
+      "static": false,
+      "readonly": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 26
+    }
+  ],
+  "nested": []
+}

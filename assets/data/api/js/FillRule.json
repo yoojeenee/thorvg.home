@@ -1,0 +1,41 @@
+{
+  "name": "FillRule",
+  "kind": "enum",
+  "brief": "Fill rule for determining whether a point is inside a shape.",
+  "description": [
+    "Used to determine which regions should be filled when rendering complex paths with self-intersections or multiple contours."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Shape",
+  "signature": "export enum FillRule",
+  "source": "src/common/constants.ts:89",
+  "members": [
+    {
+      "name": "Winding",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Non-zero winding rule (default) - counts the number of times a path winds around a point",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 91
+    },
+    {
+      "name": "EvenOdd",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Even-odd rule - alternates between filled and unfilled regions, useful for complex shapes with holes",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 93
+    }
+  ],
+  "nested": []
+}

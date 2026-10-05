@@ -1,0 +1,289 @@
+{
+  "name": "Canvas",
+  "kind": "struct",
+  "base": null,
+  "final": false,
+  "brief": "An abstract class for drawing graphical elements.",
+  "description": [
+    "A canvas is an entity responsible for drawing the target. It sets up the drawing engine and the buffer, which can be drawn on the screen. It also manages given Paint objects."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [
+    "A Canvas behavior depends on the raster engine though the final content of the buffer is expected to be identical."
+  ],
+  "warnings": [
+    "The Paint objects belonging to one Canvas can't be shared among multiple Canvases."
+  ],
+  "see": [],
+  "source": "inc/thorvg.h:913",
+  "members": [
+    {
+      "name": "paints",
+      "kind": "method",
+      "line": 926,
+      "signature": "const std::list<Paint*>& paints() const noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": true,
+      "noexcept": true,
+      "brief": "Returns the list of paints currently held by the Canvas.",
+      "description": [
+        "This function provides a list of paint nodes, allowing users to access scene-graph information."
+      ],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [
+        "Please avoid accessing the paints during Canvas update/draw. You can access them after calling sync().",
+        "This is read-only. Do not modify the list."
+      ],
+      "see": [
+        "Canvas::add()",
+        "Canvas::remove()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "add",
+      "kind": "method",
+      "line": 956,
+      "signature": "Result add(Paint* target, Paint* at = nullptr) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Adds a paint object to the canvas root scene.",
+      "description": [
+        "Appends a paint object to the root scene of the canvas. If the optional `at` parameter is provided, the paint object is inserted immediately before the specified paint in the root scene. If `at` is `nullptr`, the paint object is appended to the end of the root scene."
+      ],
+      "params": [
+        {
+          "name": "target",
+          "direction": "in",
+          "description": "A pointer to the Paint object to be added to the root scene. This parameter must not be `nullptr`."
+        },
+        {
+          "name": "at",
+          "direction": "in",
+          "description": "A pointer to an existing Paint object in the root scene before which `target` will be inserted. If `nullptr`, `target` is appended to the end of the root scene. The default value is `nullptr`."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [
+        "Ownership of the `target` object is transferred to the canvas upon successful addition. To retain ownership, call Paint::ref() before adding it to the canvas.",
+        "The rendering order of paint objects follows their order in the root scene. If layering is required, ensure the paints are added in the desired order."
+      ],
+      "warnings": [],
+      "see": [
+        "Canvas::paints()",
+        "Canvas::remove()",
+        "Paint::ref()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "remove",
+      "kind": "method",
+      "line": 973,
+      "signature": "Result remove(Paint* paint = nullptr) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Removes a paint object or all paint objects from the root scene.",
+      "description": [
+        "This function removes a specified paint object from the root scene. If no paint object is specified (i.e., the default `nullptr` is used), the function performs to clear all paints from the root scene."
+      ],
+      "params": [
+        {
+          "name": "paint",
+          "direction": "in",
+          "description": "A pointer to the Paint object to be removed from the root scene. If `nullptr`, remove all the paints from the root scene."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Canvas::add()",
+        "Canvas::paints()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "update",
+      "kind": "method",
+      "line": 990,
+      "signature": "Result update() noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Requests the canvas to update modified paint objects in preparation for rendering.",
+      "description": [
+        "This function triggers an internal update for all paint instances that have been modified since the last update. It ensures that the canvas state is ready for accurate rendering."
+      ],
+      "params": [],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "The canvas is not properly prepared. This may occur if the canvas target has not been set or if the update is called during drawing. Call Canvas::sync() before trying."
+        }
+      ],
+      "notes": [
+        "Only paint objects that have been changed will be processed.",
+        "If the canvas is configured with multiple threads, the update may be performed asynchronously."
+      ],
+      "warnings": [],
+      "see": [
+        "Canvas::sync()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "draw",
+      "kind": "method",
+      "line": 1010,
+      "signature": "Result draw(bool clear = false) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Requests the canvas to render the Paint objects.",
+      "description": [],
+      "params": [
+        {
+          "name": "clear",
+          "direction": "in",
+          "description": "If `true`, clears the target buffer to zero before drawing."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "The canvas is not properly prepared. This may occur if Canvas::target() has not been set or if draw() is called multiple times without calling Canvas::sync() in between."
+        }
+      ],
+      "notes": [
+        "Clearing the buffer is unnecessary if the canvas will be fully covered with opaque content. Skipping the clear can improve performance.",
+        "Drawing may be performed asynchronously if the thread count is greater than zero. To ensure the drawing process is complete, call sync() afterwards.",
+        "If the canvas has not been updated prior to Canvas::draw(), it may implicitly perform Canvas::update()."
+      ],
+      "warnings": [],
+      "see": [
+        "Canvas::sync()",
+        "Canvas::update()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "viewport",
+      "kind": "method",
+      "line": 1038,
+      "signature": "Result viewport(int32_t x, int32_t y, int32_t w, int32_t h) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the drawing region of the canvas.",
+      "description": [
+        "This function defines a rectangular area of the canvas to be used for drawing operations. The specified viewport clips rendering output to the boundaries of that rectangle.",
+        "Please note that changing the viewport is only allowed at the beginning of the rendering sequence—that is, after calling Canvas::sync()."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": "in",
+          "description": "The x-coordinate of the upper-left corner of the rectangle."
+        },
+        {
+          "name": "y",
+          "direction": "in",
+          "description": "The y-coordinate of the upper-left corner of the rectangle."
+        },
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "The width of the rectangle."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "The height of the rectangle."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "If the canvas is not in a synced state."
+        }
+      ],
+      "notes": [
+        "When the target is reset, the viewport will also be reset to match the target size."
+      ],
+      "warnings": [
+        "Changing the viewport is not allowed after calling Canvas::add(), Canvas::remove(), Canvas::update(), or Canvas::draw()."
+      ],
+      "see": [
+        "Canvas::sync()",
+        "SwCanvas::target()",
+        "GlCanvas::target()",
+        "WgCanvas::target()"
+      ],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "sync",
+      "kind": "method",
+      "line": 1048,
+      "signature": "Result sync() noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Guarantees that drawing task is finished.",
+      "description": [
+        "The Canvas rendering can be performed asynchronously. To make sure that rendering is finished, the sync() must be called after the draw() regardless of threading."
+      ],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "Canvas::draw()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

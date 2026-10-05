@@ -1,0 +1,118 @@
+{
+  "name": "GlCanvas",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_glcanvas_create",
+      "kind": "function",
+      "line": 577,
+      "signature": "Tvg_Canvas tvg_glcanvas_create(Tvg_Engine_Option op)",
+      "brief": "Creates a new OpenGL/ES Canvas object with optional rendering engine settings.",
+      "description": [
+        "This method generates a OpenGL/ES canvas instance that can be used for drawing vector graphics. It accepts an optional parameter `op` to choose between different rendering engine behaviors."
+      ],
+      "params": [
+        {
+          "name": "op",
+          "type": "Tvg_Engine_Option",
+          "description": "The rendering engine option."
+        }
+      ],
+      "returns": "A new canvas object.",
+      "retvals": [],
+      "notes": [
+        "Currently, it does not support `TVG_ENGINE_OPTION_SMART_RENDER`. The request will be ignored."
+      ],
+      "warnings": [],
+      "see": [
+        "enum Tvg_Engine_Option"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_glcanvas_set_target",
+      "kind": "function",
+      "line": 604,
+      "signature": "Tvg_Result tvg_glcanvas_set_target(Tvg_Canvas canvas, void* display, void* surface, void* context, int32_t id, uint32_t w, uint32_t h, Tvg_Colorspace cs)",
+      "brief": "Sets the drawing target for rasterization.",
+      "description": [
+        "This function specifies the drawing target where the rasterization will occur. It can target a specific framebuffer object (FBO) or the main surface."
+      ],
+      "params": [
+        {
+          "name": "canvas",
+          "type": "Tvg_Canvas",
+          "description": ""
+        },
+        {
+          "name": "display",
+          "type": "void*",
+          "description": "The platform-specific display handle (EGLDisplay for EGL). Set `nullptr` for other systems."
+        },
+        {
+          "name": "surface",
+          "type": "void*",
+          "description": "The platform-specific surface handle (EGLSurface for EGL, HDC for WGL). Set `nullptr` for other systems."
+        },
+        {
+          "name": "context",
+          "type": "void*",
+          "description": "The OpenGL context to be used for rendering on this canvas."
+        },
+        {
+          "name": "id",
+          "type": "int32_t",
+          "description": "The GL target ID, usually indicating the FBO ID. A value of @c 0 specifies the main surface."
+        },
+        {
+          "name": "w",
+          "type": "uint32_t",
+          "description": "The width (in pixels) of the raster image."
+        },
+        {
+          "name": "h",
+          "type": "uint32_t",
+          "description": "The height (in pixels) of the raster image."
+        },
+        {
+          "name": "cs",
+          "type": "Tvg_Colorspace",
+          "description": "Specifies how the pixel values should be interpreted. Currently, it only allows `TVG_COLORSPACE_ABGR8888S` as `GL_RGBA8`."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "If the canvas is currently rendering. Ensure that tvg_canvas_sync() has been called before setting a new target."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "In case the gl engine is not supported."
+        }
+      ],
+      "notes": [
+        "If `display` and `surface` are not provided, the ThorVG GL engine assumes that the appropriate OpenGL context is already current and will not attempt to bind a new one."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_canvas_sync()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

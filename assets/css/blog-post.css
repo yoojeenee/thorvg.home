@@ -85,7 +85,7 @@ main {
   display: inline-flex;
   align-items: center;
   margin-top: var(--space-2);
-  padding: 0.2rem 0.9rem;
+  padding: 0.16rem 0.9rem;
   border-radius: var(--radius-full);
   background: #ededed;
   color: var(--color-text);

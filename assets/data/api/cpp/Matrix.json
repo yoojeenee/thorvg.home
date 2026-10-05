@@ -1,0 +1,56 @@
+{
+  "name": "Matrix",
+  "kind": "struct",
+  "base": null,
+  "final": false,
+  "brief": "A data structure representing a three-dimensional matrix.",
+  "description": [
+    "The elements e11, e12, e21 and e22 represent the rotation matrix, including the scaling factor. The elements e13 and e23 determine the translation of the object along the x and y-axis, respectively. The elements e31 and e32 are set to 0, e33 is set to 1."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:355",
+  "members": [
+    {
+      "name": "e13",
+      "kind": "field",
+      "line": 356,
+      "value": null,
+      "type": "float e11, e12,",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "e23",
+      "kind": "field",
+      "line": 357,
+      "value": null,
+      "type": "float e21, e22,",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "e33",
+      "kind": "field",
+      "line": 358,
+      "value": null,
+      "type": "float e31, e32,",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

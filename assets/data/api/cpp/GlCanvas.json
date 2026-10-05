@@ -1,0 +1,147 @@
+{
+  "name": "GlCanvas",
+  "kind": "struct",
+  "base": "Canvas",
+  "final": true,
+  "brief": "A class for the rendering graphic elements with a GL raster engine.",
+  "description": [],
+  "since": "0.14",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:2455",
+  "members": [
+    {
+      "name": "~GlCanvas",
+      "kind": "destructor",
+      "line": 2456,
+      "signature": "~GlCanvas() override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "target",
+      "kind": "method",
+      "line": 2483,
+      "signature": "Result target(void* display, void* surface, void* context, int32_t id, uint32_t w, uint32_t h, ColorSpace cs) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the drawing target for rasterization.",
+      "description": [
+        "This function specifies the drawing target where the rasterization will occur. It can target a specific framebuffer object (FBO) or the main surface."
+      ],
+      "params": [
+        {
+          "name": "display",
+          "direction": "in",
+          "description": "The platform-specific display handle (EGLDisplay for EGL). Set `nullptr` for other systems."
+        },
+        {
+          "name": "surface",
+          "direction": "in",
+          "description": "The platform-specific surface handle (EGLSurface for EGL, HDC for WGL). Set `nullptr` for other systems."
+        },
+        {
+          "name": "context",
+          "direction": "in",
+          "description": "The OpenGL context to be used for rendering on this canvas."
+        },
+        {
+          "name": "id",
+          "direction": "in",
+          "description": "The GL target ID, usually indicating the FBO ID. A value of @c 0 specifies the main surface."
+        },
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "The width (in pixels) of the raster image."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "The height (in pixels) of the raster image."
+        },
+        {
+          "name": "cs",
+          "direction": "in",
+          "description": "Specifies how the pixel values should be interpreted. Currently, it only allows `ColorSpace::ABGR8888S` as `GL_RGBA8`."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "If the canvas is currently rendering. Ensure that Canvas::sync() has been called before setting a new target."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "In case the gl engine is not supported."
+        }
+      ],
+      "notes": [
+        "If `display` and `surface` are not provided, the ThorVG GL engine assumes that the appropriate OpenGL context is already current and will not attempt to bind a new one."
+      ],
+      "warnings": [],
+      "see": [
+        "Canvas::sync()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 2501,
+      "signature": "static GlCanvas* gen(EngineOption op = EngineOption::Default) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new OpenGL/ES Canvas object with optional rendering engine settings.",
+      "description": [
+        "This method generates a OpenGL canvas instance that can be used for drawing vector graphics. It accepts an optional parameter `op` to choose between different rendering engine behaviors."
+      ],
+      "params": [
+        {
+          "name": "op",
+          "direction": "in",
+          "description": "The rendering engine option. Default is `EngineOption::Default`."
+        }
+      ],
+      "returns": "A new GlCanvas object.",
+      "retvals": [],
+      "notes": [
+        "Currently, it does not support `EngineOption::SmartRender`. The request will be ignored."
+      ],
+      "warnings": [],
+      "see": [
+        "enum EngineOption"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

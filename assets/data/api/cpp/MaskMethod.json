@@ -1,0 +1,154 @@
+{
+  "name": "MaskMethod",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration indicating the method used in the mask of two objects - the target and the source.",
+  "description": [
+    "Notation: S(Source), T(Target), SA(Source Alpha), TA(Target Alpha)"
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [
+    "Paint::mask()"
+  ],
+  "source": "inc/thorvg.h:223",
+  "members": [
+    {
+      "name": "None",
+      "kind": "enumerator",
+      "line": 224,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "No Masking is applied.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Alpha",
+      "kind": "enumerator",
+      "line": 225,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Alpha Masking using the masking target's pixels as an alpha value.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "InvAlpha",
+      "kind": "enumerator",
+      "line": 226,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Alpha Masking using the complement to the masking target's pixels as an alpha value.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Luma",
+      "kind": "enumerator",
+      "line": 227,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Alpha Masking using the grayscale (0.2126R + 0.7152G + 0.0722*B) of the masking target's pixels.",
+      "description": [],
+      "since": "0.9",
+      "experimental": false
+    },
+    {
+      "name": "InvLuma",
+      "kind": "enumerator",
+      "line": 228,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Alpha Masking using the grayscale (0.2126R + 0.7152G + 0.0722*B) of the complement to the masking target's pixels.",
+      "description": [],
+      "since": "0.11",
+      "experimental": false
+    },
+    {
+      "name": "Add",
+      "kind": "enumerator",
+      "line": 229,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Combines the target and source objects pixels using target alpha. (T * TA) + (S * (255 - TA))",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    },
+    {
+      "name": "Subtract",
+      "kind": "enumerator",
+      "line": 230,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Subtracts the source color from the target color while considering their respective target alpha. (T * TA) - (S * (255 - TA))",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    },
+    {
+      "name": "Intersect",
+      "kind": "enumerator",
+      "line": 231,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Computes the result by taking the minimum value between the target alpha and the source alpha and multiplies it with the target color. (T * min(TA, SA))",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    },
+    {
+      "name": "Difference",
+      "kind": "enumerator",
+      "line": 232,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Calculates the absolute difference between the target color and the source color multiplied by the complement of the target alpha. abs(T - S * (255 - TA))",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    },
+    {
+      "name": "Lighten",
+      "kind": "enumerator",
+      "line": 233,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Where multiple masks intersect, the highest transparency value is used.",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    },
+    {
+      "name": "Darken",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Where multiple masks intersect, the lowest transparency value is used.",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

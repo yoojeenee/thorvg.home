@@ -1,0 +1,276 @@
+{
+  "name": "Fill",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_gradient_set_color_stops",
+      "kind": "function",
+      "line": 1933,
+      "signature": "Tvg_Result tvg_gradient_set_color_stops(Tvg_Gradient grad, const Tvg_Color_Stop* color_stop, uint32_t cnt)",
+      "brief": "Sets the parameters of the colors of the gradient and their position.",
+      "description": [],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which the color information is to be set."
+        },
+        {
+          "name": "color_stop",
+          "type": "const Tvg_Color_Stop*",
+          "description": "An array of Tvg_Color_Stop data structure."
+        },
+        {
+          "name": "cnt",
+          "type": "uint32_t",
+          "description": "The size of the `color_stop` array equal to the colors number used in the gradient."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_get_color_stops",
+      "kind": "function",
+      "line": 1945,
+      "signature": "Tvg_Result tvg_gradient_get_color_stops(const Tvg_Gradient grad, const Tvg_Color_Stop** color_stop, uint32_t* cnt)",
+      "brief": "Gets the parameters of the colors of the gradient, their position and number",
+      "description": [
+        "The function does not allocate any memory."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "const Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which to get the color information."
+        },
+        {
+          "name": "color_stop",
+          "type": "const Tvg_Color_Stop**",
+          "description": "An array of Tvg_Color_Stop data structure."
+        },
+        {
+          "name": "cnt",
+          "type": "uint32_t*",
+          "description": "The size of the `color_stop` array equal to the colors number used in the gradient."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_set_spread",
+      "kind": "function",
+      "line": 1954,
+      "signature": "Tvg_Result tvg_gradient_set_spread(Tvg_Gradient grad, const Tvg_Stroke_Fill spread)",
+      "brief": "Sets the Tvg_Stroke_Fill value, which specifies how to fill the area outside the gradient bounds.",
+      "description": [],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object."
+        },
+        {
+          "name": "spread",
+          "type": "const Tvg_Stroke_Fill",
+          "description": "The FillSpread value."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_get_spread",
+      "kind": "function",
+      "line": 1963,
+      "signature": "Tvg_Result tvg_gradient_get_spread(const Tvg_Gradient grad, Tvg_Stroke_Fill* spread)",
+      "brief": "Gets the FillSpread value of the gradient object.",
+      "description": [],
+      "params": [
+        {
+          "name": "grad",
+          "type": "const Tvg_Gradient",
+          "description": "The Tvg_Gradient object."
+        },
+        {
+          "name": "spread",
+          "type": "Tvg_Stroke_Fill*",
+          "description": "The FillSpread value."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_set_transform",
+      "kind": "function",
+      "line": 1974,
+      "signature": "Tvg_Result tvg_gradient_set_transform(Tvg_Gradient grad, const Tvg_Matrix* m)",
+      "brief": "Sets the matrix of the affine transformation for the gradient object.",
+      "description": [
+        "The augmented matrix of the transformation is expected to be given."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object to be transformed."
+        },
+        {
+          "name": "m",
+          "type": "const Tvg_Matrix*",
+          "description": "The 3x3 augmented matrix."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_get_transform",
+      "kind": "function",
+      "line": 1985,
+      "signature": "Tvg_Result tvg_gradient_get_transform(const Tvg_Gradient grad, Tvg_Matrix* m)",
+      "brief": "Gets the matrix of the affine transformation of the gradient object.",
+      "description": [
+        "In case no transformation was applied, the identity matrix is set."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "const Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which to get the transformation matrix."
+        },
+        {
+          "name": "m",
+          "type": "Tvg_Matrix*",
+          "description": "The 3x3 augmented matrix."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_get_type",
+      "kind": "function",
+      "line": 1995,
+      "signature": "Tvg_Result tvg_gradient_get_type(const Tvg_Gradient grad, Tvg_Type* type)",
+      "brief": "Gets the unique value of the gradient instance indicating the instance type.",
+      "description": [],
+      "params": [
+        {
+          "name": "grad",
+          "type": "const Tvg_Gradient",
+          "description": "The Tvg_Gradient object of which to get the type value."
+        },
+        {
+          "name": "type",
+          "type": "Tvg_Type*",
+          "description": "The unique type of the gradient instance type."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_duplicate",
+      "kind": "function",
+      "line": 2006,
+      "signature": "Tvg_Gradient tvg_gradient_duplicate(Tvg_Gradient grad)",
+      "brief": "Duplicates the given Tvg_Gradient object.",
+      "description": [
+        "Creates a new object and sets its all properties as in the original object."
+      ],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The Tvg_Gradient object to be copied."
+        }
+      ],
+      "returns": "A copied Tvg_Gradient object if succeed, `nullptr` otherwise.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_gradient_del",
+      "kind": "function",
+      "line": 2014,
+      "signature": "Tvg_Result tvg_gradient_del(Tvg_Gradient grad)",
+      "brief": "Deletes the given gradient object.",
+      "description": [],
+      "params": [
+        {
+          "name": "grad",
+          "type": "Tvg_Gradient",
+          "description": "The gradient object to be deleted."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

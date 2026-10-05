@@ -1,0 +1,548 @@
+{
+  "name": "Paint",
+  "kind": "class",
+  "brief": "Base class for all drawable objects",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Paint",
+  "signature": "export abstract class Paint extends WasmObject",
+  "source": "src/core/Paint.ts:62",
+  "members": [
+    {
+      "name": "registerType",
+      "kind": "method",
+      "signature": "static registerType(type: number, factory: PaintFactory): void",
+      "static": true,
+      "brief": "Register a subclass factory for a given Tvg_Type value. Called by each subclass at module load time. @internal",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 68
+    },
+    {
+      "name": "id",
+      "kind": "accessor",
+      "signature": "get id(): number",
+      "static": false,
+      "brief": "The ID of this paint object. IDs are used to identify paint objects within a picture's scene tree. Assign a string to generate a hash ID from the name, or a number to set directly.",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 82
+    },
+    {
+      "name": "id",
+      "kind": "accessor",
+      "signature": "set id(value: number | string)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 87
+    },
+    {
+      "name": "translate",
+      "kind": "method",
+      "signature": "translate(x: number, y: number): this",
+      "static": false,
+      "brief": "Translate the paint by (x, y)",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 106
+    },
+    {
+      "name": "rotate",
+      "kind": "method",
+      "signature": "rotate(angle: number): this",
+      "static": false,
+      "brief": "Rotate the paint by angle (in degrees)",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 115
+    },
+    {
+      "name": "scale",
+      "kind": "method",
+      "signature": "scale(factor: number): this",
+      "static": false,
+      "brief": "Scale the paint by factor",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 124
+    },
+    {
+      "name": "origin",
+      "kind": "method",
+      "signature": "origin(x: number, y: number): this",
+      "static": false,
+      "brief": "Set the origin point for transformations (rotation, scale). The origin is specified as normalized coordinates (0.0 to 1.0). - (0, 0) = top-left corner - (0.5, 0.5) = center (default) - (1, 1) = bottom-right corner",
+      "description": [],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "Normalized X coordinate (0.0 to 1.0)"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "Normalized Y coordinate (0.0 to 1.0)"
+        }
+      ],
+      "returns": "The Paint instance for method chaining",
+      "examples": [
+        "const picture = new TVG.Picture();\npicture.load(svgData, { type: 'svg' });\n\n// Set origin to center for rotation around center\npicture.origin(0.5, 0.5);\npicture.translate(300, 300);\npicture.rotate(45);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 152
+    },
+    {
+      "name": "blend",
+      "kind": "method",
+      "signature": "blend(method: BlendMethod): this",
+      "static": false,
+      "brief": "Set the blending method for this paint. Blending determines how this paint is combined with the content below it.",
+      "description": [],
+      "params": [
+        {
+          "name": "method",
+          "direction": null,
+          "description": "The blending method to use"
+        }
+      ],
+      "returns": "The Paint instance for method chaining",
+      "examples": [
+        "const scene = new TVG.Scene();\nscene.blend(BlendMethod.Add);\n\nconst shape = new TVG.Shape();\nshape.appendCircle(100, 100, 50, 50);\nshape.fill(255, 0, 0, 255);\nshape.blend(BlendMethod.Multiply);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 177
+    },
+    {
+      "name": "opacity",
+      "kind": "method",
+      "signature": "opacity(): number",
+      "static": false,
+      "brief": "Get or set the opacity (0 to 255)",
+      "description": [],
+      "params": [
+        {
+          "name": "value",
+          "direction": null,
+          "description": "The opacity value in the range [0 ~ 255], where 0 is completely transparent and 255 is opaque."
+        }
+      ],
+      "returns": "When setting, returns the Paint instance for method chaining. When getting, returns the opacity value (0-255).",
+      "examples": [
+        "// Set opacity to 50% (half transparent)\nshape.opacity(128);\n\n// Set to fully opaque\nshape.opacity(255);\n\n// Get current opacity value\nconst currentOpacity = shape.opacity(); // returns 0-255"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 201
+    },
+    {
+      "name": "opacity",
+      "kind": "method",
+      "signature": "opacity(value: number): this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 202
+    },
+    {
+      "name": "opacity",
+      "kind": "method",
+      "signature": "opacity(value?: number): number | this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 203
+    },
+    {
+      "name": "visible",
+      "kind": "method",
+      "signature": "visible(): boolean",
+      "static": false,
+      "brief": "Get or set the visibility",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 216
+    },
+    {
+      "name": "visible",
+      "kind": "method",
+      "signature": "visible(value: boolean): this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 217
+    },
+    {
+      "name": "visible",
+      "kind": "method",
+      "signature": "visible(value?: boolean): boolean | this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 218
+    },
+    {
+      "name": "bounds",
+      "kind": "method",
+      "signature": "bounds(): Bounds",
+      "static": false,
+      "brief": "Get the axis-aligned bounding box (AABB) of this paint",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 231
+    },
+    {
+      "name": "bounds",
+      "kind": "method",
+      "signature": "bounds(options: { oriented: true }): Point[]",
+      "static": false,
+      "brief": "Get the oriented bounding box (OBB) of this paint as 4 corner points",
+      "description": [],
+      "params": [
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Options object with oriented flag"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 237
+    },
+    {
+      "name": "bounds",
+      "kind": "method",
+      "signature": "bounds(options?: { oriented?: boolean }): Bounds | Point[]",
+      "static": false,
+      "brief": "Get the bounding box of this paint",
+      "description": [],
+      "params": [
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Optional options object with oriented flag"
+        }
+      ],
+      "returns": "AABB (Bounds) by default, or OBB (Point[]) if oriented is true",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 244
+    },
+    {
+      "name": "duplicate",
+      "kind": "method",
+      "signature": "duplicate<T extends Paint>(): T",
+      "static": false,
+      "brief": "Duplicate this paint object",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 290
+    },
+    {
+      "name": "transform",
+      "kind": "method",
+      "signature": "transform(matrix: Matrix): this",
+      "static": false,
+      "brief": "Applies a custom transformation matrix to the paint.",
+      "description": [
+        "This method allows you to apply complex transformations that combine translation, rotation, scaling, and skewing in a single operation. The matrix is multiplied with any existing transformations."
+      ],
+      "params": [
+        {
+          "name": "matrix",
+          "direction": null,
+          "description": "A 3x3 transformation matrix"
+        }
+      ],
+      "returns": "The Paint instance for method chaining",
+      "examples": [
+        "// Apply a combined transformation\nconst shape = new TVG.Shape();\nshape.appendRect(0, 0, 100, 100);\n\n// Create a matrix for: scale(2, 1.5) + rotate(45deg) + translate(100, 50)\nconst rad = (45 * Math.PI) / 180;\nconst cos = Math.cos(rad);\nconst sin = Math.sin(rad);\n\nshape.transform({\n  e11: 2 * cos,   e12: -2 * sin,  e13: 100,\n  e21: 1.5 * sin, e22: 1.5 * cos, e23: 50,\n  e31: 0,         e32: 0,         e33: 1\n});",
+        "// Create a skew transformation\nconst shape = new TVG.Shape();\nshape.appendRect(0, 0, 100, 100);\n\n// Skew in X direction\nshape.transform({\n  e11: 1,   e12: 0.5, e13: 0,\n  e21: 0,   e22: 1,   e23: 0,\n  e31: 0,   e32: 0,   e33: 1\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 338
+    },
+    {
+      "name": "clip",
+      "kind": "method",
+      "signature": "clip(clipper: Paint): this",
+      "static": false,
+      "brief": "Sets a clipping path for this paint object.",
+      "description": [
+        "The clipping path restricts the area where the paint will be rendered. Only the parts of the paint that overlap with the clipper shape will be visible."
+      ],
+      "params": [
+        {
+          "name": "clipper",
+          "direction": null,
+          "description": "A Paint object (typically a Shape) to use as the clipping path"
+        }
+      ],
+      "returns": "The Paint instance for method chaining",
+      "examples": [
+        "const circle = new TVG.Shape();\ncircle.appendCircle(150, 150, 100);\n\nconst rect = new TVG.Shape();\nrect.appendRect(0, 0, 300, 300)\n    .fill(255, 0, 0, 255)\n    .clip(circle);\n\ncanvas.add(rect);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 387
+    },
+    {
+      "name": "mask",
+      "kind": "method",
+      "signature": "mask(target: Paint, method: MaskMethod): this",
+      "static": false,
+      "brief": "Sets a masking target object and the masking method.",
+      "description": [
+        "The masking restricts the transparency of the source paint using the target paint."
+      ],
+      "params": [
+        {
+          "name": "target",
+          "direction": null,
+          "description": "A Paint object to use as the masking target"
+        },
+        {
+          "name": "method",
+          "direction": null,
+          "description": "The method used to mask the source object with the target"
+        }
+      ],
+      "returns": "The Paint instance for method chaining",
+      "examples": [
+        "const mask = new TVG.Shape();\nmask.appendCircle(200, 200, 125);\nmask.fill(255, 255, 255);\n\nconst shape = new TVG.Shape();\nshape.appendRect(0, 0, 400, 400)\n    .fill(255, 0, 0, 255)\n    .mask(mask, MaskMethod.Alpha);\n\ncanvas.add(shape);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 418
+    },
+    {
+      "name": "intersects",
+      "kind": "method",
+      "signature": "intersects( x: number, y: number, width: number, height: number, visibleOnly: boolean = false ): boolean",
+      "static": false,
+      "brief": "Checks whether the given rectangular region intersects the filled area of the paint.",
+      "description": [
+        "Useful for hit-testing, such as detecting whether a click or touch landed on a painted region. The paint must have been updated by a Canvas beforehand — typically after the canvas has been drawn and synchronized."
+      ],
+      "params": [
+        {
+          "name": "x",
+          "direction": null,
+          "description": "The x-coordinate of the region's top-left corner"
+        },
+        {
+          "name": "y",
+          "direction": null,
+          "description": "The y-coordinate of the region's top-left corner"
+        },
+        {
+          "name": "width",
+          "direction": null,
+          "description": "The width of the region. Must be greater than 0"
+        },
+        {
+          "name": "height",
+          "direction": null,
+          "description": "The height of the region. Must be greater than 0"
+        },
+        {
+          "name": "visibleOnly",
+          "direction": null,
+          "description": "If true, hidden paints are excluded from the test (default: false)"
+        }
+      ],
+      "returns": "true if any part of the region intersects the filled area, false otherwise",
+      "examples": [
+        "const shape = new TVG.Shape();\nshape.appendRect(100, 100, 200, 200);\ncanvas.add(shape).render();\n\n// Check if shape intersects with a region\nif (shape.intersects(150, 150, 100, 100)) {\n  console.log('Shape intersects with region');\n}\n\n// Hit-test a single point, ignoring hidden paints\nif (shape.intersects(event.offsetX, event.offsetY, 1, 1, true)) {\n  console.log('Clicked a visible part of the shape');\n}"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "`visible`"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 463
+    },
+    {
+      "name": "fromPtr",
+      "kind": "method",
+      "signature": "static fromPtr(ptr: number): Paint",
+      "static": true,
+      "brief": "Create a correctly-typed Paint subclass from a raw WASM pointer. The returned object does NOT own the pointer (won't be freed by GC).",
+      "description": [],
+      "params": [
+        {
+          "name": "ptr",
+          "direction": null,
+          "description": "A raw WASM paint pointer"
+        }
+      ],
+      "returns": "Shape, Scene, Picture, or Text instance @internal",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 490
+    }
+  ],
+  "nested": []
+}

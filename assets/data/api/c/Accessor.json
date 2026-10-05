@@ -1,0 +1,118 @@
+{
+  "name": "Accessor",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_accessor_new",
+      "kind": "function",
+      "line": 3085,
+      "signature": "Tvg_Accessor tvg_accessor_new(void)",
+      "brief": "Creates a new accessor object.",
+      "description": [],
+      "params": [],
+      "returns": "A new accessor object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_accessor_del",
+      "kind": "function",
+      "line": 3094,
+      "signature": "Tvg_Result tvg_accessor_del(Tvg_Accessor accessor)",
+      "brief": "Deletes the given accessor object.",
+      "description": [],
+      "params": [
+        {
+          "name": "accessor",
+          "type": "Tvg_Accessor",
+          "description": "The accessor object to be deleted."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_accessor_generate_id",
+      "kind": "function",
+      "line": 3124,
+      "signature": "uint32_t tvg_accessor_generate_id(const char* name)",
+      "brief": "Generate a unique ID (hash key) from a given name.",
+      "description": [
+        "This function computes a unique identifier value based on the provided string. You can use this to assign a unique ID to the Paint object."
+      ],
+      "params": [
+        {
+          "name": "name",
+          "type": "const char*",
+          "description": "The input string to generate the unique identifier from."
+        }
+      ],
+      "returns": "The generated unique identifier value.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_accessor_get_name",
+      "kind": "function",
+      "line": 3147,
+      "signature": "const char* tvg_accessor_get_name(Tvg_Accessor accessor, uint32_t id)",
+      "brief": "Retrieve the original name string from a given unique ID.",
+      "description": [
+        "Returns the name associated with the specified identifier.",
+        "This method is only valid when tvg_picture_set_accessible() is set to `true` for the Picture associated with the given `paint` in tvg_accessor_set() Otherwise, the name information may not be available."
+      ],
+      "params": [
+        {
+          "name": "accessor",
+          "type": "Tvg_Accessor",
+          "description": "An accessor object."
+        },
+        {
+          "name": "id",
+          "type": "uint32_t",
+          "description": "The unique identifier."
+        }
+      ],
+      "returns": "The corresponding name string, or `nullptr` if not found or unavailable.",
+      "retvals": [],
+      "notes": [
+        "This function is only available within Accessor callbacks registered via tvg_accessor_set()."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_accessor_generate_id()",
+        "tvg_accessor_set()",
+        "tvg_picture_set_accessible()"
+      ],
+      "since": "1.1",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

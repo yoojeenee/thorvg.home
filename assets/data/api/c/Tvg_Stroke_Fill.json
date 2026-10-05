@@ -1,0 +1,40 @@
+{
+  "name": "Tvg_Stroke_Fill",
+  "kind": "enum",
+  "brief": "Enumeration specifying how to fill the area outside the gradient bounds.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:294",
+  "members": [
+    {
+      "name": "TVG_STROKE_FILL_PAD",
+      "value": "0",
+      "brief": "The remaining area is filled with the closest stop color.",
+      "since": null,
+      "experimental": false,
+      "line": 297
+    },
+    {
+      "name": "TVG_STROKE_FILL_REFLECT",
+      "value": null,
+      "brief": "The gradient pattern is reflected outside the gradient area until the expected region is filled.",
+      "since": null,
+      "experimental": false,
+      "line": 298
+    },
+    {
+      "name": "TVG_STROKE_FILL_REPEAT",
+      "value": null,
+      "brief": "The gradient pattern is repeated continuously beyond the gradient area until the expected region is filled.",
+      "since": null,
+      "experimental": false,
+      "line": 299
+    }
+  ],
+  "nested": []
+}

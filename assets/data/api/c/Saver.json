@@ -1,0 +1,210 @@
+{
+  "name": "Saver",
+  "kind": "functions",
+  "brief": "",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h",
+  "members": [
+    {
+      "name": "tvg_saver_new",
+      "kind": "function",
+      "line": 2842,
+      "signature": "Tvg_Saver tvg_saver_new(void)",
+      "brief": "Creates a new Tvg_Saver object.",
+      "description": [],
+      "params": [],
+      "returns": "A new Tvg_Saver object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_saver_save_paint",
+      "kind": "function",
+      "line": 2863,
+      "signature": "Tvg_Result tvg_saver_save_paint(Tvg_Saver saver, Tvg_Paint paint, const char* path, uint32_t quality)",
+      "brief": "Exports the given `paint` data to the given `path`",
+      "description": [
+        "If the saver module supports any compression mechanism, it will optimize the data size. This might affect the encoding/decoding time in some cases. You can turn off the compression if you wish to optimize for speed."
+      ],
+      "params": [
+        {
+          "name": "saver",
+          "type": "Tvg_Saver",
+          "description": "The Tvg_Saver object connected with the saving task."
+        },
+        {
+          "name": "paint",
+          "type": "Tvg_Paint",
+          "description": "The paint to be saved with all its associated properties."
+        },
+        {
+          "name": "path",
+          "type": "const char*",
+          "description": "A path to the file, in which the paint data is to be saved."
+        },
+        {
+          "name": "quality",
+          "type": "uint32_t",
+          "description": "The encoded quality level. @c 0 is the minimum, @c 100 is the maximum value(recommended)."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "Currently saving other resources."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "Trying to save a file with an unknown extension or in an unsupported format."
+        },
+        {
+          "value": "TVG_RESULT_UNKNOWN",
+          "description": "An empty paint is to be saved."
+        }
+      ],
+      "notes": [
+        "Saving can be asynchronous if the assigned thread number is greater than zero. To guarantee the saving is done, call tvg_saver_sync() afterwards."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_saver_sync()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_saver_save_animation",
+      "kind": "function",
+      "line": 2889,
+      "signature": "Tvg_Result tvg_saver_save_animation(Tvg_Saver saver, Tvg_Animation animation, const char* path, uint32_t quality, uint32_t fps)",
+      "brief": "Exports the given `animation` data to the given `path`",
+      "description": [
+        "If the saver module supports any compression mechanism, it will optimize the data size. This might affect the encoding/decoding time in some cases. You can turn off the compression if you wish to optimize for speed."
+      ],
+      "params": [
+        {
+          "name": "saver",
+          "type": "Tvg_Saver",
+          "description": "The Tvg_Saver object connected with the saving task."
+        },
+        {
+          "name": "animation",
+          "type": "Tvg_Animation",
+          "description": "The animation to be saved with all its associated properties."
+        },
+        {
+          "name": "path",
+          "type": "const char*",
+          "description": "A path to the file, in which the animation data is to be saved."
+        },
+        {
+          "name": "quality",
+          "type": "uint32_t",
+          "description": "The encoded quality level. @c 0 is the minimum, @c 100 is the maximum value(recommended)."
+        },
+        {
+          "name": "fps",
+          "type": "uint32_t",
+          "description": "The frames per second for the animation. If @c 0, the default fps is used."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "Currently saving other resources or animation has no frames."
+        },
+        {
+          "value": "TVG_RESULT_NOT_SUPPORTED",
+          "description": "Trying to save a file with an unknown extension or in an unsupported format."
+        },
+        {
+          "value": "TVG_RESULT_UNKNOWN",
+          "description": "Unknown if attempting to save an empty paint."
+        }
+      ],
+      "notes": [
+        "A higher frames per second (FPS) would result in a larger file size. It is recommended to use the default value.",
+        "Saving can be asynchronous if the assigned thread number is greater than zero. To guarantee the saving is done, call tvg_saver_sync() afterwards."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_saver_sync()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_saver_sync",
+      "kind": "function",
+      "line": 2905,
+      "signature": "Tvg_Result tvg_saver_sync(Tvg_Saver saver)",
+      "brief": "Guarantees that the saving task is finished.",
+      "description": [
+        "The behavior of the Saver module works on a sync/async basis, depending on the threading setting of the Initializer. Thus, if you wish to have a benefit of it, you must call tvg_saver_sync() after the tvg_saver_save_paint() in the proper delayed time. Otherwise, you can call tvg_saver_sync() immediately."
+      ],
+      "params": [
+        {
+          "name": "saver",
+          "type": "Tvg_Saver",
+          "description": "The Tvg_Saver object connected with the saving task."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "TVG_RESULT_INSUFFICIENT_CONDITION",
+          "description": "No saving task is running."
+        }
+      ],
+      "notes": [
+        "The asynchronous tasking is dependent on the Saver module implementation."
+      ],
+      "warnings": [],
+      "see": [
+        "tvg_saver_save_paint()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "tvg_saver_del",
+      "kind": "function",
+      "line": 2913,
+      "signature": "Tvg_Result tvg_saver_del(Tvg_Saver saver)",
+      "brief": "Deletes the given Tvg_Saver object.",
+      "description": [],
+      "params": [
+        {
+          "name": "saver",
+          "type": "Tvg_Saver",
+          "description": "The Tvg_Saver object to be deleted."
+        }
+      ],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

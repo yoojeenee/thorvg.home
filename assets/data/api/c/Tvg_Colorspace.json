@@ -1,0 +1,64 @@
+{
+  "name": "Tvg_Colorspace",
+  "kind": "enum",
+  "brief": "Enumeration specifying the methods of combining the 8-bit color channels into 32-bit color.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:147",
+  "members": [
+    {
+      "name": "TVG_COLORSPACE_ABGR8888",
+      "value": "0",
+      "brief": "The channels are joined in the order: alpha, blue, green, red. Colors are alpha-premultiplied.",
+      "since": null,
+      "experimental": false,
+      "line": 150
+    },
+    {
+      "name": "TVG_COLORSPACE_ARGB8888",
+      "value": null,
+      "brief": "The channels are joined in the order: alpha, red, green, blue. Colors are alpha-premultiplied.",
+      "since": null,
+      "experimental": false,
+      "line": 151
+    },
+    {
+      "name": "TVG_COLORSPACE_ABGR8888S",
+      "value": null,
+      "brief": "The channels are joined in the order: alpha, blue, green, red. Colors are un-alpha-premultiplied. (since 0.13)",
+      "since": null,
+      "experimental": false,
+      "line": 152
+    },
+    {
+      "name": "TVG_COLORSPACE_ARGB8888S",
+      "value": null,
+      "brief": "The channels are joined in the order: alpha, red, green, blue. Colors are un-alpha-premultiplied. (since 0.13)",
+      "since": null,
+      "experimental": false,
+      "line": 153
+    },
+    {
+      "name": "TVG_COLORSPACE_GRAYSCALE8",
+      "value": null,
+      "brief": "Single channel, 1 byte per pixel 8-bit grayscale. (since 1.1)",
+      "since": null,
+      "experimental": false,
+      "line": 154
+    },
+    {
+      "name": "TVG_COLORSPACE_UNKNOWN",
+      "value": "255",
+      "brief": "Unknown channel data. This is reserved for an initial ColorSpace value. (since 1.0)",
+      "since": null,
+      "experimental": false,
+      "line": 155
+    }
+  ],
+  "nested": []
+}

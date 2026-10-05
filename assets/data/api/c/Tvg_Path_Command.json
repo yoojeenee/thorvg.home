@@ -1,0 +1,16 @@
+{
+  "name": "Tvg_Path_Command",
+  "kind": "alias",
+  "brief": "Enumeration specifying the values of the path commands accepted by ThorVG.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:262",
+  "members": [],
+  "nested": [],
+  "underlying": "uint8_t"
+}

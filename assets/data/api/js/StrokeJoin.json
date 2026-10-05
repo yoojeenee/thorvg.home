@@ -1,0 +1,51 @@
+{
+  "name": "StrokeJoin",
+  "kind": "enum",
+  "brief": "Stroke join style for line corners.",
+  "description": [
+    "Determines the shape of corners where two path segments meet when stroked."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Shape",
+  "signature": "export enum StrokeJoin",
+  "source": "src/common/constants.ts:73",
+  "members": [
+    {
+      "name": "Miter",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Sharp corner with pointed edge (subject to miter limit)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 75
+    },
+    {
+      "name": "Round",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Rounded corner with circular arc",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 77
+    },
+    {
+      "name": "Bevel",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Flat corner with angled edge (beveled)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 79
+    }
+  ],
+  "nested": []
+}

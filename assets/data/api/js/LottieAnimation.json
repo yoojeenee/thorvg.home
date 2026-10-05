@@ -1,0 +1,489 @@
+{
+  "name": "LottieAnimation",
+  "kind": "class",
+  "brief": "Animation controller with the Lottie extensions: markers, slots, etc.",
+  "description": [
+    "Extends `Animation`, so loading and playback work identically."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Play a named range (Marker)\nconst animation = new TVG.LottieAnimation();\nanimation.load(lottieData);\ncanvas.add(animation.picture);\n\nanimation.segment('walk-cycle');\nanimation.play(() => canvas.update().render());",
+    "// Override a property of the Lottie (Slot)\nconst animation = new TVG.LottieAnimation();\nanimation.load(lottieData);\n\nconst id = animation.gen({\n  ball_col: { p: { a: 0, k: [0, 1, 0, 1] } },\n});\nanimation.apply(id);\ncanvas.update().render();"
+  ],
+  "category": "LottieAnimation",
+  "signature": "export class LottieAnimation extends Animation",
+  "source": "src/core/LottieAnimation.ts:106",
+  "members": [
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor()",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 112
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "signature": "override load(data: Uint8Array | string): this",
+      "static": false,
+      "brief": "Load Lottie animation from raw data",
+      "description": [],
+      "params": [
+        {
+          "name": "data",
+          "direction": null,
+          "description": "Lottie JSON data as Uint8Array or string"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 121
+    },
+    {
+      "name": "frame",
+      "kind": "method",
+      "signature": "override frame(): number",
+      "static": false,
+      "brief": "Get or set the current frame",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 130
+    },
+    {
+      "name": "frame",
+      "kind": "method",
+      "signature": "override frame(frameNumber: number): this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 131
+    },
+    {
+      "name": "frame",
+      "kind": "method",
+      "signature": "override frame(frameNumber?: number): number | this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 132
+    },
+    {
+      "name": "play",
+      "kind": "method",
+      "signature": "override play(onFrame?: (frame: number) => void): this",
+      "static": false,
+      "brief": "Play the animation",
+      "description": [],
+      "params": [
+        {
+          "name": "onFrame",
+          "direction": null,
+          "description": "Optional callback called on each frame update"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 144
+    },
+    {
+      "name": "pause",
+      "kind": "method",
+      "signature": "override pause(): this",
+      "static": false,
+      "brief": "Pause the animation",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 154
+    },
+    {
+      "name": "segment",
+      "kind": "method",
+      "signature": "override segment(marker: string | null): this",
+      "static": false,
+      "brief": "Set the playback segment by marker name.",
+      "description": [
+        "Markers are designated at the design level, so the caller must know the marker name in advance. Setting a marker discards any previously set segment."
+      ],
+      "params": [
+        {
+          "name": "marker",
+          "direction": null,
+          "description": "The marker name, or `null` to reset to the full timeline"
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "animation.segment('walk-cycle').play();\nanimation.segment(null); // back to the whole animation"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 174
+    },
+    {
+      "name": "segment",
+      "kind": "method",
+      "signature": "override segment(segment: number): this",
+      "static": false,
+      "brief": "Set animation segment/marker (for partial playback)",
+      "description": [],
+      "params": [
+        {
+          "name": "segment",
+          "direction": null,
+          "description": "Segment index (0-based)"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 179
+    },
+    {
+      "name": "segment",
+      "kind": "method",
+      "signature": "override segment(arg: string | null | number): this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 180
+    },
+    {
+      "name": "markersCnt",
+      "kind": "method",
+      "signature": "markersCnt(): number",
+      "static": false,
+      "brief": "Get the number of markers in the loaded animation",
+      "description": [],
+      "params": [],
+      "returns": "The marker count, or 0 if the animation has no markers",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 202
+    },
+    {
+      "name": "marker",
+      "kind": "method",
+      "signature": "marker(idx: number): LottieMarker | null",
+      "static": false,
+      "brief": "Get the name and frame range of a marker by index",
+      "description": [],
+      "params": [
+        {
+          "name": "idx",
+          "direction": null,
+          "description": "Zero-based marker index"
+        }
+      ],
+      "returns": "The marker, or null if the index is out of range",
+      "examples": [
+        "for (let i = 0; i < animation.markersCnt(); i++) {\n  const marker = animation.marker(i);\n  console.log(`${marker.name}: ${marker.begin} - ${marker.end}`);\n}"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 231
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "signature": "gen(slot: LottieSlotData | string): number",
+      "static": false,
+      "brief": "Generate a slot from Lottie slot data, for overriding animation properties",
+      "description": [],
+      "params": [
+        {
+          "name": "slot",
+          "direction": null,
+          "description": "The slot data. Pass an object and it is serialized for you, or a               raw JSON string to hand through untouched - useful when the data               already arrives as text."
+        }
+      ],
+      "returns": "A non-zero slot ID on success",
+      "examples": [
+        "const id = animation.gen({\n  fill_color: { p: { a: 0, k: [1, 0, 0] } },\n});\nanimation.apply(id);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "`apply`",
+        "`del`"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 290
+    },
+    {
+      "name": "apply",
+      "kind": "method",
+      "signature": "apply(id: number): this",
+      "static": false,
+      "brief": "Apply a previously generated slot to the animation",
+      "description": [],
+      "params": [
+        {
+          "name": "id",
+          "direction": null,
+          "description": "The slot ID from `gen`, or 0 to reset all applied slots"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 310
+    },
+    {
+      "name": "del",
+      "kind": "method",
+      "signature": "del(id: number): this",
+      "static": false,
+      "brief": "Delete a previously generated slot",
+      "description": [],
+      "params": [
+        {
+          "name": "id",
+          "direction": null,
+          "description": "The slot ID from `gen`"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 321
+    },
+    {
+      "name": "quality",
+      "kind": "method",
+      "signature": "quality(value: number): this",
+      "static": false,
+      "brief": "Set the quality level for Lottie effects such as blur and shadows",
+      "description": [],
+      "params": [
+        {
+          "name": "value",
+          "direction": null,
+          "description": "Quality level from 0 (fastest) to 100 (best), default 50.                Values outside the range are clamped."
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 333
+    },
+    {
+      "name": "volume",
+      "kind": "method",
+      "signature": "volume(): number",
+      "static": false,
+      "brief": "Retrieves the master playback volume of the Lottie animation.",
+      "description": [],
+      "params": [],
+      "returns": "The current master playback volume, otherwise 0 if the animation is not loaded. @beta",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 346
+    },
+    {
+      "name": "volume",
+      "kind": "method",
+      "signature": "volume(value: number): this",
+      "static": false,
+      "brief": "Sets the master playback volume of the Lottie animation.",
+      "description": [
+        "The specified volume is applied to all media assets in the animation. Each media asset preserves its own volume, and the effective playback volume is calculated by multiplying the master volume by the media asset's volume.",
+        "A value of 1.0 preserves the original volume. A value of 0.0 mutes all media. Values greater than 1.0 amplify the playback volume.",
+        "The recommended range is [0.0, 2.0]."
+      ],
+      "params": [
+        {
+          "name": "value",
+          "direction": null,
+          "description": "Master playback volume. @beta"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 364
+    },
+    {
+      "name": "volume",
+      "kind": "method",
+      "signature": "volume(value?: number): number | this",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 365
+    },
+    {
+      "name": "resolver",
+      "kind": "method",
+      "signature": "resolver(callback: AudioResolver | null): this",
+      "static": false,
+      "brief": "Sets the audio resolver callback for the Lottie audio layers.",
+      "description": [
+        "The built-in backend stops while a resolver is set, so the resolver takes on every audio layer of the animation."
+      ],
+      "params": [
+        {
+          "name": "callback",
+          "direction": null,
+          "description": "The resolver, or `null` to hand the layers back to the                   built-in backend."
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "animation.resolver((info) => {\n  if (info.active) {\n    //Start or seek playback of info.src.\n  } else {\n    //Stop playback of info.src.\n  }\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "`AudioResolver` @beta"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 396
+    },
+    {
+      "name": "dispose",
+      "kind": "method",
+      "signature": "override dispose(): void",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 409
+    }
+  ],
+  "nested": []
+}

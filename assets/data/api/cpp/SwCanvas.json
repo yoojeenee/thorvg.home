@@ -1,0 +1,142 @@
+{
+  "name": "SwCanvas",
+  "kind": "struct",
+  "base": "Canvas",
+  "final": true,
+  "brief": "A class for the rendering graphical elements with a software raster engine.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:2402",
+  "members": [
+    {
+      "name": "~SwCanvas",
+      "kind": "destructor",
+      "line": 2403,
+      "signature": "~SwCanvas() override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "target",
+      "kind": "method",
+      "line": 2427,
+      "signature": "Result target(uint32_t* buffer, uint32_t stride, uint32_t w, uint32_t h, ColorSpace cs) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the drawing target for the rasterization.",
+      "description": [
+        "The buffer of a desirable size should be allocated and owned by the caller."
+      ],
+      "params": [
+        {
+          "name": "buffer",
+          "direction": "in",
+          "description": "A pointer to a memory block of the size `stride` x `h`, where the raster data are stored."
+        },
+        {
+          "name": "stride",
+          "direction": "in",
+          "description": "The stride of the raster image - greater than or equal to `w`."
+        },
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "The width of the raster image."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "The height of the raster image."
+        },
+        {
+          "name": "cs",
+          "direction": "in",
+          "description": "The value specifying the way the 32-bits colors should be read/written."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InvalidArguments",
+          "description": "In case no valid pointer is provided or the width, or the height or the stride is zero."
+        },
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "if the canvas is performing rendering. Please ensure the canvas is synced."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "In case the software engine is not supported."
+        }
+      ],
+      "notes": [
+        "Currently, only `ColorSpace::ABGR8888S`, `ColorSpace::ABGR8888`, `ColorSpace::ARGB8888S`, and `ColorSpace::ARGB8888` are supported for `cs`."
+      ],
+      "warnings": [
+        "Do not access `buffer` during Canvas::add() - Canvas::sync(). It should not be accessed while the engine is writing on it."
+      ],
+      "see": [
+        "Canvas::viewport()",
+        "Canvas::sync()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 2441,
+      "signature": "static SwCanvas* gen(EngineOption op = EngineOption::Default) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new SwCanvas object with optional rendering engine settings.",
+      "description": [
+        "This method generates a software canvas instance that can be used for drawing vector graphics. It accepts an optional parameter `op` to choose between different rendering engine behaviors."
+      ],
+      "params": [
+        {
+          "name": "op",
+          "direction": "in",
+          "description": "The rendering engine option. Default is `EngineOption::Default`."
+        }
+      ],
+      "returns": "A new SwCanvas object.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "enum EngineOption"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

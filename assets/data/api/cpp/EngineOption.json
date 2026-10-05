@@ -1,0 +1,68 @@
+{
+  "name": "EngineOption",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration to specify rendering engine behavior.",
+  "description": [],
+  "since": "1.0",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [
+    "The availability or behavior of `SmartRender` may vary depending on platform or backend support. It attempts to optimize rendering performance by updating only the regions  of the canvas that have changed between frames (partial redraw). This can be highly effective in scenarios  where most of the canvas remains static and only small portions are updated—such as simple animations or GUI interactions. However, in complex scenes where a large portion of the canvas changes frequently (e.g., full-screen animations or heavy object movements), the overhead of tracking changes and managing update regions may outweigh the benefits, resulting in decreased performance compared to the default rendering mode. Thus, it is recommended to benchmark both modes in your specific use case to determine the optimal setting."
+  ],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:141",
+  "members": [
+    {
+      "name": "None",
+      "kind": "enumerator",
+      "line": 142,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "No engine options are enabled. This may be used to explicitly disable all optional behaviors.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Default",
+      "kind": "enumerator",
+      "line": 143,
+      "value": "1 << 0",
+      "type": "",
+      "static": false,
+      "brief": "Uses the default rendering mode.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "SmartRender",
+      "kind": "enumerator",
+      "line": 144,
+      "value": "1 << 1",
+      "type": "",
+      "static": false,
+      "brief": "Enables automatic partial (smart) rendering optimizations.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Aliased",
+      "kind": "enumerator",
+      "line": 0,
+      "value": "1 << 2",
+      "type": "",
+      "static": false,
+      "brief": "Disables anti-aliased rendering.",
+      "description": [],
+      "since": null,
+      "experimental": true
+    }
+  ],
+  "nested": []
+}

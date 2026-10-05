@@ -1,0 +1,77 @@
+{
+  "name": "init",
+  "kind": "function",
+  "brief": "Initialize ThorVG WASM module and rendering engine.",
+  "description": [
+    "This is the entry point for using ThorVG WebCanvas. It loads the WebAssembly module and initializes the rendering engine with the specified backend (Software, WebGL, or WebGPU)."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [
+    "{Error} If WASM module fails to load or engine initialization fails"
+  ],
+  "see": [],
+  "examples": [
+    "// Initialize with default WebGL renderer\nconst TVG = await ThorVG.init();\nconst canvas = new TVG.Canvas('#canvas');",
+    "// Initialize with custom WASM file location\nconst TVG = await ThorVG.init({\n  locateFile: (path) => `/public/wasm/${path}`,\n  renderer: 'gl'\n});",
+    "// Initialize with WebGPU for maximum performance\nconst TVG = await ThorVG.init({\n  locateFile: (path) => '../dist/' + path.split('/').pop(),\n  renderer: 'wg'\n});",
+    "// Initialize with Software renderer for maximum compatibility\nconst TVG = await ThorVG.init({\n  renderer: 'sw'\n});",
+    "// Initialize with thread-enabled preset\nimport ThorVG from '@thorvg/webcanvas/thread';\n\nconst TVG = await ThorVG.init({\n  locateFile: (path) => `/wasm/thread/${path}`,\n  threads: 4\n});"
+  ],
+  "category": "Initialization",
+  "signature": "async function init(options: InitOptions =",
+  "source": "src/index.ts:224",
+  "members": [
+    {
+      "name": "init",
+      "kind": "function",
+      "signature": "async function init(options: InitOptions =",
+      "brief": "Initialize ThorVG WASM module and rendering engine.",
+      "description": [
+        "This is the entry point for using ThorVG WebCanvas. It loads the WebAssembly module and initializes the rendering engine with the specified backend (Software, WebGL, or WebGPU)."
+      ],
+      "params": [
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Initialization options"
+        },
+        {
+          "name": "options.locateFile",
+          "direction": null,
+          "description": "Optional function to locate WASM files. If not provided, assumes                              WASM files are in the same directory as the JavaScript bundle."
+        },
+        {
+          "name": "options.renderer",
+          "direction": null,
+          "description": "Renderer type: 'sw' (Software), 'gl' (WebGL), or 'wg' (WebGPU).                           Default: 'gl'. WebGPU provides best performance but requires                           Chrome 113+ or Edge 113+."
+        },
+        {
+          "name": "options.threads",
+          "direction": null,
+          "description": "Number of worker threads. Only effective with the thread preset.                          Ignored in the default preset. Default: 0 (single-threaded)."
+        }
+      ],
+      "returns": "Promise that resolves to ThorVG namespace containing all classes and utilities",
+      "examples": [
+        "// Initialize with default WebGL renderer\nconst TVG = await ThorVG.init();\nconst canvas = new TVG.Canvas('#canvas');",
+        "// Initialize with custom WASM file location\nconst TVG = await ThorVG.init({\n  locateFile: (path) => `/public/wasm/${path}`,\n  renderer: 'gl'\n});",
+        "// Initialize with WebGPU for maximum performance\nconst TVG = await ThorVG.init({\n  locateFile: (path) => '../dist/' + path.split('/').pop(),\n  renderer: 'wg'\n});",
+        "// Initialize with Software renderer for maximum compatibility\nconst TVG = await ThorVG.init({\n  renderer: 'sw'\n});",
+        "// Initialize with thread-enabled preset\nimport ThorVG from '@thorvg/webcanvas/thread';\n\nconst TVG = await ThorVG.init({\n  locateFile: (path) => `/wasm/thread/${path}`,\n  threads: 4\n});"
+      ],
+      "notes": [],
+      "warnings": [
+        "{Error} If WASM module fails to load or engine initialization fails"
+      ],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 224
+    }
+  ],
+  "nested": []
+}

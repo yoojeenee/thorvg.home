@@ -1,0 +1,278 @@
+{
+  "name": "WgCanvas",
+  "kind": "struct",
+  "base": "Canvas",
+  "final": true,
+  "brief": "A class for the rendering graphic elements with a WebGPU raster engine.",
+  "description": [],
+  "since": "0.15",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:2515",
+  "members": [
+    {
+      "name": "~WgCanvas",
+      "kind": "destructor",
+      "line": 2516,
+      "signature": "~WgCanvas() override",
+      "static": false,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "target",
+      "kind": "method",
+      "line": 2554,
+      "signature": "Result target(void* device, void* instance, void* target, uint32_t w, uint32_t h, ColorSpace cs, int type = 0) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": true,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the drawing target for the rasterization.",
+      "description": [],
+      "params": [
+        {
+          "name": "device",
+          "direction": "in",
+          "description": "WGPUDevice, a desired handle for the wgpu device."
+        },
+        {
+          "name": "instance",
+          "direction": "in",
+          "description": "WGPUInstance, context for all other wgpu objects."
+        },
+        {
+          "name": "target",
+          "direction": "in",
+          "description": "Either WGPUSurface or WGPUTexture, serving as handles to a presentable surface or texture."
+        },
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "The width of the target."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "The height of the target."
+        },
+        {
+          "name": "cs",
+          "direction": "in",
+          "description": "Specifies how the pixel values should be interpreted. Currently, it allows `ColorSpace::ABGR8888` and `ColorSpace::ABGR8888S`."
+        },
+        {
+          "name": "type",
+          "direction": "in",
+          "description": "@c 0: surface, @c 1: texture are used as pesentable target."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "if the canvas is performing rendering. Please ensure the canvas is synced."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "In case the wg engine is not supported."
+        }
+      ],
+      "notes": [],
+      "warnings": [
+        "Regardless of the value of `cs`, this target API uses the default alpha mode."
+      ],
+      "see": [
+        "WgCanvas::target(const Context&",
+        "void*",
+        "uint32_t",
+        "uint32_t",
+        "ColorSpace",
+        "int)",
+        "Canvas::viewport()",
+        "Canvas::sync()"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "target",
+      "kind": "method",
+      "line": 2574,
+      "signature": "Result target(const Context& context, void* target, uint32_t w, uint32_t h, ColorSpace cs, int type = 0) noexcept",
+      "static": false,
+      "virtual": false,
+      "pure": true,
+      "const": false,
+      "noexcept": true,
+      "brief": "Sets the drawing target for the rasterization.",
+      "description": [],
+      "params": [
+        {
+          "name": "context",
+          "direction": "in",
+          "description": "WebGPU context."
+        },
+        {
+          "name": "target",
+          "direction": "in",
+          "description": "Either WGPUSurface or WGPUTexture, serving as handles to a presentable surface or texture."
+        },
+        {
+          "name": "w",
+          "direction": "in",
+          "description": "The width of the target."
+        },
+        {
+          "name": "h",
+          "direction": "in",
+          "description": "The height of the target."
+        },
+        {
+          "name": "cs",
+          "direction": "in",
+          "description": "Specifies how the pixel values should be interpreted. Currently, it allows `ColorSpace::ABGR8888` and `ColorSpace::ABGR8888S`."
+        },
+        {
+          "name": "type",
+          "direction": "in",
+          "description": "@c 0: surface, @c 1: texture are used as pesentable target."
+        }
+      ],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "if the canvas is performing rendering. Please ensure the canvas is synced."
+        },
+        {
+          "value": "Result::NonSupport",
+          "description": "In case the wg engine is not supported."
+        }
+      ],
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [
+        "Canvas::viewport()",
+        "Canvas::sync()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true
+    },
+    {
+      "name": "gen",
+      "kind": "method",
+      "line": 2592,
+      "signature": "static WgCanvas* gen(EngineOption op = EngineOption::Default) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Creates a new WebGPU Canvas object with optional rendering engine settings.",
+      "description": [
+        "This method generates a WebGPU canvas instance that can be used for drawing vector graphics. It accepts an optional parameter `op` to choose between different rendering engine behaviors."
+      ],
+      "params": [
+        {
+          "name": "op",
+          "direction": "in",
+          "description": "The rendering engine option. Default is `EngineOption::Default`."
+        }
+      ],
+      "returns": "A new WgCanvas object.",
+      "retvals": [],
+      "notes": [
+        "Currently, it does not support `EngineOption::SmartRender`. The request will be ignored."
+      ],
+      "warnings": [],
+      "see": [
+        "enum EngineOption"
+      ],
+      "since": "1.0",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": [
+    {
+      "name": "Context",
+      "kind": "struct",
+      "base": null,
+      "final": false,
+      "brief": "Encapsulates the WebGPU context required for rendering.",
+      "description": [
+        "This structure contains the WebGPU objects used to initialize the rendering backend."
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": true,
+      "notes": [
+        "Experimental API"
+      ],
+      "warnings": [],
+      "see": [],
+      "source": "inc/thorvg.h:2526",
+      "members": [
+        {
+          "name": "instance",
+          "kind": "field",
+          "line": 2527,
+          "value": null,
+          "type": "void*",
+          "static": false,
+          "brief": "",
+          "description": [],
+          "since": null,
+          "experimental": false
+        },
+        {
+          "name": "adapter",
+          "kind": "field",
+          "line": 2528,
+          "value": null,
+          "type": "void*",
+          "static": false,
+          "brief": "",
+          "description": [],
+          "since": null,
+          "experimental": false
+        },
+        {
+          "name": "device",
+          "kind": "field",
+          "line": 2529,
+          "value": null,
+          "type": "void*",
+          "static": false,
+          "brief": "",
+          "description": [],
+          "since": null,
+          "experimental": false
+        }
+      ],
+      "nested": []
+    }
+  ]
+}

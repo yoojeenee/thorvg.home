@@ -1,0 +1,81 @@
+{
+  "name": "SceneEffect",
+  "kind": "enum",
+  "brief": "Scene effect for post-processing effects.",
+  "description": [
+    "Defines various visual effects that can be applied to a Scene to modify its final appearance."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Scene",
+  "signature": "export enum SceneEffect",
+  "source": "src/common/constants.ts:181",
+  "members": [
+    {
+      "name": "ClearAll",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Reset all previously applied scene effects, restoring the scene to its original state",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 183
+    },
+    {
+      "name": "GaussianBlur",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Apply a blur effect with a Gaussian filter. Params: sigma (>0), direction (both/horizontal/vertical), border (duplicate/wrap), quality (0-100)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 185
+    },
+    {
+      "name": "DropShadow",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Apply a drop shadow effect with Gaussian blur. Params: color RGB (0-255), opacity (0-255), angle (0-360), distance, blur sigma (>0), quality (0-100)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 187
+    },
+    {
+      "name": "Fill",
+      "kind": "enumerator",
+      "value": "3",
+      "brief": "Override the scene content color with given fill. Params: color RGB (0-255), opacity (0-255)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 189
+    },
+    {
+      "name": "Tint",
+      "kind": "enumerator",
+      "value": "4",
+      "brief": "Tint the scene color with black and white parameters. Params: black RGB (0-255), white RGB (0-255), intensity (0-100)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 191
+    },
+    {
+      "name": "Tritone",
+      "kind": "enumerator",
+      "value": "5",
+      "brief": "Apply tritone color effect using shadows, midtones, and highlights. Params: shadow RGB, midtone RGB, highlight RGB (all 0-255), blend (0-255)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 193
+    }
+  ],
+  "nested": []
+}

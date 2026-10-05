@@ -1,0 +1,54 @@
+{
+  "name": "FillSpread",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration specifying how to fill the area outside the gradient bounds.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:187",
+  "members": [
+    {
+      "name": "Pad",
+      "kind": "enumerator",
+      "line": 188,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "The remaining area is filled with the closest stop color.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Reflect",
+      "kind": "enumerator",
+      "line": 189,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The gradient pattern is reflected outside the gradient area until the expected region is filled.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Repeat",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The gradient pattern is repeated continuously beyond the gradient area until the expected region is filled.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

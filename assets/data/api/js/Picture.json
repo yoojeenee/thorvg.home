@@ -1,0 +1,320 @@
+{
+  "name": "Picture",
+  "kind": "class",
+  "brief": "Picture class for loading and displaying images and vector graphics",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [
+    "// Loading an SVG image\nconst picture = new TVG.Picture();\n\nfetch('/images/logo.svg')\n  .then(res => res.text())\n  .then(svgData => {\n    picture.load(svgData, { type: 'svg' });\n    const size = picture.size();\n    picture.size(200, 200 * size.height / size.width); // Scale\n    canvas.add(picture).render();\n  });",
+    "// Loading a Lottie animation as static image\nconst picture = new TVG.Picture();\n\nfetch('/animations/loading.json')\n  .then(res => res.text())\n  .then(lottieData => {\n    picture.load(lottieData, { type: 'lottie' });\n    picture.translate(400, 300);\n    canvas.add(picture);\n  });"
+  ],
+  "category": "Picture",
+  "signature": "export class Picture extends Paint",
+  "source": "src/core/Picture.ts:89",
+  "members": [
+    {
+      "name": "_owner",
+      "kind": "property",
+      "type": "object | null",
+      "static": false,
+      "readonly": false,
+      "brief": "@internal",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 91
+    },
+    {
+      "name": "constructor",
+      "kind": "constructor",
+      "signature": "constructor(ptr?: number, skipRegistry: boolean = false)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 97
+    },
+    {
+      "name": "accessible",
+      "kind": "accessor",
+      "signature": "get accessible(): boolean",
+      "static": false,
+      "brief": "Whether accessible mode is enabled.",
+      "description": [
+        "In accessible mode the picture retains an internal map of ID-accessible asset nodes (such as named SVG nodes), which makes `paint` lookups more efficient and is required for `Accessor.name()` to resolve names."
+      ],
+      "params": [],
+      "returns": null,
+      "examples": [
+        "const picture = new TVG.Picture();\npicture.accessible = true;\npicture.load(svgData, { type: 'svg' });\n\nconst accessor = new TVG.Accessor();\naccessor.set(picture, (paint) => {\n  console.log(accessor.name(paint.id));\n  return true;\n});"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 139
+    },
+    {
+      "name": "accessible",
+      "kind": "accessor",
+      "signature": "set accessible(value: boolean)",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 143
+    },
+    {
+      "name": "resolver",
+      "kind": "method",
+      "signature": "resolver(callback: AssetResolver | null): this",
+      "static": false,
+      "brief": "Set a resolver for external assets (images, fonts) referenced by the picture.",
+      "description": [
+        "Set this BEFORE calling `load` — the resolver runs during load, once per external reference, and setting it afterwards has no effect on assets that were already resolved. Pass `null` to remove a previously set resolver."
+      ],
+      "params": [
+        {
+          "name": "callback",
+          "direction": null,
+          "description": "The resolver, or `null` to unset."
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "// Resolve a Lottie image asset from prefetched bytes\nconst logo = new Uint8Array(await (await fetch('/logo.png')).arrayBuffer());\n\nconst animation = new TVG.LottieAnimation();\nanimation.picture.resolver((paint, src) => {\n  if (paint instanceof TVG.Picture) {\n    paint.load(logo, { type: 'png' });\n    return true;\n  }\n  return false;\n});\nanimation.load(lottieData);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [
+        "`AssetResolver` @beta"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 179
+    },
+    {
+      "name": "dispose",
+      "kind": "method",
+      "signature": "override dispose(): void",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 214
+    },
+    {
+      "name": "load",
+      "kind": "method",
+      "signature": "load(data: Uint8Array | string, options: LoadDataOptions = {}): this",
+      "static": false,
+      "brief": "Load picture from raw data (Uint8Array or string for SVG)",
+      "description": [],
+      "params": [
+        {
+          "name": "data",
+          "direction": null,
+          "description": "Raw image data as Uint8Array or SVG string"
+        },
+        {
+          "name": "options",
+          "direction": null,
+          "description": "Load options including type hint"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 229
+    },
+    {
+      "name": "size",
+      "kind": "method",
+      "signature": "size(width: number, height: number): this",
+      "static": false,
+      "brief": "Set the size of the picture (scales it)",
+      "description": [],
+      "params": [
+        {
+          "name": "width",
+          "direction": null,
+          "description": "Target width"
+        },
+        {
+          "name": "height",
+          "direction": null,
+          "description": "Target height"
+        }
+      ],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 290
+    },
+    {
+      "name": "size",
+      "kind": "method",
+      "signature": "size(): PictureSize",
+      "static": false,
+      "brief": "Get the current size of the picture",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 294
+    },
+    {
+      "name": "size",
+      "kind": "method",
+      "signature": "size(width?: number, height?: number): this | PictureSize",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 295
+    },
+    {
+      "name": "paint",
+      "kind": "method",
+      "signature": "paint(id: number): Paint | null",
+      "static": false,
+      "brief": "Retrieve a paint object from this picture's scene tree by ID.",
+      "description": [],
+      "params": [
+        {
+          "name": "id",
+          "direction": null,
+          "description": "A numeric hash ID or a string name (which will be hashed via Accessor.id)"
+        }
+      ],
+      "returns": "The matching Paint object, or null if not found",
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 328
+    },
+    {
+      "name": "paint",
+      "kind": "method",
+      "signature": "paint(name: string): Paint | null",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 329
+    },
+    {
+      "name": "paint",
+      "kind": "method",
+      "signature": "paint(id: number | string): Paint | null",
+      "static": false,
+      "brief": "",
+      "description": [],
+      "params": [],
+      "returns": null,
+      "examples": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 330
+    },
+    {
+      "name": "filter",
+      "kind": "method",
+      "signature": "filter(method: FilterMethod = FilterMethod.Bilinear): this",
+      "static": false,
+      "brief": "Set the image filtering method used when this picture is scaled or transformed.",
+      "description": [],
+      "params": [
+        {
+          "name": "method",
+          "direction": null,
+          "description": "The filtering method to apply (default: FilterMethod.Bilinear)"
+        }
+      ],
+      "returns": null,
+      "examples": [
+        "// Keep hard pixel edges when upscaling pixel art\npicture.filter(TVG.FilterMethod.Nearest);\npicture.size(256, 256);"
+      ],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": null,
+      "deprecated": null,
+      "experimental": false,
+      "line": 363
+    }
+  ],
+  "nested": []
+}

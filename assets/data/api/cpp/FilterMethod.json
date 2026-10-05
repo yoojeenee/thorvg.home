@@ -1,0 +1,42 @@
+{
+  "name": "FilterMethod",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Defines the image filtering method used during image scaling or transformation.",
+  "description": [],
+  "since": "1.1",
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:209",
+  "members": [
+    {
+      "name": "Bilinear",
+      "kind": "enumerator",
+      "line": 210,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "Smooth interpolation using surrounding pixels for higher quality.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Nearest",
+      "kind": "enumerator",
+      "line": 0,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Fast filtering using nearest-neighbor sampling.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

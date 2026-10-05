@@ -1,0 +1,40 @@
+{
+  "name": "Tvg_Stroke_Cap",
+  "kind": "enum",
+  "brief": "Enumeration determining the ending type of a stroke in the open sub-paths.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:275",
+  "members": [
+    {
+      "name": "TVG_STROKE_CAP_BUTT",
+      "value": "0",
+      "brief": "The stroke ends exactly at each of the two endpoints of a sub-path. For zero length sub-paths no stroke is rendered.",
+      "since": null,
+      "experimental": false,
+      "line": 277
+    },
+    {
+      "name": "TVG_STROKE_CAP_ROUND",
+      "value": null,
+      "brief": "The stroke is extended in both endpoints of a sub-path by a half circle, with a radius equal to the half of a stroke width. For zero length sub-paths a full circle is rendered.",
+      "since": null,
+      "experimental": false,
+      "line": 278
+    },
+    {
+      "name": "TVG_STROKE_CAP_SQUARE",
+      "value": null,
+      "brief": "The stroke is extended in both endpoints of a sub-path by a rectangle, with the width equal to the stroke width and the length equal to the half of the stroke width. For zero length sub-paths the square is rendered with the size of the stroke width.",
+      "since": null,
+      "experimental": false,
+      "line": 279
+    }
+  ],
+  "nested": []
+}

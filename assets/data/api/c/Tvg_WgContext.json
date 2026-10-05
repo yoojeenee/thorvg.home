@@ -1,0 +1,44 @@
+{
+  "name": "Tvg_WgContext",
+  "kind": "struct",
+  "brief": "Encapsulates the WebGPU context required for rendering.",
+  "description": [
+    "This structure contains the WebGPU objects used to initialize the rendering backend."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": true,
+  "notes": [
+    "Experimental API"
+  ],
+  "warnings": [],
+  "see": [],
+  "source": "src/bindings/capi/thorvg_capi.h:629",
+  "members": [
+    {
+      "name": "instance",
+      "type": "void",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 631
+    },
+    {
+      "name": "adapter",
+      "type": "void",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 632
+    },
+    {
+      "name": "device",
+      "type": "void",
+      "brief": "",
+      "since": null,
+      "experimental": false,
+      "line": 633
+    }
+  ],
+  "nested": []
+}

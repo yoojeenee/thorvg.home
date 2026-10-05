@@ -1,0 +1,201 @@
+{
+  "name": "BlendMethod",
+  "kind": "enum",
+  "brief": "Blend method for compositing paint layers.",
+  "description": [
+    "Defines various blending modes for combining a source paint (top layer) with a destination (bottom layer). Notation: S = source paint, D = destination, Sa = source alpha, Da = destination alpha."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Constants",
+  "signature": "export enum BlendMethod",
+  "source": "src/common/constants.ts:13",
+  "members": [
+    {
+      "name": "Normal",
+      "kind": "enumerator",
+      "value": "0",
+      "brief": "Perform alpha blending (default). S if (Sa == 255), otherwise (Sa * S) + (255 - Sa) * D",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 15
+    },
+    {
+      "name": "Multiply",
+      "kind": "enumerator",
+      "value": "1",
+      "brief": "Multiply the RGB values of each pixel. (S * D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 17
+    },
+    {
+      "name": "Screen",
+      "kind": "enumerator",
+      "value": "2",
+      "brief": "Invert, multiply, and invert again. (S + D) - (S * D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 19
+    },
+    {
+      "name": "Overlay",
+      "kind": "enumerator",
+      "value": "3",
+      "brief": "Combines Multiply and Screen modes. (2 * S * D) if (D < 128), otherwise 255 - 2 * (255 - S) * (255 - D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 21
+    },
+    {
+      "name": "Darken",
+      "kind": "enumerator",
+      "value": "4",
+      "brief": "Retains the smallest components. min(S, D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 23
+    },
+    {
+      "name": "Lighten",
+      "kind": "enumerator",
+      "value": "5",
+      "brief": "Retains the largest components. max(S, D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 25
+    },
+    {
+      "name": "ColorDodge",
+      "kind": "enumerator",
+      "value": "6",
+      "brief": "Divides the bottom layer by the inverted top layer. D / (255 - S)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 27
+    },
+    {
+      "name": "ColorBurn",
+      "kind": "enumerator",
+      "value": "7",
+      "brief": "Divides the inverted bottom layer by the top layer, then inverts. 255 - (255 - D) / S",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 29
+    },
+    {
+      "name": "HardLight",
+      "kind": "enumerator",
+      "value": "8",
+      "brief": "Same as Overlay but with color roles reversed. (2 * S * D) if (S < 128), otherwise 255 - 2 * (255 - S) * (255 - D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 31
+    },
+    {
+      "name": "SoftLight",
+      "kind": "enumerator",
+      "value": "9",
+      "brief": "Similar to Overlay but softer. (255 - 2 * S) * (D * D) + (2 * S * D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 33
+    },
+    {
+      "name": "Difference",
+      "kind": "enumerator",
+      "value": "10",
+      "brief": "Absolute difference between layers. (S - D) if (S > D), otherwise (D - S)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 35
+    },
+    {
+      "name": "Exclusion",
+      "kind": "enumerator",
+      "value": "11",
+      "brief": "Twice the product subtracted from the sum. S + D - (2 * S * D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 37
+    },
+    {
+      "name": "Hue",
+      "kind": "enumerator",
+      "value": "12",
+      "brief": "Combine with HSL(Sh + Ds + Dl) then convert to RGB",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 39
+    },
+    {
+      "name": "Saturation",
+      "kind": "enumerator",
+      "value": "13",
+      "brief": "Combine with HSL(Dh + Ss + Dl) then convert to RGB",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 41
+    },
+    {
+      "name": "Color",
+      "kind": "enumerator",
+      "value": "14",
+      "brief": "Combine with HSL(Sh + Ss + Dl) then convert to RGB",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 43
+    },
+    {
+      "name": "Luminosity",
+      "kind": "enumerator",
+      "value": "15",
+      "brief": "Combine with HSL(Dh + Ds + Sl) then convert to RGB",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 45
+    },
+    {
+      "name": "Add",
+      "kind": "enumerator",
+      "value": "16",
+      "brief": "Simply adds pixel values. (S + D)",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 47
+    },
+    {
+      "name": "Composition",
+      "kind": "enumerator",
+      "value": "255",
+      "brief": "For intermediate composition layers; suitable for use with Scene or Picture",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 49
+    }
+  ],
+  "nested": []
+}

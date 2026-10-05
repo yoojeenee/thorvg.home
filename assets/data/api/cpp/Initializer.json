@@ -1,0 +1,123 @@
+{
+  "name": "Initializer",
+  "kind": "struct",
+  "base": null,
+  "final": true,
+  "brief": "A class that enables initialization and termination of the TVG engines.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:2604",
+  "members": [
+    {
+      "name": "init",
+      "kind": "method",
+      "line": 2623,
+      "signature": "static Result init(uint32_t threads = 0) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": true,
+      "const": false,
+      "noexcept": true,
+      "brief": "Initializes the ThorVG engine runtime.",
+      "description": [
+        "ThorVG requires an active runtime environment for rendering operations. This function sets up an internal task scheduler and creates a specified number of worker threads to enable parallel rendering."
+      ],
+      "params": [
+        {
+          "name": "threads",
+          "direction": "in",
+          "description": "The number of worker threads to launch. A value of 0 indicates that only the main thread will be used."
+        }
+      ],
+      "returns": "Result indicating success or failure of initialization.",
+      "retvals": [],
+      "notes": [
+        "This function uses internal reference counting to allow multiple init() calls. However, the number of threads is fixed during the first successful initialization and cannot be changed in subsequent calls."
+      ],
+      "warnings": [],
+      "see": [
+        "Initializer::term()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "term",
+      "kind": "method",
+      "line": 2636,
+      "signature": "static Result term() noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Terminates the ThorVG engine.",
+      "description": [
+        "Cleans up resources and stops any internal threads initialized by init()."
+      ],
+      "params": [],
+      "returns": null,
+      "retvals": [
+        {
+          "value": "Result::InsufficientCondition",
+          "description": "Returned if there is nothing to terminate (e.g., init() was not called)."
+        }
+      ],
+      "notes": [
+        "The initializer maintains a reference count for safe repeated use. Only the final call to term() will fully shut down the engine."
+      ],
+      "warnings": [],
+      "see": [
+        "Initializer::init()"
+      ],
+      "since": null,
+      "deprecated": null,
+      "experimental": false
+    },
+    {
+      "name": "version",
+      "kind": "method",
+      "line": 2649,
+      "signature": "static const char* version(uint32_t* major, uint32_t* minor, uint32_t* micro) noexcept",
+      "static": true,
+      "virtual": false,
+      "pure": false,
+      "const": false,
+      "noexcept": true,
+      "brief": "Retrieves the version of the TVG engine.",
+      "description": [],
+      "params": [
+        {
+          "name": "major",
+          "direction": "out",
+          "description": "A major version number."
+        },
+        {
+          "name": "minor",
+          "direction": "out",
+          "description": "A minor version number."
+        },
+        {
+          "name": "micro",
+          "direction": "out",
+          "description": "A micro version number."
+        }
+      ],
+      "returns": "The version of the engine in the format major.minor.micro, or a `nullptr` in case of an internal error.",
+      "retvals": [],
+      "notes": [],
+      "warnings": [],
+      "see": [],
+      "since": "0.15",
+      "deprecated": null,
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,90 @@
+{
+  "name": "ColorSpace",
+  "kind": "enum",
+  "base": null,
+  "final": false,
+  "brief": "Enumeration specifying the methods of combining the 8-bit color channels into 32-bit color.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "source": "inc/thorvg.h:117",
+  "members": [
+    {
+      "name": "ABGR8888",
+      "kind": "enumerator",
+      "line": 118,
+      "value": "0",
+      "type": "",
+      "static": false,
+      "brief": "The channels are joined in the order: alpha, blue, green, red. Colors are alpha-premultiplied.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "ARGB8888",
+      "kind": "enumerator",
+      "line": 119,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The channels are joined in the order: alpha, red, green, blue. Colors are alpha-premultiplied.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "ABGR8888S",
+      "kind": "enumerator",
+      "line": 120,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The channels are joined in the order: alpha, blue, green, red. Colors are un-alpha-premultiplied.",
+      "description": [],
+      "since": "0.12",
+      "experimental": false
+    },
+    {
+      "name": "ARGB8888S",
+      "kind": "enumerator",
+      "line": 121,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "The channels are joined in the order: alpha, red, green, blue. Colors are un-alpha-premultiplied.",
+      "description": [],
+      "since": "0.12",
+      "experimental": false
+    },
+    {
+      "name": "Grayscale8",
+      "kind": "enumerator",
+      "line": 122,
+      "value": null,
+      "type": "",
+      "static": false,
+      "brief": "Single channel, 1 byte per pixel 8-bit grayscale.",
+      "description": [],
+      "since": null,
+      "experimental": false
+    },
+    {
+      "name": "Unknown",
+      "kind": "enumerator",
+      "line": 0,
+      "value": "255",
+      "type": "",
+      "static": false,
+      "brief": "Unknown channel data. This is reserved for an initial ColorSpace value.",
+      "description": [],
+      "since": "1.0",
+      "experimental": false
+    }
+  ],
+  "nested": []
+}

@@ -1,0 +1,20 @@
+{
+  "name": "MimeType",
+  "kind": "type",
+  "brief": "MIME type or format hint for loading picture data.",
+  "description": [
+    "Supported image and vector file formats for Picture class."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Picture",
+  "signature": "export type MimeType = 'svg' | 'png' | 'jpg' | 'jpeg' | 'webp' | 'raw' | 'lot' | 'lottie+json' | 'mp4';",
+  "source": "src/common/constants.ts:252",
+  "members": [],
+  "nested": []
+}

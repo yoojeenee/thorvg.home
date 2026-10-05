@@ -1,0 +1,20 @@
+{
+  "name": "AssetResolver",
+  "kind": "type",
+  "brief": "Callback that resolves an external asset (image or font) referenced by a loaded picture, such as the assets inside a Lottie file.",
+  "description": [
+    "The callback is invoked synchronously during `Picture.load` for each external reference, so any data it needs must already be in memory — fetch and cache assets before loading, then resolve them here."
+  ],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Picture",
+  "signature": "export type AssetResolver = (paint: Paint, src: string) => boolean;",
+  "source": "src/core/Picture.ts:32",
+  "members": [],
+  "nested": []
+}

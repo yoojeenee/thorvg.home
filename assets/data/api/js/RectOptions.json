@@ -1,0 +1,55 @@
+{
+  "name": "RectOptions",
+  "kind": "interface",
+  "brief": "Options for creating rectangles with rounded corners.",
+  "description": [],
+  "since": null,
+  "deprecated": null,
+  "experimental": false,
+  "notes": [],
+  "warnings": [],
+  "see": [],
+  "examples": [],
+  "category": "Shapes",
+  "signature": "export interface RectOptions",
+  "source": "src/core/Shape.ts:68",
+  "members": [
+    {
+      "name": "rx",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Horizontal corner radius. Default: 0",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 70
+    },
+    {
+      "name": "ry",
+      "kind": "property",
+      "type": "number",
+      "static": false,
+      "readonly": false,
+      "brief": "Vertical corner radius. Default: 0",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 72
+    },
+    {
+      "name": "clockwise",
+      "kind": "property",
+      "type": "boolean",
+      "static": false,
+      "readonly": false,
+      "brief": "Path direction. true = clockwise, false = counter-clockwise. Default: true",
+      "description": [],
+      "since": null,
+      "experimental": false,
+      "line": 74
+    }
+  ],
+  "nested": []
+}
