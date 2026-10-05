@@ -20,6 +20,10 @@
   flex-direction: column;
 }
 
+.page-example.header-pinned .page-content {
+  padding-top: calc(77px + var(--space-3));
+}
+
 .page-example .page-content .container {
   display: flex;
   flex-direction: column;

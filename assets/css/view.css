@@ -15,6 +15,10 @@
   flex-direction: column;
 }
 
+.page-view.header-pinned .page-content {
+  padding-top: calc(77px + var(--space-3));
+}
+
 .page-view .page-content .container {
   flex: 1;
   display: flex;

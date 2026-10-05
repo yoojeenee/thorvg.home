@@ -99,15 +99,28 @@ const siteHeaderForAutoHide = document.querySelector('.site-header');
 
 if (siteHeaderForAutoHide) {
   const revealHotzone = 10;
+  const autoHideMaxViewportHeight = 700;
+  const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
+  const isAutoHideActive = () => !isTouchDevice() && window.innerHeight < autoHideMaxViewportHeight;
 
   const showHeader = () => siteHeaderForAutoHide.classList.remove('is-hidden');
   const hideHeader = () => siteHeaderForAutoHide.classList.add('is-hidden');
+  const syncHeader = () => {
+    const autoHide = isAutoHideActive();
+    document.body.classList.toggle('header-pinned', !autoHide);
+    if (autoHide) hideHeader(); else showHeader();
+  };
+
+  syncHeader();
+  window.addEventListener('resize', syncHeader);
 
   window.addEventListener('mousemove', (event) => {
-    if (event.clientY <= revealHotzone) {
+    if (isAutoHideActive() && event.clientY <= revealHotzone) {
       showHeader();
     }
   }, { passive: true });
 
-  siteHeaderForAutoHide.addEventListener('mouseleave', hideHeader);
+  siteHeaderForAutoHide.addEventListener('mouseleave', () => {
+    if (isAutoHideActive()) hideHeader();
+  });
 }
